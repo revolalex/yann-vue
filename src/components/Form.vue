@@ -75,25 +75,35 @@ export default {
     };
   },
   methods: {
-    onSubmit(evt) {
+    async onSubmit(evt) {
       evt.preventDefault();
-
-      console.log(this.form);
-      axios
+      await axios
         .post("http://localhost:8080/signin/", this.form)
         .then((result) => {
+          console.log(result.data);
           if (result.data === "password error") {
             alert("password error");
           }
           if (result.data === "Sorry, name incorrect") {
             alert("Name error");
           }
-          console.log(result);
+          if (result.data.auth === true) {
+            this.$store.dispatch("AUTH_TRUE");
+          }
+          if (result.data.token !== "") {
+            this.$store.dispatch("ADD_TOKEN", result.data.token);
+          }
+          if (result.data.id !== "") {
+            this.$store.dispatch("SET_ID_USER", result.data.id);
+          }
+          if (result.data.name !== "") {
+            this.$store.dispatch("SET_NAME_USER", result.data.name);
+          }
         })
         .catch((error) => {
           console.log(error);
         });
-        this.onReset()
+      this.onReset();
     },
     onReset() {
       // Reset our form values

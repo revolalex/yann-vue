@@ -93,6 +93,7 @@ const adminRouter = async function(app, connection) {
                 auth: true,
                 token: token,
                 id: id,
+                name: nameInDb
               });
           } else {
             console.log("pass error");
