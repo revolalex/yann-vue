@@ -1,6 +1,6 @@
 <template>
   <div id="myform">
-    <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+    <b-form @submit="onSubmit" v-if="show">
       <!-- Name -->
       <b-form-group
         id="input-group-1"
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   computed: {
     stateName() {
@@ -76,9 +77,25 @@ export default {
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
+
+      console.log(this.form);
+      axios
+        .post("http://localhost:8080/signin/", this.form)
+        .then((result) => {
+          if (result.data === "password error") {
+            alert("password error");
+          }
+          if (result.data === "Sorry, name incorrect") {
+            alert("Name error");
+          }
+          console.log(result);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+        this.onReset()
     },
-    onReset(evt) {
-      evt.preventDefault();
+    onReset() {
       // Reset our form values
       this.form.password = "";
       this.form.name = "";
