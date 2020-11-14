@@ -2,112 +2,81 @@
   <!-- Carousel zoom effect-->
   <b-carousel
     id="carousel-1"
-    :interval="4000"
-    background="#ababab"
+    :interval="3000"
     img-width="1024"
     fade
     img-height="480"
     style="text-shadow: 1px 1px 2px #333"
   >
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img
-          src="https://yanncrochet.com/photo/foret/foret1xs.jpg"
-          class="d-block w-100"
-          alt="Ecureuil"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          src="https://yanncrochet.com/photo/foret/foret24xs.jpg"
-          class="d-block w-100"
-          alt="renardeau"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          src="https://yanncrochet.com/photo/eau/eau2xs.jpg"
-          class="d-block w-100"
-          alt="oiseaux"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          src="https://yanncrochet.com/photo/micro/micro2xs.jpg"
-          class="d-block w-100"
-          alt="insectes"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          src="https://yanncrochet.com/photo/foret/renard.jpg"
-          class="d-block w-100"
-          alt="renards"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          src="https://yanncrochet.com/photo/flore/flore3xs.jpg"
-          class="d-block w-100"
-          alt="fleur"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          src="https://yanncrochet.com/photo/eau/eau1xs.jpg"
-          class="d-block w-100"
-          alt="canard"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          src="https://yanncrochet.com/photo/foret25xs.jpg"
-          class="d-block w-100"
-          alt="sanglier"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          src="https://yanncrochet.com/photo/jardin/jardin13xs.jpg"
-          class="d-block w-100"
-          alt="chien"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          src="https://yanncrochet.com/photo/foret/chouette.jpg"
-          class="d-block w-100"
-          alt="chouette"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          src="https://yanncrochet.com/photo/eau/eau3xs.jpg"
-          class="d-block w-100"
-          alt="moineau"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          src="https://yanncrochet.com/photo/foret/foret13xs.jpg"
-          class="d-block w-100"
-          alt="biche"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          src="https://yanncrochet.com/photo/noirBlanc/nbxs3.jpg"
-          class="d-block w-100"
-          alt="noir et blanc"
-        />
-      </div>
+      <b-carousel-slide
+        v-for="image in imagesInCarousel"
+        :key="image.url"
+        :img-src="image.url"
+        :img-alt="image.alt"
+      />
     </div>
   </b-carousel>
 </template>
 
 <script>
 export default {
-    name: "Carousel"
+  name: "Carousel",
+  data: function () {
+    return {
+      imagesInCarousel: [
+        {
+          url: "https://yanncrochet.com/photo/foret/foret1xs.jpg",
+          alt: "ecureuil",
+        },
+        {
+          url: "https://yanncrochet.com/photo/foret/foret24xs.jpg",
+          alt: "renardeaux",
+        },
+        { url: "https://yanncrochet.com/photo/eau/eau2xs.jpg", 
+          alt: "oiseaux" 
+        },
+        {
+          url: "https://yanncrochet.com/photo/micro/micro2xs.jpg",
+          alt: "insecte",
+        },
+        {
+          url: "https://yanncrochet.com/photo/foret/renard.jpg",
+          alt: "renard",
+        },
+        {
+          url: "https://yanncrochet.com/photo/flore/flore3xs.jpg",
+          alt: "fleur",
+        },
+        { url: "https://yanncrochet.com/photo/eau/eau1xs.jpg", 
+          alt: "canard"
+        },
+        { url: "https://yanncrochet.com/photo/foret25xs.jpg", 
+          alt: "sanglier" 
+        },
+        {
+          url: "https://yanncrochet.com/photo/jardin/jardin13xs.jpg",
+          alt: "chien",
+        },
+        {
+          url: "https://yanncrochet.com/photo/foret/chouette.jpg",
+          alt: "chouette",
+        },
+        {
+          url: "https://yanncrochet.com/photo/eau/eau3xs.jpg",
+          alt: "moineaux",
+        },
+        {
+          url: "https://yanncrochet.com/photo/foret/foret13xs.jpg",
+          alt: "biches",
+        },
+        {
+          url: "https://yanncrochet.com/photo/noirBlanc/nbxs3.jpg",
+          alt: "noir et blanc photographie",
+        },
+      ],
+    };
+  },
 };
 </script>
 
@@ -162,8 +131,8 @@ body {
     /* 50% */
   }
 }
-
 nav {
   background-color: #0005;
 }
+
 </style>
