@@ -1,5 +1,4 @@
 <template>
-  <!-- Carousel zoom effect-->
   <b-carousel
     id="carousel-1"
     :interval="3000"
@@ -33,9 +32,7 @@ export default {
           url: "https://yanncrochet.com/photo/foret/foret24xs.jpg",
           alt: "renardeaux",
         },
-        { url: "https://yanncrochet.com/photo/eau/eau2xs.jpg", 
-          alt: "oiseaux" 
-        },
+        { url: "https://yanncrochet.com/photo/eau/eau2xs.jpg", alt: "oiseaux" },
         {
           url: "https://yanncrochet.com/photo/micro/micro2xs.jpg",
           alt: "insecte",
@@ -48,12 +45,8 @@ export default {
           url: "https://yanncrochet.com/photo/flore/flore3xs.jpg",
           alt: "fleur",
         },
-        { url: "https://yanncrochet.com/photo/eau/eau1xs.jpg", 
-          alt: "canard"
-        },
-        { url: "https://yanncrochet.com/photo/foret25xs.jpg", 
-          alt: "sanglier" 
-        },
+        { url: "https://yanncrochet.com/photo/eau/eau1xs.jpg", alt: "canard" },
+        { url: "https://yanncrochet.com/photo/foret25xs.jpg", alt: "sanglier" },
         {
           url: "https://yanncrochet.com/photo/jardin/jardin13xs.jpg",
           alt: "chien",
@@ -134,5 +127,4 @@ body {
 nav {
   background-color: #0005;
 }
-
 </style>
