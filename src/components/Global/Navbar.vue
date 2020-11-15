@@ -1,26 +1,27 @@
 <template>
-  <div>
-    <b-navbar toggleable="lg" type="dark" variant="dark">
-      <b-navbar-brand href="#">@:)@</b-navbar-brand>
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav>
-          <b-nav-item href="#">
-            <router-link to="/">Admin</router-link>
-          </b-nav-item>
-          <b-nav-item href="#">
-            <router-link to="/about">Jumbo</router-link>
-          </b-nav-item>
-          <b-nav-item href="#">
-            <router-link to="/carousel">Carousel</router-link>
-          </b-nav-item>
-          <b-nav-item href="#">
-            <router-link to="/apropos">A propos</router-link>
-          </b-nav-item>
-        </b-navbar-nav>
-      </b-collapse>
-    </b-navbar>
-  </div>
+    <div>
+      <b-navbar toggleable="lg" type="dark" variant="secondary">
+        <b-navbar-brand id="ycLogo" href="/">Yann Crochet</b-navbar-brand>
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+        <b-collapse id="nav-collapse" is-nav>
+          <b-navbar-nav>
+            <b-nav-item href="/biographie">Biographie</b-nav-item>
+            <b-nav-item href="/actualites">Actualités</b-nav-item>
+            <b-nav-item href="/galeries">Galeries</b-nav-item>
+            <b-nav-item-dropdown text="Galeries" right>
+              <!-- enlever Galeries dans href aprés test -->
+              <b-dropdown-item href="#">L'appel de la forêt</b-dropdown-item>
+              <b-dropdown-item href="#">Microcosmos</b-dropdown-item>
+              <b-dropdown-item href="#">Féérie végétale</b-dropdown-item>
+              <b-dropdown-item href="#">Au fil de l'eau</b-dropdown-item>
+              <b-dropdown-item href="#">Jardin d'Eden</b-dropdown-item>
+              <b-dropdown-item href="#">Noir et blanc</b-dropdown-item>
+            </b-nav-item-dropdown>
+            <b-nav-item href="#">Contact</b-nav-item>
+          </b-navbar-nav>
+        </b-collapse>
+      </b-navbar>
+    </div>
 </template>
 
 <script>
@@ -30,4 +31,17 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Handlee&display=swap");
+#ycLogo {
+  font-family: "Handlee", cursive;
+  font-size: 1.3em;
+}
+.navbar {
+  font: normal 18px sans-serif;
+  font-weight: bold;
+}
+.dropdown-menu {
+  opacity: 0.9;
+  font-weight: bold;
+}
 </style>

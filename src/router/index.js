@@ -1,26 +1,38 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Admin from '../views/Admin.vue'
-import Carousel from'../views/Carousel.vue'
-import Apropos from "../views/Apropos.vue"
+import Home from'../views/Home.vue'
+import Biographie from "../views/Biographie.vue"
+import Galerie from"../views/Galerie.vue"
+import Actualites from"../views/Actualites"
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/admin',
     name: 'Admin',
     component: Admin
   },
   {
-    path: '/apropos',
-    name: 'Apropos',
-    component: Apropos
+    path: '/biographie',
+    name: 'Biographie',
+    component: Biographie
   },
   {
-    path: '/carousel',
-    name: 'Carousel',
-    component: Carousel
+    path: '/actualites',
+    name: 'Actualites',
+    component: Actualites
+  },
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/galeries',
+    name: 'Galeries',
+    component: Galerie
   },
   {
     path: '/about',

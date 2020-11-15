@@ -1,5 +1,5 @@
 <template>
-  <b-carousel
+    <b-carousel
     id="carousel-1"
     :interval="3000"
     img-width="1024"
@@ -18,9 +18,10 @@
   </b-carousel>
 </template>
 
+
 <script>
 export default {
-  name: "Carousel",
+  name: "CarouselComponent",
   data: function () {
     return {
       imagesInCarousel: [
