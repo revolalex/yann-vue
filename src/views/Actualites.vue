@@ -1,7 +1,7 @@
 <template>
   <div>
       <TitreDePage titre="Actualités"/>
-    <GaleriesThumnails
+    <GalerieMenu
       v-bind:imageInGaleries="imageInGaleries"
       v-bind:classes="classes"
     />
@@ -11,12 +11,12 @@
 
 <script>
 import TitreDePage from "../components/Global/TitrePage";
-import GaleriesThumnails from "../components/Galeries/GaleriesThumnails";
+import GalerieMenu from "../components/Galeries/GalerieMenu";
 import Footer from "../components/Global/Footer";
 export default {
   name: "Actualites",
   components: {
-    GaleriesThumnails,
+    GalerieMenu,
     Footer,
     TitreDePage
   },

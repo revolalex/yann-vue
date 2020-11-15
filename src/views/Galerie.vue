@@ -1,21 +1,21 @@
 <template>
   <div>
     <TitreDePage titre="Galeries" />
-    <GaleriesThumnails v-bind:imageInGaleries="imageInGaleries" v-bind:classes="classes"/>
+    <GalerieMenu v-bind:imageInGaleries="imageInGaleries" v-bind:classes="classes"/>
     <Footer/>
   </div>
 </template>
 
 <script>
 
-import Footer from "../components/Global/Footer";
-import TitreDePage from "../components/Global/TitrePage";
-import GaleriesThumnails from '../components/Galeries/GaleriesThumnails'
+import Footer from "@/components/Global/Footer";
+import TitreDePage from "@/components/Global/TitrePage";
+import GalerieMenu from '@/components/Galeries/GalerieMenu'
 export default {
     name:"Gallery",
     components: {
     TitreDePage,
-    GaleriesThumnails,
+    GalerieMenu,
     Footer,
   },
   data: function () {

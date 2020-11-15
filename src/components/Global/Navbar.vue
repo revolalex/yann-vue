@@ -9,11 +9,10 @@
             <b-nav-item href="/actualites">Actualités</b-nav-item>
             <b-nav-item href="/galeries">Galeries</b-nav-item>
             <b-nav-item-dropdown text="Galeries" right>
-              <!-- enlever Galeries dans href aprés test -->
-              <b-dropdown-item href="#">L'appel de la forêt</b-dropdown-item>
-              <b-dropdown-item href="#">Microcosmos</b-dropdown-item>
-              <b-dropdown-item href="#">Féérie végétale</b-dropdown-item>
-              <b-dropdown-item href="#">Au fil de l'eau</b-dropdown-item>
+              <b-dropdown-item href="/galeries/foret">L'appel de la forêt</b-dropdown-item>
+              <b-dropdown-item href="/galeries/microcosmos">Microcosmos</b-dropdown-item>
+              <b-dropdown-item href="/galeries/vegetale">Féérie végétale</b-dropdown-item>
+              <b-dropdown-item href="/galeries/eau">Au fil de l'eau</b-dropdown-item>
               <b-dropdown-item href="#">Jardin d'Eden</b-dropdown-item>
               <b-dropdown-item href="#">Noir et blanc</b-dropdown-item>
             </b-nav-item-dropdown>

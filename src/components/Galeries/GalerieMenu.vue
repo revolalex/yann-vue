@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "GaleriesThumnails",
+  name: "GalerieMenu",
   props:{
     imageInGaleries: Array,
     classes: Object

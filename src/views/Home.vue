@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import CarouselComponent from '../components/Carousel/Carousel'
+import CarouselComponent from '@/components/Carousel/Carousel'
 export default {
   name: "Carousel",
   components:{

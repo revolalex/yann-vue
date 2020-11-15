@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import CardApropos from "../components/APropos/CardApropos";
-import PortraitApropos from "../components/APropos/PortraitApropos";
-import TitreDePage from "../components/Global/TitrePage";
-import Footer from "../components/Global/Footer";
+import CardApropos from "@/components/APropos/CardApropos";
+import PortraitApropos from "@/components/APropos/PortraitApropos";
+import TitreDePage from "@/components/Global/TitrePage";
+import Footer from "@/components/Global/Footer";
 
 export default {
   name: "Apropos",
