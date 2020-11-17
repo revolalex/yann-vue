@@ -1,7 +1,7 @@
 <template>
     <b-carousel
     id="carousel-1"
-    :interval="3000"
+    :interval="4000"
     img-width="1024"
     fade
     img-height="480"

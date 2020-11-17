@@ -1,8 +1,10 @@
 <template>
   <div>
-    <TitreDePage titre="L'appel de la fôret" />
-    <GaleriePhoto v-bind:imageInGaleries="items" />
-    <Footer/>
+    <div class="myContainerGalerie">
+      <TitreDePage titre="L'appel de la fôret" />
+      <GaleriePhoto v-bind:imageInGaleries="items" />
+    </div>
+    <Footer />
   </div>
 </template>
 
@@ -15,7 +17,7 @@ export default {
   components: {
     GaleriePhoto,
     TitreDePage,
-    Footer
+    Footer,
   },
   data: function () {
     return {
@@ -107,4 +109,10 @@ export default {
 </script>
 
 <style>
+.myContainerGalerie{
+    padding-left: 1vw;
+  padding-right: 1vw;
+  min-height: 100vh;
+  margin-bottom: 10vh;
+}
 </style>

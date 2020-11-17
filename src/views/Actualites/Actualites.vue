@@ -1,24 +1,26 @@
 <template>
   <div>
-      <TitreDePage titre="Actualités"/>
-    <GalerieMenu
-      v-bind:imageInGaleries="imageInGaleries"
-      v-bind:classes="classes"
-    />
+    <div class="myContainer">
+      <TitreDePage titre="Actualités" />
+      <GalerieMenu
+        v-bind:imageInGaleries="imageInGaleries"
+        v-bind:classes="classes"
+      />
+    </div>
     <Footer />
   </div>
 </template>
 
 <script>
-import TitreDePage from "../components/Global/TitrePage";
-import GalerieMenu from "../components/Galeries/GalerieMenu";
-import Footer from "../components/Global/Footer";
+import TitreDePage from "@/components/Global/TitrePage";
+import GalerieMenu from "@/components/Galeries/GalerieMenu";
+import Footer from "@/components/Global/Footer";
 export default {
   name: "Actualites",
   components: {
     GalerieMenu,
     Footer,
-    TitreDePage
+    TitreDePage,
   },
   data: function () {
     return {
@@ -58,4 +60,10 @@ export default {
 </script>
 
 <style>
+.myContainer {
+  padding-left: 10vw;
+  padding-right: 10vw;
+  min-height: 100vh;
+  margin-bottom: 10vh;
+}
 </style>

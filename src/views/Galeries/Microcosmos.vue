@@ -1,8 +1,10 @@
 <template>
   <div>
-    <TitreDePage titre="Microcosmos" />
-    <GaleriePhoto v-bind:imageInGaleries="items" />
-    <Footer/>
+    <div class="myContainerGalerie">
+      <TitreDePage titre="Microcosmos" />
+      <GaleriePhoto v-bind:imageInGaleries="items" />
+    </div>
+    <Footer />
   </div>
 </template>
 
@@ -15,7 +17,7 @@ export default {
   components: {
     GaleriePhoto,
     TitreDePage,
-    Footer
+    Footer,
   },
   data: function () {
     return {

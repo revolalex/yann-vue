@@ -37,16 +37,7 @@ export default {
   text-align: left;
   font: normal 16px sans-serif;
   padding: 5px 10px;
-  margin-top: 5vh;
 }
-
-/* allow the footer to stay at bottom */
-/* @media screen and (min-width: 800px) and (max-width: 1050px) {
-  .footer-distributed {
-    position: absolute;
-    bottom: 0;
-  }
-} */
 
 
 .footer-distributed .footer-left p {

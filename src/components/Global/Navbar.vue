@@ -13,8 +13,8 @@
               <b-dropdown-item href="/galeries/microcosmos">Microcosmos</b-dropdown-item>
               <b-dropdown-item href="/galeries/vegetale">Féérie végétale</b-dropdown-item>
               <b-dropdown-item href="/galeries/eau">Au fil de l'eau</b-dropdown-item>
-              <b-dropdown-item href="#">Jardin d'Eden</b-dropdown-item>
-              <b-dropdown-item href="#">Noir et blanc</b-dropdown-item>
+              <b-dropdown-item href="/galeries/jardin">Jardin d'Eden</b-dropdown-item>
+              <b-dropdown-item href="/galeries/noir">Noir et blanc</b-dropdown-item>
             </b-nav-item-dropdown>
             <b-nav-item href="#">Contact</b-nav-item>
           </b-navbar-nav>

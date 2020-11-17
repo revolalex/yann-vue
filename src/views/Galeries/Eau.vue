@@ -1,8 +1,10 @@
 <template>
   <div>
-    <TitreDePage titre="Au fil de l'eau" />
-    <GaleriePhoto v-bind:imageInGaleries="items" />
-    <Footer/>
+    <div class="myContainerGalerie">
+      <TitreDePage titre="Au fil de l'eau" />
+      <GaleriePhoto v-bind:imageInGaleries="items" />
+    </div>
+    <Footer />
   </div>
 </template>
 
@@ -15,7 +17,7 @@ export default {
   components: {
     GaleriePhoto,
     TitreDePage,
-    Footer
+    Footer,
   },
   data: function () {
     return {
@@ -52,7 +54,7 @@ export default {
         },
         {
           href: "",
-          src: "https://yanncrochet.com/photo/eau/eau10xs.jpg",
+          src: "https://yanncrochet.com/photo/eau/10.jpg",
           alt: "biche",
         },
         {
@@ -74,11 +76,6 @@ export default {
           href: "",
           src: "https://yanncrochet.com/photo/eau/eau7xs.jpg",
           alt: "rapace",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/foret/foret11xs.jpg",
-          alt: "foret",
         },
         {
           href: "",

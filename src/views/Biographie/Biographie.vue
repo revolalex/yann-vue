@@ -1,9 +1,11 @@
 <template>
   <div>
-    <TitreDePage titre="Biographie" />
-    <div class="aproposContainer">
-      <CardApropos />
-      <PortraitApropos />
+    <div id="globalContainer">
+      <TitreDePage titre="Biographie" />
+      <div class="aproposContainer">
+        <CardApropos />
+        <PortraitApropos />
+      </div>
     </div>
     <Footer />
   </div>
@@ -28,6 +30,10 @@ export default {
 </script>
 
 <style>
+#globalContainer{
+  margin-bottom: 10vh;
+}
+
 .aproposContainer {
   display: flex;
   align-items: center;
