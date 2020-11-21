@@ -5,13 +5,6 @@ import Home from'../views/Home/Home.vue'
 import Biographie from "../views/Biographie/Biographie.vue"
 import Galerie from"../views/Galeries/Galerie.vue"
 import Actualites from"../views/Actualites/Actualites.vue"
-import Foret from '../views/Galeries/Foret/Foret.vue';
-import Microcosmos from "../views/Galeries/Micro/Microcosmos.vue"
-import Vegetale from "@/views/Galeries/Vegetale.vue"
-import Eau from '@/views/Galeries/Eau/Eau.vue';
-import Jardin from '@/views/Galeries/Jardin/Jardin.vue'
-// import Noir from '@/views/Galeries/Noir/Noir.vue'
-
 
 Vue.use(VueRouter)
 
@@ -44,27 +37,30 @@ const routes = [
   {
     path: '/galeries/foret',
     name: 'Foret',
-    component: Foret
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '@/views/Galeries/Foret/Foret.vue')
   },
   {
     path: '/galeries/microcosmos',
     name: 'Microcosmos',
-    component: Microcosmos
+    component: () => import(/* webpackChunkName: "about" */ '@/views/Galeries/Micro/Microcosmos.vue')
   },
   {
     path: '/galeries/vegetale',
     name: 'Vegetale',
-    component: Vegetale
+    component: () => import(/* webpackChunkName: "about" */ '@/views/Galeries/Vegetale/Vegetale.vue')
   },
   {
     path: '/galeries/eau',
     name: 'Eau',
-    component: Eau
+    component: () => import(/* webpackChunkName: "about" */ '@/views/Galeries/Eau/Eau.vue')
   },
   {
     path: '/galeries/jardin',
     name: 'Jardin',
-    component: Jardin
+    component: () => import(/* webpackChunkName: "about" */ '@/views/Galeries/Jardin/Jardin.vue')
   },
   {
     path: '/galeries/noir',
@@ -75,9 +71,6 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
 

@@ -29,9 +29,7 @@ export default {
 </script>
 
 <style>
-body {
-  background-color: grey;
-}
+
 @-webkit-keyframes zoom {
   from {
     -webkit-transform: scale(1, 1);
@@ -63,12 +61,14 @@ body {
   min-height: 100%;
   min-width: 1024px;
   /* Set up proportionate scaling */
-  width: 100vw;
-  height: auto;
+  /* width: 100vw;
+  height: auto; */
   /* Set up positioning */
   position: fixed;
   top: 20;
   left: 0;
+
+  object-fit: cover;
 }
 
 @media screen and (max-width: 1024px) {
@@ -79,7 +79,5 @@ body {
     /* 50% */
   }
 }
-nav {
-  background-color: #0005;
-}
+
 </style>
