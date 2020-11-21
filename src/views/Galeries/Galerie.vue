@@ -26,37 +26,37 @@ export default {
     return {
       imageInGaleries: [
         {
-          href: "",
+          href: "/galeries/foret",
           src: "https://yanncrochet.com/photo/foret/foret23xs.jpg",
           alt: "foret",
           caption: "L'appel de la foret",
         },
         {
-          href: "",
+          href: "/galeries/microcosmos",
           src: "https://yanncrochet.com/photo/micro/micro1xs.jpg",
           alt: "abeille",
           caption: "Microcosmos",
         },
         {
-          href: "",
+          href: "/galeries/vegetale",
           src: "https://yanncrochet.com/photo/flore/flore10xs.jpg",
           alt: "fleur",
           caption: "Féérie Végétale",
         },
         {
-          href: "",
+          href: "/galeries/eau",
           src: "https://yanncrochet.com/photo/eau/eau2xs2.jpg",
           alt: "oiseaux marin",
           caption: "Au fil de l'eau",
         },
         {
-          href: "",
+          href: "/galeries/jardin",
           src: "https://yanncrochet.com/photo/jardin/jardin2xs.jpg",
           alt: "oiseaux des jardins",
           caption: "Jardin d'Eden",
         },
         {
-          href: "",
+          href: "/galeries/noir",
           src: "https://yanncrochet.com/photo/noirBlanc/nbxs1.jpg",
           alt: "biche",
           caption: "Noir et blanc",

@@ -5,12 +5,12 @@ import Home from'../views/Home/Home.vue'
 import Biographie from "../views/Biographie/Biographie.vue"
 import Galerie from"../views/Galeries/Galerie.vue"
 import Actualites from"../views/Actualites/Actualites.vue"
-import Foret from '../views/Galeries/Foret.vue';
-import Microcosmos from "../views/Galeries/Microcosmos.vue"
+import Foret from '../views/Galeries/Foret/Foret.vue';
+import Microcosmos from "../views/Galeries/Micro/Microcosmos.vue"
 import Vegetale from "@/views/Galeries/Vegetale.vue"
-import Eau from '@/views/Galeries/Eau.vue';
-import Jardin from '@/views/Galeries/Jardin.vue'
-import Noir from '@/views/Galeries/Noir.vue'
+import Eau from '@/views/Galeries/Eau/Eau.vue';
+import Jardin from '@/views/Galeries/Jardin/Jardin.vue'
+// import Noir from '@/views/Galeries/Noir/Noir.vue'
 
 
 Vue.use(VueRouter)
@@ -69,7 +69,8 @@ const routes = [
   {
     path: '/galeries/noir',
     name: 'Noir',
-    component: Noir
+    // component: Noir
+    component: () => import(/* webpackChunkName: "about" */ '@/views/Galeries/Noir/Noir.vue')
   },
   {
     path: '/about',

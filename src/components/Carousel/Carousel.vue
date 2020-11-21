@@ -9,7 +9,7 @@
   >
     <div class="carousel-inner">
       <b-carousel-slide
-        v-for="image in imagesInCarousel"
+        v-for="image in imageInCarousel"
         :key="image.url"
         :img-src="image.url"
         :img-alt="image.alt"
@@ -22,55 +22,9 @@
 <script>
 export default {
   name: "CarouselComponent",
-  data: function () {
-    return {
-      imagesInCarousel: [
-        {
-          url: "https://yanncrochet.com/photo/foret/foret1xs.jpg",
-          alt: "ecureuil",
-        },
-        {
-          url: "https://yanncrochet.com/photo/foret/foret24xs.jpg",
-          alt: "renardeaux",
-        },
-        { url: "https://yanncrochet.com/photo/eau/eau2xs.jpg", alt: "oiseaux" },
-        {
-          url: "https://yanncrochet.com/photo/micro/micro2xs.jpg",
-          alt: "insecte",
-        },
-        {
-          url: "https://yanncrochet.com/photo/foret/renard.jpg",
-          alt: "renard",
-        },
-        {
-          url: "https://yanncrochet.com/photo/flore/flore3xs.jpg",
-          alt: "fleur",
-        },
-        { url: "https://yanncrochet.com/photo/eau/eau1xs.jpg", alt: "canard" },
-        { url: "https://yanncrochet.com/photo/foret25xs.jpg", alt: "sanglier" },
-        {
-          url: "https://yanncrochet.com/photo/jardin/jardin13xs.jpg",
-          alt: "chien",
-        },
-        {
-          url: "https://yanncrochet.com/photo/foret/chouette.jpg",
-          alt: "chouette",
-        },
-        {
-          url: "https://yanncrochet.com/photo/eau/eau3xs.jpg",
-          alt: "moineaux",
-        },
-        {
-          url: "https://yanncrochet.com/photo/foret/foret13xs.jpg",
-          alt: "biches",
-        },
-        {
-          url: "https://yanncrochet.com/photo/noirBlanc/nbxs3.jpg",
-          alt: "noir et blanc photographie",
-        },
-      ],
-    };
-  },
+  props:{
+    imageInCarousel: Array
+  }
 };
 </script>
 

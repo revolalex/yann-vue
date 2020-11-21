@@ -1,5 +1,5 @@
 <template>
-  <h1 class="titrePage">{{titre}}</h1>
+  <h1 class="titrePage" data-test="titre-h1">{{titre}}</h1>
 </template>
 
 <script>

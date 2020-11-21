@@ -1,18 +1,18 @@
 <template>
       <footer class="footer-distributed">
-      <div class="footer-right">
-        <a href="https://www.instagram.com/yann_crochet_photographe/">
+      <div class="footer-right" data-test="div-instagram">
+        <a href="https://www.instagram.com/yann_crochet_photographe/" data-test="instagram-link">
             <img src="@/assets/insta.png" alt="instagram" width="30px;"/>
         </a>
       </div>
-      <div class="footer-left">
-        <p class="footer-links">
+      <div class="footer-left" data-test="div-link">
+        <p class="footer-links" data-test="link">
           <a id="copyright" href="https://revol-cv.netlify.app/">
             AR &copy; 2020
           </a>
           <a href="/">Accueil</a>
           <a href="/biographie">Biographie</a>
-          <a href="actualités">Actualités</a>
+          <a href="/actualites">Actualités</a>
           <a href="/galeries">Galeries</a>
           <a href="/contact">Contact</a>
         </p>
