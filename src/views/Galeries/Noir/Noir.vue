@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="myContainerGalerie">
-      <TitreDePage titre="Noir et blanc" />
+      <TitreDePage :titre="$t('Titre.Galerie.Noir')" />
       <GaleriePhoto v-bind:imageInGaleries="items" />
     </div>
     <Footer />

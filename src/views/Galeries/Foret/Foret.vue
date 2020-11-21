@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="myContainerGalerie">
-      <TitreDePage titre="L'appel de la fôret" />
+      <TitreDePage :titre="$t('Titre.Galerie.Foret')"  />
       <GaleriePhoto v-bind:imageInGaleries="items" />
     </div>
     <Footer />

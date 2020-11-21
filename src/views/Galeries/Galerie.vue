@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="myContainer">
-      <TitreDePage titre="Galeries" />
+      <TitreDePage :titre="$t('Titre.Galeries')" />
       <GalerieMenu
         v-bind:imageInGaleries="imageInGaleries"
         v-bind:classes="classes"

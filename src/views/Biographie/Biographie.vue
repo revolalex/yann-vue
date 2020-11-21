@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="globalContainer">
-      <TitreDePage titre="Biographie" />
+      <TitreDePage :titre="$t('Titre.Biographie')" />
       <div class="aproposContainer">
         <CardApropos />
         <PortraitApropos />

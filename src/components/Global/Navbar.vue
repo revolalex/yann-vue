@@ -1,14 +1,15 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="secondary" position="top">
-      <b-navbar-brand id="ycLogo" :to="{ name: 'Home' }"
-        >Yann Crochet</b-navbar-brand
+    <b-navbar toggleable="lg" type="dark" variant="secondary" position="top" data-test="navbar">
+      <b-navbar-brand id="ycLogo" :to="{ name: 'Home' }" data-test="navbar-brand"
+        >{{$t('Photographer.Name')}}</b-navbar-brand
       >
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-navbar-toggle target="nav-collapse" data-test="navbar-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <router-link
-            :to="{ name:'Biographie'}"
+            v-on:click.prevent
+            :to="{ name: 'Biographie' }"
             class="nav-item nav-link"
             active-class="active"
             exact
@@ -16,7 +17,8 @@
             Biographie
           </router-link>
           <router-link
-            :to="{ name:'Actualites'}"
+            v-on:click.prevent
+            :to="{ name: 'Actualites' }"
             class="nav-item nav-link"
             active-class="active"
             exact
@@ -24,34 +26,36 @@
             Actualites
           </router-link>
           <router-link
-            :to="{ name:'Galeries'}"
+            v-on:click.prevent
+            :to="{ name: 'Galeries' }"
             class="nav-item nav-link"
             active-class="active"
             exact
           >
             Galeries
           </router-link>
-          <b-nav-item-dropdown text="Galeries" right>
-            <b-dropdown-item v-on:click.prevent :to="{ name: 'Foret' }"
+          <b-nav-item-dropdown text="Galeries" right data-test="navbar-dropdown">
+            <b-dropdown-item  v-on:click.prevent :to="{ name: 'Foret' }"
               >L'appel de la forêt</b-dropdown-item
             >
-            <b-dropdown-item v-on:click.prevent :to="{ name: 'Microcosmos' }"
+            <b-dropdown-item  v-on:click.prevent :to="{ name: 'Microcosmos' }"
               >Microcosmos</b-dropdown-item
             >
-            <b-dropdown-item v-on:click.prevent :to="{ name: 'Vegetale' }"
+            <b-dropdown-item  v-on:click.prevent :to="{ name: 'Vegetale' }"
               >Féérie végétale</b-dropdown-item
             >
-            <b-dropdown-item v-on:click.prevent :to="{ name: 'Eau' }"
+            <b-dropdown-item  v-on:click.prevent :to="{ name: 'Eau' }"
               >Au fil de l'eau</b-dropdown-item
             >
-            <b-dropdown-item v-on:click.prevent :to="{ name: 'Jardin' }"
+            <b-dropdown-item  v-on:click.prevent :to="{ name: 'Jardin' }"
               >Jardin d'Eden</b-dropdown-item
             >
-            <b-dropdown-item v-on:click.prevent :to="{ name: 'Noir' }"
+            <b-dropdown-item  v-on:click.prevent :to="{ name: 'Noir' }"
               >Noir et blanc</b-dropdown-item
             >
           </b-nav-item-dropdown>
           <router-link
+             v-on:click.prevent
             :to="{ name:'Contact'}"
             class="nav-item nav-link"
             active-class="active"

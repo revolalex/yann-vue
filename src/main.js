@@ -2,6 +2,9 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import VueI18n from 'vue-i18n'
+
+Vue.use(VueI18n)
 
 // Install BootstrapVue
 import 'bootstrap/dist/css/bootstrap.css'
@@ -11,6 +14,7 @@ import { BootstrapVue} from "bootstrap-vue";
 //Lightbox
 import CoolLightBox from 'vue-cool-lightbox'
 import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
+import i18n from './i18n'
 
 Vue.use(CoolLightBox)
 Vue.use(BootstrapVue);
@@ -21,5 +25,6 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
-  render: (h) => h(App),
+  i18n,
+  render: (h) => h(App)
 }).$mount("#app");
