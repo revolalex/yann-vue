@@ -10,19 +10,17 @@
       <option value="ru">🇷🇺 RU</option>
     </select>
   </div>
-
 </template>
 
 
 <script>
 export default {
-    name:"LocaleSwitcher"
-}
+  name: "LocaleSwitcher",
+};
 </script>
 
 <style>
-#langFlag{
-  width:50px;
+#langFlag {
+  width: 50px;
 }
-
 </style>
