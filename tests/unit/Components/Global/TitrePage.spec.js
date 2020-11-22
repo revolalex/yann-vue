@@ -24,5 +24,8 @@ describe('TitrePage.vue', () => {
     expect(wrapper.exists()).toBeTruthy()
     expect(wrapper.text()).toMatch(titre)
   })
+  afterAll(() => {
+    wrapper.destroy()
+  })
 
 })

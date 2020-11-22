@@ -6,6 +6,7 @@ describe('Footer.vue', () => {
   
     beforeAll(() => {
       wrapper = shallowMount(Footer , {
+    
       })
     })
   
@@ -70,6 +71,9 @@ describe('Footer.vue', () => {
 
             
         })
+    })
+    afterAll(() => {
+      wrapper.destroy()
     })
   
 

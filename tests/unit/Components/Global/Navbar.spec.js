@@ -1,12 +1,13 @@
 import { shallowMount } from '@vue/test-utils'
-import Navbar from '@/components/Global/Navbar.vue'
+import Navbar from '@/components/Global/Navbar/Navbar.vue'
+import i18n from '@/src/i18n.js'
 
 describe('Navbar.vue', () => {
   let wrapper
 
   beforeAll(() => {
     wrapper = shallowMount(Navbar , {
-    })
+    },i18n)
   })
 
   it('should be defined', () => {
@@ -69,6 +70,9 @@ describe('Navbar.vue', () => {
     expect(noirLink.exists()).toBeTruthy()
     expect(noirLink.text()).toBe("Noir et blanc")
 
+  })
+  afterAll(() => {
+    wrapper.destroy()
   })
 
 })

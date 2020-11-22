@@ -1,10 +1,22 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="secondary" position="top" data-test="navbar">
-      <b-navbar-brand id="ycLogo" :to="{ name: 'Home' }" data-test="navbar-brand"
-        >{{$t('Photographer.Name')}}</b-navbar-brand
+    <b-navbar
+      toggleable="lg"
+      type="dark"
+      variant="secondary"
+      position="top"
+      data-test="navbar"
+    >
+      <b-navbar-brand
+        id="ycLogo"
+        :to="{ name: 'Home' }"
+        data-test="navbar-brand"
+        >{{ $t("Photographer.Name") }}</b-navbar-brand
       >
-      <b-navbar-toggle target="nav-collapse" data-test="navbar-collapse"></b-navbar-toggle>
+      <b-navbar-toggle
+        target="nav-collapse"
+        data-test="navbar-collapse"
+      ></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <router-link
@@ -14,7 +26,7 @@
             active-class="active"
             exact
           >
-            Biographie
+            {{$t('Navbar.Biographie.Text')}}
           </router-link>
           <router-link
             v-on:click.prevent
@@ -23,7 +35,7 @@
             active-class="active"
             exact
           >
-            Actualites
+            {{$t('Navbar.Actualites.Text')}}
           </router-link>
           <router-link
             v-on:click.prevent
@@ -32,36 +44,42 @@
             active-class="active"
             exact
           >
-            Galeries
+            {{$t('Navbar.Galerie.Text')}}
           </router-link>
-          <b-nav-item-dropdown text="Galeries" right data-test="navbar-dropdown">
-            <b-dropdown-item  v-on:click.prevent :to="{ name: 'Foret' }"
+          <b-nav-item-dropdown
+            :text="$t('Navbar.Galeries.Text')"
+            right
+            data-test="navbar-dropdown"
+          >
+            <b-dropdown-item v-on:click.prevent :to="{ name: 'Foret' }"
               >L'appel de la forêt</b-dropdown-item
             >
-            <b-dropdown-item  v-on:click.prevent :to="{ name: 'Microcosmos' }"
+            <b-dropdown-item v-on:click.prevent :to="{ name: 'Microcosmos' }"
               >Microcosmos</b-dropdown-item
             >
-            <b-dropdown-item  v-on:click.prevent :to="{ name: 'Vegetale' }"
+            <b-dropdown-item v-on:click.prevent :to="{ name: 'Vegetale' }"
               >Féérie végétale</b-dropdown-item
             >
-            <b-dropdown-item  v-on:click.prevent :to="{ name: 'Eau' }"
+            <b-dropdown-item v-on:click.prevent :to="{ name: 'Eau' }"
               >Au fil de l'eau</b-dropdown-item
             >
-            <b-dropdown-item  v-on:click.prevent :to="{ name: 'Jardin' }"
+            <b-dropdown-item v-on:click.prevent :to="{ name: 'Jardin' }"
               >Jardin d'Eden</b-dropdown-item
             >
-            <b-dropdown-item  v-on:click.prevent :to="{ name: 'Noir' }"
+            <b-dropdown-item v-on:click.prevent :to="{ name: 'Noir' }"
               >Noir et blanc</b-dropdown-item
             >
           </b-nav-item-dropdown>
           <router-link
-             v-on:click.prevent
-            :to="{ name:'Contact'}"
+            v-on:click.prevent
+            :to="{ name: 'Contact' }"
             class="nav-item nav-link"
             active-class="active"
-          >
-            Contact
+          >Contact 
           </router-link>
+          <b-nav-item right>
+            <LocalSwitcher />
+          </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -69,8 +87,12 @@
 </template>
 
 <script>
+import LocalSwitcher from "./LocalSwitcher";
 export default {
   name: "NavBar",
+  components: {
+    LocalSwitcher,
+  },
 };
 </script>
 

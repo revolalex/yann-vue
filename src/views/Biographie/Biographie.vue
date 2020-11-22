@@ -2,9 +2,9 @@
   <div>
     <div id="globalContainer">
       <TitreDePage :titre="$t('Titre.Biographie')" />
-      <div class="aproposContainer">
-        <CardApropos />
-        <PortraitApropos />
+      <div class="biographieContainer">
+        <CardBiographie />
+        <PortraitBiographie />
       </div>
     </div>
     <Footer />
@@ -12,17 +12,17 @@
 </template>
 
 <script>
-import CardApropos from "@/components/APropos/CardApropos";
-import PortraitApropos from "@/components/APropos/PortraitApropos";
+import CardBiographie from "@/components/Biographie/CardBiographie";
+import PortraitBiographie from "@/components/Biographie/PortraitBiographie";
 import TitreDePage from "@/components/Global/TitrePage";
 import Footer from "@/components/Global/Footer";
 
 export default {
-  name: "Apropos",
+  name: "Biographie",
   methods: {},
   components: {
-    CardApropos,
-    PortraitApropos,
+    CardBiographie,
+    PortraitBiographie,
     TitreDePage,
     Footer,
   },
@@ -34,7 +34,7 @@ export default {
   margin-bottom: 10vh;
 }
 
-.aproposContainer {
+.biographieContainer {
   display: flex;
   align-items: center;
   flex-wrap: wrap;

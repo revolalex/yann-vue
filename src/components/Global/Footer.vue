@@ -10,11 +10,11 @@
           <a id="copyright" href="https://revol-cv.netlify.app/">
             AR &copy; 2020
           </a>
-          <a href="/">Accueil</a>
-          <a href="/biographie">Biographie</a>
-          <a href="/actualites">Actualités</a>
-          <a href="/galeries">Galeries</a>
-          <a href="/contact">Contact</a>
+          <a href="/">{{$t('Footer.Link.Accueil')}}</a>
+          <a href="/biographie">{{$t('Footer.Link.Biographie')}}</a>
+          <a href="/actualites">{{$t('Footer.Link.Actualites')}}</a>
+          <a href="/galeries">{{$t('Footer.Link.Galeries')}}</a>
+          <a href="/contact">{{$t('Footer.Link.Contact')}}</a>
         </p>
       </div>
     </footer>

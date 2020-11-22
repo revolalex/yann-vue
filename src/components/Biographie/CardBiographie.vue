@@ -10,22 +10,18 @@
         <span
           class="txt-rotate"
           data-period="2000"
-          data-rotate='[ "Cultivons notre regard !", "Cultivons notre regard !", "Cultivons notre regard !" ]'
+          :data-rotate="$t('Biographie.Text.Rotate')"
         ></span>
       </h4>
       <p class="card-text">
-        La nature est une source inépuisable d'inspiration photographique. C'est
-        un théatre vivant, qui met en scène la faune et la flore. Chaque
-        écosyste révèle ses petits secrets à qui sait les observer, les écouter
-        et les apprécier. Un enchantement permanent de tous les sens que je
-        tente de vous dévoiler… Un plaisir intense et irremplaçable à mes yeux!
+        {{$t('Biographie.Text.Card') + $t('Biographie.Text.Card_part2') + $t('Biographie.Text.Card_part3')}}
       </p>
     </div>
   </div>
 </template>
 
 <script>
-
+// data-rotate='[ "Cultivons notre regard !", "Cultivons notre regard !", "Cultivons notre regard !" ]'
 // A propos écriture live
 var TxtRotate = function (el, toRotate, period) {
   this.toRotate = toRotate;
@@ -70,7 +66,7 @@ TxtRotate.prototype.tick = function () {
   }, delta);
 };
 export default {
-  name: "CardApropos",
+  name: "CardBiographie",
   mounted() {
     let rotate = function () {
       var elements = document.getElementsByClassName("txt-rotate");
