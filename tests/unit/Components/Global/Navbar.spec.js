@@ -1,13 +1,16 @@
 import { shallowMount } from '@vue/test-utils'
 import Navbar from '@/components/Global/Navbar/Navbar.vue'
-import i18n from '@/src/i18n.js'
+
 
 describe('Navbar.vue', () => {
   let wrapper
 
   beforeAll(() => {
     wrapper = shallowMount(Navbar , {
-    },i18n)
+      mocks: {
+        $t: (msg) => msg
+      }
+    })
   })
 
   it('should be defined', () => {
@@ -27,7 +30,7 @@ describe('Navbar.vue', () => {
   it('should contain brand Name of photographer', () => {
     const brandNavBar = wrapper.find('[data-test="navbar-brand"]')
     expect(brandNavBar.exists()).toBeTruthy()
-    expect(brandNavBar.text()).toBe('Yann Crochet')
+    expect(brandNavBar.text()).toBe('Photographer.Name')
     expect(brandNavBar.attributes().id).toBe('ycLogo')
   })
 
@@ -40,35 +43,35 @@ describe('Navbar.vue', () => {
   it('should have dropdown menu', () => {
     const dropDown = wrapper.find('[data-test="navbar-dropdown"]')
     expect(dropDown.exists()).toBeTruthy()
-    expect(dropDown.attributes().text).toBe('Galeries')
+    expect(dropDown.attributes().text).toBe('Navbar.Galeries.Text')
 
   })
 
   it('should have 6 dropdown link with good text', () => {
     const forelLink= wrapper.findAll('b-dropdown-item').at(0)
     expect(forelLink.exists()).toBeTruthy()
-    expect(forelLink.text()).toBe("L'appel de la forêt")
+    expect(forelLink.text()).toBe('Titre.Galerie.Foret')
 
     const microLink= wrapper.findAll('b-dropdown-item').at(1)
     expect(microLink.exists()).toBeTruthy()
-    expect(microLink.text()).toBe("Microcosmos")
+    expect(microLink.text()).toBe('Titre.Galerie.Micro')
 
     const vegetaleLink= wrapper.findAll('b-dropdown-item').at(2)
     expect(vegetaleLink.exists()).toBeTruthy()
-    expect(vegetaleLink.text()).toBe("Féérie végétale")
+    expect(vegetaleLink.text()).toBe('Titre.Galerie.Vegetale')
 
     
     const eauLink= wrapper.findAll('b-dropdown-item').at(3)
     expect(eauLink.exists()).toBeTruthy()
-    expect(eauLink.text()).toBe("Au fil de l'eau")
+    expect(eauLink.text()).toBe('Titre.Galerie.Eau')
 
     const jardinLink= wrapper.findAll('b-dropdown-item').at(4)
     expect(jardinLink.exists()).toBeTruthy()
-    expect(jardinLink.text()).toBe("Jardin d'Eden")
+    expect(jardinLink.text()).toBe('Titre.Galerie.Jardin')
 
     const noirLink= wrapper.findAll('b-dropdown-item').at(5)
     expect(noirLink.exists()).toBeTruthy()
-    expect(noirLink.text()).toBe("Noir et blanc")
+    expect(noirLink.text()).toBe('Titre.Galerie.Noir')
 
   })
   afterAll(() => {

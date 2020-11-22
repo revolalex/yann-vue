@@ -1,12 +1,15 @@
 import { shallowMount } from '@vue/test-utils'
 import Footer from '@/components/Global/Footer.vue'
 
+
 describe('Footer.vue', () => {
     let wrapper
-  
+
     beforeAll(() => {
       wrapper = shallowMount(Footer , {
-    
+        mocks: {
+          $t: (msg) => msg
+        }
       })
     })
   
