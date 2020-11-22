@@ -52,22 +52,22 @@
             data-test="navbar-dropdown"
           >
             <b-dropdown-item v-on:click.prevent :to="{ name: 'Foret' }"
-              >L'appel de la forêt</b-dropdown-item
+              >{{$t('Titre.Galerie.Foret')}}</b-dropdown-item
             >
             <b-dropdown-item v-on:click.prevent :to="{ name: 'Microcosmos' }"
-              >Microcosmos</b-dropdown-item
+              >{{$t('Titre.Galerie.Micro')}}</b-dropdown-item
             >
             <b-dropdown-item v-on:click.prevent :to="{ name: 'Vegetale' }"
-              >Féérie végétale</b-dropdown-item
+              >{{$t('Titre.Galerie.Vegetale')}}</b-dropdown-item
             >
             <b-dropdown-item v-on:click.prevent :to="{ name: 'Eau' }"
-              >Au fil de l'eau</b-dropdown-item
+              >{{$t('Titre.Galerie.Eau')}}</b-dropdown-item
             >
             <b-dropdown-item v-on:click.prevent :to="{ name: 'Jardin' }"
-              >Jardin d'Eden</b-dropdown-item
+              >{{$t('Titre.Galerie.Jardin')}}</b-dropdown-item
             >
             <b-dropdown-item v-on:click.prevent :to="{ name: 'Noir' }"
-              >Noir et blanc</b-dropdown-item
+              >{{$t('Titre.Galerie.Noir')}}</b-dropdown-item
             >
           </b-nav-item-dropdown>
           <router-link

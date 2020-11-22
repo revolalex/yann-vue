@@ -29,37 +29,37 @@ export default {
           href: "/galeries/foret",
           src: "https://yanncrochet.com/photo/foret/foret23xs.jpg",
           alt: "foret",
-          caption: "L'appel de la foret",
+          caption: this.$t('Titre.Galerie.Foret')
         },
         {
           href: "/galeries/microcosmos",
           src: "https://yanncrochet.com/photo/micro/micro1xs.jpg",
           alt: "abeille",
-          caption: "Microcosmos",
+          caption: this.$t('Titre.Galerie.Micro')
         },
         {
           href: "/galeries/vegetale",
           src: "https://yanncrochet.com/photo/flore/flore10xs.jpg",
           alt: "fleur",
-          caption: "Féérie Végétale",
+          caption: this.$t('Titre.Galerie.Vegetale')
         },
         {
           href: "/galeries/eau",
           src: "https://yanncrochet.com/photo/eau/eau2xs2.jpg",
           alt: "oiseaux marin",
-          caption: "Au fil de l'eau",
+          caption: this.$t('Titre.Galerie.Eau')
         },
         {
           href: "/galeries/jardin",
           src: "https://yanncrochet.com/photo/jardin/jardin2xs.jpg",
           alt: "oiseaux des jardins",
-          caption: "Jardin d'Eden",
+          caption: this.$t('Titre.Galerie.Jardin')
         },
         {
           href: "/galeries/noir",
           src: "https://yanncrochet.com/photo/noirBlanc/nbxs1.jpg",
           alt: "biche",
-          caption: "Noir et blanc",
+          caption: this.$t('Titre.Galerie.Noir')
         },
       ],
       classes: {

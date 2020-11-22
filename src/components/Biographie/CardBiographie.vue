@@ -10,7 +10,7 @@
         <span
           class="txt-rotate"
           data-period="2000"
-          :data-rotate="$t('Biographie.Text.Rotate')"
+          data-rotate='[ "Cultivons notre regard !", "Cultivons notre regard !", "Cultivons notre regard !" ]'
         ></span>
       </h4>
       <p class="card-text">
@@ -68,13 +68,13 @@ TxtRotate.prototype.tick = function () {
 export default {
   name: "CardBiographie",
   mounted() {
-    let rotate = function () {
+    let rotate = async function () {
       var elements = document.getElementsByClassName("txt-rotate");
       for (var i = 0; i < elements.length; i++) {
         var toRotate = elements[i].getAttribute("data-rotate");
         var period = elements[i].getAttribute("data-period");
         if (toRotate) {
-          new TxtRotate(elements[i], JSON.parse(toRotate), period);
+          await new TxtRotate(elements[i], JSON.parse(toRotate), period);
         }
       }
       // INJECT CSS

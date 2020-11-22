@@ -40,8 +40,8 @@ export default {
         {
           href: "",
           src: "https://yanncrochet.com/photo/expo.jpg",
-          alt: "oiseaux marin",
-          caption: "Au fil de l'eau",
+          alt: "exposition",
+          caption: "Exposition",
         },
         {
           href: "",

@@ -1,9 +1,13 @@
 <template>
   <!-- <div class="locale-switcher">🌐 {{$i18n.locale}}</div> -->
-  <div class="locale-switcher">🌐 {{$i18n.locale}}
+  <div class="locale-switcher">
     <select v-model="$i18n.locale">
-      <option value="en"><img id="langFlag" src="@/assets/gb.png"/>GB</option>
-      <option value="fr"><img src="@/assets/fr.png"/>FR</option>
+      <option value="en">🇬🇧 GB</option>
+      <option value="fr">🇫🇷 FR</option>
+      <option value="es">🇪🇸 ES</option>
+      <option value="de">🇩🇪 DE</option>
+      <option value="zh_CN">🇨🇳 CN</option>
+      <option value="ru">🇷🇺 RU</option>
     </select>
   </div>
 
