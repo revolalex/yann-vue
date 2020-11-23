@@ -26,7 +26,7 @@
             active-class="active"
             exact
           >
-            {{$t('Navbar.Biographie.Text')}}
+            {{ $t("Navbar.Biographie.Text") }}
           </router-link>
           <router-link
             v-on:click.prevent
@@ -35,7 +35,7 @@
             active-class="active"
             exact
           >
-            {{$t('Navbar.Actualites.Text')}}
+            {{ $t("Navbar.Actualites.Text") }}
           </router-link>
           <router-link
             v-on:click.prevent
@@ -44,39 +44,41 @@
             active-class="active"
             exact
           >
-            {{$t('Navbar.Galerie.Text')}}
+            {{ $t("Navbar.Galerie.Text") }}
           </router-link>
           <b-nav-item-dropdown
             :text="$t('Navbar.Galeries.Text')"
             right
             data-test="navbar-dropdown"
           >
-            <b-dropdown-item v-on:click.prevent :to="{ name: 'Foret' }"
-              >{{$t('Titre.Galerie.Foret')}}</b-dropdown-item
-            >
-            <b-dropdown-item v-on:click.prevent :to="{ name: 'Microcosmos' }"
-              >{{$t('Titre.Galerie.Micro')}}</b-dropdown-item
-            >
-            <b-dropdown-item v-on:click.prevent :to="{ name: 'Vegetale' }"
-              >{{$t('Titre.Galerie.Vegetale')}}</b-dropdown-item
-            >
-            <b-dropdown-item v-on:click.prevent :to="{ name: 'Eau' }"
-              >{{$t('Titre.Galerie.Eau')}}</b-dropdown-item
-            >
-            <b-dropdown-item v-on:click.prevent :to="{ name: 'Jardin' }"
-              >{{$t('Titre.Galerie.Jardin')}}</b-dropdown-item
-            >
-            <b-dropdown-item v-on:click.prevent :to="{ name: 'Noir' }"
-              >{{$t('Titre.Galerie.Noir')}}</b-dropdown-item
-            >
+            <b-dropdown-item v-on:click.prevent :to="{ name: 'Foret' }">{{
+              $t("Titre.Galerie.Foret")
+            }}</b-dropdown-item>
+            <b-dropdown-item v-on:click.prevent :to="{ name: 'Microcosmos' }">{{
+              $t("Titre.Galerie.Micro")
+            }}</b-dropdown-item>
+            <b-dropdown-item v-on:click.prevent :to="{ name: 'Vegetale' }">{{
+              $t("Titre.Galerie.Vegetale")
+            }}</b-dropdown-item>
+            <b-dropdown-item v-on:click.prevent :to="{ name: 'Eau' }">{{
+              $t("Titre.Galerie.Eau")
+            }}</b-dropdown-item>
+            <b-dropdown-item v-on:click.prevent :to="{ name: 'Jardin' }">{{
+              $t("Titre.Galerie.Jardin")
+            }}</b-dropdown-item>
+            <b-dropdown-item v-on:click.prevent :to="{ name: 'Noir' }">{{
+              $t("Titre.Galerie.Noir")
+            }}</b-dropdown-item>
           </b-nav-item-dropdown>
           <router-link
             v-on:click.prevent
             :to="{ name: 'Contact' }"
             class="nav-item nav-link"
             active-class="active"
-          >Contact 
+            >Contact
           </router-link>
+        </b-navbar-nav>
+        <b-navbar-nav class="ml-auto">
           <b-nav-item right>
             <LocalSwitcher />
           </b-nav-item>
