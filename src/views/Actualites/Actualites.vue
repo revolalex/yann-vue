@@ -44,7 +44,7 @@ export default {
           caption: "Exposition",
         },
         {
-          href: "",
+          href: "actualites/interview",
           src: "https://yanncrochet.com/images/fc.png",
           alt: "france culture logo",
           caption: "Interview",
@@ -64,6 +64,5 @@ export default {
   padding-left: 10vw;
   padding-right: 10vw;
   min-height: 100vh;
-  margin-bottom: 10vh;
 }
 </style>

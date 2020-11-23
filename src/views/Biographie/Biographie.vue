@@ -30,15 +30,14 @@ export default {
 </script>
 
 <style>
-#globalContainer{
-  margin-bottom: 10vh;
-}
-
 .biographieContainer {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-evenly;
   text-align: justify;
+}
+#globalContainer{
+  padding-bottom: 5vh;
 }
 </style>
