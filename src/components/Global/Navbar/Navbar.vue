@@ -89,6 +89,7 @@
 </template>
 
 <script>
+
 import LocalSwitcher from "./LocalSwitcher";
 export default {
   name: "NavBar",

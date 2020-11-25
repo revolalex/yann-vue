@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="myContainer">
+    <div class="container m-t-md fullHeight">
       <TitreDePage :titre="$t('Titre.Actualites')" />
       <GalerieMenu
         v-bind:imageInGaleries="imageInGaleries"
@@ -26,13 +26,13 @@ export default {
     return {
       imageInGaleries: [
         {
-          href: "",
+          href: "actualites/calendrier",
           src: "https://yanncrochet.com/images/calendrier.jpg",
           alt: "foret",
           caption: "Calendriers",
         },
         {
-          href: "",
+          href: "actualites/presse",
           src: "https://yanncrochet.com/photo/ff.jpg",
           alt: "presse",
           caption: "Parutions Presse",
@@ -60,9 +60,8 @@ export default {
 </script>
 
 <style>
-.myContainer {
-  padding-left: 10vw;
-  padding-right: 10vw;
-  min-height: 100vh;
+.fullHeight{
+  min-height:100vh ;
 }
+
 </style>

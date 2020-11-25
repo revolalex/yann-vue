@@ -25,6 +25,10 @@
 
 <script>
 export default {
+  /**
+   * @module component - GaleriePhoto
+   * @param {array} - imageInGaleries
+   */
   name: "GaleriePhoto",
   props: {
     imageInGaleries: Array,
@@ -47,7 +51,7 @@ export default {
   margin: 0.5% 0.5% 0.5% 0.5%;
   height: 390px;
   object-fit: cover;
-  transition: transform .5s ease;
+  transition: transform 0.5s ease;
 }
 .image:hover {
   transform: scale(1.02);

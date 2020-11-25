@@ -110,7 +110,7 @@ export default {
 
 <style>
 .myContainerGalerie{
-    padding-left: 1vw;
+  padding-left: 1vw;
   padding-right: 1vw;
   min-height: 100vh;
   margin-bottom: 10vh;

@@ -1,23 +1,29 @@
 <template>
   <div :class="classes.container">
-    <div :class="classes.box" v-for="image in imageInGaleries" :key="image.caption">
+    <div
+      :class="classes.box"
+      v-for="image in imageInGaleries"
+      :key="image.caption"
+    >
       <a :href="image.href"
-        ><img
-          :alt="image.alt"
-          :src="image.src"
-        />
-        <div class="caption">{{image.caption}}</div>
+        ><img :alt="image.alt" :src="image.src" />
+        <div class="caption">{{ image.caption }}</div>
       </a>
     </div>
   </div>
 </template>
 
 <script>
+/**
+ * @module component - GalerieMenu
+ * @param {array} - imageInGaleries
+ * @param {object} - classes
+ */
 export default {
   name: "GalerieMenu",
-  props:{
+  props: {
     imageInGaleries: Array,
-    classes: Object
+    classes: Object,
   },
 };
 </script>
@@ -138,12 +144,11 @@ export default {
 }
 
 @media all and (min-width: 1200px) {
-  .galeriesContainer .galeriesBox{
+  .galeriesContainer .galeriesBox {
     width: 31%;
     padding-bottom: 30%;
   }
 }
-
 
 /*************** Actualites ****************/
 .actuContainer {

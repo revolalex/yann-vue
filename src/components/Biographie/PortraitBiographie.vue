@@ -26,6 +26,9 @@
 </template>
 
 <script>
+/**
+ * @module component - PortraitBiographie
+ */
 export default {
   name: "PortraitBiographie",
 };

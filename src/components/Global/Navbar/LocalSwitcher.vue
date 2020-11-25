@@ -14,8 +14,11 @@
 
 
 <script>
+/**
+ * @module component - LocalSwitcher
+ */
 export default {
-  name: "LocaleSwitcher",
+  name: "LocalSwitcher",
 };
 </script>
 

@@ -7,6 +7,9 @@
 </template>
 
 <script>
+/**
+ * @module component - AudioInterview
+ */
 export default {
   name: "AudioInterview",
 };

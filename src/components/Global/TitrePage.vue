@@ -1,14 +1,16 @@
 <template>
-  <h1 class="titrePage" data-test="titre-h1">{{titre}}</h1>
+  <h1 class="titrePage" data-test="titre-h1">{{ titre }}</h1>
 </template>
 
 <script>
+/**
+ * @module component - TitreDePage
+ * @param {string} - titre
+ */
 export default {
-    name:"TitreDePage",
-    props: 
-       { titre: String }
-    ,
-}
+  name: "TitreDePage",
+  props: { titre: String },
+};
 </script>
 
 <style>
@@ -26,5 +28,4 @@ export default {
     4px 5px 1px #eeeeee, 6px 5px 1px #cccccc, 5px 6px 1px #eeeeee,
     7px 6px 1px #cccccc;
 }
-
 </style>

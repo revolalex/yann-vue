@@ -1,33 +1,38 @@
 <template>
-      <footer class="footer-distributed">
-      <div class="footer-right" data-test="div-instagram">
-        <a href="https://www.instagram.com/yann_crochet_photographe/" data-test="instagram-link">
-            <img src="@/assets/insta.png" alt="instagram" width="30px;"/>
+  <footer class="footer-distributed">
+    <div class="footer-right" data-test="div-instagram">
+      <a
+        href="https://www.instagram.com/yann_crochet_photographe/"
+        data-test="instagram-link"
+      >
+        <img src="@/assets/insta.png" alt="instagram" width="30px;" />
+      </a>
+    </div>
+    <div class="footer-left" data-test="div-link">
+      <p class="footer-links" data-test="link">
+        <a id="copyright" href="https://revol-cv.netlify.app/">
+          AR &copy; 2020
         </a>
-      </div>
-      <div class="footer-left" data-test="div-link">
-        <p class="footer-links" data-test="link">
-          <a id="copyright" href="https://revol-cv.netlify.app/">
-            AR &copy; 2020
-          </a>
-          <a href="/">{{$t('Footer.Link.Accueil')}}</a>
-          <a href="/biographie">{{$t('Footer.Link.Biographie')}}</a>
-          <a href="/actualites">{{$t('Footer.Link.Actualites')}}</a>
-          <a href="/galeries">{{$t('Footer.Link.Galeries')}}</a>
-          <a href="/contact">{{$t('Footer.Link.Contact')}}</a>
-        </p>
-      </div>
-    </footer>
+        <a href="/">{{ $t("Footer.Link.Accueil") }}</a>
+        <a href="/biographie">{{ $t("Footer.Link.Biographie") }}</a>
+        <a href="/actualites">{{ $t("Footer.Link.Actualites") }}</a>
+        <a href="/galeries">{{ $t("Footer.Link.Galeries") }}</a>
+        <a href="/contact">{{ $t("Footer.Link.Contact") }}</a>
+      </p>
+    </div>
+  </footer>
 </template>
 
 <script>
+/**
+ * @module component - Footer
+ */
 export default {
-    name:"Footer"
-}
+  name: "Footer",
+};
 </script>
 
 <style>
-
 /* Footer */
 .footer-distributed {
   background-color: #6c757d;
@@ -38,7 +43,6 @@ export default {
   font: normal 16px sans-serif;
   padding: 5px 10px;
 }
-
 
 .footer-distributed .footer-left p {
   color: #8f9296;
@@ -100,11 +104,10 @@ export default {
 .footer-distributed p.footer-links a:hover {
   text-decoration: underline;
 }
-#copyright{
+#copyright {
   color: rgb(255, 255, 255);
   text-align: center;
   font-weight: bolder;
   margin: 7px;
 }
-
 </style>

@@ -1,12 +1,13 @@
 <template>
   <div>
-    <div id="globalContainer">
+    <div class="fullHeight">
       <TitreDePage :titre="$t('Titre.Biographie')" />
       <div class="biographieContainer">
         <CardBiographie />
         <PortraitBiographie />
       </div>
     </div>
+    <br/>
     <Footer />
   </div>
 </template>

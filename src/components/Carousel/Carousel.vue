@@ -20,6 +20,10 @@
 
 
 <script>
+/**
+ * @module component - CarouselComponent
+ * @param {array} - imageInCarousel
+ */
 export default {
   name: "CarouselComponent",
   props:{

@@ -65,6 +65,9 @@ TxtRotate.prototype.tick = function () {
     that.tick();
   }, delta);
 };
+/**
+ * @module component - CardBiographie
+ */
 export default {
   name: "CardBiographie",
   mounted() {

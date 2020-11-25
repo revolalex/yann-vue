@@ -26,8 +26,18 @@ const routes = [
   },
   {
     path: '/actualites/interview',
-    name: 'interview',
+    name: 'Interview',
     component: () => import(/* webpackChunkName: "about" */ '@/views/Actualites/Interview/Interview.vue')
+  },
+  {
+    path: '/actualites/calendrier',
+    name: 'Calendrier',
+    component: () => import(/* webpackChunkName: "about" */ '@/views/Actualites/Calendrier/Calendrier.vue')
+  },
+  {
+    path: '/actualites/presse',
+    name: 'Presse',
+    component: () => import(/* webpackChunkName: "about" */ '@/views/Actualites/Presse/Presse.vue')
   },
   {
     path: '/',
