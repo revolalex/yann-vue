@@ -9,6 +9,7 @@ import fr from './locales/fr.json'
 import es from './locales/es.json'
 import ru from './locales/ru.json'
 import zh_CN from './locales/zh_CN.json'
+import ja from './locales/ja.json'
 
 // Install i18n
 import VueI18n from 'vue-i18n';
@@ -37,7 +38,8 @@ const messages = {
   de,
   es,
   ru,
-  zh_CN
+  zh_CN,
+  ja
 }
 
 // VueI18n instance
@@ -54,13 +56,14 @@ new Vue({
 }).$mount("#app");
 // Hot updates
 if (module.hot) {
-  module.hot.accept(['./locales/en.json', './locales/fr.json', './locales/de.json', './locales/es.json', './locales/ru.json', './locales/zh_CN.json'], function () {
+  module.hot.accept(['./locales/en.json', './locales/fr.json', './locales/de.json', './locales/es.json', './locales/ru.json', './locales/zh_CN.json', './locales/ja.json'], function () {
     i18n.setLocaleMessage('fr', require('./locales/fr.json').default)
     i18n.setLocaleMessage('en', require('./locales/en.json').default)
     i18n.setLocaleMessage('de', require('./locales/de.json').default)
     i18n.setLocaleMessage('es', require('./locales/es.json').default)
     i18n.setLocaleMessage('ru', require('./locales/ru.json').default)
     i18n.setLocaleMessage('ru', require('./locales/zh_CN.json').default)
+    i18n.setLocaleMessage('ja', require('./locales/ja.json').default)
     // Or the following hot updates via $i18n property
     // app.$i18n.setLocaleMessage('en', require('./en').default)
     // app.$i18n.setLocaleMessage('ja', require('./ja').default)

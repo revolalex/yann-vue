@@ -2,12 +2,13 @@
   <!-- <div class="locale-switcher">🌐 {{$i18n.locale}}</div> -->
   <div class="locale-switcher">
     <select v-model="$i18n.locale">
-      <option value="fr">🇫🇷 FR</option>
-      <option value="en">🇬🇧 GB</option>
-      <option value="es">🇪🇸 ES</option>
-      <option value="de">🇩🇪 DE</option>
-      <option value="zh_CN">🇨🇳 CN</option>
-      <option value="ru">🇷🇺 RU</option>
+      <option value="fr">🇫🇷</option>
+      <option value="en">🇬🇧</option>
+      <option value="es">🇪🇸</option>
+      <option value="de">🇩🇪</option>
+      <option value="zh_CN">🇨🇳</option>
+      <option value="ru">🇷🇺</option>
+      <option value="ja">🇯🇵</option>
     </select>
   </div>
 </template>

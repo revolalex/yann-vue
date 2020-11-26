@@ -4,6 +4,7 @@
       <TitreDePage :titre="$t('Titre.Calendrier')" />
       <DeckCard v-bind:cards="cardInCalendrier" />
     </div>
+    <br/>
     <Footer />
   </div>
 </template>

@@ -5,6 +5,7 @@ import Home from'../views/Home/Home.vue'
 import Biographie from "../views/Biographie/Biographie.vue"
 import Galerie from"../views/Galeries/Galerie.vue"
 import Actualites from"../views/Actualites/Actualites.vue"
+import Contact from"../views/Contact/Contact.vue"
 
 Vue.use(VueRouter)
 
@@ -18,6 +19,11 @@ const routes = [
     path: '/biographie',
     name: 'Biographie',
     component: Biographie
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: Contact
   },
   {
     path: '/actualites',
@@ -38,6 +44,11 @@ const routes = [
     path: '/actualites/presse',
     name: 'Presse',
     component: () => import(/* webpackChunkName: "about" */ '@/views/Actualites/Presse/Presse.vue')
+  },
+  {
+    path: '/actualites/expositions',
+    name: 'Expositions',
+    component: () => import(/* webpackChunkName: "about" */ '@/views/Actualites/Expositions/Expositions.vue')
   },
   {
     path: '/',
