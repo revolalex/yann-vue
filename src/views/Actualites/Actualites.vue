@@ -23,31 +23,32 @@ export default {
     TitreDePage,
   },
   data: function () {
+    const $t = this.$t.bind(this)
     return {
       imageInGaleries: [
         {
           href: "actualites/calendrier",
           src: "https://yanncrochet.com/images/calendrier.jpg",
           alt: "foret",
-          caption: this.$t('Calendrier.Card.Header'),
+          caption: $t('Calendrier.Card.Header'),
         },
         {
           href: "actualites/presse",
           src: "https://yanncrochet.com/photo/ff.jpg",
           alt: "presse",
-          caption: this.$t('Titre.Parutions.presse'),
+          caption: $t('Titre.Parutions.presse'),
         },
         {
           href: "actualites/expositions",
           src: "https://yanncrochet.com/photo/expo.jpg",
           alt: "expositions",
-          caption: this.$t('Titre.Expositions'),
+          caption: $t('Titre.Expositions'),
         },
         {
           href: "actualites/interview",
           src: "https://yanncrochet.com/images/fc.png",
           alt: "france culture logo",
-          caption: this.$t('Titre.Interview'),
+          caption: $t('Titre.Interview'),
         },
       ],
       classes: {

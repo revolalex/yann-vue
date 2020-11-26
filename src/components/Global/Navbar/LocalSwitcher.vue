@@ -1,5 +1,4 @@
 <template>
-  <!-- <div class="locale-switcher">🌐 {{$i18n.locale}}</div> -->
   <div class="locale-switcher">
     <select v-model="$i18n.locale">
       <option value="fr">🇫🇷</option>

@@ -5,10 +5,10 @@
       v-for="image in imageInGaleries"
       :key="image.caption"
     >
-      <a :href="image.href"
+      <router-link :to="image.href"
         ><img :alt="image.alt" :src="image.src" />
         <div class="caption">{{ image.caption }}</div>
-      </a>
+      </router-link>
     </div>
   </div>
 </template>

@@ -23,43 +23,44 @@ export default {
     Footer,
   },
   data: function () {
+    const $t = this.$t.bind(this)
     return {
       imageInGaleries: [
         {
           href: "/galeries/foret",
           src: "https://yanncrochet.com/photo/foret/foret23xs.jpg",
           alt: "foret",
-          caption: this.$t('Titre.Galerie.Foret')
+          caption: $t('Titre.Galerie.Foret')
         },
         {
           href: "/galeries/microcosmos",
           src: "https://yanncrochet.com/photo/micro/micro1xs.jpg",
           alt: "abeille",
-          caption: this.$t('Titre.Galerie.Micro')
+          caption: $t('Titre.Galerie.Micro')
         },
         {
           href: "/galeries/vegetale",
           src: "https://yanncrochet.com/photo/flore/flore10xs.jpg",
           alt: "fleur",
-          caption: this.$t('Titre.Galerie.Vegetale')
+          caption: $t('Titre.Galerie.Vegetale')
         },
         {
           href: "/galeries/eau",
           src: "https://yanncrochet.com/photo/eau/eau2xs2.jpg",
           alt: "oiseaux marin",
-          caption: this.$t('Titre.Galerie.Eau')
+          caption: $t('Titre.Galerie.Eau')
         },
         {
           href: "/galeries/jardin",
           src: "https://yanncrochet.com/photo/jardin/jardin2xs.jpg",
           alt: "oiseaux des jardins",
-          caption: this.$t('Titre.Galerie.Jardin')
+          caption: $t('Titre.Galerie.Jardin')
         },
         {
           href: "/galeries/noir",
           src: "https://yanncrochet.com/photo/noirBlanc/nbxs1.jpg",
           alt: "biche",
-          caption: this.$t('Titre.Galerie.Noir')
+          caption: $t('Titre.Galerie.Noir')
         },
       ],
       classes: {

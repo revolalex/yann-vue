@@ -21,20 +21,21 @@ export default {
     DeckCard,
   },
   data: function () {
+    const $t = this.$t.bind(this)
     return {
       cardInCalendrier:[
         {
           src:"https://yanncrochet.com/images/calendrier2.jpg",
-          text: this.$t('Calendrier.Card.Header'),
-          title: this.$t("Calendrier.Card_body.Title"),
-          linkText: this.$t("Calendrier.Publication.link"),
+          text: $t('Calendrier.Card.Header'),
+          title: $t("Calendrier.Card_body.Title"),
+          linkText: $t("Calendrier.Publication.link"),
           link:"https://www.editions-artemis.com",
         },
         {
           src:"https://yanncrochet.com/images/calendrier.jpg",
-          text: this.$t('Calendrier.Card.Header'),
-          title: this.$t("Calendrier.Card_body.Title_2"),
-          linkText: this.$t("Calendrier.Publication.link"),
+          text: $t('Calendrier.Card.Header'),
+          title: $t("Calendrier.Card_body.Title_2"),
+          linkText: $t("Calendrier.Publication.link"),
           link:"https://www.editions-artemis.com",
         },
       ]
