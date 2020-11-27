@@ -22,10 +22,10 @@ export default {
     Footer,
     TitreDePage,
   },
-  data: function () {
-    const $t = this.$t.bind(this)
-    return {
-      imageInGaleries: [
+  computed:{
+    imageInGaleries(){
+      const $t = this.$t.bind(this)
+      let imageInGaleries = [
         {
           href: "actualites/calendrier",
           src: "https://yanncrochet.com/images/calendrier.jpg",
@@ -50,7 +50,12 @@ export default {
           alt: "france culture logo",
           caption: $t('Titre.Interview'),
         },
-      ],
+      ]
+      return imageInGaleries
+    }
+  },
+  data: function () {
+    return {
       classes: {
         box: "actuBox",
         container: "actuContainer ",

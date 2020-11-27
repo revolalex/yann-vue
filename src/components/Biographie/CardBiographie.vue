@@ -7,86 +7,32 @@
     />
     <div class="card-body">
       <h4>
-        <span
-          class="txt-rotate"
-          data-period="2000"
-          data-rotate='[ "Cultivons notre regard !", "Cultivons notre regard !", "Cultivons notre regard !" ]'
-        ></span>
+        <vue-typed-js
+          :typeSpeed="150"
+          :backSpeed="50"
+          :loop="true"
+          :strings="textToRotate"
+        >
+          <h4><span class="typing"></span></h4>
+        </vue-typed-js>
       </h4>
       <p class="card-text">
-        {{$t('Biographie.Text.Card') + $t('Biographie.Text.Card_part2') + $t('Biographie.Text.Card_part3')}}
+        {{$t("Biographie.Text.Card")}}
+        {{$t("Biographie.Text.Card_part2")}}
+        {{$t("Biographie.Text.Card_part3")}}
       </p>
     </div>
   </div>
 </template>
 
 <script>
-// data-rotate='[ "Cultivons notre regard !", "Cultivons notre regard !", "Cultivons notre regard !" ]'
-// A propos écriture live
-var TxtRotate = function (el, toRotate, period) {
-  this.toRotate = toRotate;
-  this.el = el;
-  this.loopNum = 0;
-  this.period = parseInt(period, 10) || 2000;
-  this.txt = "";
-  this.tick();
-  this.isDeleting = false;
-};
-
-TxtRotate.prototype.tick = function () {
-  var i = this.loopNum % this.toRotate.length;
-  var fullTxt = this.toRotate[i];
-
-  if (this.isDeleting) {
-    this.txt = fullTxt.substring(0, this.txt.length - 1);
-  } else {
-    this.txt = fullTxt.substring(0, this.txt.length + 1);
-  }
-
-  this.el.innerHTML = '<span class="wrap">' + this.txt + "</span>";
-
-  var that = this;
-  var delta = 300 - Math.random() * 100;
-
-  if (this.isDeleting) {
-    delta /= 2;
-  }
-
-  if (!this.isDeleting && this.txt === fullTxt) {
-    delta = this.period;
-    this.isDeleting = true;
-  } else if (this.isDeleting && this.txt === "") {
-    this.isDeleting = false;
-    this.loopNum++;
-    delta = 500;
-  }
-
-  setTimeout(function () {
-    that.tick();
-  }, delta);
-};
-/**
- * @module component - CardBiographie
- */
 export default {
   name: "CardBiographie",
-  mounted() {
-    let rotate = async function () {
-      var elements = document.getElementsByClassName("txt-rotate");
-      for (var i = 0; i < elements.length; i++) {
-        var toRotate = elements[i].getAttribute("data-rotate");
-        var period = elements[i].getAttribute("data-period");
-        if (toRotate) {
-          await new TxtRotate(elements[i], JSON.parse(toRotate), period);
-        }
-      }
-      // INJECT CSS
-      var css = document.createElement("style");
-      css.type = "text/css";
-      css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
-      document.body.appendChild(css);
-    };
-    rotate();
+  computed:{
+    textToRotate(){
+      let arrayTxtToRotate = [this.$t('Biographie.Text.Rotate')]
+      return arrayTxtToRotate
+    }
   },
 };
 </script>

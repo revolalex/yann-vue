@@ -22,10 +22,10 @@ export default {
     GalerieMenu,
     Footer,
   },
-  data: function () {
-    const $t = this.$t.bind(this)
-    return {
-      imageInGaleries: [
+  computed:{
+    imageInGaleries(){
+      const $t = this.$t.bind(this)
+      let imageInGaleries= [
         {
           href: "/galeries/foret",
           src: "https://yanncrochet.com/photo/foret/foret23xs.jpg",
@@ -62,7 +62,12 @@ export default {
           alt: "biche",
           caption: $t('Titre.Galerie.Noir')
         },
-      ],
+      ]
+      return imageInGaleries
+    }
+  },
+  data: function () {
+    return {
       classes: {
         box: "galeriesBox",
         container: "galeriesContainer ",

@@ -1,10 +1,11 @@
 <template>
   <div>
-    <TitreDePage titre="Parutions Presse" />
-    <DeckCard v-bind:cards="cardInCalendrier"/>
-    <br/>
-    <DeckCard v-bind:cards="cardInCalendrier2"/>
-    <br/>
+    <!-- a passer dans les trad -->
+    <TitreDePage :titre="$t('Titre.Parutions.presse')" />
+    <DeckCard v-bind:cards="presse1" />
+    <br />
+    <DeckCard v-bind:cards="presse2" />
+    <br />
     <Footer />
   </div>
 </template>
@@ -20,9 +21,9 @@ export default {
     Footer,
     DeckCard,
   },
-  data: function () {
-    return {
-      cardInCalendrier: [
+  computed: {
+    presse1() {
+      let presse1 = [
         {
           src: "https://yanncrochet.com/images/artiste.jpg",
           text: this.$t("Presse.Card.Header"),
@@ -37,8 +38,11 @@ export default {
           linkText: this.$t("More_info.Text"),
           link: "https://yanncrochet.com/dl/portrait.jpg",
         },
-      ],
-      cardInCalendrier2: [
+      ];
+      return presse1;
+    },
+    presse2() {
+      let presse2 = [
         {
           src: "https://yanncrochet.com/images/natimage.jpg",
           text: this.$t("Presse.Card_3.Header"),
@@ -53,8 +57,9 @@ export default {
           linkText: this.$t("More_info.Text"),
           link: "https://yanncrochet.com/dl/expo.pdf",
         },
-      ],
-    };
+      ];
+      return presse2;
+    },
   },
 };
 </script>

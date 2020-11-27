@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
+
 import en from './locales/en.json'
 import de from './locales/de.json'
 import fr from './locales/fr.json'
@@ -23,6 +24,9 @@ import { BootstrapVue} from "bootstrap-vue";
 //Lightbox
 import CoolLightBox from 'vue-cool-lightbox'
 import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
+
+import VueTypedJs from 'vue-typed-js'
+Vue.use(VueTypedJs)
 
 Vue.use(VueI18n)
 Vue.use(CoolLightBox)

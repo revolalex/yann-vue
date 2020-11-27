@@ -20,10 +20,10 @@ export default {
     Footer,
     DeckCard,
   },
-  data: function () {
-    const $t = this.$t.bind(this)
-    return {
-      cardInCalendrier:[
+  computed:{
+    cardInCalendrier(){
+      const $t = this.$t.bind(this)
+      let cardInCalendrier=[
         {
           src:"https://yanncrochet.com/images/calendrier2.jpg",
           text: $t('Calendrier.Card.Header'),
@@ -39,9 +39,9 @@ export default {
           link:"https://www.editions-artemis.com",
         },
       ]
-
+      return cardInCalendrier
     }
-  }
+  },
 };
 </script>
 
