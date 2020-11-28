@@ -1,24 +1,20 @@
 <template>
   <div>
-    <TitreDePage :titre="Contact" />
+    <TitreDePage :titre="$t('Footer.Link.Contact')" />
 
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <h3 class="form-title">Restons connectés</h3>
+          <h3 class="form-title">{{$t('Contact.Second.Title')}}</h3>
           <a
             class="instaLogo"
             href="https://www.instagram.com/yann_crochet_photographe/"
             ><img src="https://yanncrochet.com/images/insta3.png" alt="instagram"
           /></a>
           <p>
-            Que je sois en France ou à l'étranger, j'essaie au maximun de rester
-            joignable et de lire mes emails, alors n'hésitez pas à utiliser le
-            formulaire de contact ci-dessous. Je vous répondrai dans les
-            meilleurs délais.
-            <br />
-            N'hésitez pas non plus à me contacter si vous souhaitez me parler
-            d'un projet.
+            {{$t('Contact.Text.Part_1')}}
+            <br/>
+            {{$t('Contact.Text.Part_2')}}
           </p>
         </div>
       </div>

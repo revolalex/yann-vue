@@ -83,5 +83,14 @@
     "Footer.Txt.Slider_2": "A permanent enchantment of all the senses that I am trying to reveal to you ...",
     "Footer.Txt.Slider_3": "An intense and irreplaceable pleasure in my eyes!",
     "Footer.Creation": "Website create by: ",
-    "Footer.MyName": "Alexandre Rodriguez"
+    "Footer.MyName": "Alexandre Rodriguez",
+
+    "Contact.Second.Title": "Let's stay connected",
+    "Contact.Text.Part_1": "Whether I am in France or abroad, I try as much as possible to remain reachable and to read my emails, so do not hesitate to use the contact form below. I will get back to you as soon as possible.",
+    "Contact.Text.Part_2": "Do not hesitate to contact me if you want to tell me about a project.",
+    "Form.Your.Name": "Your Name",
+    "Form.Your.Email": "Your Email",
+    "Form.Subject": "Subject",
+    "Form.Send": "Send",
+    "Form.Your.Message": "Your Message"
 }

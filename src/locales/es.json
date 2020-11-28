@@ -83,5 +83,14 @@
     "Footer.Txt.Slider_2": "Un encantamiento permanente de todos los sentidos que intento revelarte ... ",
     "Footer.Txt.Slider_3": "¡Un placer intenso e insustituible a mis ojos!",
     "Footer.Creation": "So erstellen Sie eine Website: ",
-    "Footer.MyName": "Alexandre Rodriguez"
+    "Footer.MyName": "Alexandre Rodriguez",
+
+    "Contact.Second.Title": "Estemos conectados",
+    "Contact.Text.Part_1": "Ya sea que esté en Francia o en el extranjero, trato de mantenerme accesible y de leer mis correos electrónicos, así que no dude en utilizar el formulario de contacto a continuación. Me pondré en contacto contigo lo antes posible.",
+    "Contact.Text.Part_2": "No dudes en contactar conmigo si quieres contarme algún proyecto.",
+    "Form.Your.Name": "Su Nombre",
+    "Form.Your.Email": "Su Email",
+    "Form.Subject": "Tema",
+    "Form.Send": "enviar",
+    "Form.Your.Message": "Vuestro Mensaje"
 }

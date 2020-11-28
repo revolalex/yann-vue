@@ -56,7 +56,7 @@ export default {
   -moz-transform: scale(0.95);
   transform: scale(0.95);
   object-fit: cover;
-  transition: all 2s ease;
+  transition: all 1.5s ease;
 }
 .image:hover {
   -webkit-transform: scale(1);

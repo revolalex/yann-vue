@@ -83,5 +83,14 @@
     "Footer.Txt.Slider_2": "私があなたに明らかにしようとしているすべての感覚の永続的なエンチャント...",
     "Footer.Txt.Slider_3": "私の目には強烈でかけがえのない喜びがあります！",
     "Footer.Creation": "Webサイトを作成するには：",
-    "Footer.MyName": "Alexandre Rodriguez"
+    "Footer.MyName": "Alexandre Rodriguez",
+
+    "Contact.Second.Title": "接続を維持しましょう",
+    "Contact.Text.Part_1": "私はフランスにいても海外にいても、可能な限り連絡を取り合い、メールを読むようにしています。以下のお問い合わせフォームをご利用ください。 できるだけ早くご連絡いたします。",
+    "Contact.Text.Part_2": "プロジェクトについて教えていただければ、遠慮なくご連絡ください。",
+    "Form.Your.Name": "あなたの名前",
+    "Form.Your.Email": "あなたのメール",
+    "Form.Subject": "トピック",
+    "Form.Send": "送信するには",
+    "Form.Your.Message": "あなたのメッセージ"
 }

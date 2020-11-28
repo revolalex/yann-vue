@@ -83,6 +83,15 @@
     "Footer.Txt.Slider_2": "Un enchantement permanent de tous les sens que je tente de vous dévoiler…",
     "Footer.Txt.Slider_3": "Un plaisir intense et irremplaçable à mes yeux!",
     "Footer.Creation": "Création site Web: ",
-    "Footer.MyName": "Alexandre Rodriguez"
+    "Footer.MyName": "Alexandre Rodriguez",
+
+    "Contact.Second.Title": "Restons connectés",
+    "Contact.Text.Part_1": "Que je sois en France ou à l'étranger, j'essaie au maximun de rester joignable et de lire mes emails, alors n'hésitez pas à utiliser le formulaire de contact ci-dessous. Je vous répondrai dans les meilleurs délais.",
+    "Contact.Text.Part_2": "N'hésitez pas non plus à me contacter si vous souhaitez me parler d'un projet.",
+    "Form.Your.Name": "Votre Nom",
+    "Form.Your.Email": "Votre Email",
+    "Form.Subject": "Sujet",
+    "Form.Send": "Envoyer",
+    "Form.Your.Message": "Votre Message"
 
 }

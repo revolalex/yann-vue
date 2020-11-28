@@ -11,7 +11,7 @@
         class="form-control"
         id="name"
         name="name"
-        placeholder="Votre Nom"
+        :placeholder="yourName"
         tabindex="1"
       />
     </div>
@@ -22,7 +22,7 @@
         class="form-control"
         id="email"
         name="email"
-        placeholder="Votre Email"
+        :placeholder="yourEmail"
         tabindex="2"
       />
     </div>
@@ -33,7 +33,7 @@
         class="form-control"
         id="subject"
         name="subject"
-        placeholder="Sujet"
+        :placeholder="subject"
         tabindex="3"
       />
     </div>
@@ -45,21 +45,35 @@
         name="message"
         class="form-control"
         id="message"
-        placeholder="Votre Message"
+        :placeholder="message"
         tabindex="4"
       ></textarea>
     </div>
 
     <div class="text-center margin-top-25">
       <button type="submit" class="btn btn-mod btn-border btn-large">
-        Envoyer
+        {{$t('Form.Send')}}
       </button>
     </div>
   </form>
 </template>
 <script>
 export default {
-    name:"FormContainer"
+    name:"FormContainer",
+    computed:{
+      yourName(){
+        return this.$t('Form.Your.Name')
+      },
+      yourEmail(){
+        return this.$t('Form.Your.Email')
+      },
+      subject(){
+        return this.$t('Form.Subject')
+      },
+      message(){
+        return this.$t('Form.Your.Message')
+      }
+    }
 };
 </script>
 

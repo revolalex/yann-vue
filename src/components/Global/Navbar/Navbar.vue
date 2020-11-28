@@ -75,7 +75,7 @@
             :to="{ name: 'Contact' }"
             class="nav-item nav-link"
             active-class="active"
-            >Contact
+            >{{$t('Footer.Link.Contact')}}
           </router-link>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
