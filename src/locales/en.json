@@ -76,5 +76,12 @@
     "Expositions.Card_5.Title": "Trees and biodiversity",
     "Expositions.Card_5.Text": " Yann Crochet shows us that nature stares at us, that it scrutinizes us in the eyes of a wild boar from the forest of Compiègne, a young deer from Chantilly or a robin, Saint-Emilion court.",
     "Expositions.Card_5.Small_text": "Paris Floral Park",
-    "Expositions.Card_3.Link.Text": "Official website"
+    "Expositions.Card_3.Link.Text": "Official website",
+    "Footer.Link": "Link",
+    "Footer.Img.Law": "- The images presented on this site are the exclusive property of Yann Crochet. Reproduction prohibited - All rights reserved for all countries - The use, copy or diversion of these images is STRICTLY FORBIDDEN without the written consent of the author.",
+    "Footer.Txt.Slider_1": "“Inspired walker, sensitive naturalist in the line of Rousseau…”",
+    "Footer.Txt.Slider_2": "A permanent enchantment of all the senses that I am trying to reveal to you ...",
+    "Footer.Txt.Slider_3": "An intense and irreplaceable pleasure in my eyes!",
+    "Footer.Creation": "Website create by: ",
+    "Footer.MyName": "Alexandre Rodriguez"
 }

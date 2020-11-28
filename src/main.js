@@ -3,7 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-
+// Language files
 import en from './locales/en.json'
 import de from './locales/de.json'
 import fr from './locales/fr.json'
@@ -21,11 +21,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import { BootstrapVue} from "bootstrap-vue";
 
-//Lightbox
+// Lightbox
 import CoolLightBox from 'vue-cool-lightbox'
 import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
-
+// Live typing
 import VueTypedJs from 'vue-typed-js'
+
 Vue.use(VueTypedJs)
 
 Vue.use(VueI18n)
