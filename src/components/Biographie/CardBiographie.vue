@@ -8,10 +8,11 @@
     <div class="card-body">
       <h4>
         <vue-typed-js
-          :typeSpeed="150"
+          :typeSpeed="120"
           :backSpeed="50"
           :loop="true"
           :strings="textToRotate"
+          :cursorChar="'_'"
         >
           <h4><span class="typing"></span></h4>
         </vue-typed-js>
@@ -35,6 +36,7 @@ export default {
     }
   },
 };
+//https://github.com/Orlandster/vue-typed-js
 </script>
 
 <style>
