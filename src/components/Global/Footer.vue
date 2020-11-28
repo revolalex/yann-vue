@@ -4,6 +4,13 @@
       <div class="row">
         <div class="col">
           <h5 id="ycFooter" class="white-text">
+            <a
+              id="instaFooter"
+              href="https://www.instagram.com/yann_crochet_photographe/"
+              ><img
+                src="https://yanncrochet.com/images/insta.png"
+                alt="instagram"
+            /></a>
             {{ $t("Photographer.Name") }}
           </h5>
           <p class="item-1">
@@ -99,10 +106,16 @@ export default {
 </script>
 
 <style>
+#instaFooter img{
+  width: 25px;
+}
+#instaFooter img:hover {
+  transform: scale(1.1);
+}
+/* change color of li dot */
 #ulFooter {
   list-style: none; /* Remove default bullets */
 }
-
 #ulFooter li::before {
   content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
   color: white; /* Change the color */
@@ -111,8 +124,16 @@ export default {
   width: 1em; /* Also needed for space (tweak if needed) */
   margin-left: -1em; /* Also needed for space (tweak if needed) */
 }
+/* on affiche l'image ronde */
 #arLogo {
   width: 25px;
+  border-radius: 50%;
+}
+/* on affiche l'image au carré */
+#arLogo:hover {
+  width: 25px;
+  height: 25px;
+  border-radius: 0%;
 }
 .footer {
   padding-top: 20px;

@@ -47,13 +47,20 @@ export default {
   justify-content: center;
 }
 .image {
-  width: 350px;
-  margin: 0.5% 0.5% 0.5% 0.5%;
-  height: 390px;
+  width: 400px;
+
+  height: 450px;
+  /* object-fit: cover;
+  transition: transform 0.5s ease; */
+  -webkit-transform: scale(0.95);
+  -moz-transform: scale(0.95);
+  transform: scale(0.95);
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: all 2s ease;
 }
 .image:hover {
-  transform: scale(1.02);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  transform: scale(1);
 }
 </style>
