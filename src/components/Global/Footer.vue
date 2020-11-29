@@ -4,10 +4,11 @@
       <div class="row">
         <div class="col">
           <h5 id="ycFooter" class="white-text">
-            <a
+            <a  data-test="instagram-link"
               id="instaFooter"
               href="https://www.instagram.com/yann_crochet_photographe/"
               ><img
+                data-test="instagram"
                 src="https://yanncrochet.com/images/insta.png"
                 alt="instagram"
             /></a>
@@ -25,9 +26,9 @@
             {{ slideTxt3 }}
           </p>
         </div>
-        <div class="col">
+        <div class="col" data-test="div-link">
           <h5 id="linkFooter" class="white-text">{{ $t("Footer.Link") }}</h5>
-          <ul id="ulFooter">
+          <ul id="ulFooter" data-test="link">
             <li>
               <router-link class="white-text" to="/">{{
                 $t("Footer.Link.Accueil")

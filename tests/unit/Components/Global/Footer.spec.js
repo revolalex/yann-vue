@@ -9,7 +9,7 @@ describe('Footer.vue', () => {
       wrapper = shallowMount(Footer , {
         mocks: {
           $t: (msg) => msg
-        }
+        },
       })
     })
   
@@ -20,10 +20,9 @@ describe('Footer.vue', () => {
 
     describe('instagram', () => {
         it('should have instagram at right', () => {
-          const instagram = wrapper.find('[data-test="div-instagram"]')
+          const instagram = wrapper.find('[data-test="instagram"]')
           expect(instagram.exists()).toBeTruthy()
-          expect(instagram.tagName = 'div').toBeTruthy()
-          expect(instagram.classes()).toContain('footer-right')
+          expect(instagram.tagName = 'img').toBeTruthy()
         })
 
         it('should have link to personnal instagram', () => {
@@ -35,44 +34,38 @@ describe('Footer.vue', () => {
         
     })
     describe('link', () => {
-        it('should have link div at left', () => {
+        it('should have link div', () => {
           const linkDiv = wrapper.find('[data-test="div-link"]')
           expect(linkDiv.exists()).toBeTruthy()
           expect(linkDiv.tagName = 'div').toBeTruthy()
-          expect(linkDiv.classes()).toContain('footer-left')
+          expect(linkDiv.classes()).toContain('col')
         })
 
         it('should contains link', () => {
-            const linksParagraph = wrapper.find('[data-test="link"]')
-            expect(linksParagraph.exists()).toBeTruthy()
-            expect(linksParagraph.tagName = 'p').toBeTruthy()
-            expect(linksParagraph.classes()).toContain('footer-links')
+            const linkParagraph = wrapper.find('[data-test="link"]')
+            expect(linkParagraph.exists()).toBeTruthy()
+            expect(linkParagraph.tagName = 'ul').toBeTruthy()
 
-            const linksCopyright= wrapper.findAll('a').at(1)
-            expect(linksCopyright.exists()).toBeTruthy()
-            expect (linksCopyright.attributes().href).toBe('https://revol-cv.netlify.app/')
+            const linkAccueil= wrapper.findAll('router-link ').at(0)
+            expect(linkAccueil.exists()).toBeTruthy()
+            expect (linkAccueil.attributes().to).toBe('/')
 
-            const linksAccueil= wrapper.findAll('a').at(2)
-            expect(linksAccueil.exists()).toBeTruthy()
-            expect (linksAccueil.attributes().href).toBe('/')
+            const linkBiographie= wrapper.findAll('router-link ').at(1)
+            expect(linkBiographie.exists()).toBeTruthy()
+            expect (linkBiographie.attributes().to).toBe('/biographie')
 
-            const linksBiographie= wrapper.findAll('a').at(3)
-            expect(linksBiographie.exists()).toBeTruthy()
-            expect (linksBiographie.attributes().href).toBe('/biographie')
+            const linkActualites= wrapper.findAll('router-link ').at(2)
+            expect(linkActualites.exists()).toBeTruthy()
+            expect (linkActualites.attributes().to).toBe('/actualites')
 
-            const linksActualites= wrapper.findAll('a').at(4)
-            expect(linksActualites.exists()).toBeTruthy()
-            expect (linksActualites.attributes().href).toBe('/actualites')
+            const linkGaleries= wrapper.findAll('router-link ').at(3)
+            expect(linkGaleries.exists()).toBeTruthy()
+            expect (linkGaleries.attributes().to).toBe('/galeries')
 
-            const linksGaleries= wrapper.findAll('a').at(5)
-            expect(linksGaleries.exists()).toBeTruthy()
-            expect (linksGaleries.attributes().href).toBe('/galeries')
+            const linkContact = wrapper.findAll('router-link ').at(4)
+            expect(linkContact.exists()).toBeTruthy()
+            expect (linkContact.attributes().to).toBe('/contact')
 
-            const linksContact= wrapper.findAll('a').at(6)
-            expect(linksContact.exists()).toBeTruthy()
-            expect (linksContact.attributes().href).toBe('/contact')
-
-            
         })
     })
     afterAll(() => {
