@@ -6,13 +6,13 @@
 </template>
 
 <script>
-import Form from "../components/Admin/Form";
-import TitreDePage from"../components/Global/TitrePage"
+import Form from "@/components/Admin/Form";
+import TitreDePage from"@/components/Global/TitrePage"
 export default {
   name: "Home",
   components: {
     Form,
-    TitreDePage
+    TitreDePage,
   },
 };
 </script>

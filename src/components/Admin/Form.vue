@@ -49,7 +49,7 @@ export default {
       return this.form.name.length >= 4;
     },
     statePass() {
-      return this.form.password.length >= 4;
+      return this.form.password.length >= 8;
     },
     invalidFeedback() {
       if (this.form.name.length > 0) {
@@ -59,7 +59,7 @@ export default {
     },
     invalidFeedbackPass() {
       if (this.form.password.length > 0) {
-        return "Enter at least 4 characters.";
+        return "Enter at least 8 characters.";
       }
       return "Please enter your password";
     },

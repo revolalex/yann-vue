@@ -1,11 +1,12 @@
 <template>
   <div id="app">
     <Navbar/>
-    <router-view />
+    <router-view/>
+    <!-- <router-view :key="$route.fullPath" /> --> 
   </div>
 </template>
 <script>
-import Navbar from './components/Global/Navbar'
+import Navbar from './components/Global/Navbar/Navbar'
 export default {
   components:{
     Navbar
@@ -13,6 +14,4 @@ export default {
 }
 </script>
 <style>
-
-
 </style>
