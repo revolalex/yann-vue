@@ -1,11 +1,11 @@
-import { shallowMount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import TitrePage from '@/components/Global/TitrePage.vue'
 
 describe('TitrePage.vue', () => {
     let wrapper
 
     beforeAll(() => {
-        wrapper = shallowMount(TitrePage, {
+        wrapper = mount(TitrePage, {
             propsData: { titre: 'new titre' }
         })
     })

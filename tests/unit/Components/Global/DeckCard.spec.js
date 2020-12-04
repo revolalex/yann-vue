@@ -1,11 +1,11 @@
-import { shallowMount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import DeckCard from '@/components/Global/DeckCard.vue'
 
 describe('DeckCard.vue', () => {
     let wrapper
 
     beforeAll(() => {
-        wrapper = shallowMount(DeckCard, {
+        wrapper = mount(DeckCard, {
             mocks: {
                 $t: (msg) => msg
             },
