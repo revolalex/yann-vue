@@ -3,7 +3,7 @@
     <div class="myContainer">
       <TitreDePage :titre="$t('Titre.Galeries')" />
       <GalerieMenu
-        v-bind:imageInGaleries="imageInGaleries"
+        v-bind:imageInGaleries="getGaleries"
         v-bind:classes="classes"
       />
     </div>
@@ -23,9 +23,12 @@ export default {
     Footer,
   },
   computed:{
-    imageInGaleries(){
+    /**
+     * @function get an array of object (gallerie)
+     */
+    getGaleries(){
       const $t = this.$t.bind(this)
-      let imageInGaleries= [
+      let galeries= [
         {
           href: "/galeries/foret",
           src: "https://yanncrochet.com/photo/foret/foret23xs.jpg",
@@ -62,8 +65,9 @@ export default {
           alt: "biche",
           caption: $t('Titre.Galerie.Noir')
         },
+        
       ]
-      return imageInGaleries
+      return galeries
     }
   },
   data: function () {

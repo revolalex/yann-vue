@@ -1,5 +1,5 @@
 <template>
-  <div class="container m-t-md">
+  <div class="container m-t-md" data-test="deckCard">
     <b-card-group deck>
       <b-card
         v-for="(card, index) in cards"
@@ -25,11 +25,11 @@
 
 <script>
 /**
- * @module component - CalendrierDeckCard
+ * @module component - DeckCard
  * @param {array} - cards
  */
 export default {
-  name: "CalendrierDeckCard",
+  name: "DeckCard",
   props: {
     cards: Array,
   },

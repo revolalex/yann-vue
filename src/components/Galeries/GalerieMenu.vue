@@ -1,6 +1,7 @@
 <template>
-  <div :class="classes.container">
+  <div :class="classes.container" data-test="galerieMenu">
     <div
+      
       :class="classes.box"
       v-for="image in imageInGaleries"
       :key="image.caption"
@@ -31,7 +32,7 @@ export default {
 <style>
 /* Responsive placing of the boxes*/
 .galeriesContainer {
-  padding: 1% 1% 0% 1%;
+  padding: 1% 5% 1% 5%;
   background: white;
 }
 
