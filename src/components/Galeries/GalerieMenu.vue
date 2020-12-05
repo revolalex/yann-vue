@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes.container" data-test="galerieMenu">
+  <div :class="classes.container">
     <div
       :class="classes.box"
       v-for="image in imageInGaleries"
@@ -7,7 +7,7 @@
     >
       <router-link :to="image.href"
         ><img :alt="image.alt" :src="image.src" />
-        <div class="caption">{{ image.caption }}</div>
+        <div class="caption" data-test="galerieMenuCaption">{{ image.caption }}</div>
       </router-link>
     </div>
   </div>
