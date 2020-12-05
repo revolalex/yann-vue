@@ -1,5 +1,13 @@
-import { mount } from '@vue/test-utils'
+
 import Footer from '@/components/Global/Footer.vue'
+import BootstrapVue from 'bootstrap-vue';
+import { mount, createLocalVue } from '@vue/test-utils';
+import VueRouter from 'vue-router'
+
+const localVue = createLocalVue();
+localVue.use(BootstrapVue);
+localVue.use(VueRouter)
+const router = new VueRouter()
 
 
 describe('Footer.vue', () => {
@@ -7,6 +15,8 @@ describe('Footer.vue', () => {
 
     beforeAll(() => {
         wrapper = mount(Footer, {
+            localVue,
+            router,
             mocks: {
                 $t: (msg) => msg
             },
@@ -40,33 +50,15 @@ describe('Footer.vue', () => {
             expect(linkDiv.tagName = 'div').toBeTruthy()
             expect(linkDiv.classes()).toContain('col')
         })
-
-        it('should contains link', () => {
-            const linkParagraph = wrapper.find('[data-test="link"]')
-            expect(linkParagraph.exists()).toBeTruthy()
-            expect(linkParagraph.tagName = 'ul').toBeTruthy()
-
-            const linkAccueil = wrapper.findAll('router-link ').at(0)
-            expect(linkAccueil.exists()).toBeTruthy()
-            expect(linkAccueil.attributes().to).toBe('/')
-
-            const linkBiographie = wrapper.findAll('router-link ').at(1)
-            expect(linkBiographie.exists()).toBeTruthy()
-            expect(linkBiographie.attributes().to).toBe('/biographie')
-
-            const linkActualites = wrapper.findAll('router-link ').at(2)
-            expect(linkActualites.exists()).toBeTruthy()
-            expect(linkActualites.attributes().to).toBe('/actualites')
-
-            const linkGaleries = wrapper.findAll('router-link ').at(3)
-            expect(linkGaleries.exists()).toBeTruthy()
-            expect(linkGaleries.attributes().to).toBe('/galeries')
-
-            const linkContact = wrapper.findAll('router-link ').at(4)
-            expect(linkContact.exists()).toBeTruthy()
-            expect(linkContact.attributes().to).toBe('/contact')
-
+        
+        it('should have home link', () => {
+            const link = wrapper.find('[data-test="link"]')
+            expect(link.exists()).toBeTruthy()
+            expect(link.tagName = 'router-link').toBeTruthy()
+            expect(link.attributes().href).toBe('#/')
+            expect(wrapper.text()).toMatch('Footer.Link.Accueil')
         })
+
     })
     afterAll(() => {
         wrapper.destroy()

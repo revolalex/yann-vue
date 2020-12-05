@@ -13,7 +13,7 @@ describe('DeckCard.vue', () => {
       localVue,
       propsData: { 
         cards: [{
-         src:"https://yanncrochet.com/images/calendrier2.jpg",
+         src:"https://yanncrochet.com/images/calendrier.jpg",
          text: 'test',
          title: 'title',
          linkText: 'link',
@@ -28,6 +28,7 @@ describe('DeckCard.vue', () => {
     expect(mainDiv.exists()).toBeTruthy()
     expect(mainDiv.tagName = 'div').toBeTruthy()
     expect(mainDiv.classes()).toContain("container", "m-t-md")
+
   });
 
 

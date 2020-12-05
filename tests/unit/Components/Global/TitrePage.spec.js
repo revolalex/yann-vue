@@ -9,6 +9,7 @@ describe('TitrePage.vue', () => {
             propsData: { titre: 'new titre' }
         })
     })
+
     it('should be defined', () => {
         expect(wrapper.exists()).toBeTruthy()
     })
@@ -17,15 +18,14 @@ describe('TitrePage.vue', () => {
         const titreH1 = wrapper.find('[data-test="titre-h1"]')
         expect(titreH1.exists()).toBeTruthy()
         expect(titreH1.tagName = 'h1').toBeTruthy()
-
     })
 
 
     it('renders props.titre when passed', () => {
         const titre = 'new titre'
-        expect(wrapper.exists()).toBeTruthy()
         expect(wrapper.text()).toMatch(titre)
     })
+    
     afterAll(() => {
         wrapper.destroy()
     })

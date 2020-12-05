@@ -29,9 +29,9 @@
         </div>
         <div class="col" data-test="div-link">
           <h5 id="linkFooter" class="white-text">{{ $t("Footer.Link") }}</h5>
-          <ul id="ulFooter" data-test="link">
+          <ul id="ulFooter" >
             <li>
-              <router-link class="white-text" to="/">{{
+              <router-link data-test="link" class="white-text" to="/">{{
                 $t("Footer.Link.Accueil")
               }}</router-link>
             </li>
