@@ -14,11 +14,13 @@ connection.connect(function(err) {
   connection.query(createDB, function(err, results) {
     if (err) throw err;
   });
+  // link, category, description, 
   let imgTable =
     "CREATE TABLE IF NOT EXISTS images (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, link VARCHAR(250) NOT NULL, category VARCHAR(100) NOT NULL,  description VARCHAR(200));";
   connection.query(imgTable, function(err, results) {
     if (err) throw err;
   });
+  // name, password, email
   let adminTable =
     "CREATE TABLE IF NOT EXISTS admin (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, name VARCHAR(30) NOT NULL, password VARCHAR(100) NOT NULL, email VARCHAR(200) NOT NULL);"
     connection.query(adminTable, function (err, results){

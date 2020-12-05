@@ -29,7 +29,6 @@ const connection = require("./database/db");
 connection.connect();
 
 /************************** Routes ****************************/
-// require("./routes/route")(app, connection);
 require ("./routes/imageRoutes")(app, connection)
 require("./routes/adminRoutes")(app, connection)
 

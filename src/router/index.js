@@ -91,7 +91,6 @@ const routes = [
   {
     path: '/galeries/noir',
     name: 'Noir',
-    // component: Noir
     component: () => import(/* webpackChunkName: "about" */ '@/views/Galeries/Noir/Noir.vue')
   },
 ]

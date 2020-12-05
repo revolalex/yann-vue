@@ -22,7 +22,7 @@
 <script>
 /**
  * @module component - CarouselComponent
- * @param {array} - imageInCarousel
+ * @param {array} - props:imageInCarousel {[url:"", alt:""]}
  */
 export default {
   name: "CarouselComponent",

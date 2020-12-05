@@ -1,4 +1,3 @@
-
 import Footer from '@/components/Global/Footer.vue'
 import BootstrapVue from 'bootstrap-vue';
 import { mount, createLocalVue } from '@vue/test-utils';
@@ -28,7 +27,7 @@ describe('Footer.vue', () => {
     })
 
 
-    describe('instagram', () => {
+    describe('Footer', () => {
         it('should have instagram at right', () => {
             const instagram = wrapper.find('[data-test="instagram"]')
             expect(instagram.exists()).toBeTruthy()

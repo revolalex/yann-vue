@@ -1,7 +1,6 @@
 <template>
   <div :class="classes.container" data-test="galerieMenu">
     <div
-      
       :class="classes.box"
       v-for="image in imageInGaleries"
       :key="image.caption"
