@@ -1,16 +1,25 @@
-import { shallowMount } from '@vue/test-utils'
+import BootstrapVue from 'bootstrap-vue';
+import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Navbar from '@/components/Global/Navbar/Navbar.vue'
+import VueRouter from 'vue-router'
 
+const localVue = createLocalVue();
+localVue.use(BootstrapVue);
+localVue.use(VueRouter)
+const router = new VueRouter()
 
 describe('Navbar.vue', () => {
   let wrapper
 
   beforeAll(() => {
-    wrapper = shallowMount(Navbar , {
+    wrapper = shallowMount(Navbar, {
+      localVue,
+      router,
       mocks: {
         $t: (msg) => msg
       }
     })
+
   })
 
   it('should be defined', () => {
@@ -20,7 +29,7 @@ describe('Navbar.vue', () => {
   it('should contain b-navbar with good attributes', () => {
     const navbar = wrapper.find('[data-test="navbar"]')
     expect(navbar.exists()).toBeTruthy()
-    expect(navbar.tagName='b-navbar').toBeTruthy()
+    expect(navbar.tagName = 'b-navbar').toBeTruthy()
     expect(navbar.attributes().type).toBe('dark')
     expect(navbar.attributes().variant).toBe('secondary')
     expect(navbar.attributes().toggleable).toBe('lg')
@@ -44,38 +53,11 @@ describe('Navbar.vue', () => {
     const dropDown = wrapper.find('[data-test="navbar-dropdown"]')
     expect(dropDown.exists()).toBeTruthy()
     expect(dropDown.attributes().text).toBe('Navbar.Galeries.Text')
-
-  })
-
-  it('should have 6 dropdown link with good text', () => {
-    const forelLink= wrapper.findAll('b-dropdown-item').at(0)
-    expect(forelLink.exists()).toBeTruthy()
-    expect(forelLink.text()).toBe('Titre.Galerie.Foret')
-
-    const microLink= wrapper.findAll('b-dropdown-item').at(1)
-    expect(microLink.exists()).toBeTruthy()
-    expect(microLink.text()).toBe('Titre.Galerie.Micro')
-
-    const vegetaleLink= wrapper.findAll('b-dropdown-item').at(2)
-    expect(vegetaleLink.exists()).toBeTruthy()
-    expect(vegetaleLink.text()).toBe('Titre.Galerie.Vegetale')
-
-    
-    const eauLink= wrapper.findAll('b-dropdown-item').at(3)
-    expect(eauLink.exists()).toBeTruthy()
-    expect(eauLink.text()).toBe('Titre.Galerie.Eau')
-
-    const jardinLink= wrapper.findAll('b-dropdown-item').at(4)
-    expect(jardinLink.exists()).toBeTruthy()
-    expect(jardinLink.text()).toBe('Titre.Galerie.Jardin')
-
-    const noirLink= wrapper.findAll('b-dropdown-item').at(5)
-    expect(noirLink.exists()).toBeTruthy()
-    expect(noirLink.text()).toBe('Titre.Galerie.Noir')
-
   })
   afterAll(() => {
     wrapper.destroy()
   })
 
-})
+
+
+});
