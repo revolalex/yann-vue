@@ -78,6 +78,7 @@
   "jest": {
     "preset": "@vue/cli-plugin-unit-jest",
     "collectCoverage": true,
-    "collectCoverageFrom": ["**/*.{js,vue}", "!**/node_modules/**", "!**/api/**", "!**/coverage/**", "!**/i18n/**", "!**/TestUtilsI18n.js**", "!**/babel.config.js**", "!**/vue.config.js**"]
+    "collectCoverageFrom": ["**/*.{js,vue}", "!**/node_modules/**", "!**/api/**", "!**/coverage/**", "!**/i18n/**", "!**/TestUtilsI18n.js**", "!**/babel.config.js**", "!**/vue.config.js**"],
+    "coverageReporters": ["lcov", "text-summary"]
   }
 }
