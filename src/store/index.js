@@ -1,5 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import createPersistedState from "vuex-persistedstate";
+import "es6-promise/auto";
 
 Vue.use(Vuex);
 
@@ -38,5 +40,6 @@ export default new Vuex.Store({
       context.commit("SET_NAME", name);
     },
   },
+  plugins: [createPersistedState()],
   modules: {},
 });

@@ -24,19 +24,24 @@ import { BootstrapVue} from "bootstrap-vue";
 // Lightbox
 import CoolLightBox from 'vue-cool-lightbox'
 import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
+
 // Live typing
 import VueTypedJs from 'vue-typed-js'
 
-Vue.use(VueTypedJs)
+// Axios
+import axios from "axios";
+import VueAxios from "vue-axios";
 
+Vue.use(VueAxios, axios);
+Vue.use(VueTypedJs)
 Vue.use(VueI18n)
 Vue.use(CoolLightBox)
 Vue.use(BootstrapVue);
-// Optionally install the BootstrapVue icon components plugin
+
 
 Vue.config.productionTip = false;
 
-
+// Languages
 const messages = {
   en,
   fr,
@@ -69,8 +74,5 @@ if (module.hot) {
     i18n.setLocaleMessage('ru', require('./locales/ru.json').default)
     i18n.setLocaleMessage('ru', require('./locales/zh_CN.json').default)
     i18n.setLocaleMessage('ja', require('./locales/ja.json').default)
-    // Or the following hot updates via $i18n property
-    // app.$i18n.setLocaleMessage('en', require('./en').default)
-    // app.$i18n.setLocaleMessage('ja', require('./ja').default)
   })
 }

@@ -14,6 +14,7 @@
             /></a>
             {{ $t("Photographer.Name") }}
           </h5>
+          <br/>
           <p class="item-1">
             {{ slideTxt }}
           </p>
@@ -28,9 +29,9 @@
         </div>
         <div class="col" data-test="div-link">
           <h5 id="linkFooter" class="white-text">{{ $t("Footer.Link") }}</h5>
-          <ul id="ulFooter" data-test="link">
+          <ul id="ulFooter" >
             <li>
-              <router-link class="white-text" to="/">{{
+              <router-link data-test="link" class="white-text" to="/">{{
                 $t("Footer.Link.Accueil")
               }}</router-link>
             </li>
@@ -161,6 +162,7 @@ export default {
   width: 60%;
 
   font-size: 1em;
+  padding-left: 10px;
 
   animation-duration: 30s;
   animation-timing-function: ease-in-out;

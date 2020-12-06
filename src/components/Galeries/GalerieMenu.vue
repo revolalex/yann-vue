@@ -7,7 +7,7 @@
     >
       <router-link :to="image.href"
         ><img :alt="image.alt" :src="image.src" />
-        <div class="caption">{{ image.caption }}</div>
+        <div class="caption" data-test="galerieMenuCaption">{{ image.caption }}</div>
       </router-link>
     </div>
   </div>
@@ -31,7 +31,7 @@ export default {
 <style>
 /* Responsive placing of the boxes*/
 .galeriesContainer {
-  padding: 1% 1% 0% 1%;
+  padding: 1% 5% 1% 5%;
   background: white;
 }
 
