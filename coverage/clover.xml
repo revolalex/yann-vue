@@ -1,290 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1607261713259" clover="3.2.0">
-  <project timestamp="1607261713259" name="All files">
-    <metrics statements="403" coveredstatements="9" conditionals="383" coveredconditionals="0" methods="128" coveredmethods="5" elements="914" coveredelements="14" complexity="0" loc="403" ncloc="403" packages="34" files="39" classes="39"/>
-    <package name="projet">
-      <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="babel.config.js" path="/Users/alexandrerodriguez/Desktop/vue/projet/babel.config.js">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-      </file>
-      <file name="vue.config.js" path="/Users/alexandrerodriguez/Desktop/vue/projet/vue.config.js">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="projet.api">
-      <metrics statements="21" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-      <file name="api.js" path="/Users/alexandrerodriguez/Desktop/vue/projet/api/api.js">
-        <metrics statements="21" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="projet.api.database">
-      <metrics statements="15" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="4" coveredmethods="0"/>
-      <file name="db.js" path="/Users/alexandrerodriguez/Desktop/vue/projet/api/database/db.js">
-        <metrics statements="15" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="31" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="projet.api.middlewares">
-      <metrics statements="11" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="auth.js" path="/Users/alexandrerodriguez/Desktop/vue/projet/api/middlewares/auth.js">
-        <metrics statements="11" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="projet.api.modules">
-      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="config.js" path="/Users/alexandrerodriguez/Desktop/vue/projet/api/modules/config.js">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="projet.api.routes">
-      <metrics statements="72" coveredstatements="0" conditionals="24" coveredconditionals="0" methods="11" coveredmethods="0"/>
-      <file name="adminRoutes.js" path="/Users/alexandrerodriguez/Desktop/vue/projet/api/routes/adminRoutes.js">
-        <metrics statements="53" coveredstatements="0" conditionals="18" coveredconditionals="0" methods="8" coveredmethods="0"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="35" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
-        <line num="52" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="63" count="0" type="stmt"/>
-        <line num="64" count="0" type="stmt"/>
-        <line num="66" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="69" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="71" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
-        <line num="76" count="0" type="stmt"/>
-        <line num="77" count="0" type="stmt"/>
-        <line num="80" count="0" type="stmt"/>
-        <line num="84" count="0" type="stmt"/>
-        <line num="85" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="87" count="0" type="stmt"/>
-        <line num="89" count="0" type="stmt"/>
-        <line num="90" count="0" type="stmt"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="92" count="0" type="stmt"/>
-        <line num="99" count="0" type="stmt"/>
-        <line num="101" count="0" type="stmt"/>
-        <line num="108" count="0" type="stmt"/>
-      </file>
-      <file name="imageRoutes.js" path="/Users/alexandrerodriguez/Desktop/vue/projet/api/routes/imageRoutes.js">
-        <metrics statements="19" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="15" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="projet.coverage.lcov-report">
-      <metrics statements="106" coveredstatements="0" conditionals="323" coveredconditionals="0" methods="52" coveredmethods="0"/>
-      <file name="block-navigation.js" path="/Users/alexandrerodriguez/Desktop/vue/projet/coverage/lcov-report/block-navigation.js">
-        <metrics statements="28" coveredstatements="0" conditionals="15" coveredconditionals="0" methods="6" coveredmethods="0"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="55" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="65" count="0" type="stmt"/>
-        <line num="66" count="0" type="cond" truecount="0" falsecount="5"/>
-        <line num="69" count="0" type="stmt"/>
-        <line num="70" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
-        <line num="79" count="0" type="stmt"/>
-      </file>
-      <file name="prettify.js" path="/Users/alexandrerodriguez/Desktop/vue/projet/coverage/lcov-report/prettify.js">
-        <metrics statements="1" coveredstatements="0" conditionals="286" coveredconditionals="0" methods="29" coveredmethods="0"/>
-        <line num="2" count="0" type="cond" truecount="0" falsecount="286"/>
-      </file>
-      <file name="sorter.js" path="/Users/alexandrerodriguez/Desktop/vue/projet/coverage/lcov-report/sorter.js">
-        <metrics statements="77" coveredstatements="0" conditionals="22" coveredconditionals="0" methods="17" coveredmethods="0"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="61" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="63" count="0" type="stmt"/>
-        <line num="64" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="65" count="0" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="69" count="0" type="stmt"/>
-        <line num="73" count="0" type="stmt"/>
-        <line num="76" count="0" type="stmt"/>
-        <line num="77" count="0" type="stmt"/>
-        <line num="82" count="0" type="stmt"/>
-        <line num="83" count="0" type="stmt"/>
-        <line num="84" count="0" type="stmt"/>
-        <line num="85" count="0" type="stmt"/>
-        <line num="86" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="88" count="0" type="stmt"/>
-        <line num="89" count="0" type="stmt"/>
-        <line num="90" count="0" type="stmt"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="94" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="95" count="0" type="stmt"/>
-        <line num="96" count="0" type="stmt"/>
-        <line num="100" count="0" type="stmt"/>
-        <line num="101" count="0" type="stmt"/>
-        <line num="102" count="0" type="stmt"/>
-        <line num="105" count="0" type="stmt"/>
-        <line num="107" count="0" type="stmt"/>
-        <line num="108" count="0" type="stmt"/>
-        <line num="113" count="0" type="stmt"/>
-        <line num="114" count="0" type="stmt"/>
-        <line num="116" count="0" type="stmt"/>
-        <line num="117" count="0" type="stmt"/>
-        <line num="121" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="129" count="0" type="stmt"/>
-        <line num="130" count="0" type="stmt"/>
-        <line num="132" count="0" type="stmt"/>
-        <line num="133" count="0" type="stmt"/>
-        <line num="135" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="136" count="0" type="stmt"/>
-        <line num="138" count="0" type="stmt"/>
-        <line num="139" count="0" type="stmt"/>
-        <line num="140" count="0" type="stmt"/>
-        <line num="141" count="0" type="stmt"/>
-        <line num="142" count="0" type="stmt"/>
-        <line num="145" count="0" type="stmt"/>
-        <line num="146" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="149" count="0" type="stmt"/>
-        <line num="150" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="151" count="0" type="stmt"/>
-        <line num="153" count="0" type="stmt"/>
-        <line num="159" count="0" type="stmt"/>
-        <line num="160" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="161" count="0" type="stmt"/>
-        <line num="163" count="0" type="stmt"/>
-        <line num="164" count="0" type="stmt"/>
-        <line num="165" count="0" type="stmt"/>
-        <line num="166" count="0" type="stmt"/>
-        <line num="170" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="projet.src">
+<coverage generated="1607263242138" clover="3.2.0">
+  <project timestamp="1607263242138" name="All files">
+    <metrics statements="162" coveredstatements="9" conditionals="18" coveredconditionals="0" methods="56" coveredmethods="5" elements="236" coveredelements="14" complexity="0" loc="162" ncloc="162" packages="25" files="26" classes="26"/>
+    <package name="src">
       <metrics statements="20" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="App.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/App.vue">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -313,7 +31,7 @@
         <line num="76" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.components.Admin">
+    <package name="src.components.Admin">
       <metrics statements="32" coveredstatements="0" conditionals="16" coveredconditionals="0" methods="10" coveredmethods="0"/>
       <file name="Form.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/components/Admin/Form.vue">
         <metrics statements="32" coveredstatements="0" conditionals="16" coveredconditionals="0" methods="10" coveredmethods="0"/>
@@ -351,7 +69,7 @@
         <line num="115" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.components.Biographie">
+    <package name="src.components.Biographie">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="CardBiographie.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/components/Biographie/CardBiographie.vue">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -359,7 +77,7 @@
         <line num="35" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.components.Contact">
+    <package name="src.components.Contact">
       <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="FormContainer.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/components/Contact/FormContainer.vue">
         <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -369,14 +87,14 @@
         <line num="74" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.components.Galeries">
+    <package name="src.components.Galeries">
       <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="GaleriePhoto.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/components/Galeries/GaleriePhoto.vue">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="37" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.components.Global">
+    <package name="src.components.Global">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
       <file name="Footer.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/components/Global/Footer.vue">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
@@ -388,29 +106,14 @@
         <line num="104" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.components.Global.Navbar">
+    <package name="src.components.Global.Navbar">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="Navbar.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/components/Global/Navbar/Navbar.vue">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="93" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.i18n">
-      <metrics statements="9" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="2" coveredmethods="0"/>
-      <file name="i18n.js" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/i18n/i18n.js">
-        <metrics statements="9" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="projet.src.router">
+    <package name="src.router">
       <metrics statements="13" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="0"/>
       <file name="index.js" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/router/index.js">
         <metrics statements="13" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="0"/>
@@ -429,7 +132,7 @@
         <line num="98" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.store">
+    <package name="src.store">
       <metrics statements="9" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="0"/>
       <file name="index.js" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/store/index.js">
         <metrics statements="9" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="0"/>
@@ -444,7 +147,7 @@
         <line num="40" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.views.Actualites">
+    <package name="src.views.Actualites">
       <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="Actualites.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/views/Actualites/Actualites.vue">
         <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
@@ -457,7 +160,7 @@
         <line num="58" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.views.Actualites.Calendrier">
+    <package name="src.views.Actualites.Calendrier">
       <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="Calendrier.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/views/Actualites/Calendrier/Calendrier.vue">
         <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -469,7 +172,7 @@
         <line num="42" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.views.Actualites.Expositions">
+    <package name="src.views.Actualites.Expositions">
       <metrics statements="9" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="Expositions.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/views/Actualites/Expositions/Expositions.vue">
         <metrics statements="9" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
@@ -484,7 +187,7 @@
         <line num="76" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.views.Actualites.Interview">
+    <package name="src.views.Actualites.Interview">
       <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="Interview.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/views/Actualites/Interview/Interview.vue">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -493,7 +196,7 @@
         <line num="51" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.views.Actualites.Presse">
+    <package name="src.views.Actualites.Presse">
       <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="Presse.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/views/Actualites/Presse/Presse.vue">
         <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
@@ -506,7 +209,7 @@
         <line num="61" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.views.Admin">
+    <package name="src.views.Admin">
       <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="Admin.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/views/Admin/Admin.vue">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -514,7 +217,7 @@
         <line num="10" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.views.Biographie">
+    <package name="src.views.Biographie">
       <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="Biographie.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/views/Biographie/Biographie.vue">
         <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -524,7 +227,7 @@
         <line num="19" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.views.Contact">
+    <package name="src.views.Contact">
       <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="Contact.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/views/Contact/Contact.vue">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -533,7 +236,7 @@
         <line num="41" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.views.Galeries">
+    <package name="src.views.Galeries">
       <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="Galerie.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/views/Galeries/Galerie.vue">
         <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
@@ -546,7 +249,7 @@
         <line num="74" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.views.Galeries.Eau">
+    <package name="src.views.Galeries.Eau">
       <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="Eau.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/views/Galeries/Eau/Eau.vue">
         <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -556,7 +259,7 @@
         <line num="23" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.views.Galeries.Foret">
+    <package name="src.views.Galeries.Foret">
       <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="Foret.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/views/Galeries/Foret/Foret.vue">
         <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -566,7 +269,7 @@
         <line num="23" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.views.Galeries.Jardin">
+    <package name="src.views.Galeries.Jardin">
       <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="Jardin.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/views/Galeries/Jardin/Jardin.vue">
         <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -576,7 +279,7 @@
         <line num="23" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.views.Galeries.Micro">
+    <package name="src.views.Galeries.Micro">
       <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="Microcosmos.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/views/Galeries/Micro/Microcosmos.vue">
         <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -586,7 +289,7 @@
         <line num="23" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.views.Galeries.Noir">
+    <package name="src.views.Galeries.Noir">
       <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="Noir.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/views/Galeries/Noir/Noir.vue">
         <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -596,7 +299,7 @@
         <line num="23" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.views.Galeries.Vegetale">
+    <package name="src.views.Galeries.Vegetale">
       <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="Vegetale.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/views/Galeries/Vegetale/Vegetale.vue">
         <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -606,22 +309,12 @@
         <line num="23" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="projet.src.views.Home">
+    <package name="src.views.Home">
       <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="Home.vue" path="/Users/alexandrerodriguez/Desktop/vue/projet/src/views/Home/Home.vue">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="6" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="projet.tests">
-      <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="TestUtilsI18n.js" path="/Users/alexandrerodriguez/Desktop/vue/projet/tests/TestUtilsI18n.js">
-        <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
       </file>
     </package>
   </project>
