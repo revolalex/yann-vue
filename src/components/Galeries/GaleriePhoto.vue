@@ -1,6 +1,6 @@
 
 <template>
-  <div id="test2">
+  <div>
     <CoolLightBox
       :items="imageInGaleries"
       :fullScreen="true"

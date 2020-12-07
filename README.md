@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/revolalex/yann-vue.svg?branch=master)](https://travis-ci.org/revolalex/yann-vue)
+
+[![Coverage Status](https://coveralls.io/repos/github/revolalex/yann-vue/badge.svg?branch=master)](https://coveralls.io/github/revolalex/yann-vue?branch=master)
+
 # projet
 
 ## Project setup
