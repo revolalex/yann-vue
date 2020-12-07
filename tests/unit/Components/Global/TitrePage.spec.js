@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils'
 import TitrePage from '@/components/Global/TitrePage.vue'
 
 describe('TitrePage.vue', () => {
+    
     let wrapper
 
     beforeAll(() => {
