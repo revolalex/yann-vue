@@ -98,7 +98,7 @@ const adminRouter = async function(app, connection) {
           } else {
             console.log("pass error");
             // res.status(401).send("Sorry, password incorrect");
-            res.send("password error");
+            res.send("Sorry, password incorrect");
           }
         });
       }
