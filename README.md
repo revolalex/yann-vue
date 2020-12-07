@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/revolalex/yann-vue.svg?branch=master)](https://travis-ci.org/revolalex/yann-vue)
+
 # projet
 
 ## Project setup
