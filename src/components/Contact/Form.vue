@@ -53,7 +53,11 @@
           class="btn btn-mod btn-border btn-large"
           type="submit"
           variant="dark"
-          >{{ $t("Form.Send") }}</b-button
+          >
+
+  <b-spinner v-if="loader" small role="status"></b-spinner>
+
+          {{ $t("Form.Send") }}</b-button
         >
       </div>
     </b-form>
@@ -75,11 +79,13 @@ export default {
       show: true,
       showSuccesLogin: false,
       showEmailAlert: false,
+      loader: false
     };
   },
   methods: {
     async onSubmit(evt) {
       evt.preventDefault();
+      this.loader = true
       let that = this
       await axios
         .post(`http://localhost:8080/mail`, this.form)
@@ -88,10 +94,12 @@ export default {
             console.log("succes mail sent");
           }
           if (response.status == 200) {
+            that.loader = false
             // will allow the succes alert to be visible
             that.showSuccesLogin = true;
           }
           if (response.status == 500) {
+            that.loader = false
             that.showEmailAlert = true;
           }
           // reset the input
