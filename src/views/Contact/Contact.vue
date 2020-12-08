@@ -20,7 +20,8 @@
       </div>
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <FormContainer />
+          <Form/>
+
         </div>
       </div>
     </div>
@@ -36,15 +37,16 @@
 </template>
 
 <script>
-import FormContainer from "@/components/Contact/FormContainer";
+
+import Form from "@/components/Contact/Form";
 import TitreDePage from "@/components/Global/TitrePage";
 import Footer from "@/components/Global/Footer";
 export default {
   name: "Contact",
   components: {
     TitreDePage,
-    FormContainer,
     Footer,
+    Form
   },
 };
 </script>
