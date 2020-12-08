@@ -80,7 +80,6 @@ export default {
   methods: {
     async onSubmit(evt) {
       evt.preventDefault();
-      alert(JSON.stringify(this.form));
       let that = this
       await axios
         .post(`http://localhost:8080/mail`, this.form)
@@ -88,11 +87,11 @@ export default {
           if (response.data === "email sent") {
             console.log("succes mail sent");
           }
-          if (response.status == 201) {
+          if (response.status == 200) {
             // will allow the succes alert to be visible
             that.showSuccesLogin = true;
           }
-          if (response.status == 200) {
+          if (response.status == 500) {
             that.showEmailAlert = true;
           }
           // reset the input

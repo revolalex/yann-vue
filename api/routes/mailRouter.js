@@ -29,11 +29,11 @@ const mailRouter = async function (app, connection) {
         transporter.sendMail(mailOptions, function (error, info) {
             if (error) {
                 console.log(error);
-                res.status(200).send('error sending email')
+                res.status(500).send('error sending email')
             } else {
                 console.log(process.env.GMAIL_PASS);
                 console.log('Email sent: ' + info.response);
-                res.status(201).send('email sent')
+                res.status(200).send('email sent')
             }
         });
     })
