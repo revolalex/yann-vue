@@ -1,11 +1,12 @@
 const nodemailer = require('nodemailer');
-
+const getMailTemplate = require('../modules/templateMail')
 const mailRouter = async function (app, connection) {
 
     await app.post("/mail/", function (req, res) {
         const subject = req.body.subject
-        const textOfEmail = req.body.text
-        const sender = req.body.sender
+        const message = req.body.message
+        const name = req.body.name
+        const email = req.body.email
 
         //gmail acces
         var transporter = nodemailer.createTransport({
@@ -15,27 +16,26 @@ const mailRouter = async function (app, connection) {
                 pass: 'vykhkzqhqqkbobdf'
             }
         });
+
         // Mail object
         var mailOptions = {
-            from: sender,
+            from: email,
+            name: name,
             to: 'revolalex@gmail.com',
             subject: subject,
-            text: textOfEmail
+            html: getMailTemplate.emailTemplate(name, email, subject, message)
         };
         // send email
         transporter.sendMail(mailOptions, function (error, info) {
             if (error) {
                 console.log(error);
+                res.status(500).send('error sending email')
             } else {
                 console.log(process.env.GMAIL_PASS);
                 console.log('Email sent: ' + info.response);
-                res.send('email sent')
+                res.status(200).send('email sent')
             }
         });
-
-
-
     })
-
 }
 module.exports = mailRouter;

@@ -19,7 +19,7 @@ import VueI18n from 'vue-i18n';
 // Install BootstrapVue
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
-import { BootstrapVue} from "bootstrap-vue";
+import { BootstrapVue, IconsPlugin} from "bootstrap-vue";
 
 // Lightbox
 import CoolLightBox from 'vue-cool-lightbox'
@@ -37,6 +37,7 @@ Vue.use(VueTypedJs)
 Vue.use(VueI18n)
 Vue.use(CoolLightBox)
 Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
 
 
 Vue.config.productionTip = false;

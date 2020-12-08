@@ -84,6 +84,7 @@
       "**/*.{js,vue}",
       "!**/node_modules/**",
       "!**/api/**",
+      "!**/views/**",
       "!**/coverage/**",
       "!**/i18n/**",
       "!**/TestUtilsI18n.js**",
