@@ -48,19 +48,25 @@ export default {
 }
 .image {
   width: 400px;
-
   height: 450px;
-  /* object-fit: cover;
-  transition: transform 0.5s ease; */
   -webkit-transform: scale(0.95);
   -moz-transform: scale(0.95);
   transform: scale(0.95);
   object-fit: cover;
-  transition: all 1.5s ease;
+  transition: all 5.5s ease;
 }
 .image:hover {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   transform: scale(1);
+}
+
+/* Mobile responsive */
+@media (max-width: 410px) {
+  .image {
+  width: 324px;
+  height: 364px;
+}
+  
 }
 </style>

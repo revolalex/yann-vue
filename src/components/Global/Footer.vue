@@ -59,6 +59,7 @@
         </div>
       </div>
     </div>
+    <br/>
     <div class="footer-copyright">
       <div class="container white-text">
         © {{ currentYear }}

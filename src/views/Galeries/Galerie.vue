@@ -65,7 +65,6 @@ export default {
           alt: "biche",
           caption: $t('Titre.Galerie.Noir')
         },
-        
       ]
       return galeries
     }

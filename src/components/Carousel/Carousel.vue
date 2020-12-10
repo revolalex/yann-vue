@@ -62,7 +62,7 @@ export default {
 
 .carousel {
   /* Set rules to fill background */
-  min-height: 100%;
+  min-height: calc(100% -57px);
   min-width: 1024px;
   /* Set up proportionate scaling */
   /* width: 100vw;
