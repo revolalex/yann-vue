@@ -46,7 +46,7 @@
           >
             {{ $t("Navbar.Galerie.Text") }}
           </router-link>
-          <b-nav-item-dropdown
+          <!-- <b-nav-item-dropdown
             :text="$t('Navbar.Galeries.Text')"
             right
             data-test="navbar-dropdown"
@@ -69,7 +69,7 @@
             <b-dropdown-item v-on:click.prevent :to="{ name: 'Noir' }">{{
               $t("Titre.Galerie.Noir")
             }}</b-dropdown-item>
-          </b-nav-item-dropdown>
+          </b-nav-item-dropdown> -->
           <router-link
             v-on:click.prevent
             :to="{ name: 'Contact' }"

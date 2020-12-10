@@ -6,6 +6,7 @@ import Biographie from "../views/Biographie/Biographie.vue"
 import Galerie from"../views/Galeries/Galerie.vue"
 import Actualites from"../views/Actualites/Actualites.vue"
 import Contact from"../views/Contact/Contact.vue"
+import NotFound from "../views/NotFound.vue"
 
 Vue.use(VueRouter)
 
@@ -93,6 +94,8 @@ const routes = [
     name: 'Noir',
     component: () => import(/* webpackChunkName: "about" */ '@/views/Galeries/Noir/Noir.vue')
   },
+  { path: '/404', component: NotFound },  
+  { path: '*', redirect: '/404' },  
 ]
 
 const router = new VueRouter({
