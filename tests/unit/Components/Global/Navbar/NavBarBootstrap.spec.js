@@ -51,11 +51,11 @@ describe('Navbar.vue', () => {
       expect(navBarCollapse.attributes().target).toBe('nav-collapse')
     })
 
-    it('should have dropdown menu', () => {
-      const dropDown = wrapper.find('[data-test="navbar-dropdown"]')
-      expect(dropDown.exists()).toBeTruthy()
-      expect(dropDown.attributes().text).toBe('Navbar.Galeries.Text')
-    })
+    // it('should have dropdown menu', () => {
+    //   const dropDown = wrapper.find('[data-test="navbar-dropdown"]')
+    //   expect(dropDown.exists()).toBeTruthy()
+    //   expect(dropDown.attributes().text).toBe('Navbar.Galeries.Text')
+    // })
 
   })
 
