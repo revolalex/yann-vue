@@ -4,7 +4,7 @@
       <!-- Name -->
       <b-form-group
         id="input-group-1"
-        label="Your Name:"
+        label="Name:"
         label-for="input-1"
         valid-feedback="Thank you!"
         :invalid-feedback="invalidFeedback"
@@ -17,18 +17,37 @@
           placeholder="Enter name"
         ></b-form-input>
       </b-form-group>
+
+      <!-- Mail -->
       <b-form-group
         id="input-group-2"
-        label="Password:"
+        label="Email:"
         label-for="input-2"
+        valid-feedback="Look Good!"
+        :invalid-feedback="invalidFeedbackMail"
+        :state="stateEmail"
+      >
+        <b-form-input
+          id="input-2"
+          v-model="form.mail"
+          type="email"
+          required
+          placeholder="Enter email"
+        ></b-form-input>
+      </b-form-group>
+
+      <!-- Password -->
+      <b-form-group
+        id="input-group-3"
+        label="Password:"
+        label-for="input-3"
         description="Restrited acces only admin is allow"
         valid-feedback="Look Good!"
         :invalid-feedback="invalidFeedbackPass"
         :state="statePass"
       >
-        <!-- Password -->
         <b-form-input
-          id="input-2"
+          id="input-3"
           v-model="form.password"
           type="password"
           required
@@ -51,6 +70,9 @@ export default {
     statePass() {
       return this.form.password.length >= 8;
     },
+     stateEmail() {
+      return this.form.mail.length >= 8;
+    },
     invalidFeedback() {
       if (this.form.name.length > 0) {
         return "Enter at least 4 characters.";
@@ -63,13 +85,20 @@ export default {
       }
       return "Please enter your password";
     },
+    invalidFeedbackMail() {
+      if (this.form.mail.length > 0) {
+        return "Enter valid email.";
+      }
+      return "Please enter an email valid";
+    },
   },
 
   data() {
     return {
       form: {
-        password: "",
         name: "",
+        mail: "",
+        password: "",
       },
       show: true,
     };
