@@ -32,6 +32,10 @@ import VueTypedJs from 'vue-typed-js'
 import axios from "axios";
 import VueAxios from "vue-axios";
 
+// vuelidate
+import Vuelidate from 'vuelidate'
+
+Vue.use(Vuelidate)
 Vue.use(VueAxios, axios);
 Vue.use(VueTypedJs)
 Vue.use(VueI18n)
