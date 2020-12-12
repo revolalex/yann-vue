@@ -7,14 +7,15 @@
     <div class="py-4 px-3 mb-4 bg-light">
       <div class="media d-flex align-items-center">
         <img
-          src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png"
+          src="https://yanncrochet.com/images/PortraitYC.JPG"
           alt="..."
           width="65"
-          class="mr-3 rounded-circle img-thumbnail shadow-sm"
+
+          class="mr-3 img-thumbnail shadow-sm"
         />
         <div class="media-body">
-          <h4 class="m-0">Jason Doe</h4>
-          <p class="font-weight-light text-muted mb-0">Web developer</p>
+          <h4 class="m-0">Yann Crochet</h4>
+          <p class="font-weight-light text-muted mb-0">Photographe</p>
         </div>
       </div>
     </div>

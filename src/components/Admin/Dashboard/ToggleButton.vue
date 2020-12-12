@@ -3,13 +3,12 @@
     id="sidebarCollapse"
     type="button"
     class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"
+    v-b-tooltip.hover title="Menu"
     @click="emitButtonClick"
   >
   <div id="centerDiv">
     <b-icon icon="list" variant="info"></b-icon>
-    <small class="text-uppercase font-weight-bold">
-       Menu
-    </small>
+
     </div>
   </button>
 </template>
