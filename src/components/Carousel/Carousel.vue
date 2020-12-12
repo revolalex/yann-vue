@@ -1,8 +1,8 @@
 <template>
     <b-carousel
     id="carousel-1"
-    :interval="4000"
-    fade
+    img-width="1024"
+    fade="true"
   >
     <div class="carousel-inner">
       <b-carousel-slide
@@ -57,20 +57,7 @@ export default {
   animation: zoom 20s;
 }
 
-.carousel {
-  /* Set rules to fill background */
-  min-height: calc(100% -57px);
-  min-width: 1024px;
-  /* Set up proportionate scaling */
-  /* width: 100vw;
-  height: auto; */
-  /* Set up positioning */
-  position: fixed;
-  top: 20;
-  left: 0;
 
-  object-fit: cover;
-}
 
 @media screen and (max-width: 1024px) {
   /* Specific to this particular image */
