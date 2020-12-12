@@ -2,10 +2,7 @@
     <b-carousel
     id="carousel-1"
     :interval="4000"
-    img-width="1024"
     fade
-    img-height="480"
-    style="text-shadow: 1px 1px 2px #333"
   >
     <div class="carousel-inner">
       <b-carousel-slide
