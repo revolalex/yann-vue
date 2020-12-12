@@ -9,7 +9,7 @@
 import Form from "@/components/Admin/Form";
 import TitreDePage from"@/components/Global/TitrePage"
 export default {
-  name: "Home",
+  name: "SignIn",
   components: {
     Form,
     TitreDePage,

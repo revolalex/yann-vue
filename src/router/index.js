@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Admin from '../views/Admin/Admin.vue'
+import SignIn from '../views/Admin/SignIn.vue'
 import Home from'../views/Home/Home.vue'
 import Biographie from "../views/Biographie/Biographie.vue"
 import Galerie from"../views/Galeries/Galerie.vue"
@@ -13,8 +13,13 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/admin',
-    name: 'Admin',
-    component: Admin
+    name: 'SignIn',
+    component: SignIn
+  },
+  {
+    path: '/admin/dashboard',
+    name: 'Dashboard',
+    component: () => import(/* webpackChunkName: "about" */ '@/views/Admin/Dashboard/Dashboard.vue')
   },
   {
     path: '/biographie',
