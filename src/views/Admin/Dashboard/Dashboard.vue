@@ -1,77 +1,69 @@
 <template>
-  <div class="page-container">
-    <md-app>
-      <md-app-toolbar class="md-primary" md-elevation="0">
-        <md-button class="md-icon-button" @click="toggleMenu" v-if="!menuVisible">
-          <md-icon>menu</md-icon>
-        </md-button>
-        <span class="md-title">My Title</span>
-      </md-app-toolbar>
+  <div>
+    <VerticalNavbar v-bind:isActive="isActive"/>
+    <!-- Page content holder -->
+    <div class="page-content p-5" id="content" v-bind:class="{ active: isActive }">
+        <ToggleButton  v-on:buttonClicked="buttonWasClickd" />
+    </div>
 
-      <md-app-drawer :md-active.sync="menuVisible" md-persistent="mini">
-        <md-toolbar class="md-transparent" md-elevation="0">
-          <span>Navigation</span>
-
-          <div class="md-toolbar-section-end">
-            <md-button class="md-icon-button md-dense" @click="toggleMenu">
-              <md-icon>keyboard_arrow_left</md-icon>
-            </md-button>
-          </div>
-        </md-toolbar>
-
-        <md-list>
-          <md-list-item>
-            <md-icon>move_to_inbox</md-icon>
-            <span class="md-list-item-text">Inbox</span>
-          </md-list-item>
-
-          <md-list-item>
-            <md-icon>send</md-icon>
-            <span class="md-list-item-text">Sent Mail</span>
-          </md-list-item>
-
-          <md-list-item>
-            <md-icon>delete</md-icon>
-            <span class="md-list-item-text">Trash</span>
-          </md-list-item>
-
-          <md-list-item>
-            <md-icon>error</md-icon>
-            <span class="md-list-item-text">Spam</span>
-          </md-list-item>
-        </md-list>
-      </md-app-drawer>
-
-      <md-app-content>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea.
-      </md-app-content>
-    </md-app>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'PersistentMini',
-    data: () => ({
-      menuVisible: false
-    }),
+import ToggleButton from "@/components/Admin/Dashboard/ToggleButton.vue"
+import VerticalNavbar from "@/components/Admin/Dashboard/VerticalNavbar.vue"
+export default {
+    name:"Dashboard",
+    components:{
+        VerticalNavbar,
+        ToggleButton
+    },
+    data: function () {
+    return {
+        isActive: false
+    }},
     methods: {
-      toggleMenu () {
-        this.menuVisible = !this.menuVisible
-      }
-    }
-  }
+        buttonWasClickd(c){
+            if (c===true)
+            {this.isActive = !this.isActive}
+        }
+    },
+};
 </script>
 
 <style  scoped>
-  .md-app {
-    min-height: 350px;
-    border: 1px solid rgba(#000, .12);
-  }
 
+.page-content {
+  width: calc(100% - 17rem);
+  margin-left: 17rem;
+  transition: all 0.4s;
+}
 
-  .md-drawer {
-    width: 230px;
-    max-width: calc(100vw - 125px);
+.text-uppercase {
+  letter-spacing: 0.1em;
+}
+
+/* for toggle behavior */
+#content.active {
+  width: 100%;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -17rem;
   }
+  #sidebar.active {
+    margin-left: 0;
+  }
+  #content {
+    width: 100%;
+    margin: 0;
+  }
+  #content.active {
+    margin-left: 17rem;
+    width: calc(100% - 17rem);
+  }
+}
+
 </style>
