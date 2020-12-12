@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12 text-center">
                 <span class="display-1 d-block">404</span>
-                <div id="colorWhite" class="mb-4 lead">La page que vous recherchez n'a pas été trouvé</div>
+                <div id="whiteC" class="mb-4 lead">La page que vous recherchez n'a pas été trouvé</div>
                 <b-button href="/" variant="outline-light">Retour à l'accueil </b-button>
             </div>
         </div>
@@ -28,7 +28,7 @@ export default {
   -o-background-size: cover;
   background-size: cover;
 }
-#colorWhite, span{
+#whiteC span{
   color: white;
 }
 

@@ -2,7 +2,7 @@
     <b-carousel
     id="carousel-1"
     img-width="1024"
-    fade="true"
+    fade
   >
     <div class="carousel-inner">
       <b-carousel-slide
