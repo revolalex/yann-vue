@@ -59,7 +59,7 @@
         ></b-form-input>
       </b-form-group>
       <!-- button -->
-      <b-button type="submit" variant="success">
+      <b-button type="submit" variant="info">
         Se connecter
         <b-icon
           animation="fade"
