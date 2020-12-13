@@ -26,7 +26,7 @@
 
     <ul class="nav flex-column bg-white mb-0">
       <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic bg-light">
+        <a href="#" class="nav-link text-dark font-italic bg-light" @click="infoIsClick">
           <b-icon icon="info" variant="info"></b-icon>
           Information
         </a>
@@ -38,7 +38,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic">
+        <a href="#" class="nav-link text-dark font-italic" @click="photoIsClick">
            <b-icon icon="camera" variant="info"></b-icon>
           Photo du mois
         </a>
@@ -90,6 +90,14 @@ export default {
   props: {
     isActive: Boolean,
   },
+  methods:{
+    photoIsClick(){
+      this.$emit("photoClicked", true);
+    },
+    infoIsClick(){
+      this.$emit("infoClicked", true);
+    }
+  }
 };
 </script>
 

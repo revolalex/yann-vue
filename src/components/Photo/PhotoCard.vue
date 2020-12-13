@@ -1,6 +1,7 @@
 <template>
   <div class="myPhotoContainer">
     <h4>Top and Bottom</h4>
+    
     <b-card img-src="https://picsum.photos/600/300/?image=25">
       <b-card-text
         >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia

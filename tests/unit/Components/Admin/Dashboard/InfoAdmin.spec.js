@@ -1,16 +1,16 @@
 import { BootstrapVue, IconsPlugin} from "bootstrap-vue";
 import { mount, createLocalVue } from '@vue/test-utils';
-import SignInForm from '@/components/Admin/SignInForm.vue'
+import InfoAdmin from '@/components/Admin/Dashboard/InfoAdmin.vue'
 
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
 localVue.use(IconsPlugin);
 
-describe('SignInForm.vue', () => {
+describe('InfoAdmin.vue', () => {
     let wrapper
 
     beforeAll(() => {
-        wrapper = mount(SignInForm, {
+        wrapper = mount(InfoAdmin, {
             localVue,
             mocks: {
                 $t: (msg) => msg
@@ -18,7 +18,7 @@ describe('SignInForm.vue', () => {
         })
     })
 
-    describe('SignInForm', () => {
+    describe('InfoAdmin', () => {
 
         it('should be defined', () => {
             expect(wrapper.exists()).toBeTruthy()

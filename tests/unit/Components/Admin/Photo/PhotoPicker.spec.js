@@ -1,16 +1,16 @@
 import { BootstrapVue, IconsPlugin} from "bootstrap-vue";
 import { mount, createLocalVue } from '@vue/test-utils';
-import SignInForm from '@/components/Admin/SignInForm.vue'
+import PhotoPicker from '@/components/Admin/Photo/PhotoPicker.vue'
 
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
 localVue.use(IconsPlugin);
 
-describe('SignInForm.vue', () => {
+describe('PhotoPicker.vue', () => {
     let wrapper
 
     beforeAll(() => {
-        wrapper = mount(SignInForm, {
+        wrapper = mount(PhotoPicker, {
             localVue,
             mocks: {
                 $t: (msg) => msg
@@ -18,7 +18,7 @@ describe('SignInForm.vue', () => {
         })
     })
 
-    describe('SignInForm', () => {
+    describe('PhotoPicker', () => {
 
         it('should be defined', () => {
             expect(wrapper.exists()).toBeTruthy()

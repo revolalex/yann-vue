@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Form from "@/components/Admin/Form";
+import Form from "@/components/Admin/SignInForm.vue";
 import TitreDePage from"@/components/Global/TitrePage"
 export default {
   name: "SignIn",
