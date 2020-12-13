@@ -61,13 +61,7 @@
       <!-- button -->
       <b-button type="submit" variant="info">
         Se connecter
-        <b-icon
-          animation="fade"
-          icon="camera"
-          variant="light"
-          scale="1"
-        ></b-icon
-      ></b-button>
+      </b-button>
     </b-form>
   </div>
 </template>
@@ -145,6 +139,7 @@ export default {
           if (result.data.name !== "") {
             this.$store.dispatch("SET_NAME_USER", result.data.name);
           }
+          this.$router.push("/admin/dashboard");
         })
         .catch((error) => {
           console.log(error);

@@ -5,7 +5,7 @@
     :style="{ 'background-image': `url(${imageData})` }"
     @click="chooseImage"
   >
-    <span v-if="!imageData" class="placeholder"> Choose an Image </span>
+    <span v-if="!imageData" class="placeholder"> Choisi une image </span>
     <input
       class="file-input"
       ref="fileInput"
@@ -49,12 +49,13 @@ export default {
 .base-image-input {
   display: block;
   margin: auto;
-  min-height: 400px;
+  min-height: 340px;
+  max-width: 100%;
   cursor: pointer;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-	background-size: auto;
+
 }
 .placeholder {
   background: #F0F0F0;
@@ -73,4 +74,12 @@ export default {
 .file-input {
   display: none;
 }
+@media screen and (max-width: 600px) {
+  .base-image-input {
+      height: 280px;
+  width: 280px;
+  }
+}
+
+/* https://levelup.gitconnected.com/how-to-preview-images-before-uploading-them-in-vue-4964803adb64 */
 </style>

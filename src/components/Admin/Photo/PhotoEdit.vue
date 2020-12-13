@@ -25,6 +25,13 @@
         <small id="leftText" class="text-muted">{{ dateActuel }}</small>
       </template>
     </b-card>
+    <br />
+    <div id="publishButton">
+      <b-button variant="info">
+        <b-icon icon="camera" variant="light" scale="1"></b-icon>
+        Publier
+      </b-button>
+    </div>
   </div>
 </template>
 
@@ -38,7 +45,7 @@ export default {
   data() {
     return {
       text: "",
-      title:"",
+      title: "",
     };
   },
   computed: {
@@ -52,22 +59,26 @@ export default {
 </script>
 
 <style>
+#publishButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .myPhotoContainer {
   padding: 1% 20% 1% 20%;
 }
 #leftText {
   text-align: start;
 }
-#titlearea{
-    font-size: 1.1em;
+#titlearea {
+  font-size: 1.1em;
 }
-#textarea{
-  margin-top: 7px
+#textarea {
+  margin-top: 7px;
 }
 @media screen and (max-width: 600px) {
   .myPhotoContainer {
-  padding: 1% 10% 1% 10%;
+    padding: 1% 10% 1% 10%;
+  }
 }
-}
-
 </style>

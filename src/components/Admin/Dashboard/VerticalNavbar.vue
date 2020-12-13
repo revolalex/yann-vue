@@ -14,8 +14,8 @@
           class="mr-3 img-thumbnail shadow-sm"
         />
         <div class="media-body">
-          <h4 class="m-0">Yann Crochet</h4>
-          <p class="font-weight-light text-muted mb-0">Photographe</p>
+          <h4 class="m-0">{{adminName}}</h4>
+          <p class="font-weight-light text-muted mb-0">Admin</p>
         </div>
       </div>
     </div>
@@ -26,15 +26,15 @@
 
     <ul class="nav flex-column bg-white mb-0">
       <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic bg-light" @click="infoIsClick">
-          <b-icon icon="info" variant="info"></b-icon>
-          Information
-        </a>
-      </li>
-      <li class="nav-item">
         <a href="#" class="nav-link text-dark font-italic">
           <b-icon icon="house-door" variant="info"></b-icon>
           Home
+        </a>
+      </li>
+            <li class="nav-item">
+        <a href="#" class="nav-link text-dark font-italic bg-light" @click="infoIsClick">
+          <b-icon icon="info" variant="info"></b-icon>
+          Information
         </a>
       </li>
       <li class="nav-item">
@@ -89,6 +89,11 @@ export default {
   name: "VerticalNavbar",
   props: {
     isActive: Boolean,
+  },
+  computed:{
+    adminName(){
+      return this.$store.state.name
+    }
   },
   methods:{
     photoIsClick(){

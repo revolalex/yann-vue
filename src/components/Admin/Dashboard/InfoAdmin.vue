@@ -8,11 +8,13 @@
         img-top
       >
         <b-card-text>
-          Ici tu peut poster une photo, est inclure un text l'accompagnant.
-          les photo seront stocké ainsi que la chronologie des posts.
+          Ici tu peut poster une photo, est inclure un text l'accompagnant. les
+          photo seront stocké ainsi que la chronologie des posts.
         </b-card-text>
         <template #footer>
-          <small class="text-muted"><a href="#">Créer photo du mois</a></small>
+          <small class="text-muted"
+            ><a href="#" @click="photoIsClick">Créer photo du mois</a></small
+          >
         </template>
       </b-card>
 
@@ -23,7 +25,8 @@
         img-top
       >
         <b-card-text>
-          Là tu peux manager les galeris, ainsi que les différentes photo les composants
+          Là tu peux manager les galeris, ainsi que les différentes photo les
+          composants
         </b-card-text>
         <template #footer>
           <small class="text-muted"><a href="#">Gérer les galeries</a></small>
@@ -51,7 +54,12 @@
 
 <script>
 export default {
-    name:"InfoAdmin"
+  name: "InfoAdmin",
+  methods: {
+    photoIsClick() {
+      this.$emit("photoLinkClicked", true);
+    },
+  },
 };
 </script>
 
