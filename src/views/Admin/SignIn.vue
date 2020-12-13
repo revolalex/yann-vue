@@ -1,17 +1,17 @@
 <template>
   <div class="home">
     <TitreDePage titre="Admin"/>
-    <Form />
+    <SignInForm />
   </div>
 </template>
 
 <script>
-import Form from "@/components/Admin/SignInForm.vue";
+import SignInForm from "@/components/Admin/SignInForm.vue";
 import TitreDePage from"@/components/Global/TitrePage"
 export default {
   name: "SignIn",
   components: {
-    Form,
+    SignInForm,
     TitreDePage,
   },
 };

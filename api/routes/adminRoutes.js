@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const config = require("../modules/config");
 
-const adminRouter = async function(app, connection) {
+const adminRouter = async function (app, connection) {
   /******************** ADMIN PART ********************/
   /****************************************************/
 
@@ -26,10 +26,13 @@ const adminRouter = async function(app, connection) {
   });
 
   /******************** SIGN-UP ********************/
-  await app.post("/signup/", function(req, res) {
+  //name, is_super_admin, password, email, url
+  await app.post("/signup/", function (req, res) {
     let name = req.body.name.charAt(0).toUpperCase() + req.body.name.slice(1);
-    let email = req.body.email;
+    let is_super_admin = req.body.is_super_admin
     let password = req.body.password;
+    let email = req.body.email;
+    let url = req.body.url;
 
     // Handle Error
     switch (true) {
@@ -46,9 +49,9 @@ const adminRouter = async function(app, connection) {
         // Hash the password
         let passwordHash = bcrypt.hashSync(password, saltRounds);
         // Stock the hash password in db
-        let user = [name, email, passwordHash];
-        const sql = "INSERT INTO admin (name,email,password) VALUES (?)";
-        connection.query(sql, [user], function(err, results) {
+        let user = [name, is_super_admin, passwordHash, email, url];
+        const sql = "INSERT INTO admin (name, is_super_admin, password, email, url) VALUES (?)";
+        connection.query(sql, [user], function (err, results) {
           if (err) throw err;
           res.send(results);
         });
@@ -59,13 +62,13 @@ const adminRouter = async function(app, connection) {
   /******************** SIGN-IN ********************/
   // check if the password is the good one for this specific email
   // then deliver a jwt
-  await app.post("/signin/", function(req, res) {
+  await app.post("/signin/", function (req, res) {
     let name = req.body.name.charAt(0).toUpperCase() + req.body.name.slice(1);
     let password = req.body.password;
 
     const sql = `SELECT * FROM admin where name ='${name}';`;
 
-    connection.query(sql, function(err, results) {
+    connection.query(sql, function (err, results) {
       if (err) throw err;
       //handle name error
       if (!Array.isArray(results) || !results.length) {
@@ -75,13 +78,15 @@ const adminRouter = async function(app, connection) {
         let passwordStockInDb = results[0].password;
         let emailInDb = results[0].email;
         let id = results[0].id;
+        let url = results[0].url;
+        let is_super_admin = results[0].is_super_admin;
 
         /******* TOKEN *******/
         let token = jwt.sign(
-          { name: nameInDb, email: emailInDb, id: id},
+          { name: nameInDb, email: emailInDb, id: id },
           config.secret
         );
-        bcrypt.compare(password, passwordStockInDb, function(err, result) {
+        bcrypt.compare(password, passwordStockInDb, function (err, result) {
           if (result === true) {
             // get the decoded payload ignoring signature, no secretOrPrivateKey needed
             var decoded = jwt.decode(token);
@@ -90,11 +95,13 @@ const adminRouter = async function(app, connection) {
             console.log("header ==>", decoded.header);
             console.log("payload ==>", decoded.payload);
             res.status(200).send({
-                auth: true,
-                token: token,
-                id: id,
-                name: nameInDb
-              });
+              auth: true,
+              token: token,
+              id: id,
+              name: nameInDb,
+              url: url,
+              is_super_admin: is_super_admin
+            });
           } else {
             console.log("pass error");
             // res.status(401).send("Sorry, password incorrect");

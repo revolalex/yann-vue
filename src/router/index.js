@@ -7,6 +7,8 @@ import Galerie from"../views/Galeries/Galerie.vue"
 import Actualites from"../views/Actualites/Actualites.vue"
 import Contact from"../views/Contact/Contact.vue"
 import NotFound from "../views/NotFound.vue"
+import store from "@/store/index.js"
+import Dashboard from "@/views/Admin/Dashboard/Dashboard.vue"
 
 Vue.use(VueRouter)
 
@@ -19,7 +21,8 @@ const routes = [
   {
     path: '/admin/dashboard',
     name: 'Dashboard',
-    component: () => import(/* webpackChunkName: "about" */ '@/views/Admin/Dashboard/Dashboard.vue')
+    component: Dashboard,
+    meta: { requiresAuth: true },
   },
   {
     path: '/biographie',
@@ -113,5 +116,19 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+// handle the acces to the routes check in all routes the meta requiresAuth
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+  if (requiresAuth == true && store.state.token) {
+    next();
+  } else if (requiresAuth == true && store.state.token == false) {
+    next({ name: "Home" });
+  } else {
+    next();
+  }
+});
+
+
 
 export default router

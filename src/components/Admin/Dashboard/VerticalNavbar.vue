@@ -7,7 +7,7 @@
     <div class="py-4 px-3 mb-4 bg-light">
       <div class="media d-flex align-items-center">
         <img
-          src="https://yanncrochet.com/images/PortraitYC.JPG"
+          :src="adminUrlImg"
           alt="..."
           width="65"
 
@@ -15,7 +15,8 @@
         />
         <div class="media-body">
           <h4 class="m-0">{{adminName}}</h4>
-          <p class="font-weight-light text-muted mb-0">Admin</p>
+          <p class="font-weight-light text-muted mb-0" v-if="!isSuperAdmin">Admin</p>
+          <p class="font-weight-light text-muted mb-0" v-if="isSuperAdmin">Super Admin</p>
         </div>
       </div>
     </div>
@@ -93,6 +94,16 @@ export default {
   computed:{
     adminName(){
       return this.$store.state.name
+    },
+    adminUrlImg(){
+      return this.$store.state.url
+    },
+    isSuperAdmin(){
+      if (this.$store.state.is_super_admin === 1){
+        return true
+      } else {
+        return false
+      }
     }
   },
   methods:{

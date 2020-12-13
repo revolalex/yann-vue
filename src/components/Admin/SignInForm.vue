@@ -115,8 +115,8 @@ export default {
       await axios
         .post("http://localhost:8080/signin/", this.form)
         .then((result) => {
-          console.log(result.data);
-          if (result.data === "password error") {
+          console.log(result);
+          if (result.data === "Sorry, password incorrect") {
             this.showPassAlert = true;
             this.$v.$reset();
             alert("password error");
@@ -139,7 +139,14 @@ export default {
           if (result.data.name !== "") {
             this.$store.dispatch("SET_NAME_USER", result.data.name);
           }
+          if(result.data.url !== ""){
+            this.$store.dispatch("SET_URL_IMG_USER", result.data.url)
+          }
+          if(result.data.is_super_admin !== ""){
+            this.$store.dispatch("SET_SUPERADMIN_USER", result.data.is_super_admin)
+          }
           this.$router.push("/admin/dashboard");
+          // console.log(result.data);
         })
         .catch((error) => {
           console.log(error);
