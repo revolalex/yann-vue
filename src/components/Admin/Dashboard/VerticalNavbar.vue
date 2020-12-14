@@ -76,7 +76,7 @@
       </li>
     </ul>
 
-    <!-- <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">
+    <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">
       Charts
     </p>
 
@@ -105,7 +105,7 @@
           Line charts
         </a>
       </li>
-    </ul> -->
+    </ul>
   </div>
 </template>
 

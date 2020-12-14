@@ -14,6 +14,7 @@
     <b-card>
       <PhotoPicker v-on:inputImg="photoWasAdded" />
       <b-form-textarea
+        data-test="photoTexteArea"
         id="textarea"
         v-model="texte"
         placeholder="Saisir un texte  minimun 30 charactères..."
@@ -67,8 +68,6 @@ export default {
     async publierWasClickerd(evt) {
       evt.preventDefault();
 
-
-
       const imageObject = {
         texte: this.texte,
         galerie_name: this.galerie_name,
@@ -79,7 +78,7 @@ export default {
 
       console.log(imageObject);
       console.log(this.photo_image);
-      
+
       await axios
         .post("http://localhost:8080/archive/", imageObject)
         .then((result) => {

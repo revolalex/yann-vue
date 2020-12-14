@@ -1,24 +1,30 @@
-import { BootstrapVue, IconsPlugin} from "bootstrap-vue";
+import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import { mount, createLocalVue } from '@vue/test-utils';
-import VerticalNavbar from '@/components/Admin/Dashboard/VerticalNavbar.vue'
+import Contact from '@/views/Contact/Contact.vue'
+import Footer from '@/components/Global/Footer.vue'
+import VueRouter from 'vue-router'
 
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
 localVue.use(IconsPlugin);
+localVue.use(VueRouter)
+const router = new VueRouter()
 
-describe('VerticalNavbar.vue', () => {
+describe('Views Contact.vue', () => {
     let wrapper
 
     beforeAll(() => {
-        wrapper = mount(VerticalNavbar, {
+        wrapper = mount(Contact, {
+            router,
             localVue,
             mocks: {
                 $t: (msg) => msg
             },
+            components: { Footer }
         })
     })
 
-    describe('VerticalNavbar', () => {
+    describe('Contact', () => {
 
         it('should be defined', () => {
             expect(wrapper.exists()).toBeTruthy()
