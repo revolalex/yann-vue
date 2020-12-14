@@ -1,14 +1,24 @@
 <template>
   <div id="myform">
-    <b-alert v-model="showSuccesLogin" variant="success" dismissible>
-      <b-icon icon="emoji-smile" variant="success" scale="1.3"></b-icon> Succés connection
+    <b-alert v-model="showPassAlert" variant="danger" dismissible>
+      <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Erreur
+      password incorrect
     </b-alert>
 
-    <b-alert v-model="showEmailAlert" variant="danger" dismissible>
-      <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Erreur email inconnue
+
+    <b-alert v-model="showNameAlert" variant="danger" dismissible>
+      <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Erreur
+      nom inconnue
     </b-alert>
+
+     <b-alert v-model="showEchecAlert" variant="danger" dismissible>
+      <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Information incorrect
+    </b-alert>
+
     <h4 class="myCenter">Merci de compléter le formulaire pour se connecter</h4>
-    <h6 class="myCenter">Accès restreint, seul l'administrateur est autorisé</h6>
+    <h6 class="myCenter">
+      Accès restreint, seul l'administrateur est autorisé
+    </h6>
     <br />
 
     <b-form @submit="onSubmit" v-if="show">
@@ -59,9 +69,7 @@
         ></b-form-input>
       </b-form-group>
       <!-- button -->
-      <b-button type="submit" variant="info">
-        Se connecter
-      </b-button>
+      <b-button type="submit" variant="info"> Se connecter </b-button>
     </b-form>
   </div>
 </template>
@@ -83,8 +91,8 @@ export default {
       show: true,
       // will allow the ok sentence to be visible
       showNameAlert: false,
-      showSuccesLogin: false,
-      showEmailAlert: false,
+      showPassAlert: false,
+      showEchecAlert: false
     };
   },
   // vuelidate
@@ -119,15 +127,12 @@ export default {
           if (result.data === "Sorry, password incorrect") {
             this.showPassAlert = true;
             this.$v.$reset();
-            alert("password error");
           }
           if (result.data === "Sorry, name incorrect") {
-            this.showEmailAlert = true;
+            this.showNameAlert = true;
             this.$v.$reset();
-            alert("Name error");
           }
           if (result.data.auth === true) {
-            this.showSuccesLogin= true;
             this.$store.dispatch("AUTH_TRUE");
           }
           if (result.data.token !== "") {
@@ -139,13 +144,21 @@ export default {
           if (result.data.name !== "") {
             this.$store.dispatch("SET_NAME_USER", result.data.name);
           }
-          if(result.data.url !== ""){
-            this.$store.dispatch("SET_URL_IMG_USER", result.data.url)
+          if (result.data.url !== "") {
+            this.$store.dispatch("SET_URL_IMG_USER", result.data.url);
           }
-          if(result.data.is_super_admin !== ""){
-            this.$store.dispatch("SET_SUPERADMIN_USER", result.data.is_super_admin)
+          if (result.data.is_super_admin !== "") {
+            this.$store.dispatch(
+              "SET_SUPERADMIN_USER",
+              result.data.is_super_admin
+            );
           }
-          this.$router.push("/admin/dashboard");
+          if (result.data.auth === true && result.data.token !== "") {
+            this.$router.push("/admin/dashboard");
+          } else {
+            this.showEchecAlert =true
+          }
+
           // console.log(result.data);
         })
         .catch((error) => {

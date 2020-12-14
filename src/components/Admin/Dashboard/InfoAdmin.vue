@@ -3,13 +3,18 @@
     <b-card-group deck>
       <b-card
         title="Photo du mois"
-        img-src="https://picsum.photos/300/300/?image=41"
+        img-src="https://yanncrochet.com/photo/adminMoisPhoto.png"
         img-alt="Image"
         img-top
       >
         <b-card-text>
-          Ici tu peut poster une photo, est inclure un text l'accompagnant. les
-          photo seront stocké ainsi que la chronologie des posts.
+          La photo du mois doit avoir:
+          <ul>
+            <li>Un titre, min 3 charactères</li>
+            <li>Une photo</li>
+            <li>Un texte min 30 charactères</li>
+          </ul>
+          Il ne te reste pus qu'a cliquer sur publier (la date se remplie automatiquement)
         </b-card-text>
         <template #footer>
           <small class="text-muted"
@@ -18,12 +23,7 @@
         </template>
       </b-card>
 
-      <b-card
-        title="Galerie"
-        img-src="https://picsum.photos/300/300/?image=41"
-        img-alt="Image"
-        img-top
-      >
+      <b-card title="Galerie" img-src="" img-alt="Image" img-top>
         <b-card-text>
           Là tu peux manager les galeris, ainsi que les différentes photo les
           composants

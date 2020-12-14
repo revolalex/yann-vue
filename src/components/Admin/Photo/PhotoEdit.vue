@@ -12,14 +12,14 @@
     </h4>
 
     <b-card>
-      <PhotoPicker />
+      <PhotoPicker v-on:inputImg="photoWasAdded" />
       <b-form-textarea
         id="textarea"
-        v-model="text"
+        v-model="texte"
         placeholder="Saisir un texte  minimun 30 charactères..."
         rows="3"
         max-rows="6"
-        :state="text.length >= 30"
+        :state="texte.length >= 30"
       ></b-form-textarea>
       <template #footer>
         <small id="leftText" class="text-muted">{{ dateActuel }}</small>
@@ -27,7 +27,7 @@
     </b-card>
     <br />
     <div id="publishButton">
-      <b-button variant="info">
+      <b-button variant="info" @click="publierWasClickerd">
         <b-icon icon="camera" variant="light" scale="1"></b-icon>
         Publier
       </b-button>
@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import PhotoPicker from "@/components/Admin/Photo/PhotoPicker.vue";
 export default {
   name: "PhotoCard",
@@ -44,8 +45,9 @@ export default {
   },
   data() {
     return {
-      text: "",
+      texte: "",
       title: "",
+      photo_image: "",
     };
   },
   computed: {
@@ -53,6 +55,39 @@ export default {
       var d = new Date();
       var n = d.toLocaleDateString();
       return n;
+    },
+  },
+
+  methods: {
+    photoWasAdded(file) {
+      this.photo_image = file;
+      console.log(this.photo_image);
+    },
+
+    async publierWasClickerd(evt) {
+      evt.preventDefault();
+
+
+
+      const imageObject = {
+        texte: this.texte,
+        galerie_name: this.galerie_name,
+        title: this.title,
+        date: this.dateActuel,
+        photo_image: this.photo_image,
+      };
+
+      console.log(imageObject);
+      console.log(this.photo_image);
+      
+      await axios
+        .post("http://localhost:8080/archive/", imageObject)
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
 };

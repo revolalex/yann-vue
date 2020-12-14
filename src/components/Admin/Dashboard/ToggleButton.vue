@@ -1,5 +1,5 @@
 <template>
-<div>
+
   <button
     id="sidebarCollapse"
     type="button"
@@ -12,7 +12,7 @@
       <b-icon icon="list" variant="info"></b-icon>
     </div>
   </button>
-  <button @click="effacer">Effacer</button></div>
+
 </template>
 
 <script>
@@ -25,10 +25,6 @@ export default {
     emitButtonClick: function () {
       this.$emit("buttonClicked", true);
     },
-    effacer(){
-      this.$store.dispatch("RESET_TOKEN");
-      this.$router.push("/");
-    }
   },
 };
 </script>
