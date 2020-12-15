@@ -1,3 +1,25 @@
+//https://blog.bitsrc.io/uploading-files-and-images-with-vue-and-express-2018ca0eecd0
+const multer = require('multer')
+
+var storage = multer.diskStorage({   
+  destination: function(req, file, cb) { 
+     cb(null, './uploads');    
+  }, 
+  filename: function (req, file, cb) { 
+     cb(null , file.originalname);   
+  }
+});
+
+const upload = multer({
+  // if you want to stock the image
+  storage: storage,
+  limits: {
+    // 1.5 mega
+    fileSize: 1500000
+  }
+})
+
+
 const appRouter = async function (app, connection) {
 
   /******************** IMAGE ********************/
@@ -31,16 +53,20 @@ const appRouter = async function (app, connection) {
     }
   });
 
-  await app.post("/archive/", function (req, res) {
-    console.log(req.body);
+
+
+  /******************************** /post archive ****************************/
+  /**************************** use for photo du mois ************************/
+  await app.post("/archive/", upload.single('file'), function (req, res) {
+    console.log(req.file.originalname);
+
     const texte = req.body.texte
     const galerie_name = req.body.galerie_name
     const title = req.body.title
     const date = req.body.date
-    const photo_image = req.body.photo_image
-    const sql = "INSERT INTO images (text,galerie_name,title,date,photo_image) VALUES (?)";
-    const imgToAdd = [texte,galerie_name,title,date,photo_image];
-
+    const photo_image = req.file
+    const sql = "INSERT INTO archive (text,galerie_name,title,date,photo_image) VALUES (?)";
+    const imgToAdd = [texte, galerie_name, title, date, photo_image];
 
     switch (true) {
       case title.length < 3:
@@ -52,7 +78,7 @@ const appRouter = async function (app, connection) {
       case date.length < 1:
         res.send("date is required");
         break;
-      case photo_images.length < 1:
+      case photo_image.length < 1:
         res.send("photo is required");
         break;
       default:
@@ -62,8 +88,23 @@ const appRouter = async function (app, connection) {
         });
         break;
     }
+  })
+  /******************************** /get archives ****************************/
+  /**************************** use for photo du mois ************************/
+  await app.get("/archive/", upload.single('file'), function (req, res) {
+
+    const sql = `SELECT * FROM archive`;
+    connection.query(sql, function (err, results) {
+      if (err) throw err;
+      res.send(results);
+    });
+
+
 
   })
+
+
+
 };
 
 module.exports = appRouter;
