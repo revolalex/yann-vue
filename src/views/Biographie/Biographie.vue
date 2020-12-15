@@ -2,7 +2,7 @@
   <div>
     <div class="fullHeight">
       <TitreDePage :titre="$t('Titre.Biographie')" />
-      <div class="biographieContainer">
+      <div class="biographieContainer" data-test="biographie-container">
         <CardBiographie />
         <PortraitBiographie />
       </div>
