@@ -23,6 +23,22 @@ describe('PhotoEdit.vue', () => {
         it('should be defined', () => {
             expect(wrapper.exists()).toBeTruthy()
         })
+
+        it('should containe text form area', () => {
+            const txtArea = wrapper.find('[data-test="photoTexteArea"]')
+            expect(txtArea.exists()).toBeTruthy()
+            expect(txtArea.tagName = 'b-form-textarea').toBeTruthy()
+            expect(txtArea.attributes('placeholder')).toBe('Saisir un texte  minimun 30 charactères...')
+            expect(txtArea.attributes('id')).toBe('textarea')
+        })
+
+        it('should containe small area with date', () => {
+            const txtArea = wrapper.find('#leftText')
+            expect(txtArea.exists()).toBeTruthy()
+            expect(txtArea.classes()).toContain('text-muted')
+
+        })
+        
     })
 
 

@@ -15,9 +15,9 @@ connection.connect(function (err) {
     if (err) throw err;
   });
 
-  // is_menu, galerie_name, caption, src, alt
+  // is_menu, galerie_name, caption, photo_images, alt
   let imgTable =
-    "CREATE TABLE IF NOT EXISTS galerie_photo (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, is_menu BOOLEAN, galerie_name VARCHAR(50) NOT NULL, caption VARCHAR(50) NOT NULL,  src VARCHAR(500), alt VARCHAR(50));";
+    "CREATE TABLE IF NOT EXISTS galerie_photo (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, is_menu BOOLEAN, galerie_name VARCHAR(50) NOT NULL, caption VARCHAR(50) NOT NULL,  photo_image BLOB, alt VARCHAR(50));";
   connection.query(imgTable, function (err, results) {
     if (err) throw err;
   });
@@ -29,9 +29,9 @@ connection.connect(function (err) {
     if (err) throw err;
   })
 
-  // text, galerie_name, title, date, description
+  // text, galerie_name, title, date, photo_images 
   let archiveTable =
-    "CREATE TABLE IF NOT EXISTS archive (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, text VARCHAR(1000) NOT NULL, galerie_name VARCHAR(50), title VARCHAR(50) NOT NULL, date DATE NOT NULL, description VARCHAR(50));"
+    "CREATE TABLE IF NOT EXISTS archive (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, text VARCHAR(1000) NOT NULL, galerie_name VARCHAR(50), title VARCHAR(50) NOT NULL, date DATE NOT NULL, photo_image BLOB NOT NULL);"
   connection.query(archiveTable, function (err, results) {
     if (err) throw err;
   })

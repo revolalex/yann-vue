@@ -10,13 +10,16 @@
           :src="adminUrlImg"
           alt="..."
           width="65"
-
           class="mr-3 img-thumbnail shadow-sm"
         />
         <div class="media-body">
-          <h4 class="m-0">{{adminName}}</h4>
-          <p class="font-weight-light text-muted mb-0" v-if="!isSuperAdmin">Admin</p>
-          <p class="font-weight-light text-muted mb-0" v-if="isSuperAdmin">Super Admin</p>
+          <h4 class="m-0">{{ adminName }}</h4>
+          <p class="font-weight-light text-muted mb-0" v-if="!isSuperAdmin">
+            Admin
+          </p>
+          <p class="font-weight-light text-muted mb-0" v-if="isSuperAdmin">
+            Super Admin
+          </p>
         </div>
       </div>
     </div>
@@ -27,32 +30,53 @@
 
     <ul class="nav flex-column bg-white mb-0">
       <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic">
+        <a href="#" class="nav-link text-dark font-italic" @click="homeIsClick">
           <b-icon icon="house-door" variant="info"></b-icon>
           Home
         </a>
       </li>
-            <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic bg-light" @click="infoIsClick">
-          <b-icon icon="info" variant="info"></b-icon>
+      <li class="nav-item">
+        <a
+          href="#"
+          class="nav-link text-dark font-italic bg-light"
+          @click="infoIsClick"
+        >
+          <b-icon icon="info-circle" variant="info"></b-icon>
           Information
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic" @click="photoIsClick">
-           <b-icon icon="camera" variant="info"></b-icon>
+        <a
+          href="#"
+          class="nav-link text-dark font-italic"
+          @click="photoIsClick"
+        >
+          <b-icon icon="camera" variant="info"></b-icon>
           Photo du mois
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic">
-           <b-icon icon="images" variant="info"></b-icon>
+        <a
+          href="#"
+          class="nav-link text-dark font-italic"
+          @click="galeriesIsClick"
+        >
+          <b-icon icon="images" variant="info"></b-icon>
           Galeries
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link text-dark font-italic" @click="disconnect">
+          <b-iconstack>
+            <b-icon stacked icon="camera" variant="info" scale="0.75"></b-icon>
+            <b-icon stacked icon="slash-circle" variant="danger"></b-icon>
+          </b-iconstack>
+          Quitté
         </a>
       </li>
     </ul>
 
-    <!-- <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">
+    <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">
       Charts
     </p>
 
@@ -81,7 +105,7 @@
           Line charts
         </a>
       </li>
-    </ul> -->
+    </ul>
   </div>
 </template>
 
@@ -91,29 +115,39 @@ export default {
   props: {
     isActive: Boolean,
   },
-  computed:{
-    adminName(){
-      return this.$store.state.name
+  computed: {
+    adminName() {
+      return this.$store.state.name;
     },
-    adminUrlImg(){
-      return this.$store.state.url
+    adminUrlImg() {
+      return this.$store.state.url;
     },
-    isSuperAdmin(){
-      if (this.$store.state.is_super_admin === 1){
-        return true
+    isSuperAdmin() {
+      if (this.$store.state.is_super_admin === 1) {
+        return true;
       } else {
-        return false
+        return false;
       }
-    }
+    },
   },
-  methods:{
-    photoIsClick(){
+  methods: {
+    photoIsClick() {
       this.$emit("photoClicked", true);
     },
-    infoIsClick(){
+    infoIsClick() {
       this.$emit("infoClicked", true);
-    }
-  }
+    },
+    homeIsClick() {
+      this.$emit("homeClicked", true);
+    },
+    galeriesIsClick() {
+      this.$emit("galeriesClicked", true);
+    },
+    disconnect() {
+      this.$store.dispatch("RESET_TOKEN");
+      this.$router.push("/");
+    },
+  },
 };
 </script>
 
@@ -135,5 +169,4 @@ export default {
 .text-gray {
   color: #aaa;
 }
-
 </style>

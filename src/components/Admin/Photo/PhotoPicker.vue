@@ -20,7 +20,6 @@ export default {
   data() {
     return {
       imageData: null,
-      imageupload: null
     };
   },
   methods: {
@@ -37,8 +36,7 @@ export default {
           this.imageData = e.target.result;
         };
         reader.readAsDataURL(files[0]);
-        this.$emit("input", files[0]);
-        this.imageupload = files
+        this.$emit("inputImg", files[0]);
       }
     },
   },

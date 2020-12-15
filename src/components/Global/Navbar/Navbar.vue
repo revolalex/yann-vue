@@ -75,10 +75,20 @@
             :to="{ name: 'Contact' }"
             class="nav-item nav-link"
             active-class="active"
-            >{{$t('Footer.Link.Contact')}}
+            >{{ $t("Footer.Link.Contact") }}
           </router-link>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
+          <b-nav-item-dropdown v-if="isAdminConnect" right>
+            <!-- Using 'button-content' slot -->
+            <template #button-content>
+              <em><b-icon icon="person" variant="info"></b-icon>Admin</em>
+            </template>
+            <b-dropdown-item href="/admin/dashboard">Dashboard</b-dropdown-item>
+            <b-dropdown-item href="#" @click="effacer"
+              >Sign Out</b-dropdown-item
+            >
+          </b-nav-item-dropdown>
           <b-nav-item right>
             <LocalSwitcher />
           </b-nav-item>
@@ -89,12 +99,26 @@
 </template>
 
 <script>
-
 import LocalSwitcher from "./LocalSwitcher";
 export default {
   name: "NavBar",
   components: {
     LocalSwitcher,
+  },
+  computed: {
+    isAdminConnect() {
+      if (this.$store.state.auth === true) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+  methods: {
+    effacer() {
+      this.$store.dispatch("RESET_TOKEN");
+      this.$router.push("/");
+    },
   },
 };
 </script>
@@ -113,4 +137,5 @@ export default {
   opacity: 0.9;
   font-weight: bold;
 }
+
 </style>
