@@ -31,7 +31,7 @@ connection.connect(function (err) {
 
   // text, galerie_name, title, date, photo_images 
   let archiveTable =
-    "CREATE TABLE IF NOT EXISTS archive (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, text VARCHAR(1000) NOT NULL, galerie_name VARCHAR(50), title VARCHAR(50) NOT NULL, date DATE NOT NULL, photo_image BLOB NOT NULL);"
+    "CREATE TABLE IF NOT EXISTS archive (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, text VARCHAR(1000) NOT NULL, galerie_name VARCHAR(50), title VARCHAR(50) NOT NULL, date VARCHAR(12), photo_image BLOB NOT NULL);"
   connection.query(archiveTable, function (err, results) {
     if (err) throw err;
   })

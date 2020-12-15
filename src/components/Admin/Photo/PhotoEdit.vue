@@ -1,5 +1,12 @@
 <template>
   <div class="myPhotoContainer">
+    <b-alert v-model="showError" variant="danger" dismissible>
+      <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Erreur
+    </b-alert>
+    <b-alert v-model="showSuccess" variant="success" dismissible>
+      <b-icon icon="emoji-smile" variant="success" scale="1.3"></b-icon> Succés
+    </b-alert>
+
     <h4>
       <b-form-input
         id="titlearea"
@@ -12,7 +19,7 @@
     </h4>
 
     <b-card>
-      <PhotoPicker v-on:inputImg="photoWasAdded" />
+      <PhotoPicker v-on:inputImg="photoWasAdded" v-if="show" />
       <b-form-textarea
         data-test="photoTexteArea"
         id="textarea"
@@ -49,6 +56,10 @@ export default {
       texte: "",
       title: "",
       photo_image: "",
+      galerie_name: "",
+      showSuccess: false,
+      showError: false,
+      show: true,
     };
   },
   computed: {
@@ -68,24 +79,30 @@ export default {
     async publierWasClickerd(evt) {
       evt.preventDefault();
 
-      const imageObject = {
-        texte: this.texte,
-        galerie_name: this.galerie_name,
-        title: this.title,
-        date: this.dateActuel,
-        photo_image: this.photo_image,
-      };
-
-      console.log(imageObject);
-      console.log(this.photo_image);
+      const formData = new FormData();
+      formData.append("texte", this.texte);
+      formData.append("galerie_name", this.galerie_name);
+      formData.append("title", this.title);
+      formData.append("date", this.dateActuel);
+      formData.append("file", this.photo_image);
 
       await axios
-        .post("http://localhost:8080/archive/", imageObject)
+        .post("http://localhost:8080/archive/", formData)
         .then((result) => {
           console.log(result);
+          this.showSuccess = true;
+
+          // Trick to reset/clear native browser picture validation state
+          this.show = false;
+          this.$nextTick(() => {
+            this.show = true;
+            this.texte = "";
+            this.title = "";
+          });
         })
         .catch((error) => {
           console.log(error);
+          this.showError = true;
         });
     },
   },
