@@ -2,7 +2,8 @@
   <div class="myPhotoContainer">
     <div v-for="(post, postIndex) in postInPhoto" :key="postIndex">
       <h4>{{ post.title }}</h4>
-      <b-card id="cardImage" :img-src="blobToUrl(post.photo_image)">
+      <!-- <b-card id="cardImage" :img-src="blobToUrl(post.photo_image)"> -->
+        <b-card id="cardImage" :img-src='imgP'>
         <b-card-text>{{ post.text }}</b-card-text>
         <b-input-group>
           <b-form-rating
@@ -25,7 +26,6 @@
 </template>
 
 <script>
-
 export default {
   name: "PhotoCard",
   props: {
@@ -44,8 +44,12 @@ export default {
       let myUrl = URL.createObjectURL(blob);
       return myUrl
     },
-
   },
+  computed:{
+    imgP(){
+      return require('../../assets/uploads/images/chouette.jpg')
+    }
+  }
 };
 </script>
 
