@@ -37,6 +37,16 @@
           >
             {{ $t("Navbar.Actualites.Text") }}
           </router-link>
+          <!-- ATTENTION ICI I18N A FAIRE -->
+          <router-link
+            v-on:click.prevent
+            :to="{ name: 'Photo' }"
+            class="nav-item nav-link"
+            active-class="active"
+            exact
+          >
+            Photo
+          </router-link>
           <router-link
             v-on:click.prevent
             :to="{ name: 'Galeries' }"

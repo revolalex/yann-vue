@@ -1,13 +1,13 @@
 const nodemailer = require('nodemailer');
 const getMailTemplate = require('../modules/templateMail')
-const mailRouter = async function (app, connection) {
 
+
+const mailRouter = async function (app, connection) {
     await app.post("/mail/", function (req, res) {
         const subject = req.body.subject
         const message = req.body.message
         const name = req.body.name
         const email = req.body.email
-
         //gmail acces
         var transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -16,7 +16,6 @@ const mailRouter = async function (app, connection) {
                 pass: 'vykhkzqhqqkbobdf'
             }
         });
-
         // Mail object
         var mailOptions = {
             from: email,

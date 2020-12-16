@@ -89,7 +89,7 @@ export default {
       await axios
         .post("http://localhost:8080/archive/", formData)
         .then((result) => {
-          console.log(result);
+          console.log("RESULT",result);
           this.showSuccess = true;
 
           // Trick to reset/clear native browser picture validation state
