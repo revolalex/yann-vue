@@ -6,5 +6,7 @@ module.exports = {
       localeDir: 'locales',
       enableInSFC: true
     }
-  }
+  },
+  publicPath: process.env.BASE_URL,
+  assetsDir: process.env.BASE_URL
 }
