@@ -7,6 +7,7 @@ module.exports = {
       enableInSFC: true
     }
   },
-  publicPath: process.env.BASE_URL,
-  assetsDir: process.env.BASE_URL
+  publicPath: './'
+  // publicPath: process.env.BASE_URL,
+  // assetsDir: process.env.BASE_URL
 }
