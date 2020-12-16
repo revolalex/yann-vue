@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     imgP(e){
-      return require(`../../assets/uploads/images/${e}`)
+      return require(`@/assets/uploads/images/${e}`)
     }
   },
 };
