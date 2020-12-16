@@ -12,10 +12,20 @@ const imageRouter = async function (app, connection) {
       cb(null, './src/assets/uploads/images/');
     },
     filename: function (req, file, cb) {
-      cb(null, file.originalname);
+
+      var date = new Date();
+      var dateStr =
+        ("00" + (date.getMonth() + 1)).slice(-2) +
+        ("00" + date.getDate()).slice(-2) +
+        date.getFullYear()+
+        ("00" + date.getHours()).slice(-2) +
+        ("00" + date.getMinutes()).slice(-2) +
+        ("00" + date.getSeconds()).slice(-2);
+
+      cb(null, dateStr +  file.originalname);
     }
   });
-  
+
   // filter allowed only image
   const fileFilter = function (req, file, cb) {
     const allowedTypes = ["image/jpeg", "image/png", "image/gif"]
@@ -81,15 +91,29 @@ const imageRouter = async function (app, connection) {
   /******************************** /post archive ****************************/
   /**************************** use for photo du mois ************************/
   await app.post("/archive/", upload.single('file'), function (req, res) {
-    console.log(req.file.originalname);
+
+    var dateNow = new Date();
+      var dateStr =
+        ("00" + (dateNow.getMonth() + 1)).slice(-2) +
+        ("00" + dateNow.getDate()).slice(-2) +
+        dateNow.getFullYear() +
+        ("00" + dateNow.getHours()).slice(-2) +
+        ("00" + dateNow.getMinutes()).slice(-2) +
+        ("00" + dateNow.getSeconds()).slice(-2);
+
+    console.log("ici", dateStr  + req.file.originalname);
 
     const texte = req.body.texte
     const galerie_name = req.body.galerie_name
     const title = req.body.title
     const date = req.body.date
-    const photo_image = req.file
-    const sql = "INSERT INTO archive (text,galerie_name,title,date,photo_image) VALUES (?)";
-    const imgToAdd = [texte, galerie_name, title, date, photo_image];
+    const filename = dateStr + req.file.originalname
+
+  
+
+
+    const sql = "INSERT INTO archive (text,galerie_name,title,date,filename) VALUES (?)";
+    const imgToAdd = [texte, galerie_name, title, date, filename];
 
     switch (true) {
       case title.length < 3:
@@ -101,7 +125,7 @@ const imageRouter = async function (app, connection) {
       case date.length < 1:
         res.send("date is required");
         break;
-      case photo_image.length < 1:
+      case filename.length < 1:
         res.send("photo is required");
         break;
       default:

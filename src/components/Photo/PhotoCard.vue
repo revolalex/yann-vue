@@ -2,8 +2,8 @@
   <div class="myPhotoContainer">
     <div v-for="(post, postIndex) in postInPhoto" :key="postIndex">
       <h4>{{ post.title }}</h4>
-      <!-- <b-card id="cardImage" :img-src="blobToUrl(post.photo_image)"> -->
-        <b-card id="cardImage" :img-src='imgP'>
+      <b-card id="cardImage" :img-src='imgP(post.filename)'>
+        <!-- <b-card id="cardImage" :img-src='imgP(post.filename)'> -->
         <b-card-text>{{ post.text }}</b-card-text>
         <b-input-group>
           <b-form-rating
@@ -38,18 +38,10 @@ export default {
     };
   },
   methods: {
-    blobToUrl(el) {
-      let binary = new Uint8Array(el);
-      let blob = new Blob([binary]);
-      let myUrl = URL.createObjectURL(blob);
-      return myUrl
-    },
-  },
-  computed:{
-    imgP(){
-      return require('../../assets/uploads/images/chouette.jpg')
+    imgP(e){
+      return require(`../../assets/uploads/images/${e}`)
     }
-  }
+  },
 };
 </script>
 
