@@ -1,20 +1,18 @@
 <template>
   <!-- using imageData data property to display the selected image as background-image -->
-  <div
-    class="base-image-input p-5"
-    :style="{ 'background-image': `url(${imageData})` }"
-    @click="chooseImage"
-  >
-    <span v-if="!imageData" class="placeholder">
-      Choisi une image
-    </span>
-    <input
-      class="file-input"
-      ref="fileInput"
-      type="file"
-      @input="onSelectFile"
-    />
-  </div>
+    <div
+      class="base-image-input p-5"
+      :style="{ 'background-image': `url(${imageData})` }"
+      @click="chooseImage"
+    >
+      <span v-if="!imageData" class="placeholder"> Choisi une image </span>
+      <input
+        class="file-input"
+        ref="fileInput"
+        type="file"
+        @input="onSelectFile"
+      />
+    </div>
 </template>
 
 <script>
@@ -31,11 +29,10 @@ export default {
     onSelectFile() {
       const input = this.$refs.fileInput;
       const files = input.files;
-
+      //allowes only image type
       const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
       if (!allowedTypes.includes(files[0].type)) {
-        this.imageData= null
-        alert("type error");
+        this.$emit("formatAlert", true)
       }
 
       if (files && files[0]) {

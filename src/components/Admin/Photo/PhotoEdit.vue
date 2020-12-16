@@ -6,6 +6,10 @@
     <b-alert v-model="showSuccess" variant="success" dismissible>
       <b-icon icon="emoji-smile" variant="success" scale="1.3"></b-icon> Succés
     </b-alert>
+    <b-alert v-model="showFormatAlert" variant="danger" dismissible>
+      <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Only
+      jpeg, png, gif, image format are allowed
+    </b-alert>
 
     <h4>
       <b-form-input
@@ -19,7 +23,11 @@
     </h4>
 
     <b-card>
-      <PhotoPicker v-on:inputImg="photoWasAdded" v-if="show" />
+      <PhotoPicker
+        v-on:formatAlert="imgFormatWrong"
+        v-on:inputImg="photoWasAdded"
+        v-if="show"
+      />
       <b-form-textarea
         data-test="photoTexteArea"
         id="textarea"
@@ -60,6 +68,7 @@ export default {
       showSuccess: false,
       showError: false,
       show: true,
+      showFormatAlert: false,
     };
   },
   computed: {
@@ -75,6 +84,11 @@ export default {
       this.photo_image = file;
       console.log(this.photo_image);
     },
+    imgFormatWrong(e) {
+      if (e === true) {
+          this.showFormatAlert = true;
+      }
+    },
 
     async publierWasClickerd(evt) {
       evt.preventDefault();
@@ -89,7 +103,7 @@ export default {
       await axios
         .post("http://localhost:8080/archive/", formData)
         .then((result) => {
-          console.log("RESULT",result);
+          console.log("RESULT", result);
           this.showSuccess = true;
 
           // Trick to reset/clear native browser picture validation state
