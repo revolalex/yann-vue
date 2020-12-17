@@ -2,7 +2,7 @@
   <div class="myPhotoContainer">
     <div v-for="(post, postIndex) in postInPhoto" :key="postIndex">
       <h4>{{ post.title }}</h4>
-      <b-card id="cardImage" :img-src='imgP(post.filename)'>
+      <b-card id="cardImage" :img-src="imgP(post.filename)">
         <!-- <b-card id="cardImage" :img-src='imgP(post.filename)'> -->
         <b-card-text>{{ post.text }}</b-card-text>
         <b-input-group>
@@ -13,7 +13,12 @@
             show-value-max
           ></b-form-rating>
           <b-input-group-prepend>
-            <b-button variant="info" @click="rating = null">Voter</b-button>
+            <b-button
+            v-bind:disabled="hasVote"
+              variant="info"
+              @click="voteRating"
+              >Voter</b-button
+            >
           </b-input-group-prepend>
         </b-input-group>
 
@@ -35,12 +40,23 @@ export default {
     return {
       rating: "3.8",
       average: "4.1",
+      hasVote: false
     };
   },
   methods: {
-    imgP(e){
-      return require(`@/assets/uploads/images/${e}`)
-    }
+    imgP(e) {
+      return require(`@/assets/uploads/images/${e}`);
+    },
+    // a terminer
+    voteRating(e) {
+      e.preventDefault();
+      sessionStorage.setItem('hasVote', true);
+      console.log(sessionStorage.getItem('hasVote'));
+      this.hasVote = false
+      this.$nextTick(() => {
+        this.hasVote = true
+      });
+    },
   },
 };
 </script>
@@ -52,10 +68,9 @@ export default {
 #leftText {
   text-align: start;
 }
-#cardImage img{
+#cardImage img {
   max-height: 700px;
   width: 100%;
-  object-fit:scale-down
-
+  object-fit: scale-down;
 }
 </style>
