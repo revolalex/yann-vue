@@ -23,13 +23,13 @@ export default {
       items:[]
     };
   },
-  async mounted() {
+  async beforeCreate() {
     await axios
       .get("http://localhost:8080/archive/")
       .then((result) => {
-        console.log(result);
+        console.log("RESULT",result);
         this.items = result.data
-        console.log(this.items);
+        console.log("ITEM",this.items);
       })
       .catch((error) => {
         console.log(error);

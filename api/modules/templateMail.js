@@ -1,4 +1,4 @@
-const emailTemplate = (email, subject, message, name) => {
+const emailTemplate = (name, email, subject, message) => {
     function randomImage() {
         let arrayImg = [
             "https://yanncrochet.com/photo/foret/foret1xs.jpg",

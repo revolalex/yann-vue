@@ -7,7 +7,7 @@
 
 <script>
 import SignInForm from "@/components/Admin/SignInForm.vue";
-import TitreDePage from"@/components/Global/TitrePage"
+import TitreDePage from "@/components/Global/TitrePage";
 export default {
   name: "SignIn",
   components: {
@@ -17,5 +17,4 @@ export default {
 };
 </script>
 <style>
-
 </style>

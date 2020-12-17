@@ -1,10 +1,9 @@
 <template>
   <div class="myPhotoContainer">
-    <div v-for="(post, postIndex) in postInPhoto" :key="postIndex">
+    <div v-for="(post, postIndex) in postInPhoto" :key="postIndex" class="padding-bottom">
       <h4>{{ post.title }}</h4>
-
-      <b-card :img-src="post.photo_image">
-      <!-- <b-card :img-src="blobToUrl(post.photo_image)"> -->
+      <b-card id="cardImage" :img-src="imgP(post.filename)">
+        <!-- <b-card id="cardImage" :img-src='imgP(post.filename)'> -->
         <b-card-text>{{ post.text }}</b-card-text>
         <b-input-group>
           <b-form-rating
@@ -14,7 +13,12 @@
             show-value-max
           ></b-form-rating>
           <b-input-group-prepend>
-            <b-button variant="info" @click="rating = null">Voter</b-button>
+            <b-button
+            v-bind:disabled="hasVote"
+              variant="info"
+              @click="voteRating"
+              >Voter</b-button
+            >
           </b-input-group-prepend>
         </b-input-group>
 
@@ -31,20 +35,27 @@ export default {
   name: "PhotoCard",
   props: {
     postInPhoto: Array,
-
   },
   data() {
     return {
       rating: "3.8",
       average: "4.1",
+      hasVote: false
     };
   },
   methods: {
-    blobToUrl(el) {
-      let binary = new Uint8Array(el);
-      let blob = new Blob([binary]);
-      let myUrl = URL.createObjectURL(blob);
-      return myUrl
+    imgP(e) {
+      return require(`@/assets/uploads/images/${e}`);
+    },
+    // a terminer
+    voteRating(e) {
+      e.preventDefault();
+      sessionStorage.setItem('hasVote', true);
+      console.log(sessionStorage.getItem('hasVote'));
+      this.hasVote = false
+      this.$nextTick(() => {
+        this.hasVote = true
+      });
     },
   },
 };
@@ -56,5 +67,13 @@ export default {
 }
 #leftText {
   text-align: start;
+}
+#cardImage img {
+  max-height: 700px;
+  width: 100%;
+  object-fit: scale-down;
+}
+.padding-bottom{
+  padding-bottom: 20vh;
 }
 </style>

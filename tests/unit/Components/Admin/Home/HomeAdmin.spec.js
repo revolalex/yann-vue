@@ -23,10 +23,6 @@ describe('HomeAdmin.vue', () => {
         it('should be defined', () => {
             expect(wrapper.exists()).toBeTruthy()
         })
-        it('should contain jumbotron', () => {
-            const jumbotron = wrapper.find('[data-test="jumbotron"]')
-            expect(jumbotron.exists()).toBeTruthy()
-        })
     })
 
 

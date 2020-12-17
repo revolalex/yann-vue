@@ -30,7 +30,7 @@
 
     <ul class="nav flex-column bg-white mb-0">
       <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic" @click="homeIsClick">
+        <a href="#" class="nav-link text-dark font-italic bg-light" @click="homeIsClick">
           <b-icon icon="house-door" variant="info"></b-icon>
           Home
         </a>
@@ -48,7 +48,7 @@
       <li class="nav-item">
         <a
           href="#"
-          class="nav-link text-dark font-italic"
+          class="nav-link text-dark font-italic bg-light"
           @click="photoIsClick"
         >
           <b-icon icon="camera" variant="info"></b-icon>
@@ -58,7 +58,7 @@
       <li class="nav-item">
         <a
           href="#"
-          class="nav-link text-dark font-italic"
+          class="nav-link text-dark font-italic bg-light"
           @click="galeriesIsClick"
         >
           <b-icon icon="images" variant="info"></b-icon>
@@ -66,7 +66,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic" @click="disconnect">
+        <a href="#" class="nav-link text-dark text-red font-italic bg-light" @click="disconnect">
           <b-iconstack>
             <b-icon stacked icon="camera" variant="info" scale="0.75"></b-icon>
             <b-icon stacked icon="slash-circle" variant="danger"></b-icon>
@@ -76,7 +76,7 @@
       </li>
     </ul>
 
-    <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">
+    <!-- <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">
       Charts
     </p>
 
@@ -105,7 +105,7 @@
           Line charts
         </a>
       </li>
-    </ul>
+    </ul> -->
   </div>
 </template>
 
@@ -168,5 +168,8 @@ export default {
 }
 .text-gray {
   color: #aaa;
+}
+.text-red:hover {
+  color: rgb(245, 38, 38);
 }
 </style>

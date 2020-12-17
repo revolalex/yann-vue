@@ -1,16 +1,16 @@
 import { BootstrapVue, IconsPlugin} from "bootstrap-vue";
 import { mount, createLocalVue } from '@vue/test-utils';
-import HomeAdmin from '@/components/Admin/Home/HomeAdmin.vue'
+import GaleriesAdmin from '@/components/Admin/Galeries/GaleriesAdmin.vue'
 
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
 localVue.use(IconsPlugin);
 
-describe('HomeAdmin.vue', () => {
+describe('GaleriesAdmin.vue', () => {
     let wrapper
 
     beforeAll(() => {
-        wrapper = mount(HomeAdmin, {
+        wrapper = mount(GaleriesAdmin, {
             localVue,
             mocks: {
                 $t: (msg) => msg
@@ -18,14 +18,10 @@ describe('HomeAdmin.vue', () => {
         })
     })
 
-    describe('HomeAdmin', () => {
+    describe('GaleriesAdmin', () => {
 
         it('should be defined', () => {
             expect(wrapper.exists()).toBeTruthy()
-        })
-        it('should contain jumbotron', () => {
-            const jumbotron = wrapper.find('[data-test="jumbotron"]')
-            expect(jumbotron.exists()).toBeTruthy()
         })
     })
 

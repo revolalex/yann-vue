@@ -10,11 +10,11 @@
         <b-card-text>
           La photo du mois doit avoir:
           <ul>
-            <li>Un titre, min 3 charactères</li>
-            <li>Une photo</li>
-            <li>Un texte min 30 charactères</li>
+            <li>Un titre: min 3 charactères, max 50</li>
+            <li>Une photo: jpeg, png, gif</li>
+            <li>Un texte: min 30 charactères, maxx 1000</li>
           </ul>
-          Il ne te reste pus qu'a cliquer sur publier (la date se remplie automatiquement)
+          Il ne te reste pus qu'a cliquer sur publier
         </b-card-text>
         <template #footer>
           <small class="text-muted"

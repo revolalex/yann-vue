@@ -22,6 +22,8 @@ describe('PhotoCard.vue', () => {
 
         it('should be defined', () => {
             expect(wrapper.exists()).toBeTruthy()
+            expect(wrapper.classes('myPhotoContainer')).toBe(true)
+            expect(wrapper.tagName = 'div').toBeTruthy()
         })
     })
 

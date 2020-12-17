@@ -45,6 +45,11 @@
                 $t("Footer.Link.Actualites")
               }}</router-link>
             </li>
+            <!-- ICI I18N A FAIRE -->
+            <li>
+              <router-link class="white-text" to="/Photo">Photo du mois
+              </router-link>
+            </li>
             <li>
               <router-link class="white-text" to="/galeries">{{
                 $t("Footer.Link.Galeries")
