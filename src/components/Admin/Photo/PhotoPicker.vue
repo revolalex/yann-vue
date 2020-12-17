@@ -55,10 +55,11 @@ export default {
   min-height: 340px;
   max-width: 100%;
   cursor: pointer;
-  background-size: cover;
+  background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
 }
+
 .placeholder {
   background: #f0f0f0;
   width: 100%;

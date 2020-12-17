@@ -52,4 +52,10 @@ export default {
 #leftText {
   text-align: start;
 }
+#cardImage img{
+  max-height: 700px;
+  width: 100%;
+  object-fit:scale-down
+
+}
 </style>

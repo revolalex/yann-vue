@@ -23,7 +23,7 @@ export default {
       items:[]
     };
   },
-  async mounted() {
+  async beforeCreate() {
     await axios
       .get("http://localhost:8080/archive/")
       .then((result) => {

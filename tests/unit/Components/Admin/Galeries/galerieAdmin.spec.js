@@ -1,16 +1,16 @@
 import { BootstrapVue, IconsPlugin} from "bootstrap-vue";
 import { mount, createLocalVue } from '@vue/test-utils';
-import PhotoCard from '@/components/Photo/PhotoCard.vue'
+import GaleriesAdmin from '@/components/Admin/Galeries/GaleriesAdmin.vue'
 
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
 localVue.use(IconsPlugin);
 
-describe('PhotoCard.vue', () => {
+describe('GaleriesAdmin.vue', () => {
     let wrapper
 
     beforeAll(() => {
-        wrapper = mount(PhotoCard, {
+        wrapper = mount(GaleriesAdmin, {
             localVue,
             mocks: {
                 $t: (msg) => msg
@@ -18,12 +18,10 @@ describe('PhotoCard.vue', () => {
         })
     })
 
-    describe('PhotoCard', () => {
+    describe('GaleriesAdmin', () => {
 
         it('should be defined', () => {
             expect(wrapper.exists()).toBeTruthy()
-            expect(wrapper.classes('myPhotoContainer')).toBe(true)
-            expect(wrapper.tagName = 'div').toBeTruthy()
         })
     })
 
