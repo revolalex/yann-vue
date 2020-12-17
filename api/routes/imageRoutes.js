@@ -1,5 +1,6 @@
 //https://blog.bitsrc.io/uploading-files-and-images-with-vue-and-express-2018ca0eecd0
 const multer = require('multer')
+const auth = require('../middlewares/auth')
 
 
 
@@ -90,7 +91,7 @@ const imageRouter = async function (app, connection) {
 
   /******************************** /post archive ****************************/
   /**************************** use for photo du mois ************************/
-  await app.post("/archive/", upload.single('file'), function (req, res) {
+  await app.post("/archive/", auth, upload.single('file'), function (req, res) {
 
     var dateNow = new Date();
       var dateStr =
@@ -101,7 +102,7 @@ const imageRouter = async function (app, connection) {
         ("00" + dateNow.getMinutes()).slice(-2) +
         ("00" + dateNow.getSeconds()).slice(-2);
 
-    console.log("ici", dateStr  + req.file.originalname);
+    console.log("image register filename:", dateStr  + req.file.originalname);
 
     const texte = req.body.texte
     const galerie_name = req.body.galerie_name
@@ -139,7 +140,7 @@ const imageRouter = async function (app, connection) {
 
   /******************************** /get archives ****************************/
   /**************************** use for photo du mois ************************/
-  await app.get("/archive/", upload.single('file'), function (req, res) {
+  await app.get("/archive/", auth, upload.single('file'), function (req, res) {
     const sql = `SELECT * FROM archive`;
     connection.query(sql, function (err, results) {
       if (err) throw err;
