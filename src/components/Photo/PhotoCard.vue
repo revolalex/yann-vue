@@ -1,6 +1,6 @@
 <template>
   <div class="myPhotoContainer">
-    <div v-for="(post, postIndex) in postInPhoto" :key="postIndex">
+    <div v-for="(post, postIndex) in postInPhoto" :key="postIndex" class="padding-bottom">
       <h4>{{ post.title }}</h4>
       <b-card id="cardImage" :img-src="imgP(post.filename)">
         <!-- <b-card id="cardImage" :img-src='imgP(post.filename)'> -->
@@ -72,5 +72,8 @@ export default {
   max-height: 700px;
   width: 100%;
   object-fit: scale-down;
+}
+.padding-bottom{
+  padding-bottom: 20vh;
 }
 </style>
