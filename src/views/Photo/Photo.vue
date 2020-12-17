@@ -1,7 +1,7 @@
 <template>
   <div>
     <TitreDePage titre="Photo du mois" />
-    <PhotoCard v-bind:postInPhoto="items"/>
+    <PhotoCard v-bind:postInPhoto="items" />
     <Footer />
   </div>
 </template>
@@ -20,16 +20,21 @@ export default {
   },
   data: function () {
     return {
-      items:[]
+      items: [],
+      yourConfig: {
+        headers: {
+          Authorization: "Bearer " + this.$store.state.token,
+        },
+      },
     };
   },
-  async beforeCreate() {
+  async created() {
     await axios
-      .get("http://localhost:8080/archive/")
+      .get("http://localhost:8080/archive/", this.yourConfig)
       .then((result) => {
-        console.log("RESULT",result);
-        this.items = result.data
-        console.log("ITEM",this.items);
+        console.log("RESULT", result);
+        this.items = result.data;
+        console.log("ITEM", this.items);
       })
       .catch((error) => {
         console.log(error);

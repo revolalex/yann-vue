@@ -69,6 +69,11 @@ export default {
       showError: false,
       show: true,
       showFormatAlert: false,
+      yourConfig: {
+        headers: {
+          Authorization: "Bearer " + this.$store.state.token,
+        },
+      },
     };
   },
   computed: {
@@ -86,7 +91,7 @@ export default {
     },
     imgFormatWrong(e) {
       if (e === true) {
-          this.showFormatAlert = true;
+        this.showFormatAlert = true;
       }
     },
 
@@ -101,7 +106,7 @@ export default {
       formData.append("file", this.photo_image);
 
       await axios
-        .post("http://localhost:8080/archive/", formData)
+        .post("http://localhost:8080/archive/", formData, this.yourConfig)
         .then((result) => {
           console.log("RESULT", result);
           this.showSuccess = true;
