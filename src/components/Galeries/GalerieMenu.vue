@@ -31,7 +31,7 @@ export default {
 <style>
 /* Responsive placing of the boxes*/
 .galeriesContainer {
-  padding: 1% 5% 1% 5%;
+  padding: 1% 10% 1% 10%;
   background: white;
 }
 
