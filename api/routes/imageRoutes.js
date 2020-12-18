@@ -140,7 +140,7 @@ const imageRouter = async function (app, connection) {
 
   /******************************** /get archives ****************************/
   /**************************** use for photo du mois ************************/
-  await app.get("/archive/", auth, upload.single('file'), function (req, res) {
+  await app.get("/archive/", function (req, res) {
     const sql = `SELECT * FROM archive`;
     connection.query(sql, function (err, results) {
       if (err) throw err;

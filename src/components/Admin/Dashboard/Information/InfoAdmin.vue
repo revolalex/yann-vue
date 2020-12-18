@@ -14,7 +14,7 @@
             <li>Une photo max 1.5 mo: jpeg, png, gif</li>
             <li>Un texte: min 30 charactères, max 1000</li>
           </ul>
-          Il ne te reste pus qu'a cliquer sur publier
+          Il ne te reste plus qu'a cliquer sur publier
         </b-card-text>
         <template #footer>
           <small class="text-muted"
@@ -25,7 +25,7 @@
 
       <b-card title="Galerie" img-src="" img-alt="Image" img-top>
         <b-card-text>
-          Là tu peux manager les galeris, ainsi que les différentes photo les
+          Là tu peux manager les galeries, ainsi que les différentes photo les
           composants
         </b-card-text>
         <template #footer>

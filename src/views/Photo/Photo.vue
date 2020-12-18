@@ -21,16 +21,11 @@ export default {
   data: function () {
     return {
       items: [],
-      yourConfig: {
-        headers: {
-          Authorization: "Bearer " + this.$store.state.token,
-        },
-      },
     };
   },
   async created() {
     await axios
-      .get("http://localhost:8080/archive/", this.yourConfig)
+      .get("http://localhost:8080/archive/")
       .then((result) => {
         console.log("RESULT", result);
         this.items = result.data;

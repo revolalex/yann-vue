@@ -2,7 +2,17 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+// Bootstrap
+import "./plugins/bootstrap-vue";
+// Vuelidate
+import "./plugins/vuelidate-vue.js";
+// coolLightBox
+import "./plugins/coolLightBox-vue.js";
+// coolLightBox
+import "./plugins/vueTypedJs-vue.js";
 
+
+// i18n
 // Language files
 import en from './locales/en.json'
 import de from './locales/de.json'
@@ -11,39 +21,11 @@ import es from './locales/es.json'
 import ru from './locales/ru.json'
 import zh_CN from './locales/zh_CN.json'
 import ja from './locales/ja.json'
-
 // Install i18n
 import VueI18n from 'vue-i18n';
 // import i18n from './i18n';
 
-// Install BootstrapVue
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
-import { BootstrapVue, IconsPlugin} from "bootstrap-vue";
-
-// Lightbox
-import CoolLightBox from 'vue-cool-lightbox'
-import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
-
-// Live typing
-import VueTypedJs from 'vue-typed-js'
-
-// Axios
-import axios from "axios";
-import VueAxios from "vue-axios";
-
-// vuelidate
-import Vuelidate from 'vuelidate'
-
-Vue.use(Vuelidate)
-Vue.use(VueAxios, axios);
-Vue.use(VueTypedJs)
 Vue.use(VueI18n)
-Vue.use(CoolLightBox)
-Vue.use(BootstrapVue);
-Vue.use(IconsPlugin);
-
-
 Vue.config.productionTip = false;
 
 // Languages
