@@ -28,7 +28,7 @@
 <script>
 import ToggleButton from "@/components/Admin/Dashboard/ToggleButton.vue";
 import VerticalNavbar from "@/components/Admin/Dashboard/VerticalNavbar.vue";
-import InfoAdmin from "@/components/Admin/Dashboard/InfoAdmin.vue";
+import InfoAdmin from "@/components/Admin/Dashboard/Information/InfoAdmin.vue";
 import PhotoDuMois from "@/components/Admin/Photo/PhotoEdit.vue";
 import HomeAdmin from "@/components/Admin/Home/HomeAdmin.vue";
 import GalerieAdmin from "@/components/Admin/Galeries/GaleriesAdmin.vue";

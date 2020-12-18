@@ -1,10 +1,13 @@
 import { BootstrapVue, IconsPlugin} from "bootstrap-vue";
 import { mount, createLocalVue } from '@vue/test-utils';
 import PhotoEdit from '@/components/Admin/Photo/PhotoEdit.vue'
+import Vuex from 'vuex'
+
 
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
 localVue.use(IconsPlugin);
+localVue.use(Vuex)
 
 describe('PhotoEdit.vue', () => {
     let wrapper
@@ -15,6 +18,7 @@ describe('PhotoEdit.vue', () => {
             mocks: {
                 $t: (msg) => msg
             },
+            store: new Vuex.Store()
         })
     })
 

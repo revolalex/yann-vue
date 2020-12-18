@@ -2,11 +2,13 @@ import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import { mount, createLocalVue } from '@vue/test-utils';
 import Photo from '@/views/Photo/Photo.vue'
 import VueRouter from 'vue-router'
+import Vuex from 'vuex'
 
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
 localVue.use(IconsPlugin);
 localVue.use(VueRouter)
+localVue.use(Vuex)
 const router = new VueRouter()
 
 describe('Views Photo.vue', () => {
@@ -19,6 +21,7 @@ describe('Views Photo.vue', () => {
             mocks: {
                 $t: (msg) => msg
             },
+            store: new Vuex.Store()
         })
     })
 
