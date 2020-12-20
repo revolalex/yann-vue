@@ -57,8 +57,6 @@ export default {
   animation: zoom 20s;
 }
 
-
-
 @media screen and (max-width: 1024px) {
   /* Specific to this particular image */
   .carousel {

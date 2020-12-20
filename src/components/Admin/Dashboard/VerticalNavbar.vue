@@ -169,7 +169,5 @@ export default {
 .text-gray {
   color: #aaa;
 }
-.text-red:hover {
-  color: rgb(245, 38, 38);
-}
+
 </style>

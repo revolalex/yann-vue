@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name:"HomeAdmin"
+  name:"HomeAdmin",
 };
 </script>
 

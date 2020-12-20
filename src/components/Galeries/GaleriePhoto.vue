@@ -11,7 +11,7 @@
 
     <div class="images-wrapper">
       <b-img
-        class="image"
+        class="image-galerie"
         v-for="(image, imageIndex) in imageInGaleries"
         :key="imageIndex"
         @click="index = imageIndex"
@@ -46,7 +46,7 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
 }
-.image {
+.image-galerie {
   width: 400px;
   height: 450px;
   -webkit-transform: scale(0.95);
@@ -55,18 +55,43 @@ export default {
   object-fit: cover;
   transition: all 5.5s ease;
 }
-.image:hover {
+.image-galerie:hover {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   transform: scale(1);
 }
 
-/* Mobile responsive */
-@media (max-width: 410px) {
-  .image {
+/* Mobile responsive  iphone 6/7/8 Plus..... */
+@media (min-width: 400px) and (max-width: 420px) {
+/* 1 colonne 
+   .image-galerie {
   width: 324px;
   height: 364px;
+} */
+
+/* 2 colonnes */
+.image-galerie{
+  width: 198px;
+  height: 232px;
 }
-  
+}
+/* iphone X  6/7/8 */
+@media (width: 375px) {
+
+/* 2 colonnes */
+.image-galerie{
+  width: 180px;
+  height: 232px;
+}
+}
+
+/* iphone 5 */
+@media (width: 320px) {
+
+/* 2 colonnes */
+.image-galerie{
+  width: 150px;
+  height: 180px;
+}
 }
 </style>
