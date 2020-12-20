@@ -32,6 +32,7 @@ connection.connect();
 require ("./routes/imageRoutes")(app, connection)
 require("./routes/adminRoutes")(app, connection)
 require("./routes/mailRouter")(app, connection)
+require("./routes/archiveRoutes")(app, connection)
 
 
 //connection.end();

@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: "PhotoCard",
   props: {
@@ -57,12 +58,29 @@ export default {
     imgP(e) {
       return require(`@/assets/uploads/images/${e}`);
     },
-    voteRating(filename, postIndex) {
+    async voteRating(filename, postIndex) {
+      // rate and filename evaluate
+      console.log("RATING", this.rating);
       console.log("FILENAME", filename);
       // help us to disable the right button
       this.current.push(postIndex);
       // succes text in button
       this.$refs.rateB[postIndex].innerText = "Succés";
+
+      let rateObject= {
+        filename: filename,
+        rating: this.rating
+      }
+
+      await axios.post("http://localhost:8080/rating/", rateObject)
+        .then((result)=>{
+          console.log("result",result);
+          alert("succes")
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      
     },
   },
 };
