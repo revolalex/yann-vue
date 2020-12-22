@@ -1,7 +1,8 @@
 [![Build Status](https://travis-ci.org/revolalex/yann-vue.svg?branch=master)](https://travis-ci.org/revolalex/yann-vue)
 
-[![Coverage Status](https://coveralls.io/repos/github/revolalex/yann-vue/badge.svg?branch=master)](https://coveralls.io/github/revolalex/yann-vue?branch=master)
-
+Branch-Master: [![Coverage Status](https://coveralls.io/repos/github/revolalex/yann-vue/badge.svg?branch=master)](https://coveralls.io/github/revolalex/yann-vue?branch=master)
+<br/>
+Branch-Dev:    [![Coverage Status](https://coveralls.io/repos/github/revolalex/yann-vue/badge.svg?branch=dev)](https://coveralls.io/github/revolalex/yann-vue?branch=dev)
 
 
 ![](https://img.shields.io/badge/made%20with-vue.js-green?logo=vue.js).
