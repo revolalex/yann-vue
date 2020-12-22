@@ -25,6 +25,10 @@ describe('Views NotFound.vue', () => {
         })
     })
 
+    afterAll(() => {
+        wrapper.destroy()
+    })
+
 
 })
 

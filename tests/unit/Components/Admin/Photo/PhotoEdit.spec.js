@@ -44,6 +44,9 @@ describe('PhotoEdit.vue', () => {
         })
         
     })
+    afterAll(() => {
+        wrapper.destroy()
+    })
 
 
 })

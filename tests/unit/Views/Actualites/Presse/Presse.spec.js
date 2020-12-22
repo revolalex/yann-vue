@@ -38,6 +38,10 @@ describe('Views Presse.vue', () => {
         })
     })
 
+    afterAll(() => {
+        wrapper.destroy()
+    })
+
 
 })
 

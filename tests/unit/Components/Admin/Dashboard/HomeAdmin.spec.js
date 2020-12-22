@@ -28,6 +28,9 @@ describe('HomeAdmin.vue', () => {
             expect(jumbotron.exists()).toBeTruthy()
         })
     })
+    afterAll(() => {
+        wrapper.destroy()
+    })
 
 
 })

@@ -38,6 +38,10 @@ describe('Views Interview.vue', () => {
         })
     })
 
+    afterAll(() => {
+        wrapper.destroy()
+    })
+
 
 })
 

@@ -38,6 +38,10 @@ describe('Views Actualites.vue', () => {
         })
     })
 
+    afterAll(() => {
+        wrapper.destroy()
+    })
+
 
 })
 

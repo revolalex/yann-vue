@@ -32,6 +32,10 @@ describe('Views Photo.vue', () => {
         })
     })
 
+    afterAll(() => {
+        wrapper.destroy()
+    })
+
 
 })
 

@@ -24,6 +24,9 @@ describe('InfoAdmin.vue', () => {
             expect(wrapper.exists()).toBeTruthy()
         })
     })
+    afterAll(() => {
+        wrapper.destroy()
+    })
 
 
 })

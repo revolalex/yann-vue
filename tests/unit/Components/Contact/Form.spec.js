@@ -24,6 +24,9 @@ describe('Form.vue', () => {
             expect(wrapper.exists()).toBeTruthy()
         })
     })
+    afterAll(() => {
+        wrapper.destroy()
+    })
 
 
 })

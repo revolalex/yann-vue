@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // CORS middleware
 app.use(cors());
-const allowCrossDomain = function(req, res, next) {
+const allowCrossDomain = function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "*");
   res.header("Access-Control-Allow-Headers", "*");
@@ -29,7 +29,7 @@ const connection = require("./database/db");
 connection.connect();
 
 /************************** Routes ****************************/
-require ("./routes/imageRoutes")(app, connection)
+require("./routes/imageRoutes")(app, connection)
 require("./routes/adminRoutes")(app, connection)
 require("./routes/mailRouter")(app, connection)
 require("./routes/archiveRoutes")(app, connection)
@@ -37,7 +37,7 @@ require("./routes/archiveRoutes")(app, connection)
 
 //connection.end();
 
-app.listen(8080, function() {
+app.listen(8080, function () {
   console.log("server listening on: http://localhost:8080/");
 });
 

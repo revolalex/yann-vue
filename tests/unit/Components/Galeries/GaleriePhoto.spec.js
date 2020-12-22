@@ -59,14 +59,14 @@ describe('GaleriePhoto.vue', () => {
             expect(image.exists()).toBeTruthy()
             expect(image.attributes().src).toBe('https://yanncrochet.com/photo/eau/eau2xs2.jpg')
             expect(image.attributes().alt).toBe('oiseaux marin')
-            expect(image.classes()).toContain('image')
+            expect(image.classes()).toContain('image-galerie')
         })
         it('should contain second img give in props', () => {
             const image = wrapper.findAll('img').at(1)
             expect(image.exists()).toBeTruthy()
             expect(image.attributes().src).toBe('https://yanncrochet.com/photo/foret/8.jpg')
             expect(image.attributes().alt).toBe('rapace')
-            expect(image.classes()).toContain('image')
+            expect(image.classes()).toContain('image-galerie')
         })
     })
 

@@ -24,6 +24,10 @@ describe('SignIn.vue', () => {
         })
     })
 
+    afterAll(() => {
+        wrapper.destroy()
+    })
+
 
 })
 

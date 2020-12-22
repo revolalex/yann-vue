@@ -32,10 +32,40 @@ describe('Views Calendrier.vue', () => {
     })
 
     describe('Calendrier', () => {
-
         it('should be defined', () => {
             expect(wrapper.exists()).toBeTruthy()
         })
+
+        it('should show the given props', () => {
+            const first_calendar = wrapper.findAll('img').at(0)
+            expect(first_calendar.exists()).toBeTruthy()
+            expect(first_calendar.classes()).toContain('card-img-top')
+            expect(first_calendar.attributes('src')).toBe('https://yanncrochet.com/images/calendrier2.jpg')
+
+            const first_link = wrapper.findAll('a').at(0)
+            expect(first_link.exists()).toBeTruthy()
+            expect(first_link.attributes('href')).toBe('https://www.editions-artemis.com')
+
+            const title = wrapper.findAll('h4').at(0)
+            expect(title.exists()).toBeTruthy()
+            expect(title.text()).toBe('Calendrier.Card_body.Title')
+
+            const second_calendar = wrapper.findAll('img').at(1)
+            expect(second_calendar.exists()).toBeTruthy()
+            expect(second_calendar.classes()).toContain('card-img-top')
+            expect(second_calendar.attributes('src')).toBe('https://yanncrochet.com/images/calendrier.jpg')
+
+            const second_link = wrapper.findAll('a').at(1)
+            expect(second_link.exists()).toBeTruthy()
+            expect(second_link.attributes('href')).toBe('https://www.editions-artemis.com')
+
+        })
+
+
+    })
+
+    afterAll(() => {
+        wrapper.destroy()
     })
 
 

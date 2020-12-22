@@ -75,6 +75,10 @@ describe('Views Biographie.vue', () => {
 
     })
 
+    afterAll(() => {
+        wrapper.destroy()
+    })
+
 
 })
 

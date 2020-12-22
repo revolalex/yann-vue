@@ -31,6 +31,10 @@ describe('Views Contact.vue', () => {
         })
     })
 
+    afterAll(() => {
+        wrapper.destroy()
+    })
+
 
 })
 
