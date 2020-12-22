@@ -157,7 +157,7 @@ describe('Views Expositions.vue', () => {
         })
 
         describe('cards Five', () => {
-            it('should have card planter les choux', () => {
+            it('should have card biodiversité', () => {
                 const div = wrapper.findAll('.card').at(4)
                 expect(div.exists()).toBeTruthy()
 
