@@ -15,12 +15,12 @@ const archiveRouter = async function (app, connection) {
       var dateStr =
         ("00" + (date.getMonth() + 1)).slice(-2) +
         ("00" + date.getDate()).slice(-2) +
-        date.getFullYear()+
+        date.getFullYear() +
         ("00" + date.getHours()).slice(-2) +
         ("00" + date.getMinutes()).slice(-2) +
         ("00" + date.getSeconds()).slice(-2);
 
-      cb(null, dateStr +  file.originalname);
+      cb(null, dateStr + file.originalname);
     }
   });
 
@@ -60,15 +60,15 @@ const archiveRouter = async function (app, connection) {
   await app.post("/archive/", auth, upload.single('file'), function (req, res) {
 
     var dateNow = new Date();
-      var dateStr =
-        ("00" + (dateNow.getMonth() + 1)).slice(-2) +
-        ("00" + dateNow.getDate()).slice(-2) +
-        dateNow.getFullYear() +
-        ("00" + dateNow.getHours()).slice(-2) +
-        ("00" + dateNow.getMinutes()).slice(-2) +
-        ("00" + dateNow.getSeconds()).slice(-2);
+    var dateStr =
+      ("00" + (dateNow.getMonth() + 1)).slice(-2) +
+      ("00" + dateNow.getDate()).slice(-2) +
+      dateNow.getFullYear() +
+      ("00" + dateNow.getHours()).slice(-2) +
+      ("00" + dateNow.getMinutes()).slice(-2) +
+      ("00" + dateNow.getSeconds()).slice(-2);
 
-    console.log("image register filename:", dateStr  + req.file.originalname);
+    console.log("image register filename:", dateStr + req.file.originalname);
 
     const texte = req.body.texte
     const galerie_name = req.body.galerie_name
@@ -76,7 +76,7 @@ const archiveRouter = async function (app, connection) {
     const date = req.body.date
     const filename = dateStr + req.file.originalname
 
-  
+
 
 
     const sql = "INSERT INTO archive (text,galerie_name,title,date,filename) VALUES (?)";
@@ -123,20 +123,24 @@ const archiveRouter = async function (app, connection) {
 
     connection.query(sql, [rate], function (err, results) {
       if (err) throw err;
-      res.send(results);
+      // res.send("Success Rating");
     });
-  })
-
-  await app.get("/rateAverage/", function (req, res) {
-
-    const sql = "INSERT INTO archive_rating (filename, rating) VALUES (?)";
-    const rate = [filename, rating];
-
-    connection.query(sql, [rate], function (err, results) {
+    // requete sql get the average rating for a filename
+    const sqlAverage = `SELECT CAST(AVG(rating) AS decimal(10,2)) FROM archive_rating where filename ="${filename}";`
+    connection.query(sqlAverage, function (err, results) {
       if (err) throw err;
       res.send(results);
     });
   })
+
+  // await app.get("/rateAverage/", function (req, res) {
+  //   const filename = req.body.filename
+  //   const sql = `SELECT CAST(AVG(rating) AS decimal(10,2)) FROM archive_rating where filename ="${filename}";`
+  //   connection.query(sql, function (err, results) {
+  //     if (err) throw err;
+  //     res.send(results);
+  //   });
+  // })
 
 
 };

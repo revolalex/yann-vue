@@ -87,12 +87,16 @@
       "**/*.{js,vue}",
       "!**/node_modules/**",
       "!**/api/**",
-      "!**/views/**",
       "!**/coverage/**",
+      "!**/router/**",
+      "!**/store/**",
+      "!**/plugins/**",
       "!**/i18n/**",
       "!**/TestUtilsI18n.js**",
       "!**/babel.config.js**",
-      "!**/vue.config.js**"
+      "!**/vue.config.js**",
+      "!**/main.js**",
+      "!**/app.vue**"
     ],
     "coverageReporters": [
       "lcov",

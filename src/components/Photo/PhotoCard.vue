@@ -5,32 +5,40 @@
       :key="postIndex"
       class="padding-bottom-hover"
     >
-      
-      <b-card id="cardImage" >
+      <b-card id="cardImage">
         <h2 id="cardPhotoTitle">{{ post.title }}</h2>
-        <img :src="imgP(post.filename)"/>
+        <img :src="getImgSrc(post.filename)" />
         <div class="myCardDiv">
-        <b-card-text >{{ post.text }}</b-card-text>
-        
-        <b-input-group>
-          <b-form-rating
-            v-model="rating"
-            variant="info"
-            show-value
-            show-value-max
-          ></b-form-rating>
-          <b-input-group-prepend>
-            <b-button
-              :disabled="current[postIndex] == postIndex"
-              ref="rateB"
+          <b-card-text>{{ post.text }}</b-card-text>
+          <b-input-group>
+            <b-form-rating
+              v-model="rating[postIndex]"
               variant="info"
-              @click="voteRating(post.filename, postIndex, post)"
-              >Voter</b-button
-            >
-          </b-input-group-prepend>
-        </b-input-group>
+              show-value
+              show-value-max
+            ></b-form-rating>
+            <b-input-group-prepend>
+              <b-button
+                :disabled="!rating[postIndex] > 0 && !rating[postIndex] <6 "
+                ref="rateB"
+                variant="info"
+                @click="voteRating(post.filename, postIndex, post)"
+                >Voter</b-button
+              >
+            </b-input-group-prepend>
+          </b-input-group>
         </div>
-        <b-card-text class="myCardDiv" ariant="danger" id ="average">Moyenne:  <span>{{ average }}</span> </b-card-text>
+        <b-card-text class="myCardDiv" ariant="danger" id="average"
+          >Moyenne:
+          <span>{{ averages[postIndex] }}</span>
+        </b-card-text>
+        <b-alert
+          v-model="showRatingDone[postIndex]"
+          variant="success"
+          dismissible
+        >
+          Success Vote
+        </b-alert>
         <template #footer>
           <small id="leftText" class="text-muted">{{ post.date }}</small>
         </template>
@@ -40,7 +48,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   name: "PhotoCard",
   props: {
@@ -48,39 +56,50 @@ export default {
   },
   data() {
     return {
-      rating: "4.1",
-      average: "3",
+      rating: [],
       // use to disabled the right button
-      current: [],
+      showRatingDone: [],
+      averages: [],
     };
   },
   methods: {
-    imgP(e) {
+    /**
+     * 
+     */
+    getImgSrc(e) {
       return require(`@/assets/uploads/images/${e}`);
     },
+
     async voteRating(filename, postIndex) {
-      // rate and filename evaluate
-      console.log("RATING", this.rating);
-      console.log("FILENAME", filename);
-      // help us to disable the right button
-      this.current.push(postIndex);
-      // succes text in button
+      // succes text and disabled button
+      this.$refs.rateB[postIndex].disabled = true;
       this.$refs.rateB[postIndex].innerText = "Succés";
+     
+      // succes alert
+      this.showRatingDone.push(postIndex);
+      this.showRatingDone[postIndex] = true;
 
-      let rateObject= {
+      let rateObject = {
         filename: filename,
-        rating: this.rating
-      }
+        rating: this.rating[postIndex],
+      };
 
-      await axios.post("http://localhost:8080/rating/", rateObject)
-        .then((result)=>{
-          console.log("result",result);
-          alert("succes")
+      await axios
+        .post("http://localhost:8080/rating/", rateObject)
+        .then((result) => {
+          console.log(
+            "result",
+            result.data[0]["CAST(AVG(rating) AS decimal(10,2))"]
+          );
+          this.averages.push(postIndex);
+          this.averages[postIndex] =
+            result.data[0]["CAST(AVG(rating) AS decimal(10,2))"];
         })
         .catch((error) => {
           console.log(error);
         });
-      
+
+      // this.rating = "";
     },
   },
 };
@@ -114,14 +133,14 @@ export default {
 #cardImage:hover {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.38), 0 12px 12px rgba(0, 0, 0, 0.46);
 }
-#average{
-  color: #14A3B8;
-   text-align: end;
+#average {
+  color: #14a3b8;
+  text-align: end;
 }
-#average span{
- font-weight: 700;
+#average span {
+  font-weight: 700;
 }
-.myCardDiv{
+.myCardDiv {
   width: 80%;
   margin: auto;
 }

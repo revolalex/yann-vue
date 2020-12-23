@@ -25,6 +25,7 @@ export default {
   computed:{
     /**
      * @function get an array of object (gallerie)
+     *@returns array containning an array of image
      */
     getGaleries(){
       const $t = this.$t.bind(this)
