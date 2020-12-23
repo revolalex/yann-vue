@@ -12,13 +12,14 @@
           <b-card-text>{{ post.text }}</b-card-text>
           <b-input-group>
             <b-form-rating
-              v-model="rating"
+              v-model="rating[postIndex]"
               variant="info"
               show-value
               show-value-max
             ></b-form-rating>
             <b-input-group-prepend>
               <b-button
+                :disabled="!rating[postIndex] > 0 && !rating[postIndex] <6 "
                 ref="rateB"
                 variant="info"
                 @click="voteRating(post.filename, postIndex, post)"
@@ -55,7 +56,7 @@ export default {
   },
   data() {
     return {
-      rating: "",
+      rating: [],
       // use to disabled the right button
       showRatingDone: [],
       averages: [],
@@ -80,7 +81,7 @@ export default {
 
       let rateObject = {
         filename: filename,
-        rating: this.rating,
+        rating: this.rating[postIndex],
       };
 
       await axios
@@ -98,7 +99,7 @@ export default {
           console.log(error);
         });
 
-      this.rating = "";
+      // this.rating = "";
     },
   },
 };
