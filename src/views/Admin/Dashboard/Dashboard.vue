@@ -7,7 +7,6 @@
       v-on:homeClicked="homeMenuClicked"
       v-on:galeriesClicked="galeriesMenuClicked"
     />
-
     <!-- Page content holder -->
     <div
       class="page-content p-5"
@@ -15,7 +14,6 @@
       v-bind:class="{ active: isActive }"
     >
       <ToggleButton v-on:buttonClicked="buttonWasClickd" />
-
       <!-- only one is display at the same time -->
       <InfoAdmin v-if="viewInfo" v-on:photoLinkClicked="photoLinkWasClicked" />
       <PhotoDuMois v-if="viewPhoto" />
