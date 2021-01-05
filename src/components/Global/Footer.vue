@@ -95,6 +95,9 @@ export default {
   name: "Footer",
 
   computed: {
+    /**
+     * @returns current year
+     */
     currentYear() {
       var date = new Date();
       var year = date.getFullYear();

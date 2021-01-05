@@ -26,6 +26,9 @@
 </template>
 
 <script>
+/**
+ * @module component - CardBiographie
+ */
 export default {
   name: "CardBiographie",
   computed: {

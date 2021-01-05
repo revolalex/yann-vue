@@ -158,8 +158,6 @@ export default {
           } else {
             this.showEchecAlert =true
           }
-
-          // console.log(result.data);
         })
         .catch((error) => {
           console.log(error);

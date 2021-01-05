@@ -16,7 +16,11 @@
 </template>
 
 <script>
+/**
+ * @module component - PhotoPicker
+ */
 export default {
+  name: "PhotoPicker",
   data() {
     return {
       imageData: null,

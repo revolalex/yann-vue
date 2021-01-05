@@ -15,11 +15,20 @@ const imageRouter = async function (app, connection) {
     const sql = "INSERT INTO images (link,category,description) VALUES (?)";
 
     switch (true) {
+      case link.length === 0:
+        res.send("link is required");
+        break;
       case link.length < 3:
         res.send("link required min 3 char");
         break;
+      case category.length === 0:
+        res.send("category is required");
+        break;
       case category.length < 3:
         res.send("category required min 3 char");
+        break;
+      case description.length === 0:
+        res.send("description is required ");
         break;
       case description.length < 3:
         res.send("description required min 3 char");

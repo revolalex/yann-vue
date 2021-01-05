@@ -66,6 +66,9 @@
 
 <script>
 import axios from "axios";
+/**
+ * @module component - Form
+ */
 export default {
   name: "Form",
   data() {

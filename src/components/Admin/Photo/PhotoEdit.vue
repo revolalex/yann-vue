@@ -54,6 +54,9 @@
 <script>
 import axios from "axios";
 import PhotoPicker from "@/components/Admin/Photo/PhotoPicker.vue";
+/**
+ * @module component - PhotoCard
+ */
 export default {
   name: "PhotoCard",
   components: {
@@ -77,6 +80,9 @@ export default {
     };
   },
   computed: {
+    /**
+     * @returns date: jours, mois, année, heures, minutes, secondes - JJMMAAAAHHMMSS
+     */
     dateActuel() {
       var d = new Date();
       var n = d.toLocaleDateString();

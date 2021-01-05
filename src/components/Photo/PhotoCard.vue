@@ -19,7 +19,7 @@
             ></b-form-rating>
             <b-input-group-prepend>
               <b-button
-                :disabled="!rating[postIndex] > 0 && !rating[postIndex] <6 "
+                :disabled="!rating[postIndex] > 0 && !rating[postIndex] < 6"
                 ref="rateB"
                 variant="info"
                 @click="voteRating(post.filename, postIndex, post)"
@@ -49,6 +49,10 @@
 
 <script>
 import axios from "axios";
+/**
+ * @module component - PhotoCard
+ * @param {array} - postInPhoto
+ */
 export default {
   name: "PhotoCard",
   props: {
@@ -64,17 +68,23 @@ export default {
   },
   methods: {
     /**
-     * 
+     * @param filename
+     * @returns the image links
      */
-    getImgSrc(e) {
-      return require(`@/assets/uploads/images/${e}`);
+    getImgSrc(filename) {
+      return require(`@/assets/uploads/images/${filename}`);
     },
 
+    /**
+     * @summary post the rating and get the average rating
+     * @param filename
+     * @param postIndex
+     */
     async voteRating(filename, postIndex) {
       // succes text and disabled button
       this.$refs.rateB[postIndex].disabled = true;
       this.$refs.rateB[postIndex].innerText = "Succés";
-     
+
       // succes alert
       this.showRatingDone.push(postIndex);
       this.showRatingDone[postIndex] = true;

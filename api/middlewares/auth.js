@@ -2,14 +2,14 @@ const jwt = require('jsonwebtoken');
 const config = require("../modules/config");
 
 
-module.exports  = (req, res, next) => {
+module.exports = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(' ')[1];
     const decodedToken = jwt.verify(token, config.secret);
-    console.log("decodedToken",decodedToken);
+    console.log("decodedToken", decodedToken);
 
-    if (token>0) {
-      console.log(token);
+    if (token > 0) {
+      console.log("TOKEN",token);
     } else {
       next();
     }
@@ -19,3 +19,6 @@ module.exports  = (req, res, next) => {
     });
   }
 };
+
+
+

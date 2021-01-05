@@ -76,15 +76,18 @@ const archiveRouter = async function (app, connection) {
     const date = req.body.date
     const filename = dateStr + req.file.originalname
 
-
-
-
     const sql = "INSERT INTO archive (text,galerie_name,title,date,filename) VALUES (?)";
     const imgToAdd = [texte, galerie_name, title, date, filename];
 
     switch (true) {
+      case title.length === 0:
+        res.send("Title is required");
+        break;
       case title.length < 3:
         res.send("Title required min 3 char");
+        break;
+      case texte.length === 0:
+        res.send("text required min 30 char");
         break;
       case texte.length < 30:
         res.send("text required min 30 char");
@@ -123,7 +126,6 @@ const archiveRouter = async function (app, connection) {
 
     connection.query(sql, [rate], function (err, results) {
       if (err) throw err;
-      // res.send("Success Rating");
     });
     // requete sql get the average rating for a filename
     const sqlAverage = `SELECT CAST(AVG(rating) AS decimal(10,2)) FROM archive_rating where filename ="${filename}";`
