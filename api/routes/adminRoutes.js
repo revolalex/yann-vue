@@ -4,6 +4,8 @@ const bcrypt = require("bcrypt");
 // token
 const jwt = require("jsonwebtoken");
 const config = require("../modules/config");
+//sql
+const adminSql = require('../sql/adminSql')
 
 const adminRouter = async function (app, connection) {
   /******************** ADMIN PART ********************/
@@ -50,8 +52,7 @@ const adminRouter = async function (app, connection) {
         let passwordHash = bcrypt.hashSync(password, saltRounds);
         // Stock the hash password in db
         let user = [name, is_super_admin, passwordHash, email, url];
-        const sql = "INSERT INTO admin (name, is_super_admin, password, email, url) VALUES (?)";
-        connection.query(sql, [user], function (err, results) {
+        connection.query(adminSql.signUp, [user], function (err, results) {
           if (err) throw err;
           res.send(results);
         });

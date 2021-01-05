@@ -3,25 +3,25 @@
     <h3>{{ $t("Biographie.Second_Title") }}</h3>
 
     <p>
-      {{$t('Biographie.Portrait.First_paragraph_part1')}}
-      {{$t('Biographie.Portrait.First_paragraph_part2')}}
-      {{$t('Biographie.Portrait.First_paragraph_part3')}}
-      {{$t('Biographie.Portrait.First_paragraph_part4')}}
-      {{$t('Biographie.Portrait.First_paragraph_part5')}}
+      {{ $t("Biographie.Portrait.First_paragraph_part1") }}
+      {{ $t("Biographie.Portrait.First_paragraph_part2") }}
+      {{ $t("Biographie.Portrait.First_paragraph_part3") }}
+      {{ $t("Biographie.Portrait.First_paragraph_part4") }}
+      {{ $t("Biographie.Portrait.First_paragraph_part5") }}
     </p>
 
     <p>
-      {{$t('Biographie.Portrait.Second_paragraph_part1')}} {{$t('Biographie.Portrait.Second_paragraph_part2')}}
+      {{ $t("Biographie.Portrait.Second_paragraph_part1") }}
+      {{ $t("Biographie.Portrait.Second_paragraph_part2") }}
     </p>
 
     <p>
-      {{$t('Biographie.Portrait.Third_paragraph')}}
+      {{ $t("Biographie.Portrait.Third_paragraph") }}
     </p>
 
     <p>
-      {{$t('Biographie.Portrait.Fourth_paragraph')}}
+      {{ $t("Biographie.Portrait.Fourth_paragraph") }}
     </p>
-    
   </div>
 </template>
 

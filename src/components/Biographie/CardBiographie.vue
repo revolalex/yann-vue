@@ -42,7 +42,7 @@ export default {
 </script>
 
 <style>
-#typingHeight{
+#typingHeight {
   height: 60px;
   vertical-align: top;
 }

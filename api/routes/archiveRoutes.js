@@ -2,6 +2,8 @@
 const multer = require('multer')
 const auth = require('../middlewares/auth')
 
+const archiveSql = require('../sql/archiveSql')
+
 
 const archiveRouter = async function (app, connection) {
   // config to store the image
@@ -76,7 +78,6 @@ const archiveRouter = async function (app, connection) {
     const date = req.body.date
     const filename = dateStr + req.file.originalname
 
-    const sql = "INSERT INTO archive (text,galerie_name,title,date,filename) VALUES (?)";
     const imgToAdd = [texte, galerie_name, title, date, filename];
 
     switch (true) {
@@ -99,7 +100,7 @@ const archiveRouter = async function (app, connection) {
         res.send("photo is required");
         break;
       default:
-        connection.query(sql, [imgToAdd], function (err, results) {
+        connection.query(archiveSql.postArchive, [imgToAdd], function (err, results) {
           if (err) throw err;
           res.send(results);
         });
@@ -110,8 +111,7 @@ const archiveRouter = async function (app, connection) {
   /******************************** /get archives ****************************/
   /**************************** use for photo du mois ************************/
   await app.get("/archive/", function (req, res) {
-    const sql = `SELECT * FROM archive`;
-    connection.query(sql, function (err, results) {
+    connection.query(archiveSql.getAll, function (err, results) {
       if (err) throw err;
       res.send(results);
     });
@@ -121,29 +121,16 @@ const archiveRouter = async function (app, connection) {
     const filename = req.body.filename
     const rating = req.body.rating
 
-    const sql = "INSERT INTO archive_rating (filename, rating) VALUES (?)";
     const rate = [filename, rating];
 
-    connection.query(sql, [rate], function (err, results) {
+    connection.query(archiveSql.postRating, [rate], function (err, results) {
       if (err) throw err;
     });
-    // requete sql get the average rating for a filename
-    const sqlAverage = `SELECT CAST(AVG(rating) AS decimal(10,2)) FROM archive_rating where filename ="${filename}";`
-    connection.query(sqlAverage, function (err, results) {
+    connection.query(archiveSql.getAverage(filename), function (err, results) {
       if (err) throw err;
       res.send(results);
     });
   })
-
-  // await app.get("/rateAverage/", function (req, res) {
-  //   const filename = req.body.filename
-  //   const sql = `SELECT CAST(AVG(rating) AS decimal(10,2)) FROM archive_rating where filename ="${filename}";`
-  //   connection.query(sql, function (err, results) {
-  //     if (err) throw err;
-  //     res.send(results);
-  //   });
-  // })
-
 
 };
 
