@@ -4,11 +4,10 @@
 
 <script>
 export default {
-    name:"GaleriesAdmin"
-
-}
+  name: "GaleriesAdmin",
+ 
+};
 </script>
 
 <style>
-
 </style>

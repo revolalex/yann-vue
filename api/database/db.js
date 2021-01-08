@@ -15,6 +15,8 @@ connection.connect(function (err) {
     if (err) throw err;
   });
 
+  // AFAIRE créer un admin YC est un superAdmin Alex
+
   // id, is_menu, galerie_name, caption, filename, alt
   const imgTable =
     "CREATE TABLE IF NOT EXISTS galerie_photo (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, is_menu BOOLEAN, galerie_name VARCHAR(50) NOT NULL, caption VARCHAR(50) NOT NULL,  filename VARCHAR(100) NOT NULL , alt VARCHAR(50));";

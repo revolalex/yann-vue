@@ -66,6 +66,16 @@
         </a>
       </li>
       <li class="nav-item">
+        <a
+          href="#"
+          class="nav-link text-dark font-italic bg-light"
+          @click="SuperAdminIsClick"
+        >
+          <b-icon icon="tools" variant="info"></b-icon>
+          SuperAdmin
+        </a>
+      </li>
+      <li class="nav-item">
         <a href="#" class="nav-link text-dark text-red font-italic bg-light" @click="disconnect">
           <b-iconstack>
             <b-icon stacked icon="camera" variant="info" scale="0.75"></b-icon>
@@ -105,7 +115,7 @@
           Line charts
         </a>
       </li>
-    </ul> -->
+    </ul>  -->
   </div>
 </template>
 
@@ -142,6 +152,9 @@ export default {
     },
     galeriesIsClick() {
       this.$emit("galeriesClicked", true);
+    },
+    SuperAdminIsClick(){
+      this.$emit("superAdminClicked", true);
     },
     disconnect() {
       this.$store.dispatch("RESET_TOKEN");

@@ -1,4 +1,4 @@
-/************************** Module ****************************/
+/************************** Module ********************************/
 const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
@@ -23,18 +23,15 @@ const allowCrossDomain = function (req, res, next) {
 };
 app.use(allowCrossDomain);
 
-/************************** connection mysql ****************************/
+/************************** connection mysql ***********************/
 const connection = require("./database/db");
 connection.connect();
 
-/************************** Routes ****************************/
+/************************** Routes *********************************/
 require("./routes/imageRoutes")(app, connection)
 require("./routes/adminRoutes")(app, connection)
 require("./routes/mailRouter")(app, connection)
 require("./routes/archiveRoutes")(app, connection)
-
-
-//connection.end();
 
 app.listen(8080, function () {
   console.log("server listening on: http://localhost:8080/");
