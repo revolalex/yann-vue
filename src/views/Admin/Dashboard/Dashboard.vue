@@ -6,6 +6,7 @@
       v-on:infoClicked="infoMenuClicked"
       v-on:homeClicked="homeMenuClicked"
       v-on:galeriesClicked="galeriesMenuClicked"
+      v-on:superAdminClicked="superAdminMenuCliked"
     />
     <!-- Page content holder -->
     <div
@@ -19,6 +20,7 @@
       <PhotoDuMois v-if="viewPhoto" />
       <HomeAdmin v-if="viewHome" />
       <GalerieAdmin v-if="viewGaleries" />
+      <SuperAdmin v-if="viewSuperAdmin" />
     </div>
   </div>
 </template>
@@ -30,6 +32,7 @@ import InfoAdmin from "@/components/Admin/Dashboard/Information/InfoAdmin.vue";
 import PhotoDuMois from "@/components/Admin/Photo/PhotoEdit.vue";
 import HomeAdmin from "@/components/Admin/Home/HomeAdmin.vue";
 import GalerieAdmin from "@/components/Admin/Galeries/GaleriesAdmin.vue";
+import SuperAdmin from "@/components/Admin/SuperAdmin/SuperAdmin.vue";
 export default {
   name: "Dashboard",
   components: {
@@ -39,6 +42,7 @@ export default {
     PhotoDuMois,
     HomeAdmin,
     GalerieAdmin,
+    SuperAdmin,
   },
   data: function () {
     return {
@@ -49,6 +53,7 @@ export default {
       viewInfo: false,
       viewGaleries: false,
       viewHome: true,
+      viewSuperAdmin: true,
     };
   },
   methods: {
@@ -61,6 +66,7 @@ export default {
     photoMenuClicked(c) {
       if (c === true) {
         this.viewGaleries = false;
+        this.viewSuperAdmin = false;
         this.viewHome = false;
         this.viewInfo = false;
         this.viewPhoto = true;
@@ -69,6 +75,7 @@ export default {
     infoMenuClicked(c) {
       if (c === true) {
         this.viewGaleries = false;
+         this.viewSuperAdmin = false;
         this.viewHome = false;
         this.viewPhoto = false;
         this.viewInfo = true;
@@ -77,6 +84,7 @@ export default {
     homeMenuClicked(c) {
       if (c === true) {
         this.viewGaleries = false;
+         this.viewSuperAdmin = false;
         this.viewPhoto = false;
         this.viewInfo = false;
         this.viewHome = true;
@@ -85,9 +93,19 @@ export default {
     galeriesMenuClicked(c) {
       if (c === true) {
         this.viewPhoto = false;
+         this.viewSuperAdmin = false;
         this.viewInfo = false;
         this.viewHome = false;
         this.viewGaleries = true;
+      }
+    },
+    superAdminMenuCliked(c) {
+      if (c === true) {
+      this.viewGaleries = false;
+      this.viewPhoto = false;
+      this.viewInfo = false;
+      this.viewHome = false;
+      this.viewSuperAdmin = true
       }
     },
 

@@ -7,6 +7,8 @@ const config = require("../modules/config");
 //sql
 const adminSql = require('../sql/adminSql')
 
+const auth = require('../middlewares/auth')
+
 const adminRouter = async function (app, connection) {
   /******************** ADMIN PART ********************/
   /****************************************************/
@@ -112,5 +114,16 @@ const adminRouter = async function (app, connection) {
       }
     });
   });
+
+  /******************** Get all admin ********************/
+  await app.get("/admin/",auth, function (req, res) {
+    const sql = `SELECT * FROM admin`;
+    connection.query(sql, function (err, results) {
+      if (err) throw err;
+      res.send(results);
+    });
+
+  })
+
 };
 module.exports = adminRouter;
