@@ -65,7 +65,7 @@
           Galeries
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" v-if="isSuperAdmin">
         <a
           href="#"
           class="nav-link text-dark font-italic bg-light"

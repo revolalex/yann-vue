@@ -53,7 +53,7 @@ export default {
       viewInfo: false,
       viewGaleries: false,
       viewHome: true,
-      viewSuperAdmin: true,
+      viewSuperAdmin: false,
     };
   },
   methods: {
@@ -75,7 +75,7 @@ export default {
     infoMenuClicked(c) {
       if (c === true) {
         this.viewGaleries = false;
-         this.viewSuperAdmin = false;
+        this.viewSuperAdmin = false;
         this.viewHome = false;
         this.viewPhoto = false;
         this.viewInfo = true;
@@ -84,7 +84,7 @@ export default {
     homeMenuClicked(c) {
       if (c === true) {
         this.viewGaleries = false;
-         this.viewSuperAdmin = false;
+        this.viewSuperAdmin = false;
         this.viewPhoto = false;
         this.viewInfo = false;
         this.viewHome = true;
@@ -93,7 +93,7 @@ export default {
     galeriesMenuClicked(c) {
       if (c === true) {
         this.viewPhoto = false;
-         this.viewSuperAdmin = false;
+        this.viewSuperAdmin = false;
         this.viewInfo = false;
         this.viewHome = false;
         this.viewGaleries = true;
@@ -101,11 +101,11 @@ export default {
     },
     superAdminMenuCliked(c) {
       if (c === true) {
-      this.viewGaleries = false;
-      this.viewPhoto = false;
-      this.viewInfo = false;
-      this.viewHome = false;
-      this.viewSuperAdmin = true
+        this.viewGaleries = false;
+        this.viewPhoto = false;
+        this.viewInfo = false;
+        this.viewHome = false;
+        this.viewSuperAdmin = true;
       }
     },
 

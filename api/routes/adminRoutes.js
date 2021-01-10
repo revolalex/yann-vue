@@ -125,5 +125,14 @@ const adminRouter = async function (app, connection) {
 
   })
 
+    /******************** Change email of an admin ********************/
+    await app.put("/admin/", auth, function (req, res) {
+      connection.query(adminSql.updateEmail(req.body.email, req.body.specify), function (err, results) {
+        if (err) throw err;
+        res.send(results);
+      });
+  
+    })
+
 };
 module.exports = adminRouter;
