@@ -3,9 +3,9 @@
     <div class="carousel-inner">
       <b-carousel-slide
         v-for="image in imageInCarousel"
-        :key="image.url"
-        :img-src="image.url"
-        :img-alt="image.alt"
+        :key="image.id"
+        :img-src="getImgSrc(image.filename)"
+        :img-alt="image.filename"
       />
     </div>
   </b-carousel>
@@ -23,15 +23,15 @@ export default {
     imageInCarousel: Array,
   },
   // A FAIRE finish carousel DB
-  // methods: {
-  //   /**
-  //    * @param filename
-  //    * @returns the image links
-  //    */
-  //   getImgSrc(filename) {
-  //     return require(`@/assets/uploads/images/caroussel/${filename}`);
-  //   },
-  // },
+  methods: {
+    /**
+     * @param filename
+     * @returns the image links
+     */
+     getImgSrc(filename) {
+      return  require(`@/assets/uploads/images/caroussel/${filename}`);
+    },
+  },
 };
 </script>
 

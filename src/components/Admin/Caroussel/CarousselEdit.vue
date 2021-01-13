@@ -129,7 +129,7 @@ export default {
   },
   async mounted() {
     await axios
-      .get("http://localhost:8080/caroussel/", this.headerConfig)
+      .get("http://localhost:8080/caroussel/")
       .then((result) => {
         console.log("result", result.data);
         this.items = result.data;
