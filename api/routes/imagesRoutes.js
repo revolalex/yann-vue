@@ -1,7 +1,7 @@
 //https://blog.bitsrc.io/uploading-files-and-images-with-vue-and-express-2018ca0eecd0
 const multer = require('multer')
 const auth = require('../middlewares/auth')
-
+const fs = require('fs')
 const archiveSql = require('../sql/archiveSql')
 
 
@@ -169,7 +169,7 @@ const imagesRouter = async function (app, connection) {
       cb(null, dateStr + file.originalname);
     }
   });
-  
+
   const uploadCaroussel = multer({
     // if you want to stock the image
     storage: storageCaroussel,
@@ -213,7 +213,7 @@ const imagesRouter = async function (app, connection) {
 
 
 
-  await app.get("/caroussel/",function (req, res) {
+  await app.get("/caroussel/", function (req, res) {
     try {
       const sql = `SELECT * FROM caroussel`;
       connection.query(sql, function (err, results) {
@@ -225,24 +225,31 @@ const imagesRouter = async function (app, connection) {
     }
   })
 
-    /************ delete user with this email ==> /users/:email **************/
-    await app.delete("/caroussel/:filename", auth, function (req, res) {
-      try {
-        let filename = req.params.filename;
-        let filenameToDelete = "DELETE FROM caroussel where filename = ?";
-        connection.query(filenameToDelete, [filename], function (err, results) {
-          if (err) throw err;
-          // handle unknown user
-          if (results.affectedRows > 0) {
-            res.status(200).send("Users removed");
-          } else {
-            res.status(203).send("Unknown users");
-          }
-        });
-      } catch (error) {
-        res.status(203).send(error)
-      }
-    });
+  /************ delete image with this filename in DB and in folder **************/
+  await app.delete("/caroussel/:filename", auth, function (req, res) {
+    try {
+      let filename = req.params.filename;
+      let filenameToDelete = "DELETE FROM caroussel where filename = ?";
+      connection.query(filenameToDelete, [filename], function (err, results) {
+        if (err) throw err;
+        // handle unknown user
+        if (results.affectedRows > 0) {
+          res.status(200).send("image removed");
+          const path = `./src/assets/uploads/images/caroussel/${filename}`
+          //file removed
+          fs.unlink(path, (err) => {
+            if (err) {
+              throw (err)
+            }
+          })
+        } else {
+          res.status(203).send("image unknown");
+        }
+      });
+    } catch (error) {
+      res.status(203).send(error)
+    }
+  });
 
 
 };

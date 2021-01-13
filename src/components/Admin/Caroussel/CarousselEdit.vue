@@ -82,6 +82,7 @@ export default {
       showSuccess: false,
       showError: false,
       showFormatAlert: false,
+      //use for PhotoPicket
       show: true,
       yourConfig: {
         headers: {
@@ -107,32 +108,42 @@ export default {
     getImgSrc(filename) {
       return require(`@/assets/uploads/images/caroussel/${filename}`);
     },
-
+    /**
+     * @param file
+     * @summary allow us to receive the file upload
+     */
     photoWasAdded(file) {
       this.photo_image = file;
-      console.log(this.photo_image);
     },
-
+    /**
+     * @param e Boolean
+     * @summary allow us to show the message alert format
+     */
     imgFormatWrong(e) {
       if (e === true) {
         this.showFormatAlert = true;
       }
     },
-
+    /**
+     * @param filename
+     * @summary delete image in db and folder
+     */
     async deleteFromCarousselClicked(filename) {
       await axios
         .delete(`http://localhost:8080/caroussel/${filename}`, this.yourConfig)
         .then((result) => {
-          console.log("RESULTDELETE", result);
-          axios
-            .get("http://localhost:8080/caroussel/")
-            .then((result) => {
-              console.log("result", result.data);
-              this.items = result.data;
-            })
-            .catch((error) => {
-              console.log(error);
-            });
+          if (result.data === "image remover") {
+            console.log("RESULTDELETE", result);
+            axios
+              .get("http://localhost:8080/caroussel/")
+              .then((result) => {
+                console.log("result", result.data);
+                this.items = result.data;
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          }
         })
         .catch((error) => {
           console.log(error);
@@ -140,18 +151,14 @@ export default {
     },
     async publierWasClickerd(evt) {
       evt.preventDefault();
-
       const formData = new FormData();
-
       formData.append("file", this.photo_image);
-
       await axios
         .post("http://localhost:8080/caroussel/", formData, this.yourConfig)
         .then((result) => {
           console.log("RESULT", result);
           if (result.data.affectedRows === 1) {
             this.showSuccess = true;
-
             // Trick to reset/clear native browser picture validation state
             this.show = false;
             this.$nextTick(() => {
@@ -169,7 +176,6 @@ export default {
     await axios
       .get("http://localhost:8080/caroussel/")
       .then((result) => {
-        console.log("result", result.data);
         this.items = result.data;
       })
       .catch((error) => {
@@ -194,7 +200,7 @@ export default {
   text-align: center;
   vertical-align: middle;
 }
-.adminTitle{
-text-align: center;
+.adminTitle {
+  text-align: center;
 }
 </style>
