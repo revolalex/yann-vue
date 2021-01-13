@@ -11,7 +11,9 @@
         :img-src="element.url"
         img-alt="photo"
         img-top
+        :class="element.is_super_admin === 1 ? 'blueBorder' : ''"
       >
+        <h5 v-if="element.is_super_admin === 1">Super admin</h5>
         <b-card-text>
           <b-icon icon="envelope" variant="info" scale="1.3"></b-icon>
           <span> : {{ element.email }} </span>
@@ -28,6 +30,7 @@
             @click="editEmailClicked(element.email)"
             >Change Email
           </b-button>
+          <!-- Delete admin only if not superAdmin -->
           <div v-if="element.is_super_admin === 0">
             <br />
             <b-button
@@ -36,9 +39,15 @@
                 'Are you sure you want to delete this admin'
               "
               title="Carrefull !"
+              @click="deleteAdminClicked(element.email)"
               ><b-icon icon="trash" variant="light" scale="1"></b-icon> Delete
               Admin
             </b-button>
+          </div>
+
+          <!-- Create Admin only visible if you are superAdmin -->
+          <div v-if="element.is_super_admin === 1">
+            <CreateAdmin v-on:addNewAdmin="newAdminAdded" />
           </div>
         </div>
       </b-card>
@@ -48,11 +57,23 @@
 
 <script>
 import axios from "axios";
+import CreateAdmin from "./CreateAdmin";
 export default {
   name: "SuperAdmin",
+  components: {
+    CreateAdmin,
+  },
   data: function () {
     return {
-      newEmail: {},
+      form: {
+        nom: "",
+        email: "",
+        password: "",
+        is_super_admin: "",
+        url: "",
+      },
+      show: true,
+      newEmail: [],
       adminList: [],
       // header for token (back end use middleware)
       headerConfig: {
@@ -62,8 +83,20 @@ export default {
       },
     };
   },
-  computed: {},
   methods: {
+    async newAdminAdded(c) {
+      if (c === true) {
+        await axios
+          .get("http://localhost:8080/admin/", this.headerConfig)
+          .then((result) => {
+            this.adminList = result.data;
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    },
+
     async editEmailClicked(oldEmail) {
       const editAdminObject = {
         email: oldEmail,
@@ -77,13 +110,34 @@ export default {
               .get("http://localhost:8080/admin/", this.headerConfig)
               .then((result) => {
                 this.adminList = result.data;
-                this.newEmail[oldEmail]= ''
+                this.newEmail[oldEmail] = "";
               })
               .catch((error) => {
                 console.log(error);
               });
-          } else{
-            alert("Erreru editing email")
+          } else {
+            alert("Erreru editing email");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+
+    async deleteAdminClicked(oldEmail) {
+      await axios
+        .delete(`http://localhost:8080/admin/${oldEmail}`, this.headerConfig)
+        .then((result) => {
+          console.log("DELETE", result);
+          if (result.data == "Users removed") {
+            axios
+              .get("http://localhost:8080/admin/", this.headerConfig)
+              .then((result) => {
+                this.adminList = result.data;
+              })
+              .catch((error) => {
+                console.log(error);
+              });
           }
         })
         .catch((error) => {
@@ -116,4 +170,8 @@ export default {
   padding-top: 20px;
   text-align: center;
 }
+.blueBorder {
+  border:  double #32a1ce !important;
+}
+
 </style>

@@ -24,6 +24,7 @@ connection.connect(function (err) {
     if (err) throw err;
   });
 
+
   // id, name, is_super_admin, password, email, url
   const adminTable =
     "CREATE TABLE IF NOT EXISTS admin (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, name VARCHAR(30) NOT NULL, is_super_admin BOOLEAN, password VARCHAR(100) NOT NULL, email VARCHAR(100) NOT NULL , url VARCHAR(500) NOT NULL);";
@@ -54,6 +55,14 @@ connection.connect(function (err) {
   const archiveRating =
     "CREATE TABLE IF NOT EXISTS archive_rating (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, filename VARCHAR(100) NOT NULL, rating VARCHAR(3) NOT NULL);"
   connection.query(archiveRating, function (err, results) {
+    if (err) throw err;
+  })
+
+
+    // id, filename
+    const carousselTable =
+    "CREATE TABLE IF NOT EXISTS caroussel (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, filename VARCHAR(100) NOT NULL);"
+  connection.query(carousselTable, function (err, results) {
     if (err) throw err;
   })
 });

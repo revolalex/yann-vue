@@ -7,7 +7,6 @@ module.exports = (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1];
     const decodedToken = jwt.verify(token, config.secret);
     console.log("decodedToken", decodedToken);
-
     if (token > 0) {
       console.log("TOKEN",token);
     } else {

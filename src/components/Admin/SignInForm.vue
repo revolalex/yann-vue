@@ -5,14 +5,14 @@
       password incorrect
     </b-alert>
 
-
     <b-alert v-model="showNameAlert" variant="danger" dismissible>
       <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Erreur
       nom inconnue
     </b-alert>
 
-     <b-alert v-model="showEchecAlert" variant="danger" dismissible>
-      <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Information incorrect
+    <b-alert v-model="showEchecAlert" variant="danger" dismissible>
+      <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon>
+      Information incorrect
     </b-alert>
 
     <h4 class="myCenter">Merci de compléter le formulaire pour se connecter</h4>
@@ -61,6 +61,7 @@
         invalid-feedback="Password éxigé, minimun 8 characteres"
       >
         <b-form-input
+          type="password"
           :state="validateState('password')"
           id="input-3"
           v-model="$v.form.password.$model"
@@ -92,7 +93,7 @@ export default {
       // will allow the ok sentence to be visible
       showNameAlert: false,
       showPassAlert: false,
-      showEchecAlert: false
+      showEchecAlert: false,
     };
   },
   // vuelidate
@@ -123,7 +124,7 @@ export default {
       await axios
         .post("http://localhost:8080/signin/", this.form)
         .then((result) => {
-          console.log(result);
+          console.log("RESULT", result);
           if (result.data === "Sorry, password incorrect") {
             this.showPassAlert = true;
             this.$v.$reset();
@@ -156,7 +157,7 @@ export default {
           if (result.data.auth === true && result.data.token !== "") {
             this.$router.push("/admin/dashboard");
           } else {
-            this.showEchecAlert =true
+            console.log(result.data);
           }
         })
         .catch((error) => {

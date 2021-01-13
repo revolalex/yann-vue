@@ -31,7 +31,7 @@ import VerticalNavbar from "@/components/Admin/Dashboard/VerticalNavbar.vue";
 import InfoAdmin from "@/components/Admin/Dashboard/Information/InfoAdmin.vue";
 import PhotoDuMois from "@/components/Admin/Photo/PhotoEdit.vue";
 import HomeAdmin from "@/components/Admin/Home/HomeAdmin.vue";
-import GalerieAdmin from "@/components/Admin/Galeries/GaleriesAdmin.vue";
+import GalerieAdmin from "@/components/Admin/Caroussel/CarousselEdit.vue";
 import SuperAdmin from "@/components/Admin/SuperAdmin/SuperAdmin.vue";
 export default {
   name: "Dashboard",

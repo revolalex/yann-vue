@@ -111,26 +111,118 @@ const archiveRouter = async function (app, connection) {
   /******************************** /get archives ****************************/
   /**************************** use for photo du mois ************************/
   await app.get("/archive/", function (req, res) {
-    connection.query(archiveSql.getAll, function (err, results) {
-      if (err) throw err;
-      res.send(results);
-    });
+    try {
+      connection.query(archiveSql.getAll, function (err, results) {
+        if (err) throw err;
+        res.send(results);
+      });
+    } catch (error) {
+      res.status(203).send(error)
+    }
+
   })
 
   await app.post("/rating/", function (req, res) {
-    const filename = req.body.filename
-    const rating = req.body.rating
-
-    const rate = [filename, rating];
-
-    connection.query(archiveSql.postRating, [rate], function (err, results) {
-      if (err) throw err;
-    });
-    connection.query(archiveSql.getAverage(filename), function (err, results) {
-      if (err) throw err;
-      res.send(results);
-    });
+    try {
+      const filename = req.body.filename
+      const rating = req.body.rating
+      const rate = [filename, rating];
+      connection.query(archiveSql.postRating, [rate], function (err, results) {
+        if (err) throw err;
+      });
+      connection.query(archiveSql.getAverage(filename), function (err, results) {
+        if (err) throw err;
+        res.send(results);
+      });
+    } catch (error) {
+      res.status(203).send(error)
+    }
   })
+
+
+
+
+
+
+
+
+
+  /******************************** /post caroussel ****************************/
+  /**************************** use for home caroussel ************************/
+  const storageCaroussel = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './src/assets/uploads/images/caroussel/');
+    },
+    filename: function (req, file, cb) {
+
+      var date = new Date();
+      var dateStr =
+        ("00" + (date.getMonth() + 1)).slice(-2) +
+        ("00" + date.getDate()).slice(-2) +
+        date.getFullYear() +
+        ("00" + date.getHours()).slice(-2) +
+        ("00" + date.getMinutes()).slice(-2) +
+        ("00" + date.getSeconds()).slice(-2);
+
+      cb(null, dateStr + file.originalname);
+    }
+  });
+  
+  const uploadCaroussel = multer({
+    // if you want to stock the image
+    storage: storageCaroussel,
+    limits: {
+      // 1.5 mega
+      fileSize: 1500000
+    },
+    fileFilter
+  })
+
+  await app.post("/caroussel/", auth, uploadCaroussel.single('file'), function (req, res) {
+    try {
+      var dateNow = new Date();
+      var dateStr =
+        ("00" + (dateNow.getMonth() + 1)).slice(-2) +
+        ("00" + dateNow.getDate()).slice(-2) +
+        dateNow.getFullYear() +
+        ("00" + dateNow.getHours()).slice(-2) +
+        ("00" + dateNow.getMinutes()).slice(-2) +
+        ("00" + dateNow.getSeconds()).slice(-2);
+
+      console.log("caroussel img filename:", dateStr + req.file.originalname);
+      const filename = dateStr + req.file.originalname
+      const imgToAdd = [filename];
+
+      switch (true) {
+        case filename.length < 1:
+          throw "photo is required";
+        default:
+          connection.query("INSERT INTO caroussel (filename) VALUES (?)", [imgToAdd], function (err, results) {
+            if (err) throw err;
+            res.status(200).send(results);
+          });
+          break;
+      }
+    } catch (error) {
+      res.status(203).send(error)
+    }
+  })
+
+
+
+
+  await app.get("/caroussel/",function (req, res) {
+    try {
+      const sql = `SELECT * FROM caroussel`;
+      connection.query(sql, function (err, results) {
+        if (err) throw err;
+        res.send(results);
+      });
+    } catch (error) {
+      res.status(203).send(error)
+    }
+  })
+
 
 };
 

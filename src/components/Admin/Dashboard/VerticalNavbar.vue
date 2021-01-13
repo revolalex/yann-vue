@@ -62,7 +62,7 @@
           @click="galeriesIsClick"
         >
           <b-icon icon="images" variant="info"></b-icon>
-          Galeries
+          Caroussel - Home
         </a>
       </li>
       <li class="nav-item" v-if="isSuperAdmin">

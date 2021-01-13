@@ -1,9 +1,5 @@
 <template>
-    <b-carousel
-    id="carousel-1"
-    img-width="1024"
-    fade
-  >
+  <b-carousel id="carousel-1" img-width="1024" fade>
     <div class="carousel-inner">
       <b-carousel-slide
         v-for="image in imageInCarousel"
@@ -23,14 +19,23 @@
  */
 export default {
   name: "CarouselComponent",
-  props:{
-    imageInCarousel: Array
-  }
+  props: {
+    imageInCarousel: Array,
+  },
+  // A FAIRE finish carousel DB
+  // methods: {
+  //   /**
+  //    * @param filename
+  //    * @returns the image links
+  //    */
+  //   getImgSrc(filename) {
+  //     return require(`@/assets/uploads/images/caroussel/${filename}`);
+  //   },
+  // },
 };
 </script>
 
 <style>
-
 @-webkit-keyframes zoom {
   from {
     -webkit-transform: scale(1, 1);
@@ -65,5 +70,4 @@ export default {
     /* 50% */
   }
 }
-
 </style>

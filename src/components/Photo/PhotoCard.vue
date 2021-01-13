@@ -48,6 +48,7 @@
 </template>
 
 <script>
+// A FAIRE i18n
 import axios from "axios";
 /**
  * @module component - PhotoCard

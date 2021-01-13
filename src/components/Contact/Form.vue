@@ -65,6 +65,7 @@
 </template>
 
 <script>
+// A FAIRE mise en place vuelidate
 import axios from "axios";
 /**
  * @module component - Form

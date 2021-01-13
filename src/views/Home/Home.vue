@@ -1,13 +1,14 @@
 <template>
-  <CarouselComponent v-bind:imageInCarousel="imageInCarousel"/>
+  <CarouselComponent v-bind:imageInCarousel="imageInCarousel" />
 </template>
 
 <script>
-import CarouselComponent from '@/components/Carousel/Carousel'
+import CarouselComponent from "@/components/Carousel/Carousel";
+import axios from "axios"
 export default {
   name: "Carousel",
-  components:{
-    CarouselComponent
+  components: {
+    CarouselComponent,
   },
   data: function () {
     return {
@@ -57,6 +58,16 @@ export default {
         },
       ],
     };
+  },
+  async mounted() {
+    await axios
+      .get("http://localhost:8080/caroussel/")
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 };
 </script>
