@@ -1,6 +1,6 @@
 <template>
   <div class="myPhotoContainer">
-    <h1>Caroussel - Home</h1>
+    <h1 class="adminTitle">Caroussel - Home</h1>
     <b-alert v-model="showError" variant="danger" dismissible>
       <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Erreur
     </b-alert>
@@ -17,7 +17,13 @@
       v-if="show"
     />
     <div id="pBtn">
-      <b-button variant="info" @click="publierWasClickerd" v-if="hasImg">
+      <b-button
+        variant="info"
+        @click="publierWasClickerd"
+        v-if="hasImg"
+        v-b-popover.hover.topright="'Click pour ajouter'"
+        title="Ajouter l'image à Home"
+      >
         <b-icon icon="camera" variant="light" scale="1"></b-icon>
         Publier
       </b-button>
@@ -42,7 +48,17 @@
               <img id="tableImg" :src="getImgSrc(item.filename)" />
             </td>
             <td id="tdBtn">
-              <b-button pill variant="danger">Delete</b-button>
+              <b-button
+                pill
+                variant="danger"
+                v-b-popover.hover.topright="
+                  'Est tu sure de vouloir la supprimer'
+                "
+                title="Supprimer l'image"
+                @click="deleteFromCarousselClicked(item.filename)"
+                v-if="item.filename != '01132021124924foret1xs.jpg'"
+                >Delete</b-button
+              >
             </td>
           </tr>
         </tbody>
@@ -74,14 +90,14 @@ export default {
       },
     };
   },
-  computed:{
-    hasImg(){
-      if(this.photo_image != ''){
-        return true
-      }else {
-        return false
+  computed: {
+    hasImg() {
+      if (this.photo_image != "") {
+        return true;
+      } else {
+        return false;
       }
-    }
+    },
   },
   methods: {
     /**
@@ -91,14 +107,36 @@ export default {
     getImgSrc(filename) {
       return require(`@/assets/uploads/images/caroussel/${filename}`);
     },
+
     photoWasAdded(file) {
       this.photo_image = file;
       console.log(this.photo_image);
     },
+
     imgFormatWrong(e) {
       if (e === true) {
         this.showFormatAlert = true;
       }
+    },
+
+    async deleteFromCarousselClicked(filename) {
+      await axios
+        .delete(`http://localhost:8080/caroussel/${filename}`, this.yourConfig)
+        .then((result) => {
+          console.log("RESULTDELETE", result);
+          axios
+            .get("http://localhost:8080/caroussel/")
+            .then((result) => {
+              console.log("result", result.data);
+              this.items = result.data;
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
     async publierWasClickerd(evt) {
       evt.preventDefault();
@@ -146,7 +184,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top:20px;
+  padding-top: 20px;
 }
 #tableImg {
   height: 70px;
@@ -155,5 +193,8 @@ export default {
 #tdBtn {
   text-align: center;
   vertical-align: middle;
+}
+.adminTitle{
+text-align: center;
 }
 </style>

@@ -16,10 +16,14 @@
     >
       <ToggleButton v-on:buttonClicked="buttonWasClickd" />
       <!-- only one is display at the same time -->
-      <InfoAdmin v-if="viewInfo" v-on:photoLinkClicked="photoLinkWasClicked" />
+      <InfoAdmin
+        v-if="viewInfo"
+        v-on:photoLinkClicked="photoLinkWasClicked"
+        v-on:carousselLinkClicked="carousselLinkWasClicked"
+      />
       <PhotoDuMois v-if="viewPhoto" />
       <HomeAdmin v-if="viewHome" />
-      <GalerieAdmin v-if="viewGaleries" />
+      <CarousselEdit v-if="viewCaroussel" />
       <SuperAdmin v-if="viewSuperAdmin" />
     </div>
   </div>
@@ -28,10 +32,10 @@
 <script>
 import ToggleButton from "@/components/Admin/Dashboard/ToggleButton.vue";
 import VerticalNavbar from "@/components/Admin/Dashboard/VerticalNavbar.vue";
-import InfoAdmin from "@/components/Admin/Dashboard/Information/InfoAdmin.vue";
+import InfoAdmin from "@/components/Admin/Information/InfoAdmin.vue";
 import PhotoDuMois from "@/components/Admin/Photo/PhotoEdit.vue";
 import HomeAdmin from "@/components/Admin/Home/HomeAdmin.vue";
-import GalerieAdmin from "@/components/Admin/Caroussel/CarousselEdit.vue";
+import CarousselEdit from "@/components/Admin/Caroussel/CarousselEdit.vue";
 import SuperAdmin from "@/components/Admin/SuperAdmin/SuperAdmin.vue";
 export default {
   name: "Dashboard",
@@ -41,7 +45,7 @@ export default {
     InfoAdmin,
     PhotoDuMois,
     HomeAdmin,
-    GalerieAdmin,
+    CarousselEdit,
     SuperAdmin,
   },
   data: function () {
@@ -51,7 +55,7 @@ export default {
       //handle the view
       viewPhoto: false,
       viewInfo: false,
-      viewGaleries: false,
+      viewCaroussel: false,
       viewHome: true,
       viewSuperAdmin: false,
     };
@@ -65,7 +69,7 @@ export default {
     // nav element was clicked
     photoMenuClicked(c) {
       if (c === true) {
-        this.viewGaleries = false;
+        this.viewCaroussel = false;
         this.viewSuperAdmin = false;
         this.viewHome = false;
         this.viewInfo = false;
@@ -74,7 +78,7 @@ export default {
     },
     infoMenuClicked(c) {
       if (c === true) {
-        this.viewGaleries = false;
+        this.viewCaroussel = false;
         this.viewSuperAdmin = false;
         this.viewHome = false;
         this.viewPhoto = false;
@@ -83,7 +87,7 @@ export default {
     },
     homeMenuClicked(c) {
       if (c === true) {
-        this.viewGaleries = false;
+        this.viewCaroussel = false;
         this.viewSuperAdmin = false;
         this.viewPhoto = false;
         this.viewInfo = false;
@@ -96,12 +100,12 @@ export default {
         this.viewSuperAdmin = false;
         this.viewInfo = false;
         this.viewHome = false;
-        this.viewGaleries = true;
+        this.viewCaroussel = true;
       }
     },
     superAdminMenuCliked(c) {
       if (c === true) {
-        this.viewGaleries = false;
+        this.viewCaroussel = false;
         this.viewPhoto = false;
         this.viewInfo = false;
         this.viewHome = false;
@@ -112,9 +116,20 @@ export default {
     // link element was clicked
     photoLinkWasClicked(c) {
       if (c === true) {
+        this.viewSuperAdmin = false;
         this.viewInfo = false;
         this.viewHome = false;
         this.viewPhoto = true;
+        this.viewCaroussel = false;
+      }
+    },
+    carousselLinkWasClicked(c) {
+      if (c === true) {
+        this.viewCaroussel = true;
+        this.viewPhoto = false;
+        this.viewInfo = false;
+        this.viewHome = false;
+        this.viewSuperAdmin = false;
       }
     },
   },

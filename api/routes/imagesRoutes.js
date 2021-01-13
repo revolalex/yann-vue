@@ -5,7 +5,7 @@ const auth = require('../middlewares/auth')
 const archiveSql = require('../sql/archiveSql')
 
 
-const archiveRouter = async function (app, connection) {
+const imagesRouter = async function (app, connection) {
   // config to store the image
   const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -149,6 +149,8 @@ const archiveRouter = async function (app, connection) {
 
   /******************************** /post caroussel ****************************/
   /**************************** use for home caroussel ************************/
+
+  // change storage repo
   const storageCaroussel = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, './src/assets/uploads/images/caroussel/');
@@ -223,7 +225,26 @@ const archiveRouter = async function (app, connection) {
     }
   })
 
+    /************ delete user with this email ==> /users/:email **************/
+    await app.delete("/caroussel/:filename", auth, function (req, res) {
+      try {
+        let filename = req.params.filename;
+        let filenameToDelete = "DELETE FROM caroussel where filename = ?";
+        connection.query(filenameToDelete, [filename], function (err, results) {
+          if (err) throw err;
+          // handle unknown user
+          if (results.affectedRows > 0) {
+            res.status(200).send("Users removed");
+          } else {
+            res.status(203).send("Unknown users");
+          }
+        });
+      } catch (error) {
+        res.status(203).send(error)
+      }
+    });
+
 
 };
 
-module.exports = archiveRouter;
+module.exports = imagesRouter;

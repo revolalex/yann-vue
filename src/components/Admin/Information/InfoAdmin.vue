@@ -23,13 +23,21 @@
         </template>
       </b-card>
 
-      <b-card title="Galerie" img-src="" img-alt="Image" img-top>
+      <b-card
+        title="Caroussel - Home"
+        img-src="https://yanncrochet.com/photo/adminCaroussel.png"
+        img-alt="Image"
+        img-top
+      >
         <b-card-text>
-          Là tu peux manager les galeries, ainsi que les différentes photo les
-          composants
+          Permet de gérer les photo du caroussel de la page "home"
+          <ul>
+            <li>ajouter des photos (max 1.5 mo: jpeg, png, gif)</li>
+            <li>supprimer des photos</li>
+          </ul>
         </b-card-text>
         <template #footer>
-          <small class="text-muted"><a href="#">Gérer les galeries</a></small>
+          <small class="text-muted"><a href="#" @click="carousselIsClick">Gérer le caroussel</a></small>
         </template>
       </b-card>
 
@@ -58,6 +66,9 @@ export default {
   methods: {
     photoIsClick() {
       this.$emit("photoLinkClicked", true);
+    },
+    carousselIsClick() {
+      this.$emit("carousselLinkClicked", true);
     },
   },
 };
