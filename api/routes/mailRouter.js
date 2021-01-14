@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer');
 const getMailTemplate = require('../modules/templateMail')
+require('dotenv').config();
 
 const mailRouter = async function (app, connection) {
     await app.post("/mail/", function (req, res) {
@@ -12,7 +13,7 @@ const mailRouter = async function (app, connection) {
             service: 'gmail',
             auth: {
                 user: 'revolalex@gmail.com',
-                pass: 'vykhkzqhqqkbobdf'
+                pass: process.env.GMAIL_PASS
             }
         });
         // Mail object
