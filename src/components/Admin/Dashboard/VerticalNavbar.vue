@@ -30,7 +30,11 @@
 
     <ul class="nav flex-column bg-white mb-0">
       <li class="nav-item">
-        <a href="#" class="nav-link text-dark font-italic bg-light" @click="homeIsClick">
+        <a
+          href="#"
+          class="nav-link text-dark font-italic bg-light"
+          @click="homeIsClick"
+        >
           <b-icon icon="house-door" variant="info"></b-icon>
           Home
         </a>
@@ -59,9 +63,9 @@
         <a
           href="#"
           class="nav-link text-dark font-italic bg-light"
-          @click="galeriesIsClick"
+          @click="carousselIsClick"
         >
-          <b-icon icon="images" variant="info"></b-icon>
+          <b-icon icon="image-fill" variant="info"></b-icon>
           Caroussel - Home
         </a>
       </li>
@@ -69,14 +73,28 @@
         <a
           href="#"
           class="nav-link text-dark font-italic bg-light"
-          @click="SuperAdminIsClick"
+          @click="galerieIsClick"
+        >
+          <b-icon icon="images" variant="info"></b-icon>
+          Galeries
+        </a>
+      </li>
+      <li class="nav-item" v-if="isSuperAdmin">
+        <a
+          href="#"
+          class="nav-link text-dark font-italic bg-light"
+          @click="superAdminIsClick"
         >
           <b-icon icon="tools" variant="info"></b-icon>
           SuperAdmin
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link text-dark text-red font-italic bg-light" @click="disconnect">
+        <a
+          href="#"
+          class="nav-link text-dark text-red font-italic bg-light"
+          @click="disconnect"
+        >
           <b-iconstack>
             <b-icon stacked icon="camera" variant="info" scale="0.75"></b-icon>
             <b-icon stacked icon="slash-circle" variant="danger"></b-icon>
@@ -150,11 +168,14 @@ export default {
     homeIsClick() {
       this.$emit("homeClicked", true);
     },
-    galeriesIsClick() {
-      this.$emit("galeriesClicked", true);
+    carousselIsClick() {
+      this.$emit("carousselClicked", true);
     },
-    SuperAdminIsClick(){
+    superAdminIsClick() {
       this.$emit("superAdminClicked", true);
+    },
+    galerieIsClick(){
+      this.$emit("galerieClicked", true);
     },
     disconnect() {
       this.$store.dispatch("RESET_TOKEN");
@@ -182,5 +203,4 @@ export default {
 .text-gray {
   color: #aaa;
 }
-
 </style>

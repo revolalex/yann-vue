@@ -1,42 +1,60 @@
 <template>
   <div>
+    <!-- A FAIRE mettre vuelidate -->
     <b-alert v-model="showSuccesLogin" variant="success" dismissible>
-      <b-icon icon="emoji-smile" variant="success" scale="1.3"></b-icon> Succes ! Email sent
+      <b-icon icon="emoji-smile" variant="success" scale="1.3"></b-icon> Succes
+      ! Email sent
     </b-alert>
 
     <b-alert v-model="showEmailAlert" variant="danger" dismissible>
-      <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Sending email error
+      <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Sending
+      email error
     </b-alert>
     <b-form @submit="onSubmit" v-if="show">
-      <b-form-group id="input-group-1" label-for="input-1">
+      <b-form-group
+        id="input-group-1"
+        label-for="input-1"
+        invalid-feedback="min 3 characters"
+      >
         <b-form-input
+          :state="validateState('name')"
           id="input-1"
-          v-model="form.name"
+          v-model="$v.form.name.$model"
           required
           :placeholder="yourName"
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="input-group-2" label-for="input-2">
+      <b-form-group
+        id="input-group-2"
+        label-for="input-2"
+        invalid-feedback="valid email required"
+      >
         <b-form-input
           id="input-2"
-          v-model="form.email"
+          :state="validateState('email')"
+          v-model="$v.form.email.$model"
           type="email"
           required
           :placeholder="yourEmail"
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="input-group-3" label-for="input-3">
+      <b-form-group
+        id="input-group-3"
+        label-for="input-3"
+        invalid-feedback="min 3 characters"
+      >
         <b-form-input
+          :state="validateState('subject')"
           id="input-3"
-          v-model="form.subject"
+          v-model="$v.form.subject.$model"
           required
           :placeholder="subject"
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="input-group-3" label-for="input-3">
+      <b-form-group id="input-group-4" label-for="input-4">
         <textarea
           v-model="form.message"
           rows="6"
@@ -46,6 +64,7 @@
           id="message"
           :placeholder="message"
           tabindex="4"
+          required
         ></textarea>
       </b-form-group>
       <div class="text-center margin-top-25">
@@ -53,10 +72,8 @@
           class="btn btn-mod btn-border btn-large"
           type="submit"
           variant="dark"
-          >
-
-  <b-spinner v-if="loader" small role="status"></b-spinner>
-
+        >
+          <b-spinner v-if="loader" small role="status"></b-spinner>
           {{ $t("Form.Send") }}</b-button
         >
       </div>
@@ -67,11 +84,14 @@
 <script>
 // A FAIRE mise en place vuelidate
 import axios from "axios";
+import { validationMixin } from "vuelidate";
+import { required, minLength, email } from "vuelidate/lib/validators";
 /**
  * @module component - Form
  */
 export default {
   name: "Form",
+  mixins: [validationMixin],
   data() {
     return {
       form: {
@@ -83,14 +103,38 @@ export default {
       show: true,
       showSuccesLogin: false,
       showEmailAlert: false,
-      loader: false
+      loader: false,
     };
   },
+  validations: {
+    form: {
+      email: {
+        required,
+        email: email,
+      },
+      name: {
+        required,
+        minLength: minLength(3),
+      },
+      subject: {
+        required,
+        minLength: minLength(3),
+      },
+      message: {
+        required,
+        minLength: minLength(10),
+      },
+    },
+  },
   methods: {
+    validateState(name) {
+      const { $dirty, $error } = this.$v.form[name];
+      return $dirty ? !$error : null;
+    },
     async onSubmit(evt) {
       evt.preventDefault();
-      this.loader = true
-      let that = this
+      this.loader = true;
+      let that = this;
       await axios
         .post(`http://localhost:8080/mail`, this.form)
         .then(function (response) {
@@ -98,25 +142,26 @@ export default {
             console.log("succes mail sent");
           }
           if (response.status == 200) {
-            that.loader = false
+            that.loader = false;
             // will allow the succes alert to be visible
+            // reset the input
+            that.form.name = "";
+            that.form.email = "";
+            that.form.subject = "";
+            that.form.message = "";
+            // reset vuelidate error (red)
+            //   this.$v.$reset();
+            that.show = false;
+            that.$nextTick(() => {
+              that.show = true;
+            });
+            that.$v.$reset();
             that.showSuccesLogin = true;
           }
           if (response.status == 500) {
-            that.loader = false
+            that.loader = false;
             that.showEmailAlert = true;
           }
-          // reset the input
-          that.form.name = "";
-          that.form.email = "";
-          that.form.subject = "";
-          that.form.message = "";
-          // reset vuelidate error (red)
-          //   this.$v.$reset();
-          that.show = false;
-          that.$nextTick(() => {
-            that.show = true;
-          });
         })
         .catch(function (error) {
           console.log(error);

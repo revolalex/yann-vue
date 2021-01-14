@@ -5,8 +5,9 @@
       v-on:photoClicked="photoMenuClicked"
       v-on:infoClicked="infoMenuClicked"
       v-on:homeClicked="homeMenuClicked"
-      v-on:galeriesClicked="galeriesMenuClicked"
+      v-on:carousselClicked="carousselMenuClicked"
       v-on:superAdminClicked="superAdminMenuCliked"
+      v-on:galerieClicked="galerieMenuClicked"
     />
     <!-- Page content holder -->
     <div
@@ -25,6 +26,7 @@
       <HomeAdmin v-if="viewHome" />
       <CarousselEdit v-if="viewCaroussel" />
       <SuperAdmin v-if="viewSuperAdmin" />
+      <GalerieAdmin v-if="viewGalerie" />
     </div>
   </div>
 </template>
@@ -37,6 +39,7 @@ import PhotoDuMois from "@/components/Admin/Photo/PhotoEdit.vue";
 import HomeAdmin from "@/components/Admin/Home/HomeAdmin.vue";
 import CarousselEdit from "@/components/Admin/Caroussel/CarousselEdit.vue";
 import SuperAdmin from "@/components/Admin/SuperAdmin/SuperAdmin.vue";
+import GalerieAdmin from "@/components/Admin/Galerie/AdminGalerie.vue"
 export default {
   name: "Dashboard",
   components: {
@@ -47,17 +50,19 @@ export default {
     HomeAdmin,
     CarousselEdit,
     SuperAdmin,
+    GalerieAdmin
   },
   data: function () {
     return {
       //handle the nav status
       isActive: false,
       //handle the view
+      viewHome: true,
       viewPhoto: false,
       viewInfo: false,
       viewCaroussel: false,
-      viewHome: true,
       viewSuperAdmin: false,
+      viewGalerie: false,
     };
   },
   methods: {
@@ -73,6 +78,7 @@ export default {
         this.viewSuperAdmin = false;
         this.viewHome = false;
         this.viewInfo = false;
+        this.viewGalerie = false;
         this.viewPhoto = true;
       }
     },
@@ -82,6 +88,7 @@ export default {
         this.viewSuperAdmin = false;
         this.viewHome = false;
         this.viewPhoto = false;
+        this.viewGalerie = false;
         this.viewInfo = true;
       }
     },
@@ -89,14 +96,16 @@ export default {
       if (c === true) {
         this.viewCaroussel = false;
         this.viewSuperAdmin = false;
+        this.viewGalerie = false;
         this.viewPhoto = false;
         this.viewInfo = false;
         this.viewHome = true;
       }
     },
-    galeriesMenuClicked(c) {
+    carousselMenuClicked(c) {
       if (c === true) {
         this.viewPhoto = false;
+        this.viewGalerie = false;
         this.viewSuperAdmin = false;
         this.viewInfo = false;
         this.viewHome = false;
@@ -106,6 +115,7 @@ export default {
     superAdminMenuCliked(c) {
       if (c === true) {
         this.viewCaroussel = false;
+        this.viewGalerie = false;
         this.viewPhoto = false;
         this.viewInfo = false;
         this.viewHome = false;
@@ -117,10 +127,11 @@ export default {
     photoLinkWasClicked(c) {
       if (c === true) {
         this.viewSuperAdmin = false;
+        this.viewGalerie = false;
         this.viewInfo = false;
         this.viewHome = false;
-        this.viewPhoto = true;
         this.viewCaroussel = false;
+        this.viewPhoto = true;
       }
     },
     carousselLinkWasClicked(c) {
@@ -130,6 +141,17 @@ export default {
         this.viewInfo = false;
         this.viewHome = false;
         this.viewSuperAdmin = false;
+        this.viewGalerie = false;
+      }
+    },
+    galerieMenuClicked(c) {
+      if (c === true) {
+        this.viewCaroussel = false;
+        this.viewPhoto = false;
+        this.viewInfo = false;
+        this.viewHome = false;
+        this.viewSuperAdmin = false;
+        this.viewGalerie = true;
       }
     },
   },
