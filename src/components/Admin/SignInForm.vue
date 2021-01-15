@@ -124,7 +124,6 @@ export default {
       await axios
         .post("http://localhost:8080/signin/", this.form)
         .then((result) => {
-          console.log("RESULT", result);
           if (result.data === "Sorry, password incorrect") {
             this.showPassAlert = true;
             this.$v.$reset();

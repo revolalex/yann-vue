@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Liste des Admins</h1>
+    <h1 class="adminTitle">Super Admin</h1>
     <br />
     <b-card-group deck>
       <b-card

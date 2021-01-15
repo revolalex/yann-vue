@@ -43,7 +43,7 @@
     </b-card>
     <br />
     <div id="publishButton">
-      <b-button variant="info" @click="publierWasClickerd">
+      <b-button variant="info" @click="publierWasClickerd" v-if="showButton">
         <b-icon icon="camera" variant="light" scale="1"></b-icon>
         Publier
       </b-button>
@@ -88,6 +88,13 @@ export default {
       var n = d.toLocaleDateString();
       return n;
     },
+    showButton(){
+      if (this.title != "" && this.photo_image != "" && this.texte.length > 29) {
+        return true
+      }else{
+        return false
+      }
+    }
   },
 
   methods: {

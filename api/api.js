@@ -32,6 +32,7 @@ require("./routes/imageRoutes")(app, connection)
 require("./routes/adminRoutes")(app, connection)
 require("./routes/mailRouter")(app, connection)
 require("./routes/imagesRoutes")(app, connection)
+require("./routes/carousselRoutes")(app, connection)
 
 app.listen(8080, function () {
   console.log("server listening on: http://localhost:8080/");

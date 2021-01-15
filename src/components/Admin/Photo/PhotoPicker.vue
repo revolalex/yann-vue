@@ -5,7 +5,7 @@
       :style="{ 'background-image': `url(${imageData})` }"
       @click="chooseImage"
     >
-      <span v-if="!imageData" class="placeholder"> Choisi une image </span>
+      <span v-if="!imageData" class="placeholder"> Ajouter une image </span>
       <input
         class="file-input"
         ref="fileInput"

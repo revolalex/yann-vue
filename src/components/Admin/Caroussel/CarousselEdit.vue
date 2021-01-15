@@ -16,7 +16,7 @@
       v-on:inputImg="photoWasAdded"
       v-if="show"
     />
-    <div id="pBtn">
+    <div class="pBtn">
       <b-button
         variant="info"
         @click="publierWasClickerd"
@@ -132,7 +132,7 @@ export default {
       await axios
         .delete(`http://localhost:8080/caroussel/${filename}`, this.yourConfig)
         .then((result) => {
-          if (result.data === "image remover") {
+          if (result.data === "image removed") {
             console.log("RESULTDELETE", result);
             axios
               .get("http://localhost:8080/caroussel/")
@@ -156,7 +156,6 @@ export default {
       await axios
         .post("http://localhost:8080/caroussel/", formData, this.yourConfig)
         .then((result) => {
-          console.log("RESULT", result);
           if (result.data.affectedRows === 1) {
             this.showSuccess = true;
             // Trick to reset/clear native browser picture validation state
@@ -186,7 +185,7 @@ export default {
 </script>
 
 <style>
-#pBtn {
+.pBtn {
   display: flex;
   justify-content: center;
   align-items: center;
