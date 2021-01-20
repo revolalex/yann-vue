@@ -69,7 +69,7 @@
           Caroussel - Home
         </a>
       </li>
-      <li class="nav-item" v-if="isSuperAdmin">
+      <li class="nav-item">
         <a
           href="#"
           class="nav-link text-dark font-italic bg-light"

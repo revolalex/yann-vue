@@ -9,6 +9,10 @@
       <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Erreur
       nom inconnue
     </b-alert>
+     <b-alert v-model="showEmailAlert" variant="danger" dismissible>
+      <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Erreur
+      Email inconuue
+    </b-alert>
 
     <b-alert v-model="showEchecAlert" variant="danger" dismissible>
       <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon>
@@ -30,6 +34,7 @@
         invalid-feedback="Nom éxigé, minimun 3 charactères"
       >
         <b-form-input
+          required
           :state="validateState('name')"
           id="input-1"
           v-model="$v.form.name.$model"
@@ -45,6 +50,7 @@
         invalid-feedback="Un email valide est éxigé"
       >
         <b-form-input
+          required
           :state="validateState('email')"
           id="input-2"
           v-model="$v.form.email.$model"
@@ -70,7 +76,13 @@
         ></b-form-input>
       </b-form-group>
       <!-- button -->
-      <b-button type="submit" variant="info"> Se connecter </b-button>
+      <b-button
+        :disabled="isDisable"
+        type="submit"
+        variant="info"
+      >
+        Se connecter
+      </b-button>
     </b-form>
   </div>
 </template>
@@ -93,6 +105,7 @@ export default {
       // will allow the ok sentence to be visible
       showNameAlert: false,
       showPassAlert: false,
+      showEmailAlert: false,
       showEchecAlert: false,
     };
   },
@@ -113,6 +126,15 @@ export default {
       },
     },
   },
+  computed:{
+    isDisable(){
+      if (this.form.name.length > 2 && this.form.email.length > 7 && this.form.password.length > 7) {
+        return false
+      } else {
+        return true
+      }
+    }
+  },
   methods: {
     validateState(name) {
       const { $dirty, $error } = this.$v.form[name];
@@ -124,12 +146,17 @@ export default {
       await axios
         .post("http://localhost:8080/signin/", this.form)
         .then((result) => {
+          console.log("RESULT",result);
           if (result.data === "Sorry, password incorrect") {
             this.showPassAlert = true;
             this.$v.$reset();
           }
           if (result.data === "Sorry, name incorrect") {
             this.showNameAlert = true;
+            this.$v.$reset();
+          }
+           if (result.data === "Sorry, email incorrect") {
+            this.showEmailAlert = true;
             this.$v.$reset();
           }
           if (result.data.auth === true) {

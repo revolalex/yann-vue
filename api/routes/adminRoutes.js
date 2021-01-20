@@ -75,14 +75,22 @@ const adminRouter = async function (app, connection) {
   // check if the password is the good one for this specific email
   // then deliver a jwt
   await app.post("/signin/", function (req, res) {
-    let name = req.body.name.charAt(0).toUpperCase() + req.body.name.slice(1);
-    let password = req.body.password;
-    const sql = `SELECT * FROM admin where name ='${name}';`;
-    connection.query(sql, function (err, results) {
+
+    const name = req.body.name.charAt(0).toUpperCase() + req.body.name.slice(1);
+    const password = req.body.password;
+    const email = req.body.email
+    connection.query(adminSql.checkemail, [email], function (err, results) {
+      if (err) throw err;
+      //handle email error
+      if (!Array.isArray(results) || !results.length) {
+        res.status(203).send("Sorry, email incorrect");
+      }
+    })
+    connection.query(adminSql.signIn, [name], function (err, results) {
       if (err) throw err;
       //handle name error
       if (!Array.isArray(results) || !results.length) {
-        res.send("Sorry, name incorrect");
+        res.status(203).send("Sorry, name incorrect");
       } else {
         let nameInDb = results[0].name;
         let passwordStockInDb = results[0].password;
@@ -97,14 +105,10 @@ const adminRouter = async function (app, connection) {
           config.secret
         );
         bcrypt.compare(password, passwordStockInDb, function (err, result) {
-          console.log("RESULT", result);
           if (result === true) {
-            // get the decoded payload ignoring signature, no secretOrPrivateKey needed
+            // get the decoded payload 
             var decoded = jwt.decode(token);
-            // get the decoded payload and header
-            var decoded = jwt.decode(token, { complete: true });
-            console.log("header ==>", decoded.header);
-            console.log("payload ==>", decoded.payload);
+            console.log("DECODED", decoded);
             res.status(200).send({
               auth: true,
               token: token,

@@ -1,5 +1,6 @@
 const mysql = require("mysql2");
 const adminSql = require('../sql/adminSql')
+require('dotenv').config();
 
 const connection = mysql.createConnection({
   host: "localhost",
@@ -33,13 +34,13 @@ connection.connect(function (err) {
   })
 
   //create admin Yann Corchet
-  let yannAdmin = ['2', 'Yann', 0, '$2b$10$hLbsAy/v7j0huxjWPi0i7eMLbDqJn.71cE3icQldQrrRHafVCCGEi', 'yanncrochet@wanadoo.fr', 'https://yanncrochet.com/images/PortraitYC.JPG'];
+  let yannAdmin = ['2', 'Yann', 0, process.env.YANN_ADMIN_PASS, 'yanncrochet@wanadoo.fr', 'https://yanncrochet.com/images/PortraitYC.JPG'];
   connection.query(adminSql.createAdmins, [yannAdmin], function (err, results) {
     if (err) throw err;
   })
 
   //create superAdmin Alexandre
-  let alexSuperAdmin = ['1', 'Alexandre', '1', '$2b$10$9pYKsR9jVgz6vZLOT2C9iuAuASJMWCGrOAQP75415sqtGuKNYFKom', 'revolalex@gmail.com', 'https://revol-cv.netlify.app/asset/alex2.png'];
+  let alexSuperAdmin = ['1', 'Alexandre', 1, process.env.ALEX_ADMIN_PASS, 'revolalex@gmail.com', 'https://revol-cv.netlify.app/asset/alex2.png'];
   connection.query(adminSql.createAdmins, [alexSuperAdmin], function (err, results) {
     if (err) throw err;
   })
