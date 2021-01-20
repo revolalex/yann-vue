@@ -8,14 +8,14 @@
       @close="index = null"
     >
     </CoolLightBox>
-
-    <div class="images-wrapper">
+<!--  :style="{backgroundImage:`url('${require(`../../assets/uploads/images/galerie/${image.filename}`)}`}" -->
+    <div class="images-wrapper" v-if="imageInGaleries.length > 1">
       <b-img
         class="image-galerie"
         v-for="(image, imageIndex) in imageInGaleries"
         :key="imageIndex"
         @click="index = imageIndex"
-        :src="image.src"
+        :src="getImgSrc(image.filename)"
         :alt="image.alt"
       />
     </div>
@@ -28,14 +28,22 @@ export default {
    * @module component - GaleriePhoto
    * @param {array} - imageInGaleries
    */
-  name: "GaleriePhoto",
+  name: "GaleriePhotos",
   props: {
     imageInGaleries: Array,
   },
   data: function () {
     return {
-      index: null,
+      index: null
     };
+
+  },
+  methods: {
+    getImgSrc(filename) {
+      if (filename) {
+        return require(`../../assets/uploads/images/galerie/${filename}`);
+      }
+    },
   },
 };
 </script>
@@ -62,35 +70,33 @@ export default {
 
 /* Mobile responsive  iphone 6/7/8 Plus..... */
 @media (min-width: 400px) and (max-width: 420px) {
-/* 1 colonne 
+  /* 1 colonne 
    .image-galerie {
   width: 324px;
   height: 364px;
 } */
 
-/* 2 colonnes */
-.image-galerie{
-  width: 198px;
-  height: 232px;
-}
+  /* 2 colonnes */
+  .image-galerie {
+    width: 198px;
+    height: 232px;
+  }
 }
 /* iphone X  6/7/8 */
 @media (width: 375px) {
-
-/* 2 colonnes */
-.image-galerie{
-  width: 180px;
-  height: 232px;
-}
+  /* 2 colonnes */
+  .image-galerie {
+    width: 180px;
+    height: 232px;
+  }
 }
 
 /* iphone 5 */
 @media (width: 320px) {
-
-/* 2 colonnes */
-.image-galerie{
-  width: 150px;
-  height: 180px;
-}
+  /* 2 colonnes */
+  .image-galerie {
+    width: 150px;
+    height: 180px;
+  }
 }
 </style>
