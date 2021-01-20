@@ -36,6 +36,7 @@ export default {
 </script>
 
 <style>
+
 @-webkit-keyframes zoom {
   from {
     -webkit-transform: scale(1, 1);

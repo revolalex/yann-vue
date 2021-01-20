@@ -1,6 +1,6 @@
 import { BootstrapVue, IconsPlugin} from "bootstrap-vue";
 import { mount, createLocalVue } from '@vue/test-utils';
-import InfoAdmin from '@/components/Admin/Dashboard/Information/InfoAdmin.vue'
+import InfoAdmin from '@/components/Admin/Information/InfoAdmin.vue'
 
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);

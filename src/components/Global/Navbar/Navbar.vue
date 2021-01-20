@@ -37,7 +37,6 @@
           >
             {{ $t("Navbar.Actualites.Text") }}
           </router-link>
-          <!-- ATTENTION ICI I18N A FAIRE -->
           <router-link
             v-on:click.prevent
             :to="{ name: 'Photo' }"
@@ -45,7 +44,7 @@
             active-class="active"
             exact
           >
-            Photo du mois
+            {{ $t("Navbar.PhotoDuMois.Text") }}
           </router-link>
           <router-link
             v-on:click.prevent

@@ -1,5 +1,7 @@
 <template>
+
   <CarouselComponent v-bind:imageInCarousel="myImg" />
+
 </template>
 
 <script>
@@ -12,17 +14,17 @@ export default {
   },
   data: function () {
     return {
-      myImg: [{
-          filename: "https://yanncrochet.com/photo/foret/foret1xs.jpg",
-        }],
+       myImg: [{}],
     };
   },
-  async beforeMount() {
+  async beforeCreate() {
     await axios
       .get("http://localhost:8080/caroussel/")
       .then((result) => {
-        console.log(result.data);
-        this.myImg = result.data;
+        console.log(result);
+        if (result.status == 200) {
+          this.myImg = result.data;
+        }
       })
       .catch((error) => {
         console.log(error);
