@@ -30,11 +30,11 @@ const adminRouter = async function (app, connection) {
   //name, is_super_admin, password, email, url
   await app.post("/signup/", auth, function (req, res) {
     try {
-      let name = req.body.name.charAt(0).toUpperCase() + req.body.name.slice(1);
-      let is_super_admin = req.body.is_super_admin
-      let password = req.body.password;
-      let email = req.body.email;
-      let url = req.body.url;
+      const name = req.body.name.charAt(0).toUpperCase() + req.body.name.slice(1);
+      const is_super_admin = req.body.is_super_admin
+      const password = req.body.password;
+      const email = req.body.email;
+      const url = req.body.url;
       // Handle Error
       switch (true) {
         case name.length = 0:
@@ -57,9 +57,9 @@ const adminRouter = async function (app, connection) {
           throw "is_super_admin is required";
         default:
           // Hash the password
-          let passwordHash = bcrypt.hashSync(password, saltRounds);
+          const passwordHash = bcrypt.hashSync(password, saltRounds);
           // Stock the hash password in db
-          let user = [name, is_super_admin, passwordHash, email, url];
+          const user = [name, is_super_admin, passwordHash, email, url];
           connection.query(adminSql.signUp, [user], function (err, results) {
             if (err) throw err;
             res.status(201).send(results);
@@ -92,22 +92,21 @@ const adminRouter = async function (app, connection) {
       if (!Array.isArray(results) || !results.length) {
         res.status(203).send("Sorry, name incorrect");
       } else {
-        let nameInDb = results[0].name;
-        let passwordStockInDb = results[0].password;
-        let emailInDb = results[0].email;
-        let id = results[0].id;
-        let url = results[0].url;
-        let is_super_admin = results[0].is_super_admin;
-
+        const nameInDb = results[0].name;
+        const passwordStockInDb = results[0].password;
+        const emailInDb = results[0].email;
+        const id = results[0].id;
+        const url = results[0].url;
+        const is_super_admin = results[0].is_super_admin;
         /******* TOKEN *******/
-        let token = jwt.sign(
+        const token = jwt.sign(
           { name: nameInDb, email: emailInDb, id: id },
           config.secret
         );
         bcrypt.compare(password, passwordStockInDb, function (err, result) {
           if (result === true) {
             // get the decoded payload 
-            var decoded = jwt.decode(token);
+            const decoded = jwt.decode(token);
             console.log("DECODED", decoded);
             res.status(200).send({
               auth: true,
@@ -128,8 +127,7 @@ const adminRouter = async function (app, connection) {
   /******************** Get all admin ********************/
   await app.get("/admin/", auth, function (req, res) {
     try {
-      const sql = `SELECT * FROM admin`;
-      connection.query(sql, function (err, results) {
+      connection.query(adminSql.getAll, function (err, results) {
         if (err) throw err;
         res.send(results);
       });
@@ -154,9 +152,8 @@ const adminRouter = async function (app, connection) {
   /************ delete user with this email ==> /users/:email **************/
   await app.delete("/admin/:email", auth, function (req, res) {
     try {
-      let email = req.params.email;
-      let usersMailToDelete = "DELETE FROM admin where email = ?";
-      connection.query(usersMailToDelete, [email], function (err, results) {
+      const email = req.params.email;
+      connection.query(adminSql.deleteAdmin, [email], function (err, results) {
         if (err) throw err;
         // handle unknown user
         if (results.affectedRows > 0) {

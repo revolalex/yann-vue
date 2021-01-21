@@ -1,11 +1,9 @@
 const multer = require('multer')
 const auth = require('../middlewares/auth')
 const fs = require('fs')
-
-
+const carouselSql = require('../sql/carouselSql')
 
 const carousselRouter = async function (app, connection) {
-
     // change storage repo
     const storageCaroussel = multer.diskStorage({
         destination: function (req, file, cb) {
@@ -13,8 +11,8 @@ const carousselRouter = async function (app, connection) {
         },
         filename: function (req, file, cb) {
 
-            var date = new Date();
-            var dateStr =
+            const date = new Date();
+            const dateStr =
                 ("00" + (date.getMonth() + 1)).slice(-2) +
                 ("00" + date.getDate()).slice(-2) +
                 date.getFullYear() +
@@ -59,9 +57,9 @@ const carousselRouter = async function (app, connection) {
     /************ Create unique filename, upload file, and stock filename in db  **************/
     await app.post("/caroussel/", auth, uploadCaroussel.single('file'), function (req, res) {
         try {
-            var dateNow = new Date();
+            const dateNow = new Date();
             // format MM/DD/HH/MM/SS
-            var dateStr =
+            const dateStr =
                 ("00" + (dateNow.getMonth() + 1)).slice(-2) +
                 ("00" + dateNow.getDate()).slice(-2) +
                 dateNow.getFullYear() +
@@ -76,7 +74,7 @@ const carousselRouter = async function (app, connection) {
                 case filename.length < 1:
                     throw "photo is required";
                 default:
-                    connection.query("INSERT INTO caroussel (filename) VALUES (?)", [imgToAdd], function (err, results) {
+                    connection.query(carouselSql.addImg, [imgToAdd], function (err, results) {
                         if (err) throw err;
                         res.status(200).send(results);
                     });
@@ -87,13 +85,10 @@ const carousselRouter = async function (app, connection) {
         }
     })
 
-
-
     /************ Get all info in caroussel Table  **************/
     await app.get("/caroussel/", function (req, res) {
         try {
-            const sql = `SELECT * FROM caroussel`;
-            connection.query(sql, function (err, results) {
+            connection.query(carouselSql.getAll, function (err, results) {
                 if (err) throw err;
                 res.send(results);
             });
@@ -105,9 +100,8 @@ const carousselRouter = async function (app, connection) {
     /************ delete image with this filename in DB and in folder **************/
     await app.delete("/caroussel/:filename", auth, function (req, res) {
         try {
-            let filename = req.params.filename;
-            let filenameToDelete = "DELETE FROM caroussel where filename = ?";
-            connection.query(filenameToDelete, [filename], function (err, results) {
+            const filename = req.params.filename;
+            connection.query(carouselSql.deleteImg, [filename], function (err, results) {
                 if (err) throw err;
                 // handle unknown user
                 if (results.affectedRows > 0) {
@@ -127,8 +121,6 @@ const carousselRouter = async function (app, connection) {
             res.status(203).send(error)
         }
     });
-
-
 
 }
 module.exports = carousselRouter;

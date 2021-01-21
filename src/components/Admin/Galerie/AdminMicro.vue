@@ -213,7 +213,7 @@ export default {
     async deleteImgClicked(filename) {
       await axios
         .delete(
-          `http://localhost:8080/galerie/micro/${filename}`,
+          `http://localhost:8080/galerie/delete/${filename}`,
           this.yourConfig
         )
         .then((result) => {

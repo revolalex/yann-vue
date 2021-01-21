@@ -31,7 +31,7 @@ connection.connect();
 require("./routes/galerieRoutes")(app, connection)
 require("./routes/adminRoutes")(app, connection)
 require("./routes/mailRouter")(app)
-require("./routes/imagesRoutes")(app, connection)
+require("./routes/archiveRoutes")(app, connection)
 require("./routes/carousselRoutes")(app, connection)
 
 app.listen(8080, function () {
