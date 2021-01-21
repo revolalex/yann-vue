@@ -25,7 +25,7 @@
 
       <b-card
         title="Caroussel - Home"
-        img-src="https://yanncrochet.com/photo/adminCaroussel.png"
+        img-src="https://yanncrochet.com/photo/adminCarousel.png"
         img-alt="Image"
         img-top
       >
@@ -37,23 +37,28 @@
           </ul>
         </b-card-text>
         <template #footer>
-          <small class="text-muted"><a href="#" @click="carousselIsClick">Gérer le caroussel</a></small>
+          <small class="text-muted"
+            ><a href="#" @click="carousselIsClick">Gérer le caroussel</a></small
+          >
         </template>
       </b-card>
 
       <b-card
-        title="Information"
-        img-src="https://picsum.photos/300/300/?image=41"
+        title="Galerie"
+        img-src="https://yanncrochet.com/photo/adminGalery.png"
         img-alt="Image"
         img-top
       >
         <b-card-text>
-          This is a wider card with supporting text below as a natural lead-in
-          to additional content. This card has even longer content than the
-          first to show that equal height action.
+          Permet de manager les galeries
+          <ul>
+            <li>ajouter des photos (max 1.5 mo: jpeg, png, gif)</li>
+            <li>supprimer des photos</li>
+            <li>possibiliter de choisr la photo représentant la galerie</li>
+          </ul>
         </b-card-text>
         <template #footer>
-          <small class="text-muted"><a href="#">Info</a></small>
+          <small class="text-muted"><a href="#" @click="galerieIsClick">Gérer les galeries</a></small>
         </template>
       </b-card>
     </b-card-group>
@@ -70,6 +75,9 @@ export default {
     carousselIsClick() {
       this.$emit("carousselLinkClicked", true);
     },
+    galerieIsClick(){
+      this.$emit("galerieLinkClicked", true);
+    }
   },
 };
 </script>
