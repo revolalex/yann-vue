@@ -19,9 +19,9 @@ connection.connect(function (err) {
   });
 
   // id, is_menu, galerie_name, caption, filename, alt
-  const imgTable =
+  const galerie_photo =
     "CREATE TABLE IF NOT EXISTS galerie_photo (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, is_menu BOOLEAN, galerie_name VARCHAR(50) NOT NULL, caption VARCHAR(50) NOT NULL,  filename VARCHAR(100) NOT NULL , alt VARCHAR(50));";
-  connection.query(imgTable, function (err, results) {
+  connection.query(galerie_photo, function (err, results) {
     if (err) throw err;
   });
 

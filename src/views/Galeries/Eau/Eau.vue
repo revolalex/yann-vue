@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="myContainerGalerie">
-      <TitreDePage :titre="$t('Titre.Galerie.Micro')" />
+      <TitreDePage :titre="$t('Titre.Galerie.Eau')" />
       <GaleriePhotos v-bind:imageInGaleries="coolLightBoxItems" />
     </div>
     <Footer />
