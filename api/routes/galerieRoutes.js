@@ -86,7 +86,7 @@ const galerieRouter = async function (app, connection) {
 
   /************************** FORET PART **************************/
   /****************************************************************/
-  
+
   /******************** Get all galerie foret ********************/
   await app.get("/galerie/foret/", function (req, res) {
     try {
@@ -118,7 +118,7 @@ const galerieRouter = async function (app, connection) {
             }
           })
         } else {
-          res.status(203).send("image unknown");
+          throw "image unknown";
         }
       });
     } catch (error) {
@@ -130,9 +130,9 @@ const galerieRouter = async function (app, connection) {
 
 
 
-  /************************** MICR PART **************************/
+  /************************** MICRO PART **************************/
   /****************************************************************/
-  
+
   /******************** Get all galerie Micro ********************/
   await app.get("/galerie/micro", function (req, res) {
     try {
@@ -164,7 +164,7 @@ const galerieRouter = async function (app, connection) {
             }
           })
         } else {
-          res.status(203).send("image unknown");
+          throw "image unknown";
         }
       });
     } catch (error) {
