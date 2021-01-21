@@ -21,6 +21,7 @@
         v-if="viewInfo"
         v-on:photoLinkClicked="photoLinkWasClicked"
         v-on:carousselLinkClicked="carousselLinkWasClicked"
+        v-on:galerieLinkClicked="galerieLinkWasClicked"
       />
       <PhotoDuMois v-if="viewPhoto" />
       <HomeAdmin v-if="viewHome" />
@@ -154,6 +155,16 @@ export default {
         this.viewGalerie = true;
       }
     },
+    galerieLinkWasClicked(c){
+       if (c === true) {
+        this.viewCaroussel = false;
+        this.viewPhoto = false;
+        this.viewInfo = false;
+        this.viewHome = false;
+        this.viewSuperAdmin = false;
+        this.viewGalerie = true;
+      }
+    }
   },
 };
 </script>
