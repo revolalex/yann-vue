@@ -1,92 +1,55 @@
 <template>
   <div>
     <div class="myContainerGalerie">
-      <TitreDePage :titre="$t('Titre.Galerie.Vegetale')" />
-      <GaleriePhoto v-bind:imageInGaleries="items" />
+      <TitreDePage :titre="$t('Titre.Galerie.Micro')" />
+      <GaleriePhotos v-bind:imageInGaleries="coolLightBoxItems" />
     </div>
     <Footer />
   </div>
 </template>
-
 <script>
-import GaleriePhoto from "@/components/Galeries/GaleriePhoto";
-import TitreDePage from "@/components/Global/TitrePage";
+import axios from "axios";
 import Footer from "@/components/Global/Footer";
+import GaleriePhotos from "@/components/Galeries/GaleriePhotos";
+import TitreDePage from "@/components/Global/TitrePage";
 export default {
-  name: "Vegetale",
+  name: "Flore",
   components: {
-    GaleriePhoto,
+    GaleriePhotos,
     TitreDePage,
     Footer,
   },
   data: function () {
     return {
-      items: [
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/flors/flors4xs.jpg",
-          alt: "fleur",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/flors/3.jpg",
-          alt: "fleur",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/flors/flors7xs.jpg",
-          alt: "fleur",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/flors/flors5xs.jpg",
-          alt: "fleur",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/flors/flors1xs.jpg",
-          alt: "fleur",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/flors/flors2xs.jpg",
-          alt: "fleur",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/flors/flors8xs.jpg",
-          alt: "fleur",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/flors/flors6xs.jpg",
-          alt: "fleur",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/flors/flors12xs.jpg",
-          alt: "fleur",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/flors/flors10xs.jpg",
-          alt: "fleur",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/flors/flors11xs.jpg",
-          alt: "fleur",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/flors/flors9xs.jpg",
-          alt: "fleur",
-        },
-      ],
+      items: [],
     };
+  },
+  computed: {
+    coolLightBoxItems() {
+      return this.items.map((img) => ({
+        id: img.id,
+        alt: img.alt,
+        src: require(`@/assets/uploads/images/galerie/${img.filename}`),
+      }));
+    },
+  },
+  methods: {
+    async getData() {
+      await axios
+        .get("http://localhost:8080/galerie/flore/")
+        .then((result) => {
+          console.log(result.data);
+          this.items = result.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
+  beforeMount() {
+    this.getData();
   },
 };
 </script>
-
 <style>
 </style>

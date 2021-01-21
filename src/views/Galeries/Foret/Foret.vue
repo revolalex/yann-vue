@@ -24,7 +24,6 @@ export default {
   data: function () {
     return {
       items: [],
-      index: null,
     };
   },
   computed: {

@@ -1,6 +1,7 @@
 const auth = require('../middlewares/auth')
 const multer = require('multer')
 const fs = require('fs')
+const galerieSql = require('../sql/galerieSql')
 
 const galerieRouter = async function (app, connection) {
 
@@ -11,8 +12,8 @@ const galerieRouter = async function (app, connection) {
     },
     filename: function (req, file, cb) {
 
-      var date = new Date();
-      var dateStr =
+      const date = new Date();
+      const dateStr =
         ("00" + (date.getMonth() + 1)).slice(-2) +
         ("00" + date.getDate()).slice(-2) +
         date.getFullYear() +
@@ -53,13 +54,13 @@ const galerieRouter = async function (app, connection) {
     return
   })
 
-
-  /******************** IMAGE ********************/
+  /******************* POST IMAGE *******************/
+  /******************** IMAGE ***********************/
   await app.post("/galerie/", auth, uploadGalerie.single('file'), function (req, res) {
 
-    var dateNow = new Date();
+    const dateNow = new Date();
     // format MM/DD/HH/MM/SS
-    var dateStr =
+    const dateStr =
       ("00" + (dateNow.getMonth() + 1)).slice(-2) +
       ("00" + dateNow.getDate()).slice(-2) +
       dateNow.getFullYear() +
@@ -77,21 +78,44 @@ const galerieRouter = async function (app, connection) {
 
     const imgToAdd = [is_menu, galerie_name, caption, filename, alt];
 
-    const sql = "INSERT INTO galerie_photo (is_menu, galerie_name, caption, filename, alt) VALUES (?)";
-    connection.query(sql, [imgToAdd], function (err, results) {
+
+    connection.query(galerieSql.postImg, [imgToAdd], function (err, results) {
       if (err) throw err;
       res.send(results);
     });
   });
 
+  /************************** DELETE **************************/
+  /***  delete image with this filename in DB and in folder ***/
+  await app.delete("/galerie/delete/:filename", auth, function (req, res) {
+    try {
+      const filename = req.params.filename;
+      connection.query(galerieSql.deleteImg, [filename], function (err, results) {
+        if (err) throw err;
+        // handle unknown user
+        if (results.affectedRows > 0) {
+          res.status(200).send("image removed");
+          const path = `./src/assets/uploads/images/galerie/${filename}`
+          //file removed
+          fs.unlink(path, (err) => {
+            if (err) {
+              throw (err)
+            }
+          })
+        } else {
+          throw "image unknown";
+        }
+      });
+    } catch (error) {
+      res.status(203).send(error)
+    }
+  });
+
   /************************** FORET PART **************************/
-  /****************************************************************/
-  
   /******************** Get all galerie foret ********************/
   await app.get("/galerie/foret/", function (req, res) {
     try {
-      const sql = `SELECT * FROM galerie_photo WHERE galerie_name = 'foret'`;
-      connection.query(sql, function (err, results) {
+      connection.query(galerieSql.getForet, function (err, results) {
         if (err) throw err;
         res.send(results);
       });
@@ -100,44 +124,11 @@ const galerieRouter = async function (app, connection) {
     }
   })
 
-  /************ delete image with this filename in DB and in folder **************/
-  await app.delete("/galerie/foret/:filename", auth, function (req, res) {
-    try {
-      let filename = req.params.filename;
-      let filenameToDelete = "DELETE FROM galerie_photo where filename = ?";
-      connection.query(filenameToDelete, [filename], function (err, results) {
-        if (err) throw err;
-        // handle unknown user
-        if (results.affectedRows > 0) {
-          res.status(200).send("image removed");
-          const path = `./src/assets/uploads/images/galerie/${filename}`
-          //file removed
-          fs.unlink(path, (err) => {
-            if (err) {
-              throw (err)
-            }
-          })
-        } else {
-          res.status(203).send("image unknown");
-        }
-      });
-    } catch (error) {
-      res.status(203).send(error)
-    }
-  });
-
-
-
-
-
-  /************************** MICR PART **************************/
-  /****************************************************************/
-  
+  /************************** MICRO PART **************************/
   /******************** Get all galerie Micro ********************/
   await app.get("/galerie/micro", function (req, res) {
     try {
-      const sql = `SELECT * FROM galerie_photo WHERE galerie_name = 'micro'`;
-      connection.query(sql, function (err, results) {
+      connection.query(galerieSql.getMicro, function (err, results) {
         if (err) throw err;
         res.send(results);
       });
@@ -146,36 +137,57 @@ const galerieRouter = async function (app, connection) {
     }
   })
 
-  /************ delete image with this filename in DB and in folder **************/
-  await app.delete("/galerie/micro/:filename", auth, function (req, res) {
+    /************************** MICRO PART **************************/
+  /******************** Get all galerie Micro ********************/
+  await app.get("/galerie/flore", function (req, res) {
     try {
-      let filename = req.params.filename;
-      let filenameToDelete = "DELETE FROM galerie_photo where filename = ?";
-      connection.query(filenameToDelete, [filename], function (err, results) {
+      connection.query(galerieSql.getFlore, function (err, results) {
         if (err) throw err;
-        // handle unknown user
-        if (results.affectedRows > 0) {
-          res.status(200).send("image removed");
-          const path = `./src/assets/uploads/images/galerie/${filename}`
-          //file removed
-          fs.unlink(path, (err) => {
-            if (err) {
-              throw (err)
-            }
-          })
-        } else {
-          res.status(203).send("image unknown");
-        }
+        res.send(results);
       });
     } catch (error) {
       res.status(203).send(error)
     }
-  });
+  })
 
+  /************************** EAU PART **************************/
+  /******************** Get all galerie Eau ********************/
+  await app.get("/galerie/eau", function (req, res) {
+    try {
+      connection.query(galerieSql.getEau, function (err, results) {
+        if (err) throw err;
+        res.send(results);
+      });
+    } catch (error) {
+      res.status(203).send(error)
+    }
+  })
 
+    /************************** Jardin PART **************************/
+  /******************** Get all galerie Jardin ********************/
+  await app.get("/galerie/jardin", function (req, res) {
+    try {
+      connection.query(galerieSql.getJardin, function (err, results) {
+        if (err) throw err;
+        res.send(results);
+      });
+    } catch (error) {
+      res.status(203).send(error)
+    }
+  })
 
-
-
+      /************************** Noir PART **************************/
+  /******************** Get all galerie Noir ********************/
+  await app.get("/galerie/noir", function (req, res) {
+    try {
+      connection.query(galerieSql.getNoir, function (err, results) {
+        if (err) throw err;
+        res.send(results);
+      });
+    } catch (error) {
+      res.status(203).send(error)
+    }
+  })
 
 };
 

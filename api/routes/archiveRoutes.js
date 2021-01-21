@@ -70,8 +70,6 @@ const imagesRouter = async function (app, connection) {
       ("00" + dateNow.getMinutes()).slice(-2) +
       ("00" + dateNow.getSeconds()).slice(-2);
 
-    console.log("image register filename:", dateStr + req.file.originalname);
-
     const texte = req.body.texte
     const galerie_name = req.body.galerie_name
     const title = req.body.title

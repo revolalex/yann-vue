@@ -1,6 +1,6 @@
 import BootstrapVue from 'bootstrap-vue';
 import { mount, createLocalVue } from '@vue/test-utils';
-import GaleriePhoto from '@/components/Galeries/GaleriePhoto.vue';
+import GaleriePhoto from '@/components/Galeries/GaleriePhotos.vue';
 import VueRouter from 'vue-router'
 // Lightbox
 import CoolLightBox from 'vue-cool-lightbox'
