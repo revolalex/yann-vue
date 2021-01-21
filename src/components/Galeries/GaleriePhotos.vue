@@ -15,7 +15,7 @@
         v-for="(image, imageIndex) in imageInGaleries"
         :key="imageIndex"
         @click="index = imageIndex"
-        :src="getImgSrc(image.filename)"
+        :src="image.src"
         :alt="image.alt"
       />
     </div>

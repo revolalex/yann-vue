@@ -2,7 +2,7 @@
   <div>
     <div class="myContainerGalerie">
       <TitreDePage :titre="$t('Titre.Galerie.Foret')" />
-      <GaleriePhotos v-bind:imageInGaleries="items" />
+      <GaleriePhotos v-bind:imageInGaleries="coolLightBoxItems" />
     </div>
     <Footer />
   </div>
@@ -20,99 +20,28 @@ export default {
     Footer,
     GaleriePhotos,
   },
+
   data: function () {
     return {
       items: [],
       index: null,
-      //  items: [
-      //   {
-      //     href: "",
-      //     src: "https://yanncrochet.com/photo/foret/foret15xs.jpg",
-      //     alt: "foret brumeuse",
-      //   },
-      //   {
-      //     href: "",
-      //     src: "https://yanncrochet.com/photo/foret/8.jpg",
-      //     alt: "rapace",
-      //   },
-      //   {
-      //     href: "",
-      //     src: "https://yanncrochet.com/photo/foret/foret3xs.jpg",
-      //     alt: "cerf",
-      //   },
-      //   {
-      //     href: "",
-      //     src: "https://yanncrochet.com/photo/foret/foret22xs.jpg",
-      //     alt: "chouette",
-      //   },
-      //   {
-      //     href: "",
-      //     src: "https://yanncrochet.com/photo/foret/foret24xs.jpg",
-      //     alt: "renardeaux",
-      //   },
-      //   {
-      //     href: "",
-      //     src: "https://yanncrochet.com/photo/foret/foret13xs.jpg",
-      //     alt: "biche",
-      //   },
-      //   {
-      //     href: "",
-      //     src: "https://yanncrochet.com/photo/foret/foret5xs.jpg",
-      //     alt: "biche",
-      //   },
-      //   {
-      //     href: "",
-      //     src: "https://yanncrochet.com/photo/foret/foret8xs.jpg",
-      //     alt: "biche",
-      //   },
-      //   {
-      //     href: "",
-      //     src: "https://yanncrochet.com/photo/foret/foret9xs.jpg",
-      //     alt: "biche",
-      //   },
-      //   {
-      //     href: "",
-      //     src: "https://yanncrochet.com/photo/foret/foret23xs.jpg",
-      //     alt: "sanglier",
-      //   },
-      //   {
-      //     href: "",
-      //     src: "https://yanncrochet.com/photo/foret/foret2xs.jpg",
-      //     alt: "rapace",
-      //   },
-      //   {
-      //     href: "",
-      //     src: "https://yanncrochet.com/photo/foret/foret11xs.jpg",
-      //     alt: "foret",
-      //   },
-      //   {
-      //     href: "",
-      //     src: "https://yanncrochet.com/photo/foret/foret1xs.jpg",
-      //     alt: "écureuil",
-      //   },
-      //   {
-      //     href: "",
-      //     src: "https://yanncrochet.com/photo/foret/foret6xs.jpg",
-      //     alt: "biche",
-      //   },
-      //   {
-      //     href: "",
-      //     src: "https://yanncrochet.com/photo/foret/foret7xs.jpg",
-      //     alt: "biche",
-      //   },
-      //   {
-      //     href: "",
-      //     src: "https://yanncrochet.com/photo/foret/foret4xs.jpg",
-      //     alt: "cerf",
-      //   },
-      // ],
     };
+  },
+  computed: {
+    coolLightBoxItems() {
+      return this.items.map((img) => ({
+        id: img.id,
+        alt: img.alt,
+        src: require(`@/assets/uploads/images/galerie/${img.filename}`),
+      }));
+    },
   },
   methods: {
     async getData() {
       await axios
         .get("http://localhost:8080/galerie/foret/")
         .then((result) => {
+          console.log(result.data);
           this.items = result.data;
         })
         .catch((error) => {
