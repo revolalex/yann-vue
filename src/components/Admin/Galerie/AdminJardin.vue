@@ -18,18 +18,70 @@
         v-on:inputImg="photoWasAdded"
         v-if="show"
       />
-      <div id="pubierAdminBtn">
-        <b-button
-          variant="info"
-          @click="publierWasClickerd"
-          v-if="hasImg"
-          v-b-popover.hover.topright="'Click pour ajouter'"
-          title="Ajouter l'image à Home"
-        >
-          <b-icon icon="camera" variant="light" scale="1"></b-icon>
-          Publier
-        </b-button>
+      <div id="pubierAdmin">
+        <b-form v-if="show">
+          <!-- Description: alt -->
+          <b-form-group
+            v-if="hasImg"
+            id="input-group-1"
+            label="Description:"
+            label-for="input-1"
+            invalid-feedback="Description éxigé, minimun 3 characteres"
+          >
+            <b-form-input
+              :state="validateState('alt')"
+              id="input-2"
+              v-model="$v.form.alt.$model"
+              placeholder="Ex: papillon, mouche"
+              required
+            ></b-form-input>
+          </b-form-group>
+
+          <!-- isMenu: checkbox  show only if has img -->
+          <b-form-group v-if="hasImg" id="input-group-2" label-for="input-2">
+            <b-form-checkbox
+              id="checkbox-1"
+              v-model="form.is_menu"
+              name="checkbox-1"
+              value="1"
+              unchecked-value="0"
+            >
+              Utiliser en tant que Menu
+              <b-icon icon="card-image" scale="1" variant="info"></b-icon>
+            </b-form-checkbox>
+          </b-form-group>
+
+          <!-- Galerie Name  show only if the picture is use for menu galerie-->
+          <b-form-group
+            v-if="this.form.is_menu == 1"
+            id="input-group-3"
+            label="Nom de la galerie: (caption)"
+            label-for="input-3"
+            invalid-feedback="Nom de la galerie éxigé, minimun 3 characteres"
+          >
+            <b-form-input
+              :state="validateState('caption')"
+              id="input-3"
+              v-model="$v.form.caption.$model"
+              placeholder="Ex: Microcosmos"
+              required
+            ></b-form-input>
+          </b-form-group>
+
+          <!-- Button -->
+          <b-button
+            variant="info"
+            @click="publierWasClickerd"
+            v-if="showBtn"
+            v-b-popover.hover.topright="'Click pour ajouter'"
+            title="Ajouter l'image à Home"
+          >
+            <b-icon icon="camera" variant="light" scale="1"></b-icon>
+            Publier
+          </b-button>
+        </b-form>
       </div>
+
       <br />
       <table class="table table-bordered">
         <thead>
@@ -41,7 +93,7 @@
           </tr>
         </thead>
         <tbody>
-          <!-- <tr v-for="item in items" v-bind:key="item.filename">
+          <tr v-for="item in items" v-bind:key="item.filename">
             <td>{{ item.id }}</td>
             <td id="tdFilename">{{ item.filename }}</td>
             <td>
@@ -59,7 +111,7 @@
                 >Delete</b-button
               >
             </td>
-          </tr> -->
+          </tr>
         </tbody>
       </table>
     </div>
@@ -67,15 +119,25 @@
 </template>
 
 <script>
-import axios from "axios"
+import { validationMixin } from "vuelidate";
+import { required, minLength } from "vuelidate/lib/validators";
+import axios from "axios";
 import PhotoPicker from "@/components/Admin/Photo/PhotoPicker";
 export default {
   name: "AdminJardin",
+  mixins: [validationMixin],
   components: {
     PhotoPicker,
   },
   data() {
     return {
+      form: {
+        is_menu: 0,
+        galerie_name: "jardin",
+        caption: "",
+        alt: "",
+      },
+      items: [],
       show: true,
       showFormatAlert: false,
       showError: false,
@@ -88,29 +150,57 @@ export default {
       },
     };
   },
+  // vuelidate
+  validations: {
+    form: {
+      alt: {
+        required,
+        minLength: minLength(3),
+      },
+      caption: {
+        required,
+        minLength: minLength(3),
+      },
+    },
+  },
   methods: {
-    /**
-     * @param e Boolean
-     * @summary allow us to show the message alert format
-     */
+    validateState(name) {
+      const { $dirty, $error } = this.$v.form[name];
+      return $dirty ? !$error : null;
+    },
+    getImgSrc(filename) {
+      return require(`@/assets/uploads/images/galerie/${filename}`);
+    },
     imgFormatWrong(e) {
       if (e === true) {
         this.showFormatAlert = true;
       }
     },
-    /**
-     * @param file
-     * @summary allow us to receive the file upload
-     */
     photoWasAdded(file) {
       this.photo_image = file;
     },
+    async getData() {
+      await axios
+        .get("http://localhost:8080/galerie/jardin/")
+        .then((result) => {
+          this.items = result.data;
+        })
+        .catch((error) => {
+          console.log(error);
+          this.showError = true;
+        });
+    },
     async publierWasClickerd(evt) {
       evt.preventDefault();
+      console.log(this.photo_image);
       const formData = new FormData();
       formData.append("file", this.photo_image);
+      formData.append("is_menu", this.form.is_menu);
+      formData.append("galerie_name", this.form.galerie_name);
+      formData.append("caption", this.form.caption);
+      formData.append("alt", this.form.alt);
       await axios
-        .post("http://localhost:8080/caroussel/", formData, this.yourConfig)
+        .post("http://localhost:8080/galerie/", formData, this.yourConfig)
         .then((result) => {
           if (result.data.affectedRows === 1) {
             this.showSuccess = true;
@@ -126,8 +216,22 @@ export default {
           this.showError = true;
         });
     },
+    async deleteImgClicked(filename) {
+      await axios
+        .delete(
+          `http://localhost:8080/galerie/delete/${filename}`,
+          this.yourConfig
+        )
+        .then((result) => {
+          if (result.data === "image removed") {
+            this.getData();
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
-
   computed: {
     hasImg() {
       if (this.photo_image != "") {
@@ -136,6 +240,23 @@ export default {
         return false;
       }
     },
+    showBtn() {
+      if (this.form.alt.length >= 3 && this.form.is_menu == 0) {
+        return true;
+      }
+      if (
+        this.form.alt.length >= 3 &&
+        this.form.is_menu == 1 &&
+        this.form.caption.length >= 3
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+  mounted() {
+    this.getData();
   },
 };
 </script>
@@ -146,7 +267,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
-#pubierAdminBtn {
+#pubierAdmin {
   text-align: center;
   vertical-align: middle;
 }

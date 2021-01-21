@@ -9,7 +9,7 @@
     >
     </CoolLightBox>
 <!--  :style="{backgroundImage:`url('${require(`../../assets/uploads/images/galerie/${image.filename}`)}`}" -->
-    <div class="images-wrapper" v-if="imageInGaleries.length > 1">
+    <div class="images-wrapper" v-if="imageInGaleries.length >= 1">
       <b-img
         class="image-galerie"
         v-for="(image, imageIndex) in imageInGaleries"

@@ -133,7 +133,7 @@ export default {
     return {
       form: {
         is_menu: 0,
-        galerie_name: "Foret",
+        galerie_name: "foret",
         caption: "",
         alt: "",
       },

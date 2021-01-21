@@ -1,92 +1,55 @@
 <template>
   <div>
     <div class="myContainerGalerie">
-      <TitreDePage :titre="$t('Titre.Galerie.Eau')" />
-      <GaleriePhoto v-bind:imageInGaleries="items" />
+      <TitreDePage :titre="$t('Titre.Galerie.Micro')" />
+      <GaleriePhotos v-bind:imageInGaleries="coolLightBoxItems" />
     </div>
     <Footer />
   </div>
 </template>
-
 <script>
+import axios from "axios";
 import Footer from "@/components/Global/Footer";
+import GaleriePhotos from "@/components/Galeries/GaleriePhotos";
 import TitreDePage from "@/components/Global/TitrePage";
-import GaleriePhoto from "@/components/Galeries/GaleriePhoto";
 export default {
   name: "Eau",
   components: {
-    GaleriePhoto,
+    GaleriePhotos,
     TitreDePage,
     Footer,
   },
   data: function () {
     return {
-      items: [
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/eau/eau2xs2.jpg",
-          alt: "oiseaux marin",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/eau/eau12xs.jpg",
-          alt: "oiseau marin",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/eau/eau1xs.jpg",
-          alt: "canard",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/eau/eau8xs.jpg",
-          alt: "oiseaux marin",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/eau/eau5xs.jpg",
-          alt: "oiseau marin",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/eau/eau9xs.jpg",
-          alt: "mer",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/eau/10.jpg",
-          alt: "soleil et oiseau",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/eau/eau11xs.jpg",
-          alt: "oiseau marin",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/eau/eau6xs.jpg",
-          alt: "oiseau marin",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/eau/eau13xs.jpg",
-          alt: "grenouille",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/eau/eau7xs.jpg",
-          alt: "feuille",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/eau/5.jpg",
-          alt: "flamand rose",
-        },
-      ],
+      items: [],
     };
+  },
+  computed: {
+    coolLightBoxItems() {
+      return this.items.map((img) => ({
+        id: img.id,
+        alt: img.alt,
+        src: require(`@/assets/uploads/images/galerie/${img.filename}`),
+      }));
+    },
+  },
+  methods: {
+    async getData() {
+      await axios
+        .get("http://localhost:8080/galerie/eau/")
+        .then((result) => {
+          console.log(result.data);
+          this.items = result.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
+  beforeMount() {
+    this.getData();
   },
 };
 </script>
-
 <style>
 </style>

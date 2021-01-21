@@ -124,12 +124,63 @@ const galerieRouter = async function (app, connection) {
     }
   })
 
-
   /************************** MICRO PART **************************/
   /******************** Get all galerie Micro ********************/
   await app.get("/galerie/micro", function (req, res) {
     try {
       connection.query(galerieSql.getMicro, function (err, results) {
+        if (err) throw err;
+        res.send(results);
+      });
+    } catch (error) {
+      res.status(203).send(error)
+    }
+  })
+
+    /************************** MICRO PART **************************/
+  /******************** Get all galerie Micro ********************/
+  await app.get("/galerie/flore", function (req, res) {
+    try {
+      connection.query(galerieSql.getFlore, function (err, results) {
+        if (err) throw err;
+        res.send(results);
+      });
+    } catch (error) {
+      res.status(203).send(error)
+    }
+  })
+
+  /************************** EAU PART **************************/
+  /******************** Get all galerie Eau ********************/
+  await app.get("/galerie/eau", function (req, res) {
+    try {
+      connection.query(galerieSql.getEau, function (err, results) {
+        if (err) throw err;
+        res.send(results);
+      });
+    } catch (error) {
+      res.status(203).send(error)
+    }
+  })
+
+    /************************** Jardin PART **************************/
+  /******************** Get all galerie Jardin ********************/
+  await app.get("/galerie/jardin", function (req, res) {
+    try {
+      connection.query(galerieSql.getJardin, function (err, results) {
+        if (err) throw err;
+        res.send(results);
+      });
+    } catch (error) {
+      res.status(203).send(error)
+    }
+  })
+
+      /************************** Noir PART **************************/
+  /******************** Get all galerie Noir ********************/
+  await app.get("/galerie/noir", function (req, res) {
+    try {
+      connection.query(galerieSql.getNoir, function (err, results) {
         if (err) throw err;
         res.send(results);
       });

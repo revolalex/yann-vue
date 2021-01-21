@@ -1,92 +1,55 @@
 <template>
   <div>
     <div class="myContainerGalerie">
-      <TitreDePage :titre="$t('Titre.Galerie.Jardin')" />
-      <GaleriePhoto v-bind:imageInGaleries="items" />
+      <TitreDePage :titre="$t('Titre.Galerie.Micro')" />
+      <GaleriePhotos v-bind:imageInGaleries="coolLightBoxItems" />
     </div>
     <Footer />
   </div>
 </template>
-
 <script>
+import axios from "axios";
 import Footer from "@/components/Global/Footer";
+import GaleriePhotos from "@/components/Galeries/GaleriePhotos";
 import TitreDePage from "@/components/Global/TitrePage";
-import GaleriePhoto from "@/components/Galeries/GaleriePhoto";
 export default {
   name: "Jardin",
   components: {
-    GaleriePhoto,
+    GaleriePhotos,
     TitreDePage,
     Footer,
   },
   data: function () {
     return {
-      items: [
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/jardin/jardin8xs.jpg",
-          alt: "oiseaux",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/jardin/jardin10xs.jpg",
-          alt: "oiseau",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/jardin/jardin9xs.jpg",
-          alt: "oiseau",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/jardin/11.jpg",
-          alt: "oiseau",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/jardin/jardin12xs.jpg",
-          alt: "oiseau",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/jardin/jardin4xs.jpg",
-          alt: "oiseau",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/jardin/jardin7xs.jpg",
-          alt: "oiseau",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/jardin/jardin3xs.jpg",
-          alt: "oiseau",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/jardin/jardin2xs.jpg",
-          alt: "oiseau",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/jardin/jardin11xs.jpg",
-          alt: "oiseau",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/jardin/jardin5xs.jpg",
-          alt: "oiseau",
-        },
-        {
-          href: "",
-          src: "https://yanncrochet.com/photo/jardin/jardin6xs.jpg",
-          alt: "oiseau",
-        },
-      ],
+      items: [],
     };
+  },
+  computed: {
+    coolLightBoxItems() {
+      return this.items.map((img) => ({
+        id: img.id,
+        alt: img.alt,
+        src: require(`@/assets/uploads/images/galerie/${img.filename}`),
+      }));
+    },
+  },
+  methods: {
+    async getData() {
+      await axios
+        .get("http://localhost:8080/galerie/jardin/")
+        .then((result) => {
+          console.log(result.data);
+          this.items = result.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
+  beforeMount() {
+    this.getData();
   },
 };
 </script>
-
 <style>
 </style>
