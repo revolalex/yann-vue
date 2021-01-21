@@ -8,7 +8,7 @@
     <div class="card-body">
       <vue-typed-js
         :typeSpeed="120"
-        :backSpeed="50"
+        :backSpeed="80"
         :loop="true"
         :strings="textToRotate"
         :cursorChar="'_'"
@@ -33,8 +33,7 @@ export default {
   name: "CardBiographie",
   computed: {
     textToRotate() {
-      let arrayTxtToRotate = [this.$t("Biographie.Text.Rotate")];
-      return arrayTxtToRotate;
+      return [this.$t("Biographie.Text.Rotate")]
     },
   },
 };
