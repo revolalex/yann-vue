@@ -36,7 +36,6 @@
               required
             ></b-form-input>
           </b-form-group>
-
           <!-- isMenu: checkbox  show only if has img -->
           <b-form-group v-if="hasImg" id="input-group-2" label-for="input-2">
             <b-form-checkbox
@@ -50,7 +49,6 @@
               <b-icon icon="card-image" scale="1" variant="info"></b-icon>
             </b-form-checkbox>
           </b-form-group>
-
           <!-- Galerie Name  show only if the picture is use for menu galerie-->
           <b-form-group
             v-if="this.form.is_menu == 1"
@@ -67,7 +65,6 @@
               required
             ></b-form-input>
           </b-form-group>
-
           <!-- Button -->
           <b-button
             variant="info"
@@ -81,7 +78,6 @@
           </b-button>
         </b-form>
       </div>
-
       <br />
       <table class="table table-bordered">
         <thead>
@@ -95,7 +91,13 @@
         <tbody>
           <tr v-for="item in items" v-bind:key="item.filename">
             <td>{{ item.id }}</td>
-            <td id="tdFilename">{{ item.filename }}</td>
+            <td id="tdFilename">
+              {{ item.filename }}
+              <p v-if="item.is_menu == 1">
+                <b-icon variant="info" icon="images"></b-icon>
+                Menu
+              </p>
+            </td>
             <td>
               <img id="tableImg" :src="getImgSrc(item.filename)" />
             </td>
@@ -117,7 +119,6 @@
     </div>
   </b-tab>
 </template>
-
 <script>
 import { validationMixin } from "vuelidate";
 import { required, minLength } from "vuelidate/lib/validators";
@@ -184,6 +185,7 @@ export default {
         .get("http://localhost:8080/galerie/eau/")
         .then((result) => {
           this.items = result.data;
+          console.log(result.data);
         })
         .catch((error) => {
           console.log(error);
