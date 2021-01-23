@@ -117,9 +117,9 @@ const imagesRouter = async function (app, connection) {
     } catch (error) {
       res.status(203).send(error)
     }
-
   })
-
+  /***************************** /post rating ****************************/
+  /************************ use for photo du mois rating ****************/
   await app.post("/rating/", function (req, res) {
     try {
       const filename = req.body.filename
@@ -129,6 +129,20 @@ const imagesRouter = async function (app, connection) {
         if (err) throw err;
       });
       connection.query(archiveSql.getAverage(filename), function (err, results) {
+        if (err) throw err;
+        res.send(results);
+      });
+    } catch (error) {
+      res.status(203).send(error)
+    }
+  })
+
+  // a faire partie admin interaction rating
+  /******************************** /get archives/rating ****************************/
+  /**************************** use for photo du mois ************************/
+  await app.get("/archive/rating/", function (req, res) {
+    try {
+      connection.query(archiveSql.getAllRating, function (err, results) {
         if (err) throw err;
         res.send(results);
       });

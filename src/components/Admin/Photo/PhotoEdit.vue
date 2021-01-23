@@ -10,7 +10,7 @@
       <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Only
       jpeg, png, gif, image format are allowed
     </b-alert>
-
+  <h1 class="adminTitle">Photo du mois</h1>
     <h4>
       <b-form-input
         id="titlearea"
