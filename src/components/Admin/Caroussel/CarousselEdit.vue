@@ -133,11 +133,9 @@ export default {
         .delete(`http://localhost:8080/caroussel/${filename}`, this.yourConfig)
         .then((result) => {
           if (result.data === "image removed") {
-            console.log("RESULTDELETE", result);
             axios
               .get("http://localhost:8080/caroussel/")
               .then((result) => {
-                console.log("result", result.data);
                 this.items = result.data;
               })
               .catch((error) => {

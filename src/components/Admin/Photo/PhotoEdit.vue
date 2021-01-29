@@ -10,7 +10,7 @@
       <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Only
       jpeg, png, gif, image format are allowed
     </b-alert>
-  <h1 class="adminTitle">Photo du mois</h1>
+    <h1 class="adminTitle">Photo du mois</h1>
     <h4>
       <b-form-input
         id="titlearea"
@@ -48,12 +48,15 @@
         Publier
       </b-button>
     </div>
+    <br/>
+    <TablePhoto v-bind:photos="photos" v-on:deleteClicked="deleteImgClicked" />
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import PhotoPicker from "@/components/Admin/Photo/PhotoPicker.vue";
+import TablePhoto from "./TablePhoto";
 /**
  * @module component - PhotoCard
  */
@@ -61,6 +64,7 @@ export default {
   name: "PhotoCard",
   components: {
     PhotoPicker,
+    TablePhoto,
   },
   data() {
     return {
@@ -68,6 +72,7 @@ export default {
       title: "",
       photo_image: "",
       galerie_name: "",
+      photos: [],
       showSuccess: false,
       showError: false,
       show: true,
@@ -88,26 +93,40 @@ export default {
       var n = d.toLocaleDateString();
       return n;
     },
-    showButton(){
-      if (this.title != "" && this.photo_image != "" && this.texte.length > 29) {
-        return true
-      }else{
-        return false
+    showButton() {
+      if (
+        this.title != "" &&
+        this.photo_image != "" &&
+        this.texte.length > 29
+      ) {
+        return true;
+      } else {
+        return false;
       }
-    }
+    },
   },
-
+  mounted() {
+    this.getdata();
+  },
   methods: {
     photoWasAdded(file) {
       this.photo_image = file;
-      console.log(this.photo_image);
     },
     imgFormatWrong(e) {
       if (e === true) {
         this.showFormatAlert = true;
       }
     },
-
+    async getdata() {
+      await axios
+        .get("http://localhost:8080/archive/")
+        .then((result) => {
+          this.photos = result.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
     async publierWasClickerd(evt) {
       evt.preventDefault();
 
@@ -117,24 +136,38 @@ export default {
       formData.append("title", this.title);
       formData.append("date", this.dateActuel);
       formData.append("file", this.photo_image);
-
       await axios
         .post("http://localhost:8080/archive/", formData, this.yourConfig)
         .then((result) => {
-          console.log("RESULT", result);
-          this.showSuccess = true;
-
-          // Trick to reset/clear native browser picture validation state
-          this.show = false;
-          this.$nextTick(() => {
-            this.show = true;
-            this.texte = "";
-            this.title = "";
-          });
+          if (result.data.affectedRows === 1) {
+            this.showSuccess = true;
+            // Trick to reset/clear native browser picture validation state
+            this.show = false;
+            this.$nextTick(() => {
+              this.show = true;
+              this.texte = "";
+              this.title = "";
+            });
+            this.getdata();
+          } else {
+            this.showError = true;
+          }
         })
         .catch((error) => {
           console.log(error);
           this.showError = true;
+        });
+    },
+    async deleteImgClicked(filename) {
+      await axios
+        .delete(`http://localhost:8080/archive/${filename}`, this.yourConfig)
+        .then((result) => {
+          if (result.data === "image removed") {
+            this.getdata();
+          }
+        })
+        .catch((error) => {
+          console.log(error);
         });
     },
   },

@@ -38,7 +38,6 @@ export default {
       await axios
         .get("http://localhost:8080/galerie/eau/")
         .then((result) => {
-          console.log(result.data);
           this.items = result.data;
         })
         .catch((error) => {
