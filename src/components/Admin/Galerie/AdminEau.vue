@@ -185,7 +185,6 @@ export default {
         .get("http://localhost:8080/galerie/eau/")
         .then((result) => {
           this.items = result.data;
-          console.log(result.data);
         })
         .catch((error) => {
           console.log(error);
@@ -194,7 +193,6 @@ export default {
     },
     async publierWasClickerd(evt) {
       evt.preventDefault();
-      console.log(this.photo_image);
       const formData = new FormData();
       formData.append("file", this.photo_image);
       formData.append("is_menu", this.form.is_menu);

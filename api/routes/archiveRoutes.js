@@ -118,6 +118,36 @@ const imagesRouter = async function (app, connection) {
       res.status(203).send(error)
     }
   })
+
+  /************ delete image with this filename in DB and in folder **************/
+  await app.delete("/archive/:filename", auth, function (req, res) {
+    try {
+      const filename = req.params.filename;
+      connection.query(archiveSql.deleteArchive, [filename], function (err, results) {
+        if (err) throw err;
+        // handle unknown user
+        if (results.affectedRows > 0) {
+          res.status(200).send("image removed");
+          const path = `./src/assets/uploads/images/${filename}`
+          //file removed
+          fs.unlink(path, (err) => {
+            if (err) {
+              throw (err)
+            }
+          })
+          connection.query(archiveSql.deleteRating, [filename], function (err, results){
+            if (err) throw err
+          })
+        } else {
+          res.status(203).send("image unknown");
+        }
+      });
+    } catch (error) {
+      res.status(203).send(error)
+    }
+  });
+
+
   /***************************** /post rating ****************************/
   /************************ use for photo du mois rating ****************/
   await app.post("/rating/", function (req, res) {

@@ -98,10 +98,6 @@ export default {
       await axios
         .post("http://localhost:8080/rating/", rateObject)
         .then((result) => {
-          console.log(
-            "result",
-            result.data[0]["CAST(AVG(rating) AS decimal(10,2))"]
-          );
           this.averages.push(postIndex);
           this.averages[postIndex] =
             result.data[0]["CAST(AVG(rating) AS decimal(10,2))"];

@@ -128,7 +128,6 @@ export default {
       await axios
         .delete(`http://localhost:8080/admin/${oldEmail}`, this.headerConfig)
         .then((result) => {
-          console.log("DELETE", result);
           if (result.data == "Users removed") {
             axios
               .get("http://localhost:8080/admin/", this.headerConfig)
@@ -149,7 +148,6 @@ export default {
     await axios
       .get("http://localhost:8080/admin/", this.headerConfig)
       .then((result) => {
-        console.log("result", result.data);
         this.adminList = result.data;
       })
       .catch((error) => {
