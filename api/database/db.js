@@ -2,21 +2,25 @@ const mysql = require("mysql2");
 const adminSql = require('../sql/adminSql')
 require('dotenv').config();
 
+// const connection = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "alexandre",
+//   database: "yann",
+// });
+
 const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "alexandre",
-  database: "yann",
+  uri: "mysql://ba2f78955d3f6f:a7e1abf4@eu-cdbr-west-03.cleardb.net/heroku_5febaf0f5961530?reconnect=true"
 });
 
 connection.connect(function (err) {
   if (err) throw err;
   console.log("connected to DB");
 
-  const createDB = "CREATE database IF NOT EXISTS yann";
-  connection.query(createDB, function (err, results) {
-    if (err) throw err;
-  });
+  // const createDB = "CREATE database IF NOT EXISTS yann";
+  // connection.query(createDB, function (err, results) {
+  //   if (err) throw err;
+  // });
 
   // id, is_menu, galerie_name, caption, filename, alt
   const galerie_photo =
