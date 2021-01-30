@@ -1,7 +1,7 @@
 <template>
   <div class="card" style="width: 22rem; height: 910px">
     <img
-      src="https://yanncrochet.com/images/PortraitYC.JPG"
+      src="https://yanncrochet.com/images/PortraitYC.jpg"
       class="card-img-top"
       alt="Yann Crochet"
     />

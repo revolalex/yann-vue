@@ -26,7 +26,7 @@ describe('CardBiographie.vue', () => {
         it('should contain portrait image', () => {
             const imagePortrait = wrapper.find('img')
             expect(imagePortrait.exists()).toBeTruthy()
-            expect(imagePortrait.attributes().src).toBe('https://yanncrochet.com/images/PortraitYC.JPG')
+            expect(imagePortrait.attributes().src).toBe('https://yanncrochet.com/images/PortraitYC.jpg')
             expect(imagePortrait.classes('card-img-top')).toBe(true)
         })
 

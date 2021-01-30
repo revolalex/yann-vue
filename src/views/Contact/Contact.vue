@@ -28,7 +28,7 @@
     <div>
       <img
         class="contact-photo"
-        src="https://yanncrochet.com/images/contactYC.JPG"
+        src="https://yanncrochet.com/images/contactYC.jpg"
         alt="Yann Crochet"
       />
     </div>

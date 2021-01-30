@@ -34,7 +34,7 @@ connection.connect(function (err) {
   })
 
   //create admin Yann Corchet
-  let yannAdmin = ['2', 'Yann', 0, process.env.YANN_ADMIN_PASS, 'yanncrochet@wanadoo.fr', 'https://yanncrochet.com/images/PortraitYC.JPG'];
+  let yannAdmin = ['2', 'Yann', 0, process.env.YANN_ADMIN_PASS, 'yanncrochet@wanadoo.fr', 'https://yanncrochet.com/images/PortraitYC.jpg'];
   connection.query(adminSql.createAdmins, [yannAdmin], function (err, results) {
     if (err) throw err;
   })
@@ -60,8 +60,8 @@ connection.connect(function (err) {
   })
 
 
-    // id, filename
-    const carousselTable =
+  // id, filename
+  const carousselTable =
     "CREATE TABLE IF NOT EXISTS caroussel (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, filename VARCHAR(100) NOT NULL);"
   connection.query(carousselTable, function (err, results) {
     if (err) throw err;
