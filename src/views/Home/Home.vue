@@ -19,7 +19,7 @@ export default {
   },
   async beforeCreate() {
     await axios
-      .get("http://localhost:8080/caroussel/")
+      .get(process.env.VUE_APP_URL_API+"/caroussel/")
       .then((result) => {
         console.log(result);
         if (result.status == 200) {

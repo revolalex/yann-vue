@@ -38,7 +38,7 @@ export default {
   methods: {
     async getData() {
       await axios
-        .get("http://localhost:8080/galerie/foret/")
+        .get(process.env.VUE_APP_URL_API+"/galerie/foret/")
         .then((result) => {
           this.items = result.data;
         })

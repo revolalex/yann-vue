@@ -124,23 +124,29 @@ export default {
         this.showFormatAlert = true;
       }
     },
+    async getData() {
+      await axios
+        .get(process.env.VUE_APP_URL_API + "/caroussel/")
+        .then((result) => {
+          this.items = result.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
     /**
      * @param filename
      * @summary delete image in db and folder
      */
     async deleteFromCarousselClicked(filename) {
       await axios
-        .delete(`http://localhost:8080/caroussel/${filename}`, this.yourConfig)
+        .delete(
+          process.env.VUE_APP_URL_API + `/caroussel/${filename}`,
+          this.yourConfig
+        )
         .then((result) => {
           if (result.data === "image removed") {
-            axios
-              .get("http://localhost:8080/caroussel/")
-              .then((result) => {
-                this.items = result.data;
-              })
-              .catch((error) => {
-                console.log(error);
-              });
+            this.getData();
           }
         })
         .catch((error) => {
@@ -152,7 +158,11 @@ export default {
       const formData = new FormData();
       formData.append("file", this.photo_image);
       await axios
-        .post("http://localhost:8080/caroussel/", formData, this.yourConfig)
+        .post(
+          process.env.VUE_APP_URL_API + "/caroussel/",
+          formData,
+          this.yourConfig
+        )
         .then((result) => {
           if (result.data.affectedRows === 1) {
             this.showSuccess = true;
@@ -169,15 +179,8 @@ export default {
         });
     },
   },
-  async mounted() {
-    await axios
-      .get("http://localhost:8080/caroussel/")
-      .then((result) => {
-        this.items = result.data;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  mounted() {
+    this.getData();
   },
 };
 </script>

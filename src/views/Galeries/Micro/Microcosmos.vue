@@ -37,7 +37,7 @@ export default {
   methods: {
     async getData() {
       await axios
-        .get("http://localhost:8080/galerie/micro/")
+        .get(process.env.VUE_APP_URL_API+"/galerie/micro/")
         .then((result) => {
           this.items = result.data;
         })

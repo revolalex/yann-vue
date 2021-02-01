@@ -96,7 +96,7 @@ export default {
       };
 
       await axios
-        .post("http://localhost:8080/rating/", rateObject)
+        .post(process.env.VUE_APP_URL_API+"/rating/", rateObject)
         .then((result) => {
           this.averages.push(postIndex);
           this.averages[postIndex] =

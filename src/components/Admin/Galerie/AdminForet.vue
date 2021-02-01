@@ -170,21 +170,28 @@ export default {
       const { $dirty, $error } = this.$v.form[name];
       return $dirty ? !$error : null;
     },
-
     getImgSrc(filename) {
       return require(`@/assets/uploads/images/galerie/${filename}`);
     },
-
     imgFormatWrong(e) {
       if (e === true) {
         this.showFormatAlert = true;
       }
     },
-
     photoWasAdded(file) {
       this.photo_image = file;
     },
-
+    async getData() {
+      await axios
+        .get(process.env.VUE_APP_URL_API + "/galerie/foret/")
+        .then((result) => {
+          this.items = result.data;
+        })
+        .catch((error) => {
+          console.log(error);
+          this.showError = true;
+        });
+    },
     async publierWasClickerd(evt) {
       evt.preventDefault();
       const formData = new FormData();
@@ -194,7 +201,11 @@ export default {
       formData.append("caption", this.form.caption);
       formData.append("alt", this.form.alt);
       await axios
-        .post("http://localhost:8080/galerie/", formData, this.yourConfig)
+        .post(
+          process.env.VUE_APP_URL_API + "/galerie/",
+          formData,
+          this.yourConfig
+        )
         .then((result) => {
           if (result.data.affectedRows === 1) {
             this.showSuccess = true;
@@ -214,20 +225,12 @@ export default {
     async deleteImgClicked(filename) {
       await axios
         .delete(
-          `http://localhost:8080/galerie/delete/${filename}`,
+          process.env.VUE_APP_URL_API + `/galerie/delete/${filename}`,
           this.yourConfig
         )
         .then((result) => {
           if (result.data === "image removed") {
-            axios
-              .get("http://localhost:8080/galerie/foret/")
-              .then((result) => {
-                this.items = result.data;
-              })
-              .catch((error) => {
-                console.log(error);
-                this.showError = true;
-              });
+            this.getData();
           }
         })
         .catch((error) => {
@@ -259,16 +262,8 @@ export default {
       }
     },
   },
-  async mounted() {
-    await axios
-      .get("http://localhost:8080/galerie/foret/")
-      .then((result) => {
-        this.items = result.data;
-      })
-      .catch((error) => {
-        console.log(error);
-        this.showError = true;
-      });
+  mounted() {
+    this.getData();
   },
 };
 </script>

@@ -84,16 +84,20 @@ export default {
     };
   },
   methods: {
-    async newAdminAdded(c) {
+    async getData() {
+      await axios
+        .get(process.env.VUE_APP_URL_API + "/admin/", this.headerConfig)
+        .then((result) => {
+          this.adminList = result.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+
+    newAdminAdded(c) {
       if (c === true) {
-        await axios
-          .get("http://localhost:8080/admin/", this.headerConfig)
-          .then((result) => {
-            this.adminList = result.data;
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        this.getData();
       }
     },
 
@@ -103,20 +107,16 @@ export default {
         specify: this.newEmail[oldEmail],
       };
       await axios
-        .put("http://localhost:8080/admin/", editAdminObject, this.headerConfig)
+        .put(
+          process.env.VUE_APP_URL_API + "/admin/",
+          editAdminObject,
+          this.headerConfig
+        )
         .then((result) => {
           if (result.data.changedRows === 1) {
-            axios
-              .get("http://localhost:8080/admin/", this.headerConfig)
-              .then((result) => {
-                this.adminList = result.data;
-                this.newEmail[oldEmail] = "";
-              })
-              .catch((error) => {
-                console.log(error);
-              });
+            this.getData();
           } else {
-            alert("Erreru editing email");
+            alert("Error editing email");
           }
         })
         .catch((error) => {
@@ -126,17 +126,13 @@ export default {
 
     async deleteAdminClicked(oldEmail) {
       await axios
-        .delete(`http://localhost:8080/admin/${oldEmail}`, this.headerConfig)
+        .delete(
+          process.env.VUE_APP_URL_API + `/admin/${oldEmail}`,
+          this.headerConfig
+        )
         .then((result) => {
           if (result.data == "Users removed") {
-            axios
-              .get("http://localhost:8080/admin/", this.headerConfig)
-              .then((result) => {
-                this.adminList = result.data;
-              })
-              .catch((error) => {
-                console.log(error);
-              });
+            this.getData();
           }
         })
         .catch((error) => {
@@ -144,15 +140,8 @@ export default {
         });
     },
   },
-  async mounted() {
-    await axios
-      .get("http://localhost:8080/admin/", this.headerConfig)
-      .then((result) => {
-        this.adminList = result.data;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  mounted() {
+    this.getData();
   },
 };
 </script>
@@ -169,7 +158,6 @@ export default {
   text-align: center;
 }
 .blueBorder {
-  border:  double #32a1ce !important;
+  border: double #32a1ce !important;
 }
-
 </style>

@@ -25,7 +25,7 @@ export default {
   },
   async mounted() {
     await axios
-      .get("http://localhost:8080/archive/")
+      .get(process.env.VUE_APP_URL_API + "/archive/")
       .then((result) => {
         this.items = result.data;
       })

@@ -119,7 +119,7 @@ export default {
     },
     async getdata() {
       await axios
-        .get("http://localhost:8080/archive/")
+        .get(process.env.VUE_APP_URL_API+"/archive/")
         .then((result) => {
           this.photos = result.data;
         })
@@ -137,7 +137,7 @@ export default {
       formData.append("date", this.dateActuel);
       formData.append("file", this.photo_image);
       await axios
-        .post("http://localhost:8080/archive/", formData, this.yourConfig)
+        .post(process.env.VUE_APP_URL_API+"/archive/", formData, this.yourConfig)
         .then((result) => {
           if (result.data.affectedRows === 1) {
             this.showSuccess = true;
@@ -160,7 +160,7 @@ export default {
     },
     async deleteImgClicked(filename) {
       await axios
-        .delete(`http://localhost:8080/archive/${filename}`, this.yourConfig)
+        .delete(process.env.VUE_APP_URL_API+`/archive/${filename}`, this.yourConfig)
         .then((result) => {
           if (result.data === "image removed") {
             this.getdata();

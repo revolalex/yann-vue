@@ -136,7 +136,7 @@ export default {
       this.loader = true;
       let that = this;
       await axios
-        .post(`http://localhost:8080/mail`, this.form)
+        .post(process.env.VUE_APP_URL_API+`/mail`, this.form)
         .then(function (response) {
           if (response.data === "email sent") {
             console.log("succes mail sent");

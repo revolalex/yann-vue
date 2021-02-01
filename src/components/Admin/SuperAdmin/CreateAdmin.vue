@@ -175,7 +175,7 @@ export default {
     async onSubmit(evt) {
       evt.preventDefault();
       await axios
-        .post("http://localhost:8080/signup/", this.form, this.yourConfig)
+        .post(process.env.VUE_APP_URL_API+"/signup/", this.form, this.yourConfig)
         .then((result) => {
           if (result.data.affectedRows === 1) {
             this.$emit("addNewAdmin", true);

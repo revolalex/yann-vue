@@ -36,7 +36,7 @@ export default {
   methods: {
     async getData() {
       await axios
-        .get("http://localhost:8080/galerie/flore/")
+        .get(process.env.VUE_APP_URL_API+"/galerie/flore/")
         .then((result) => {
           this.items = result.data;
         })

@@ -184,6 +184,18 @@ export default {
       this.photo_image = file;
     },
 
+    async getData() {
+      await axios
+        .get(process.env.VUE_APP_URL_API + "/galerie/micro/")
+        .then((result) => {
+          this.items = result.data;
+        })
+        .catch((error) => {
+          console.log(error);
+          this.showError = true;
+        });
+    },
+
     async publierWasClickerd(evt) {
       evt.preventDefault();
       const formData = new FormData();
@@ -193,7 +205,11 @@ export default {
       formData.append("caption", this.form.caption);
       formData.append("alt", this.form.alt);
       await axios
-        .post("http://localhost:8080/galerie/", formData, this.yourConfig)
+        .post(
+          process.env.VUE_APP_URL_API + "/galerie/",
+          formData,
+          this.yourConfig
+        )
         .then((result) => {
           if (result.data.affectedRows === 1) {
             this.showSuccess = true;
@@ -213,20 +229,12 @@ export default {
     async deleteImgClicked(filename) {
       await axios
         .delete(
-          `http://localhost:8080/galerie/delete/${filename}`,
+          process.env.VUE_APP_URL_API + `/galerie/delete/${filename}`,
           this.yourConfig
         )
         .then((result) => {
           if (result.data === "image removed") {
-            axios
-              .get("http://localhost:8080/galerie/foret/")
-              .then((result) => {
-                this.items = result.data;
-              })
-              .catch((error) => {
-                console.log(error);
-                this.showError = true;
-              });
+            this.getData();
           }
         })
         .catch((error) => {
@@ -243,6 +251,7 @@ export default {
         return false;
       }
     },
+
     showBtn() {
       if (this.form.alt.length >= 3 && this.form.is_menu == 0) {
         return true;
@@ -258,16 +267,9 @@ export default {
       }
     },
   },
-  async mounted() {
-    await axios
-      .get("http://localhost:8080/galerie/micro/")
-      .then((result) => {
-        this.items = result.data;
-      })
-      .catch((error) => {
-        console.log(error);
-        this.showError = true;
-      });
+
+  mounted() {
+    this.getData();
   },
 };
 </script>
