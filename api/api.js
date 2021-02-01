@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
 var cors = require("cors");
+require('dotenv').config
 
 /************************** MidlleWare ****************************/
 app.use(express.urlencoded({ extended: false }));
@@ -34,7 +35,7 @@ require("./routes/mailRouter")(app)
 require("./routes/archiveRoutes")(app, connection)
 require("./routes/carousselRoutes")(app, connection)
 
-app.listen(8080, function () {
+app.listen(process.env.PORT || 8080, function () {
   console.log("server listening on: http://localhost:8080/");
 });
 
