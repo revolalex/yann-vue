@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TitreDePage titre="Photo du mois" />
+    <TitreDePage :titre="$t('Navbar.PhotoDuMois.Text')"  />
     <PhotoCard v-bind:postInPhoto="items" />
     <Footer />
   </div>
