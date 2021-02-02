@@ -23,13 +23,13 @@
                 ref="rateB"
                 variant="info"
                 @click="voteRating(post.filename, postIndex, post)"
-                >Voter</b-button
+                >{{$t("Photo.Voter")}}</b-button
               >
             </b-input-group-prepend>
           </b-input-group>
         </div>
         <b-card-text class="myCardDiv" ariant="danger" id="average"
-          >Moyenne:
+          >{{$t("Photo.Moyenne")}}
           <span>{{ averages[postIndex] }}</span>
         </b-card-text>
         <b-alert
@@ -37,7 +37,7 @@
           variant="success"
           dismissible
         >
-          Success Vote
+          {{$t("Photo.Succes")}}
         </b-alert>
         <template #footer>
           <small id="leftText" class="text-muted">{{ post.date }}</small>

@@ -69,9 +69,9 @@
             <template #button-content>
               <em><b-icon icon="person" variant="info"></b-icon>Admin</em>
             </template>
-            <b-dropdown-item href="/admin/dashboard">Dashboard</b-dropdown-item>
+            <b-dropdown-item href="/admin/dashboard">Tableau de bord</b-dropdown-item>
             <b-dropdown-item href="#" @click="effacer"
-              >Sign Out</b-dropdown-item
+              >Exit</b-dropdown-item
             >
           </b-nav-item-dropdown>
           <b-nav-item right>

@@ -93,6 +93,10 @@
     "Form.Your.Email": "Deine E-Mail",
     "Form.Subject": "Thema",
     "Form.Send": "Senden",
-    "Form.Your.Message": "Deine Nachricht"
+    "Form.Your.Message": "Deine Nachricht",
+
+    "Photo.Moyenne": "Durchschnittlich:",
+    "Photo.Voter": "Abstimmung",
+    "Photo.Succes": "Erfolgreiche Abstimmung"
     
 }

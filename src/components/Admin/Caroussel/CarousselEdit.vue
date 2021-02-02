@@ -1,5 +1,6 @@
 <template>
   <div class="myPhotoContainer">
+    <div class="mysuperAdminCont">
     <h1 class="adminTitle">Caroussel - Home</h1>
     <b-alert v-model="showError" variant="danger" dismissible>
       <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Erreur
@@ -64,6 +65,7 @@
         </tbody>
       </table>
     </div>
+  </div>
   </div>
 </template>
 

@@ -93,6 +93,11 @@
     "Form.Your.Email": "你的邮件",
     "Form.Subject": "话题",
     "Form.Send": "发送",
-    "Form.Your.Message": "你的信息"
+    "Form.Your.Message": "你的信息",
+
+    "Photo.Moyenne": "平均:",
+    "Photo.Voter": "投票",
+    "Photo.Succes": "成功投票"
+
 }
     

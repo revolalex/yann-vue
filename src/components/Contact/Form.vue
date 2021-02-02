@@ -14,7 +14,7 @@
       <b-form-group
         id="input-group-1"
         label-for="input-1"
-        invalid-feedback="min 3 characters"
+        invalid-feedback="min 3 characteres alpha only"
       >
         <b-form-input
           :state="validateState('name')"
@@ -85,7 +85,7 @@
 // A FAIRE mise en place vuelidate
 import axios from "axios";
 import { validationMixin } from "vuelidate";
-import { required, minLength, email } from "vuelidate/lib/validators";
+import { required, minLength, email, alpha } from "vuelidate/lib/validators";
 /**
  * @module component - Form
  */
@@ -115,6 +115,7 @@ export default {
       name: {
         required,
         minLength: minLength(3),
+        alpha
       },
       subject: {
         required,

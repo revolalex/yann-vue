@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mysuperAdminCont">
     <h1 class="adminTitle">Super Admin</h1>
     <br />
     <b-card-group deck>
@@ -159,5 +159,9 @@ export default {
 }
 .blueBorder {
   border: double #32a1ce !important;
+}
+.mysuperAdminCont{
+  max-width: 80%;
+  margin: auto;
 }
 </style>

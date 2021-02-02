@@ -93,5 +93,9 @@
     "Form.Your.Email": "Your Email",
     "Form.Subject": "Subject",
     "Form.Send": "Send",
-    "Form.Your.Message": "Your Message"
+    "Form.Your.Message": "Your Message",
+
+    "Photo.Moyenne": "Average:",
+    "Photo.Voter": "Vote",
+    "Photo.Succes": "Successful vote"
 }

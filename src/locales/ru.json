@@ -93,5 +93,9 @@
     "Form.Your.Email": "Ваш адрес электронной почты",
     "Form.Subject": "Тема",
     "Form.Send": "Отправлять",
-    "Form.Your.Message": "Твое сообщение"
+    "Form.Your.Message": "Твое сообщение",
+
+    "Photo.Moyenne": "средний:",
+    "Photo.Voter": "голос",
+    "Photo.Succes": "Успешное голосование"
 }

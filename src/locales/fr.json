@@ -93,6 +93,10 @@
     "Form.Your.Email": "Votre Email",
     "Form.Subject": "Sujet",
     "Form.Send": "Envoyer",
-    "Form.Your.Message": "Votre Message"
+    "Form.Your.Message": "Votre Message",
+
+    "Photo.Moyenne": "Moyenne:",
+    "Photo.Voter": "Voter",
+    "Photo.Succes": "Vote réussi"
 
 }
