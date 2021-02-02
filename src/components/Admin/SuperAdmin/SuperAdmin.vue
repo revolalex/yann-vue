@@ -22,6 +22,7 @@
         </b-form-input>
         <div id="centerAdminButton">
           <b-button
+            v-if="newEmail[element.email]"
             variant="info"
             v-b-popover.hover.topright="
               'Are you sure you want to change the email'
@@ -160,7 +161,7 @@ export default {
 .blueBorder {
   border: double #32a1ce !important;
 }
-.mysuperAdminCont{
+.mysuperAdminCont {
   max-width: 80%;
   margin: auto;
 }
