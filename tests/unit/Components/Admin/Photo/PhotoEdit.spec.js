@@ -33,7 +33,7 @@ describe('PhotoEdit.vue', () => {
             expect(txtArea.exists()).toBeTruthy()
             expect(txtArea.tagName = 'b-form-textarea').toBeTruthy()
             expect(txtArea.attributes('placeholder')).toBe('Saisir un texte  minimun 30 charactères...')
-            expect(txtArea.attributes('id')).toBe('textarea')
+            expect(txtArea.attributes('id')).toBe('input-2')
         })
 
         it('should containe small area with date', () => {

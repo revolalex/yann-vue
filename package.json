@@ -96,7 +96,7 @@
       "!**/babel.config.js**",
       "!**/vue.config.js**",
       "!**/main.js**",
-      "!**/app.vue**"
+      "!**app.vue**"
     ],
     "coverageReporters": [
       "lcov",

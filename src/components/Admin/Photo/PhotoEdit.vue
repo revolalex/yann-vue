@@ -49,7 +49,7 @@
             required
             :state="validateState('texte')"
             v-model="$v.texte.$model"
-            placeholder="Entrer un texte"
+            placeholder="Saisir un texte  minimun 30 charactères..."
             rows="3"
             max-rows="6"
           ></b-form-textarea
