@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="photos.length>0">
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -44,7 +44,7 @@ export default {
     photos: Array,
   },
   methods: {
-    getImgSrc(filename) {
+     getImgSrc(filename) {
       return require(`@/assets/uploads/images/${filename}`);
     },
     deleteClicked(filename) {

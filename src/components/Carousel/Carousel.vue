@@ -1,5 +1,5 @@
 <template>
-  <b-carousel id="carousel-1" img-width="1024" fade>
+  <b-carousel id="carousel-1" img-width="1024" fade v-if="imageInCarousel.length>1">
     <div class="carousel-inner">
       <b-carousel-slide
         v-for="image in imageInCarousel"

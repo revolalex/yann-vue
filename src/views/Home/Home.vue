@@ -21,7 +21,6 @@ export default {
     await axios
       .get(process.env.VUE_APP_URL_API+"/caroussel/")
       .then((result) => {
-        console.log(result);
         if (result.status == 200) {
           this.myImg = result.data;
         }

@@ -116,6 +116,7 @@ export default {
         .then((result) => {
           if (result.data.changedRows === 1) {
             this.getData();
+            this.newEmail[oldEmail] = "";
           } else {
             alert("Error editing email");
           }
