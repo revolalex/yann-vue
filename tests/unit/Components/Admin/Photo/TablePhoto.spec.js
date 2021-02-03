@@ -1,4 +1,4 @@
-import { BootstrapVue, IconsPlugin} from "bootstrap-vue";
+import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import { mount, createLocalVue } from '@vue/test-utils';
 import TablePhoto from '@/components/Admin/Photo/TablePhoto.vue'
 
@@ -15,6 +15,14 @@ describe('TablePhoto.vue', () => {
             mocks: {
                 $t: (msg) => msg
             },
+            propsData: {
+                photos: [{
+                    // need reel filename /images
+                    filename: "02022021111720jardin5xs.jpg",
+                    id: "1"
+                }
+                ]
+            }
         })
     })
 
