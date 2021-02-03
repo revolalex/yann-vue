@@ -22,7 +22,7 @@
         </b-form-input>
         <div id="centerAdminButton">
           <b-button
-            v-if="newEmail[element.email]"
+            v-if="testEmailFormat(element.email)"
             variant="info"
             v-b-popover.hover.topright="
               'Are you sure you want to change the email'
@@ -73,6 +73,7 @@ export default {
         is_super_admin: "",
         url: "",
       },
+      reg:/^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/,
       show: true,
       newEmail: [],
       adminList: [],
@@ -85,6 +86,10 @@ export default {
     };
   },
   methods: {
+
+    testEmailFormat(email){
+    return this.reg.test(this.newEmail[email]);
+    },
     async getData() {
       await axios
         .get(process.env.VUE_APP_URL_API + "/admin/", this.headerConfig)
