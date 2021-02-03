@@ -1,38 +1,42 @@
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import { mount, createLocalVue } from '@vue/test-utils';
-import Caroussel from '@/components/Carousel/Carousel.vue'
+import Home from '@/views/Home/Home.vue'
+import CarouselComponent from "@/components/Carousel/Carousel";
+import VueRouter from 'vue-router'
 
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
 localVue.use(IconsPlugin);
+localVue.use(VueRouter)
+const router = new VueRouter()
 
-describe('Caroussel.vue', () => {
+describe('Views Home.vue', () => {
     let wrapper
 
     beforeAll(() => {
-        wrapper = mount(Caroussel, {
+        wrapper = mount(Home, {
             localVue,
+            router,
             mocks: {
                 $t: (msg) => msg
             },
-            propsData: {
-                imageInCarousel: [{
-                    filename: "01132021124924foret1xs.jpg",
-                    id: 1
-                }]
-            }
+            components: {
+                CarouselComponent,
+            },
         })
     })
 
-    describe('Caroussel', () => {
-
+    describe('Home', () => {
         it('should be defined', () => {
             expect(wrapper.exists()).toBeTruthy()
         })
+
     })
+
     afterAll(() => {
         wrapper.destroy()
     })
 
 
 })
+
