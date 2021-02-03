@@ -34,7 +34,7 @@ require("./routes/mailRouter")(app)
 require("./routes/archiveRoutes")(app, connection)
 require("./routes/carousselRoutes")(app, connection)
 
-app.listen(8080, function () {
+app.listen(process.env.PORT || 8080, function () {
   console.log("server listening on: http://localhost:8080/");
 });
 
