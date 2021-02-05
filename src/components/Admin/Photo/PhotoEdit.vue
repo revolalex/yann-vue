@@ -1,6 +1,7 @@
 <template>
   <div class="myPhotoContainer">
     <div class="mysuperAdminCont">
+      <h1 class="adminTitle">Photo du mois</h1>
       <b-alert v-model="showError" variant="danger" dismissible>
         <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Erreur
       </b-alert>
@@ -12,8 +13,6 @@
         <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Only
         jpeg, png, gif, image format are allowed
       </b-alert>
-      <h1 class="adminTitle">Photo du mois</h1>
-
       <b-card>
         <h6>
           <b-form-group
@@ -69,6 +68,7 @@
       <TablePhoto
         v-bind:photos="photos"
         v-bind:path="path"
+        v-bind:average="true"
         v-on:deleteClicked="deleteImgClicked"
       />
     </div>
@@ -93,7 +93,7 @@ export default {
   },
   data() {
     return {
-      path:"",
+      path: "",
       texte: "",
       title: "",
       photo_image: "",
@@ -156,6 +156,10 @@ export default {
     imgFormatWrong(e) {
       if (e === true) {
         this.showFormatAlert = true;
+        this.show = false;
+        this.$nextTick(() => {
+          this.show = true;
+        });
       }
     },
     async getdata() {

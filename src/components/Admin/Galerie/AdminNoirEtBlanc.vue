@@ -175,6 +175,10 @@ export default {
     imgFormatWrong(e) {
       if (e === true) {
         this.showFormatAlert = true;
+        this.show = false;
+        this.$nextTick(() => {
+          this.show = true;
+        });
       }
     },
     photoWasAdded(file) {
