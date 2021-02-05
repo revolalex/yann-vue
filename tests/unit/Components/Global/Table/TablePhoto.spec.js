@@ -1,6 +1,6 @@
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import { mount, createLocalVue } from '@vue/test-utils';
-import TablePhoto from '@/components/Admin/Photo/TablePhoto.vue'
+import TablePhoto from "@/components/Global/Table/TablePhoto";
 
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
@@ -21,7 +21,8 @@ describe('TablePhoto.vue', () => {
                     filename: "02022021111720jardin5xs.jpg",
                     id: "1"
                 }
-                ]
+                ],
+                path:""
             }
         })
     })

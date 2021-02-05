@@ -1,84 +1,60 @@
 <template>
   <div class="myPhotoContainer">
     <div class="mysuperAdminCont">
-    <h1 class="adminTitle">Caroussel - Home</h1>
-    <b-alert v-model="showError" variant="danger" dismissible>
-      <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Erreur
-    </b-alert>
-    <b-alert v-model="showSuccess" variant="success" dismissible>
-      <b-icon icon="emoji-smile" variant="success" scale="1.3"></b-icon> Succés
-    </b-alert>
-    <b-alert v-model="showFormatAlert" variant="danger" dismissible>
-      <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Only
-      jpeg, png, gif, image format are allowed
-    </b-alert>
-    <PhotoPicker
-      v-on:formatAlert="imgFormatWrong"
-      v-on:inputImg="photoWasAdded"
-      v-if="show"
-    />
-    <div class="pBtn">
-      <b-button
-        variant="info"
-        @click="publierWasClickerd"
-        v-if="hasImg"
-        v-b-popover.hover.topright="'Click pour ajouter'"
-        title="Ajouter l'image à Home"
-      >
-        <b-icon icon="camera" variant="light" scale="1"></b-icon>
-        Publier
-      </b-button>
-    </div>
-    <br />
+      <h1 class="adminTitle">Caroussel - Home</h1>
+      <b-alert v-model="showError" variant="danger" dismissible>
+        <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Erreur
+      </b-alert>
+      <b-alert v-model="showSuccess" variant="success" dismissible>
+        <b-icon icon="emoji-smile" variant="success" scale="1.3"></b-icon>
+        Succés
+      </b-alert>
+      <b-alert v-model="showFormatAlert" variant="danger" dismissible>
+        <b-icon icon="emoji-angry" variant="danger" scale="1.3"></b-icon> Only
+        jpeg, png, gif, image format are allowed
+      </b-alert>
+      <PhotoPicker
+        v-on:formatAlert="imgFormatWrong"
+        v-on:inputImg="photoWasAdded"
+        v-if="show"
+      />
+      <div class="pBtn">
+        <b-button
+          variant="info"
+          @click="publierWasClickerd"
+          v-if="hasImg"
+          v-b-popover.hover.topright="'Click pour ajouter'"
+          title="Ajouter l'image à Home"
+        >
+          <b-icon icon="camera" variant="light" scale="1"></b-icon>
+          Publier
+        </b-button>
+      </div>
+      <br />
 
-    <div>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Filename</th>
-            <th>Image</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="item in items" v-bind:key="item.filename">
-            <td>{{ item.id }}</td>
-            <td id="tdFilename">{{ item.filename }}</td>
-            <td>
-              <img id="tableImg" :src="getImgSrc(item.filename)" />
-            </td>
-            <td id="tdBtn">
-              <b-button
-                pill
-                variant="danger"
-                v-b-popover.hover.topright="
-                  'Est tu sure de vouloir la supprimer'
-                "
-                title="Supprimer l'image"
-                @click="deleteFromCarousselClicked(item.filename)"
-                v-if="item.filename != '01132021124924foret1xs.jpg'"
-                >Delete</b-button
-              >
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div>
+        <TablePhoto
+          v-bind:photos="items"
+          v-bind:path="path"
+          v-on:deleteClicked="deleteFromCarousselClicked"
+        />
+      </div>
     </div>
-  </div>
   </div>
 </template>
-
 <script>
 import PhotoPicker from "@/components/Admin/Photo/PhotoPicker";
+import TablePhoto from "@/components/Global/Table/TablePhoto";
 import axios from "axios";
 export default {
   name: "CarousselEdit",
   components: {
     PhotoPicker,
+    TablePhoto,
   },
   data() {
     return {
+      path: "caroussel/",
       items: [],
       photo_image: "",
       showSuccess: false,
@@ -171,6 +147,9 @@ export default {
             // Trick to reset/clear native browser picture validation state
             this.show = false;
             this.$nextTick(() => {
+              setTimeout(() => {
+                this.getData();
+              }, 1000);
               this.show = true;
             });
           }

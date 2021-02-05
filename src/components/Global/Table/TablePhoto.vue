@@ -42,10 +42,11 @@ export default {
   name: "TablePhoto",
   props: {
     photos: Array,
+    path: String
   },
   methods: {
      getImgSrc(filename) {
-      return require(`@/assets/uploads/images/${filename}`);
+      return require(`@/assets/uploads/images/${this.path}${filename}`);
     },
     deleteClicked(filename) {
       this.$emit("deleteClicked", filename);

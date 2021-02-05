@@ -68,6 +68,7 @@
       <br />
       <TablePhoto
         v-bind:photos="photos"
+        v-bind:path="path"
         v-on:deleteClicked="deleteImgClicked"
       />
     </div>
@@ -77,7 +78,7 @@
 <script>
 import axios from "axios";
 import PhotoPicker from "@/components/Admin/Photo/PhotoPicker.vue";
-import TablePhoto from "./TablePhoto";
+import TablePhoto from "@/components/Global/Table/TablePhoto";
 import { validationMixin } from "vuelidate";
 import { required, minLength } from "vuelidate/lib/validators";
 /**
@@ -92,6 +93,7 @@ export default {
   },
   data() {
     return {
+      path:"",
       texte: "",
       title: "",
       photo_image: "",
@@ -187,11 +189,13 @@ export default {
             // Trick to reset/clear native browser picture validation state
             this.show = false;
             this.$nextTick(() => {
-              this.show = true;
+              setTimeout(() => {
+                this.getdata();
+              }, 1000);
               this.texte = "";
               this.title = "";
+              this.show = true;
             });
-            this.getdata();
             this.$v.$reset();
           } else {
             this.showError = true;

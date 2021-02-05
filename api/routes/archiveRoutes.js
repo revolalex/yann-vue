@@ -172,7 +172,8 @@ const imagesRouter = async function (app, connection) {
   /**************************** use for photo du mois ************************/
   await app.get("/archive/rating/", function (req, res) {
     try {
-      connection.query(archiveSql.getAllRating, function (err, results) {
+      const filename = req.body.filename
+      connection.query(archiveSql.getAverage(filename), function (err, results) {
         if (err) throw err;
         res.send(results);
       });

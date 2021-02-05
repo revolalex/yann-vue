@@ -18,7 +18,7 @@
         v-on:inputImg="photoWasAdded"
         v-if="show"
       />
-      <div id="pubierAdmin">
+      <div class="pubierAdmin">
         <b-form v-if="show">
           <!-- Description: alt -->
           <b-form-group
@@ -32,7 +32,7 @@
               :state="validateState('alt')"
               id="input-2"
               v-model="$v.form.alt.$model"
-              placeholder="Ex: papillon, mouche"
+              placeholder="Ex: oiseau, renard"
               required
             ></b-form-input>
           </b-form-group>
@@ -61,74 +61,40 @@
               :state="validateState('caption')"
               id="input-3"
               v-model="$v.form.caption.$model"
-              placeholder="Ex: Microcosmos"
+              placeholder="Ex: L'appel de la fôret"
               required
             ></b-form-input>
           </b-form-group>
-          <!-- Button -->
-          <b-button
-            variant="info"
-            @click="publierWasClickerd"
+          <PublishButton
             v-if="showBtn"
-            v-b-popover.hover.topright="'Click pour ajouter'"
-            title="Ajouter l'image à Home"
-          >
-            <b-icon icon="camera" variant="light" scale="1"></b-icon>
-            Publier
-          </b-button>
+            v-on:publierClicked="publierWasClicked"
+          />
         </b-form>
       </div>
       <br />
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Filename</th>
-            <th>Image</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="item in items" v-bind:key="item.filename">
-            <td>{{ item.id }}</td>
-            <td id="tdFilename">
-              {{ item.filename }}
-              <p v-if="item.is_menu == 1">
-                <b-icon variant="info" icon="images"></b-icon>
-                Menu
-              </p>
-            </td>
-            <td>
-              <img id="tableImg" :src="getImgSrc(item.filename)" />
-            </td>
-            <td id="tdBtn">
-              <b-button
-                pill
-                variant="danger"
-                v-b-popover.hover.topright="
-                  'Est tu sure de vouloir la supprimer'
-                "
-                title="Supprimer l'image"
-                @click="deleteImgClicked(item.filename)"
-                >Delete</b-button
-              >
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <TablePhoto
+        v-bind:photos="items"
+        v-bind:path="path"
+        v-on:deleteClicked="deleteImgClicked"
+      />
     </div>
   </b-tab>
 </template>
+
 <script>
 import { validationMixin } from "vuelidate";
 import { required, minLength } from "vuelidate/lib/validators";
 import axios from "axios";
 import PhotoPicker from "@/components/Admin/Photo/PhotoPicker";
+import TablePhoto from "@/components/Global/Table/TablePhoto";
+import PublishButton from "@/components/Global/Button/PublishButton";
 export default {
   name: "AdminFlore",
   mixins: [validationMixin],
   components: {
     PhotoPicker,
+    TablePhoto,
+    PublishButton,
   },
   data() {
     return {
@@ -138,6 +104,7 @@ export default {
         caption: "",
         alt: "",
       },
+      path: "galerie/",
       items: [],
       show: true,
       showFormatAlert: false,
@@ -169,17 +136,15 @@ export default {
       const { $dirty, $error } = this.$v.form[name];
       return $dirty ? !$error : null;
     },
-
-    getImgSrc(filename) {
-      return require(`@/assets/uploads/images/galerie/${filename}`);
-    },
-
     imgFormatWrong(e) {
       if (e === true) {
         this.showFormatAlert = true;
+        this.show = false;
+        this.$nextTick(() => {
+          this.show = true;
+        });
       }
     },
-
     photoWasAdded(file) {
       this.photo_image = file;
     },
@@ -194,9 +159,7 @@ export default {
           this.showError = true;
         });
     },
-
-    async publierWasClickerd(evt) {
-      evt.preventDefault();
+    async publierWasClicked() {
       const formData = new FormData();
       formData.append("file", this.photo_image);
       formData.append("is_menu", this.form.is_menu);
@@ -215,8 +178,13 @@ export default {
             // Trick to reset/clear native browser picture validation state
             this.show = false;
             this.$nextTick(() => {
+              setTimeout(() => {
+                this.getData();
+              }, 1000);
+              this.form.alt = "";
               this.show = true;
             });
+            this.$v.$reset();
           }
         })
         .catch((error) => {
@@ -270,14 +238,8 @@ export default {
   },
 };
 </script>
-
 <style>
-#centerDivAdmin {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#pubierAdmin {
+.pubierAdmin {
   text-align: center;
   vertical-align: middle;
 }
