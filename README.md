@@ -1,8 +1,5 @@
 [![Build Status](https://travis-ci.org/revolalex/yann-vue.svg?branch=dev)](https://travis-ci.org/revolalex/yann-vue)
-
-Branch-Master: [![Coverage Status](https://coveralls.io/repos/github/revolalex/yann-vue/badge.svg?branch=master)](https://coveralls.io/github/revolalex/yann-vue?branch=master)
-<br/>
-Branch-Dev:   [![Coverage Status](https://coveralls.io/repos/github/revolalex/yann-vue/badge.svg?branch=dev)](https://coveralls.io/github/revolalex/yann-vue?branch=dev)
+[![Coverage Status](https://coveralls.io/repos/github/revolalex/yann-vue/badge.svg?branch=dev)](https://coveralls.io/github/revolalex/yann-vue?branch=dev)
 
 
 
@@ -31,10 +28,16 @@ Branch-Dev:   [![Coverage Status](https://coveralls.io/repos/github/revolalex/ya
 * [Wireframe](#wireframe)
 * [Maquette](#maquette)
 * [Technologies](#technologies)
-* [multilingual](#multilingual)
-* [Security](#security)
+* [Back-End](#back-end)
+* [Front-End](#front-end)
+* [Architecture](#architecture)
+* [Nodemailer](#nodemailer)
+* [Multer](#multer)
+* [Multilingual](#multilingual)
+* [Vuex](#vuex)
 * [Test](#test)
 * [Continuous integration](#continuous-integration)
+* [Security](#security)
 * [Screenshots](#screenshots)
 * [Contact](#contact)
 
@@ -75,6 +78,8 @@ The super Admin can do the same plus:
 * bcrypt
 * jsonwebtoken
 * express
+* nodemailer
+* multer
 * middleware
 * vue.js
 * vue-i18n
@@ -84,9 +89,117 @@ The super Admin can do the same plus:
 * vue-axios
 * vuex-persistedstate
 * bootstrap-vue
-* multer
 * vue-cool-lightbox
 * ...
+
+
+## Back-End
+The back-end is base on node.js.<br/>
+![Capture d’écran 2021-02-09 à 15 10 04](https://user-images.githubusercontent.com/56839789/107375314-e4e37180-6ae8-11eb-8517-e4b83dc8fc00.png)<br/>
+Express is use for the server, MySQL2 for the database, Multer to upload files (images), FS for delete file, Nodemailer, to send email, Bcrypt to hash the password before store it in the DB, JsonWebToken (JWT)
+
+
+## Front-End
+The front-end is base on Vue.js<br/>
+![Capture d’écran 2021-02-09 à 15 12 39](https://user-images.githubusercontent.com/56839789/107375644-41df2780-6ae9-11eb-935e-abfc8b02984e.png)<br/>
+Vuex is use to store data, Vuex-persistedstate for data persistence, Vuelidate to hanlde the input, Boostrap-vue for the style, vueI18n for the multilingual, Axios to connect front and back, 
+
+## Architecture
+I try to make my views as shorter as possible, to be able to do that i use different components
+
+Example GalleryView :
+```js
+<template>
+  <div>
+    <div class="myContainer">
+      <TitreDePage :titre="$t('Titre.Galeries')" />
+      <GalerieMenu
+        v-bind:imageInGaleries="getGaleries"
+        v-bind:classes="classes"
+      />
+    </div>
+    <Footer />
+  </div>
+</template>
+```
+
+Organisation Screen: <br/>
+<img src="https://user-images.githubusercontent.com/56839789/107374283-b4e79e80-6ae7-11eb-8ee9-cd43dd49403a.png">
+<img src="https://user-images.githubusercontent.com/56839789/107373765-2b37d100-6ae7-11eb-8be8-2f49a6a317bb.png">
+<img src="https://user-images.githubusercontent.com/56839789/107374099-87025a00-6ae7-11eb-9ca0-cc7916391a49.png">
+
+
+## Nodemailer
+Use to send email by the contact page.
+The photographer (client) will receive a nice template email (see screenshot)
+
+```js
+const nodemailer = require('nodemailer');
+const getMailTemplate = require('../modules/templateMail')
+require('dotenv').config();
+
+const mailRouter = async function (app) {
+    await app.post("/mail/", function (req, res) {
+        const subject = req.body.subject
+        const message = req.body.message
+        const name = req.body.name
+        const email = req.body.email
+        //gmail acces
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.GMAIL_USER,
+                pass: process.env.GMAIL_PASS
+            }
+        });
+        // Mail object
+        const mailOptions = {
+            from: email,
+            name: name,
+            to: process.env.GMAIL_DEST,
+            subject: subject,
+            html: getMailTemplate.emailTemplate(name, email, subject, message)
+        };
+        // send email
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                console.log(error);
+                res.status(500).send('error sending email')
+            } else {
+                console.log('Email sent: ' + info.response);
+                res.status(200).send('email sent')
+            }
+        });
+    })
+}
+module.exports = mailRouter;
+```
+
+## Multer
+Example of filter to allow only image: <br/>
+```js
+   // filter allowed only image
+    const fileFilter = function (req, file, cb) {
+        const allowedTypes = ["image/jpeg", "image/png", "image/gif"]
+        if (!allowedTypes.includes(file.mimetype)) {
+            const error = new Error("Wrong file type")
+            error.code = "WRONG_FILE_TYPE"
+            return cb(error, false)
+        }
+        // it's ok
+        cb(null, true)
+    }
+```
+Middleware to use it: <br/>
+```js
+    // middleware to handle file format
+    app.use(function (err, req, res, next) {
+        if (err.code === "WRONG_FILE_TYPE") {
+            res.send("Error only images are allowed")
+        }
+        return
+    })
+```
 
 ## Multilingual
 The website is multilingual, i use vue-i18n
@@ -112,13 +225,35 @@ Example of use:
  <h3>{{ $t("Biographie.third_Title") }}</h3>
 ```
 
-## Security
-* XSS: (cross-site scripting) all exterior data are check
-* CSRF: (Cross Site Request Forgery) the admin route are protected by a midlleware checking token (JWT)
-* Injection flaws: all input are properly filtered, plus the framework is secure
-* Token, Hash Password (B-crypt), middleware, handle file format, check input...
+## Vuex
+
+Example of actions and mutation to store the token in state:
+
+- Actions:
+```js
+ADD_TOKEN: (context, token) => {
+    context.commit("ADDED_TOKEN", token);
+},
+```
+- Mutations
+```js
+ADDED_TOKEN: (state, token) => {
+    state.token = token;
+},
+```
+
+- State
+```js
+let state = {
+  token: false,
+  name: "",
+  id: "",
+  contact: [],
+};
+```
 
 ## Test
+![Capture d’écran 2021-02-09 à 15 21 21](https://user-images.githubusercontent.com/56839789/107376682-77d0db80-6aea-11eb-89ec-acfdd7abc95c.png)<br/>
 Unit test: Vue-test-utils, Jest <br/>
 A good test mut be quick to execute, easy to understand, and test one behavior at a time
 
@@ -176,8 +311,17 @@ describe('TitrePage.vue', () => {
 
 
 ## Continuous Integration
+![Capture d’écran 2021-02-09 à 15 20 07](https://user-images.githubusercontent.com/56839789/107376535-4bb55a80-6aea-11eb-9084-4d4bdc07b449.png)
+<br/>
 * Travis Ci
 * Coverall.io
+
+## Security
+* XSS: (cross-site scripting) all exterior data are check
+* CSRF: (Cross Site Request Forgery) the admin route are protected by a midlleware checking token (JWT)
+* Injection flaws: all input are properly filtered, plus the framework is secure
+* Token, Hash Password (B-crypt), middleware, handle file format, check input...
+
 
 ## Screenshots
 <br/>
@@ -199,7 +343,6 @@ Super admin - edit admin:
 <br/>
 Template email:
 <img width="500" alt="Capture d’écran 2021-02-09 à 12 10 36" src="https://user-images.githubusercontent.com/56839789/107362328-e3aa4880-6ad8-11eb-9bbb-9060fe86abf0.png">
-
 
 
 
