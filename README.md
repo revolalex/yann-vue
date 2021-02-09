@@ -33,7 +33,7 @@
 ## App
 
 This website was created for a photographer, it's a full stack  javascript project.
-The visitor can browse the website, explore the gallerie, contat the photographer...
+The visitor can browse the website, explore the galleries, contat the photographer...
 <br/>
 The client, the photographer, can admin the website:
   <ul>
