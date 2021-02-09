@@ -106,7 +106,13 @@ The front-end is base on Vue.js<br/>
 Vuex is use to store data, Vuex-persistedstate for data persistence, Vuelidate to hanlde the input, Boostrap-vue for the style, vueI18n for the multilingual, Axios to connect front and back, 
 
 ## Architecture
-I try to make my views as shorter as possible, to be able to do that i use different components
+
+Organisation Screen: <br/>
+<img src="https://user-images.githubusercontent.com/56839789/107374099-87025a00-6ae7-11eb-9ca0-cc7916391a49.png">
+<img src="https://user-images.githubusercontent.com/56839789/107373765-2b37d100-6ae7-11eb-8be8-2f49a6a317bb.png">
+<img src="https://user-images.githubusercontent.com/56839789/107374283-b4e79e80-6ae7-11eb-8ee9-cd43dd49403a.png">
+
+I try to make my views as shorter as possible, to be able to do that i use differents components
 
 Example GalleryView :
 ```js
@@ -124,10 +130,6 @@ Example GalleryView :
 </template>
 ```
 
-Organisation Screen: <br/>
-<img src="https://user-images.githubusercontent.com/56839789/107374283-b4e79e80-6ae7-11eb-8ee9-cd43dd49403a.png">
-<img src="https://user-images.githubusercontent.com/56839789/107373765-2b37d100-6ae7-11eb-8be8-2f49a6a317bb.png">
-<img src="https://user-images.githubusercontent.com/56839789/107374099-87025a00-6ae7-11eb-9ca0-cc7916391a49.png">
 
 
 ## Nodemailer
