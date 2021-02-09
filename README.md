@@ -68,7 +68,8 @@ The super Admin can do the same plus:
 ![Capture d’écran 2021-02-09 à 12 55 59](https://user-images.githubusercontent.com/56839789/107360395-2a4a7380-6ad6-11eb-849c-42254afa2149.png)
 
 ## Maquette
-<img src="https://user-images.githubusercontent.com/56839789/107360599-71d0ff80-6ad6-11eb-95bf-4cad9b333b02.png"  height="400">   <img src="https://user-images.githubusercontent.com/56839789/107360539-61b92000-6ad6-11eb-8219-094761b3e4a5.png"  height="400">
+<img src="https://user-images.githubusercontent.com/56839789/107360539-61b92000-6ad6-11eb-8219-094761b3e4a5.png"  height="400">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<img src="https://user-images.githubusercontent.com/56839789/107360599-71d0ff80-6ad6-11eb-95bf-4cad9b333b02.png"  height="400"> 
 
 
 ## Technologies
