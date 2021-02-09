@@ -22,12 +22,12 @@
 * [Moodboard](#moodboard)
 * [Wireframe](#wireframe)
 * [Maquette](#maquette)
-* [Screenshots](#screenshots)
 * [Technologies](#technologies)
 * [multilingual](#multilingual)
 * [Security](#security)
 * [Test](#test)
 * [Continuous integration](#continuous-integration)
+* [Screenshots](#screenshots)
 * [Contact](#contact)
 
 ## App
@@ -58,28 +58,6 @@ The super Admin can do the same plus:
 
 ## Maquette
 <img src="https://user-images.githubusercontent.com/56839789/107360599-71d0ff80-6ad6-11eb-95bf-4cad9b333b02.png"  height="400">   <img src="https://user-images.githubusercontent.com/56839789/107360539-61b92000-6ad6-11eb-8219-094761b3e4a5.png"  height="400">
-
-## Screenshots
-<br/>
-Gallery:
-<img width="500" alt="Capture d’écran 2021-02-09 à 12 06 13" src="https://user-images.githubusercontent.com/56839789/107362133-a80f7e80-6ad8-11eb-8ffc-fe0d91231b48.png">
-
-<br/>
-Biography- multilingual:
-<img width="500" alt="Capture d’écran 2021-02-09 à 12 07 32" src="https://user-images.githubusercontent.com/56839789/107362199-bbbae500-6ad8-11eb-9576-7473d3f88648.png">
-
-<br/>
-Admin - edit gallery:
-<img width="500" alt="Capture d’écran 2021-02-09 à 12 08 42" src="https://user-images.githubusercontent.com/56839789/107362250-cd03f180-6ad8-11eb-9c0a-fd1d8ee063ed.png">
-
-<br/>
-Super admin - edit admin:
-<img width="500" alt="Capture d’écran 2021-02-09 à 12 09 17" src="https://user-images.githubusercontent.com/56839789/107362289-d8571d00-6ad8-11eb-9dc9-6e8c93aabc9b.png">
-
-<br/>
-Template email:
-<img width="500" alt="Capture d’écran 2021-02-09 à 12 10 36" src="https://user-images.githubusercontent.com/56839789/107362328-e3aa4880-6ad8-11eb-9bbb-9060fe86abf0.png">
-
 
 
 ## Technologies
@@ -193,6 +171,30 @@ describe('TitrePage.vue', () => {
 * Travis Ci
 * Coverall.io
 
+## Screenshots
+<br/>
+Gallery:
+<img width="500" alt="Capture d’écran 2021-02-09 à 12 06 13" src="https://user-images.githubusercontent.com/56839789/107362133-a80f7e80-6ad8-11eb-8ffc-fe0d91231b48.png">
+
+<br/>
+Biography- multilingual:
+<img width="500" alt="Capture d’écran 2021-02-09 à 12 07 32" src="https://user-images.githubusercontent.com/56839789/107362199-bbbae500-6ad8-11eb-9576-7473d3f88648.png">
+
+<br/>
+Admin - edit gallery:
+<img width="500" alt="Capture d’écran 2021-02-09 à 12 08 42" src="https://user-images.githubusercontent.com/56839789/107362250-cd03f180-6ad8-11eb-9c0a-fd1d8ee063ed.png">
+
+<br/>
+Super admin - edit admin:
+<img width="500" alt="Capture d’écran 2021-02-09 à 12 09 17" src="https://user-images.githubusercontent.com/56839789/107362289-d8571d00-6ad8-11eb-9dc9-6e8c93aabc9b.png">
+
+<br/>
+Template email:
+<img width="500" alt="Capture d’écran 2021-02-09 à 12 10 36" src="https://user-images.githubusercontent.com/56839789/107362328-e3aa4880-6ad8-11eb-9bbb-9060fe86abf0.png">
+
+
+
+
 ## Status
 Project is:  _Finish_
 
@@ -207,27 +209,4 @@ Project is:  _Finish_
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/alexandre-rodrigueza/
 
-
-
-# projet
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
 
