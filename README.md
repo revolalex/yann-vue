@@ -396,8 +396,8 @@ Gallery:
 <img width="500" src="https://user-images.githubusercontent.com/56839789/107383207-0fd1c380-6af1-11eb-9b4b-4c7133ff17a5.gif">
 
 <br/>
-Biography- multilingual:
-<img width="500" alt="Capture d’écran 2021-02-09 à 12 07 32" src="https://user-images.githubusercontent.com/56839789/107362199-bbbae500-6ad8-11eb-9576-7473d3f88648.png">
+Contact - multilingual:
+<img width="500" alt="Capture d’écran 2021-02-09 à 12 07 32" src="https://user-images.githubusercontent.com/56839789/107383859-b5853280-6af1-11eb-9238-7d8c3dfb1aa8.gif">
 
 <br/>
 Admin - edit gallery:
