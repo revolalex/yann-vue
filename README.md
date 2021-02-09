@@ -42,7 +42,7 @@
 * [Contact](#contact)
 
 ## App
-
+<img height="300" src="https://user-images.githubusercontent.com/56839789/107378849-ad76c400-6aec-11eb-852d-98e7481b8763.gif">
 This website was created for a photographer, it's a full stack  javascript project.
 The visitor can browse the website, explore the galleries, contat the photographer...
 <br/>
@@ -202,8 +202,9 @@ Middleware to use it: <br/>
 ```
 
 ## Multilingual
-The website is multilingual, i use vue-i18n
-
+The website is multilingual, i use vue-i18n<br/>
+<img height="300" src="https://user-images.githubusercontent.com/56839789/107379399-2a09a280-6aed-11eb-84f0-eebc0490364e.gif">
+<br/>
 Local Switcher example (use to switch language):
 ```js
 <template>
@@ -250,6 +251,72 @@ let state = {
   id: "",
   contact: [],
 };
+```
+## Vuelidate
+<img height="300" src="https://user-images.githubusercontent.com/56839789/107379805-94224780-6aed-11eb-8e0d-af5708632280.gif">
+
+- import vuelidate in the component "SignUpForm.vue".
+```js
+//vuelidate
+import { validationMixin } from "vuelidate";
+import { required, minLength, email } from "vuelidate/lib/validators";
+```
+
+- in export default{}
+```js
+mixins: [validationMixin],
+```
+- and:
+```js
+ // vuelidate
+  validations: {
+    form: {
+      email: {
+        required,
+        email: email,
+      },
+      name: {
+        required,
+        minLength: minLength(3),
+      },
+      password: {
+        required,
+        minLength: minLength(8),
+      },
+    },
+  },
+```
+- finnaly in methods{}
+```js
+validateState(name) {
+      const { $dirty, $error } = this.$v.form[name];
+      return $dirty ? !$error : null;
+},
+```
+
+- Example for email:
+```js
+<b-form-group
+  id="input-group-1"
+  label="Email address:"
+  label-for="input-1"
+  invalid-feedback="Valid email is required">
+```
+
+- then
+
+```js
+<b-form-input
+  :state="validateState('email')"
+  id="input-1"
+  v-model="$v.form.email.$model"
+  type="email"
+  placeholder="Enter email">
+</b-form-input>
+```
+- tips: to reset vuelidate
+```js
+this.$v.$reset()
 ```
 
 ## Test
@@ -326,7 +393,7 @@ describe('TitrePage.vue', () => {
 ## Screenshots
 <br/>
 Gallery:
-<img width="500" alt="Capture d’écran 2021-02-09 à 12 06 13" src="https://user-images.githubusercontent.com/56839789/107362133-a80f7e80-6ad8-11eb-8ffc-fe0d91231b48.png">
+<img width="500" src="https://user-images.githubusercontent.com/56839789/107383207-0fd1c380-6af1-11eb-9b4b-4c7133ff17a5.gif">
 
 <br/>
 Biography- multilingual:
@@ -344,7 +411,9 @@ Super admin - edit admin:
 Template email:
 <img width="500" alt="Capture d’écran 2021-02-09 à 12 10 36" src="https://user-images.githubusercontent.com/56839789/107362328-e3aa4880-6ad8-11eb-9bbb-9060fe86abf0.png">
 
-
+<br/>
+Admin part:
+<img width="500" src="https://user-images.githubusercontent.com/56839789/107380846-8ae5aa80-6aee-11eb-9732-ebba0e6b5631.gif">
 
 ## Status
 Project is:  _Finish_
