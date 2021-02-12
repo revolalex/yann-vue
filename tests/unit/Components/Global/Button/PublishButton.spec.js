@@ -26,7 +26,6 @@ describe('PublishButton.vue', () => {
         })
         it('should emit event', () => {
             wrapper.vm.publierWasClickerd()
-            expect(wrapper.emitted())
             expect(wrapper.emitted("publierClicked")).toBeTruthy()
         })
     })

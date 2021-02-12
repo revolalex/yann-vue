@@ -23,6 +23,18 @@ describe('InfoAdmin.vue', () => {
         it('should be defined', () => {
             expect(wrapper.exists()).toBeTruthy()
         })
+        it('should emit event when photo is click', () => {
+            wrapper.vm.photoIsClick()
+            expect(wrapper.emitted("photoLinkClicked")).toBeTruthy()
+        })
+        it('should emit event when caroussel is click', () => {
+            wrapper.vm.carousselIsClick()
+            expect(wrapper.emitted("carousselLinkClicked")).toBeTruthy()
+        })
+        it('should emit event when caroussel is click', () => {
+            wrapper.vm.galerieIsClick()
+            expect(wrapper.emitted("galerieLinkClicked")).toBeTruthy()
+        })
     })
     afterAll(() => {
         wrapper.destroy()

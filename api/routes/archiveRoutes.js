@@ -167,7 +167,6 @@ const imagesRouter = async function (app, connection) {
     }
   })
 
-  // a faire partie admin interaction rating
   /******************************** /get archives/rating ****************************/
   /**************************** use for photo du mois ************************/
   await app.get("/archive/rating/:filename", function (req, res) {

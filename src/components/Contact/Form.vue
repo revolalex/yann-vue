@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- A FAIRE mettre vuelidate -->
     <b-alert v-model="showSuccesLogin" variant="success" dismissible>
       <b-icon icon="emoji-smile" variant="success" scale="1.3"></b-icon> Succes
       ! Email sent
@@ -82,7 +81,6 @@
 </template>
 
 <script>
-// A FAIRE mise en place vuelidate
 import axios from "axios";
 import { validationMixin } from "vuelidate";
 import { required, minLength, email, alpha } from "vuelidate/lib/validators";
