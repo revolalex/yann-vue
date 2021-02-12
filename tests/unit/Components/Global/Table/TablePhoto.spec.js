@@ -32,6 +32,10 @@ describe('TablePhoto.vue', () => {
         it('should be defined', () => {
             expect(wrapper.exists()).toBeTruthy()
         })
+        it('should emit event when delete was clicked', () => {
+            wrapper.vm.deleteClicked()
+            expect(wrapper.emitted("deleteClicked")).toBeTruthy()
+        })
     })
     afterAll(() => {
         wrapper.destroy()

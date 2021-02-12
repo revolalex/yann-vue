@@ -22,7 +22,6 @@ export default {
   props: {
     imageInCarousel: Array,
   },
-  // A FAIRE finish carousel DB
   methods: {
     /**
      * @param filename
