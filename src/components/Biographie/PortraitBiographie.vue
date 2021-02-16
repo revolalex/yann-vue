@@ -22,6 +22,9 @@
     <p>
       {{ $t("Biographie.Portrait.Fourth_paragraph") }}
     </p>
+    <div id="quote">
+      <quote>{{ $t("Biographie.author") }}</quote>
+    </div>
   </div>
 </template>
 
@@ -40,6 +43,11 @@ export default {
   max-width: 700px;
   padding: 16px;
   margin: 6px;
+}
+#quote {
+  text-align: right;
+  font-style: italic;
+  font-size: 12px;
 }
 @media screen and (max-width: 600px) {
   .portraitTexte {
