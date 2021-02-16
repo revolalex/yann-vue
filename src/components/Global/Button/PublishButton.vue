@@ -11,6 +11,9 @@
 </template>
 
 <script>
+/**
+ * @module component - PublishButton
+ */
 export default {
   name: "PublishButton",
   methods: {
