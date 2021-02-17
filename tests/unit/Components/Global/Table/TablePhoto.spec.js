@@ -18,13 +18,14 @@ describe('TablePhoto.vue', () => {
                 $t: (msg) => msg
             },
             propsData: {
+                average: true,
                 photos: [{
                     // need reel filename /images
                     filename: "02022021111720jardin5xs.jpg",
                     id: "1"
                 }
                 ],
-                path:""
+                path: ""
             }
         })
     })
@@ -39,16 +40,19 @@ describe('TablePhoto.vue', () => {
             expect(wrapper.emitted("deleteClicked")).toBeTruthy()
         })
     })
-    test('should fetch photos', () => {
-        const photos = [{
-            // need reel filename /images
-            filename: "02022021111720jardin5xs.jpg",
-            id: "1"
-        }
-        ];
-        const resp = {data: photos};
+    test('should fetch photos and show img', async () => {
+        const avgRating = [
+            {
+                "CAST(AVG(rating) AS decimal(10,2))": "3.55"
+            }
+        ]
+        const resp = { data: avgRating };
         axios.get.mockImplementation(() => Promise.resolve(resp))
-      });
+        const button = wrapper.find('#moyenneBtn')
+        expect(button.exists()).toBeTruthy()
+        await button.trigger('click')
+        console.log(button.text());
+    });
     afterAll(() => {
         wrapper.destroy()
     })
