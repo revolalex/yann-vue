@@ -23,7 +23,7 @@
       {{ $t("Biographie.Portrait.Fourth_paragraph") }}
     </p>
     <div id="quote">
-      <quote>{{ $t("Biographie.author") }}</quote>
+      <p>{{ $t("Biographie.author") }}</p>
     </div>
   </div>
 </template>

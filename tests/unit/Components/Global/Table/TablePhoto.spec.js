@@ -1,10 +1,12 @@
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import { mount, createLocalVue } from '@vue/test-utils';
 import TablePhoto from "@/components/Global/Table/TablePhoto";
+import axios from 'axios';
 
 const localVue = createLocalVue();
 localVue.use(BootstrapVue);
 localVue.use(IconsPlugin);
+jest.mock('axios');
 
 describe('TablePhoto.vue', () => {
     let wrapper
@@ -37,6 +39,16 @@ describe('TablePhoto.vue', () => {
             expect(wrapper.emitted("deleteClicked")).toBeTruthy()
         })
     })
+    test('should fetch photos', () => {
+        const photos = [{
+            // need reel filename /images
+            filename: "02022021111720jardin5xs.jpg",
+            id: "1"
+        }
+        ];
+        const resp = {data: photos};
+        axios.get.mockImplementation(() => Promise.resolve(resp))
+      });
     afterAll(() => {
         wrapper.destroy()
     })
