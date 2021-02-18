@@ -14,6 +14,7 @@
     "Titre.Actualites": "ニュース",
     "Titre.Calendrier": "出版物",
     "Titre.Galeries": "ギャラリー",
+    "Titre.Photo": "今月の写真",
     "Titre.Interview": "インタビュー",
     "Titre.Expositions": "展示会",
     "Titre.Parutions.presse": "プレスリリース",
@@ -93,5 +94,9 @@
     "Form.Your.Email": "あなたのメール",
     "Form.Subject": "トピック",
     "Form.Send": "送信するには",
-    "Form.Your.Message": "あなたのメッセージ"
+    "Form.Your.Message": "あなたのメッセージ",
+
+    "Photo.Moyenne": "平均:",
+    "Photo.Voter": "投票",
+    "Photo.Succes": "成功した投票"
 }

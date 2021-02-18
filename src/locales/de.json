@@ -14,6 +14,7 @@
     "Titre.Actualites": "Nachrichten",
     "Titre.Calendrier": "Veröffentlichungen",
     "Titre.Galeries": "Galerien",
+    "Titre.Photo": "Foto des Monats",
     "Titre.Interview": "Interview",
     "Titre.Expositions": "Ausstellungen",
     "Titre.Parutions.presse": "Press releases",
@@ -93,6 +94,10 @@
     "Form.Your.Email": "Deine E-Mail",
     "Form.Subject": "Thema",
     "Form.Send": "Senden",
-    "Form.Your.Message": "Deine Nachricht"
+    "Form.Your.Message": "Deine Nachricht",
+
+    "Photo.Moyenne": "Durchschnittlich:",
+    "Photo.Voter": "Abstimmung",
+    "Photo.Succes": "Erfolgreiche Abstimmung"
     
 }

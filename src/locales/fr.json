@@ -14,6 +14,7 @@
     "Titre.Actualites": "Actualités",
     "Titre.Calendrier": "Publications",
     "Titre.Galeries": "Galeries",
+    "Titre.Photo": "Photo du mois",
     "Titre.Interview": "Interview",
     "Titre.Expositions": "Expositions",
     "Titre.Parutions.presse": "Parutions Presse",
@@ -93,6 +94,10 @@
     "Form.Your.Email": "Votre Email",
     "Form.Subject": "Sujet",
     "Form.Send": "Envoyer",
-    "Form.Your.Message": "Votre Message"
+    "Form.Your.Message": "Votre Message",
+
+    "Photo.Moyenne": "Moyenne:",
+    "Photo.Voter": "Voter",
+    "Photo.Succes": "Vote réussi"
 
 }

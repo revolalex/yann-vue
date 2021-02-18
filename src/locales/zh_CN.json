@@ -14,6 +14,7 @@
     "Titre.Actualites": "新闻",
     "Titre.Calendrier": "刊物",
     "Titre.Galeries": "画廊",
+    "Titre.Photo": "本月照片",
     "Titre.Interview": "面试",
     "Titre.Expositions": "展览会",
     "Titre.Parutions.presse": "新闻发布",
@@ -93,6 +94,10 @@
     "Form.Your.Email": "你的邮件",
     "Form.Subject": "话题",
     "Form.Send": "发送",
-    "Form.Your.Message": "你的信息"
+    "Form.Your.Message": "你的信息",
+
+    "Photo.Moyenne": "平均:",
+    "Photo.Voter": "投票",
+    "Photo.Succes": "成功投票"
 }
     
