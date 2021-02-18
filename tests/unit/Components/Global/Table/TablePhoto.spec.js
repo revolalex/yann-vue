@@ -20,8 +20,8 @@ describe('TablePhoto.vue', () => {
             propsData: {
                 average: true,
                 photos: [{
-                    // need reel filename /images
-                    filename: "02022021111720jardin5xs.jpg",
+                    // // need reel filename /images
+                    filename: "01132021130016eau1xs.jpg",
                     id: "1"
                 }
                 ],
