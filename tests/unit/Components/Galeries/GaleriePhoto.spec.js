@@ -27,14 +27,12 @@ describe('GaleriePhoto.vue', () => {
                 imageInGaleries: [
                     {
                         href: "",
-                        // src: "https://yanncrochet.com/photo/eau/eau2xs2.jpg",
                         alt: "oiseaux marin",
                         src: "01132021130016eau1xs.jpg",
                         id: "1"
                     },
                     {
                         href: "",
-                        // src: "https://yanncrochet.com/photo/foret/8.jpg",
                         alt: "rapace",
                         src: "01132021130016eau1xs.jpg",
                         id: "1"
