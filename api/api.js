@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
 var cors = require("cors");
-require('dotenv').config
+require('dotenv').config();
 
 /************************** MidlleWare ****************************/
 app.use(express.urlencoded({ extended: false }));
