@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/revolalex/yann-vue.svg?branch=dev)](https://travis-ci.org/revolalex/yann-vue)
 [![Coverage Status](https://coveralls.io/repos/github/revolalex/yann-vue/badge.svg?branch=dev)](https://coveralls.io/github/revolalex/yann-vue?branch=dev)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b8f58f02-ce67-4155-9998-aa1a191fcc92/deploy-status)](https://app.netlify.com/sites/yann-photo/deploys)
 
 
 
