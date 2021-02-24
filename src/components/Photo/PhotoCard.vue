@@ -147,7 +147,7 @@ export default {
   font-weight: 700;
 }
 .myCardDiv {
-  width: 80%;
+  width: 100%;
   margin: auto;
 }
 </style>
