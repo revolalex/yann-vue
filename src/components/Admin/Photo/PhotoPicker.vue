@@ -6,12 +6,14 @@
       @click="chooseImage"
     >
       <span v-if="!imageData" class="placeholder"> Ajouter une image </span>
+      <form data-netlify="true">
       <input
         class="file-input"
         ref="fileInput"
         type="file"
         @input="onSelectFile"
       />
+      </form>
     </div>
 </template>
 
