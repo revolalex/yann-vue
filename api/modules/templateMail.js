@@ -9,6 +9,8 @@ const emailTemplate = (name, email, subject, message) => {
             "https://yanncrochet.com/photo/jardin/jardin5xs.jpg",
             "https://yanncrochet.com/photo/jardin/jardin3xs.jpg",
             "https://yanncrochet.com/photo/eau/eau2xs2.jpg",
+            "https://yanncrochet.com/photo/micro/micro1xs.jpg",
+            "https://yanncrochet.com/photo/eau/eau3xs.jpg"
         ]
         const randomElement = arrayImg[Math.floor(Math.random() * arrayImg.length)];
         return randomElement

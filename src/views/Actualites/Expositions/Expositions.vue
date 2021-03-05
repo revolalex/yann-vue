@@ -39,7 +39,7 @@ export default {
           text: $t("Expositions.Card_5.Text"),
           title: $t("Expositions.Card_5.Title"),
           linkText: $t("More_info.Text"),
-          link: "https://yanncrochet.com/dl/expo.pdf",
+          link: "https://www.revuephoto.com/exposition-arbres-et-biodiversite/",
           small: $t("Expositions.Card_5.Small_text"),
         },
       ];
@@ -53,7 +53,7 @@ export default {
           text: $t("Expositions.Card.Text"),
           title: $t("Expositions.Card.Title"),
           linkText: $t("More_info.Text"),
-          link: "https://yanncrochet.com/dl/nosart.pdf",
+          link: "https://yanncrochet.com/dl/expo.pdf",
           small: $t("Expositions.Card.Small_text"),
         },
         {
@@ -61,7 +61,7 @@ export default {
           text: $t("Expositions.Card_2.Text"),
           title: $t("Expositions.Card_2.Title"),
           linkText: $t("More_info.Text"),
-          link: "https://www.arts-sciences-lettres.fr",
+          link: "https://www.pariscotejardin.fr/2012/06/exposition-savez-vous-planter-les-choux-dans-le-parc-de-bagatelle-paris-16e/",
           small: $t("Expositions.Card_2.Small_text"),
         },
         {
@@ -69,7 +69,7 @@ export default {
           text: $t("Expositions.Card_3.Text"),
           title: $t("Expositions.Card_3.Title"),
           linkText: $t("Expositions.Card_3.Link.Text"),
-          link: "https://yanncrochet.com/dl/portrait.jpg",
+          link: "https://www.arts-sciences-lettres.fr",
           small: $t("Expositions.Card_3.Small_text"),
         },
       ];
