@@ -173,6 +173,10 @@ describe('TitrePage.vue', () => {
 
 ## Screenshots
 <br/>
+<img width="500" alt="Capture d’écran 2021-02-09 à 12 06 13" src="https://user-images.githubusercontent.com/56839789/114060443-acb4a100-9895-11eb-8d20-b5e00c2f678d.gif">
+<br/>
+
+<br/>
 Gallery:
 <img width="500" alt="Capture d’écran 2021-02-09 à 12 06 13" src="https://user-images.githubusercontent.com/56839789/107362133-a80f7e80-6ad8-11eb-8ffc-fe0d91231b48.png">
 
