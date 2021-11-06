@@ -107,7 +107,6 @@ const adminRouter = async function (app, connection) {
           if (result === true) {
             // get the decoded payload 
             const decoded = jwt.decode(token);
-            console.log("DECODED", decoded);
             res.status(200).send({
               auth: true,
               token: token,

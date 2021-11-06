@@ -1,18 +1,16 @@
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import { mount, createLocalVue } from '@vue/test-utils';
-import VueRouter from 'vue-router'
 import Home from '@/views/Home/Home.vue'
-import Carousel from "@/components/Carousel/Carousel.vue";
+import CarouselComponent from "@/components/Carousel/Carousel";
+import VueRouter from 'vue-router'
 
-
-const router = new VueRouter()
 const localVue = createLocalVue();
-localVue.use(VueRouter)
 localVue.use(BootstrapVue);
 localVue.use(IconsPlugin);
+localVue.use(VueRouter)
+const router = new VueRouter()
 
-
-describe('GallerieEau.vue', () => {
+describe('Views Home.vue', () => {
     let wrapper
 
     beforeAll(() => {
@@ -22,34 +20,23 @@ describe('GallerieEau.vue', () => {
             mocks: {
                 $t: (msg) => msg
             },
-            components:{
-                Carousel
+            components: {
+                CarouselComponent,
             },
-            propsData: {
-                imageInCarousel: [
-                    {
-                        src: "01132021130016eau1xs.jpg",
-                        alt: "oiseaux marin",
-                    },
-                    {
-                        src: "01132021130016eau1xs.jpg",
-                        alt: "rapace",
-                    },
-                ],
-            }
-            
         })
     })
 
-    describe('Home View', () => {
-
+    describe('Home', () => {
         it('should be defined', () => {
             expect(wrapper.exists()).toBeTruthy()
         })
+
     })
+
     afterAll(() => {
         wrapper.destroy()
     })
 
 
 })
+

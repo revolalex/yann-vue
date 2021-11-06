@@ -2,10 +2,10 @@
   <div id="nfContainer" class="page-wrap d-flex flex-row align-items-center">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12 text-center">
+            <div class="col-md-12 text-center whiteText">
                 <span class="display-1 d-block">404</span>
-                <div id="whiteC" class="mb-4 lead">La page que vous recherchez n'a pas été trouvé</div>
-                <b-button href="/" variant="outline-light">Retour à l'accueil </b-button>
+                <div id="whiteC" class="mb-4 lead">Page not Found</div>
+                <b-button href="/" variant="outline-light">Back Home</b-button>
             </div>
         </div>
     </div>
@@ -28,8 +28,9 @@ export default {
   -o-background-size: cover;
   background-size: cover;
 }
-#whiteC span{
-  color: white;
-}
 
+.whiteText{
+  color: white;
+  text-shadow: 2px 2px 2px rgb(88, 87, 87);
+}
 </style>
